@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;700;900&display=swap');
+
+:root {
+  --archive: #1E1D1C;
+  --concrete: #C3BDB8;
+  --linen: #E1DAD2;
+  --chalk: #F4EDE4;
+  --dawn: #293DCE;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--chalk);
+  color: var(--archive);
+  font-family: 'Chivo Mono', monospace;
+  line-height: 1.6;
+}
+
+a { color: var(--dawn); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+header.site {
+  border-bottom: 1px solid var(--concrete);
+  padding: 22px 0;
+}
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+header.site .logo { font-weight: 900; font-size: 15px; letter-spacing: 0.04em; }
+nav.site a {
+  margin-left: 22px; font-size: 12px; color: var(--archive); letter-spacing: 0.03em;
+}
+nav.site a:first-child { margin-left: 0; }
+nav.site a:hover { color: var(--dawn); text-decoration: none; }
+
+.eyebrow { font-size: 11px; letter-spacing: 0.08em; color: #5A5650; margin: 0 0 10px; }
+h1 { font-size: 32px; font-weight: 900; line-height: 1.25; margin: 0 0 18px; max-width: 720px; }
+h2 { font-size: 19px; font-weight: 900; margin: 0 0 16px; }
+h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; }
+p { font-size: 14px; margin: 0 0 14px; max-width: 640px; }
+.lede { font-size: 16px; max-width: 600px; color: #3a3835; }
+
+section { padding: 56px 0; border-bottom: 1px solid var(--linen); }
+section:last-of-type { border-bottom: none; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dawn); color: var(--chalk);
+  font-size: 13px; padding: 12px 20px; border-radius: 8px;
+  font-family: inherit;
+}
+.btn:hover { text-decoration: none; opacity: 0.9; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--archive); color: var(--archive);
+  font-size: 13px; padding: 11px 20px; border-radius: 8px; font-family: inherit;
+}
+
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+@media (max-width: 720px) {
+  .grid4, .grid3, .grid2 { grid-template-columns: 1fr; }
+  h1 { font-size: 26px; }
+}
+
+.card {
+  background: var(--linen); border-radius: 12px; padding: 22px;
+}
+.maker-card {
+  border: 1px solid var(--concrete); border-radius: 12px; padding: 20px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.maker-card .gallery { font-size: 11px; color: #5A5650; }
+.maker-card .status { font-size: 11px; margin-top: 8px; }
+.status.live { color: #2F5A3A; }
+.status.soon { color: #8A8680; }
+
+.placeholder {
+  border: 1px dashed var(--concrete); border-radius: 8px; padding: 14px;
+  font-size: 12px; color: #8A8680; background: var(--chalk);
+}
+
+table.dims { width: 100%; border-collapse: collapse; font-size: 13px; margin: 0 0 20px; }
+table.dims td { padding: 8px 0; border-bottom: 1px solid var(--linen); vertical-align: top; }
+table.dims td:first-child { font-weight: 700; width: 90px; }
+
+footer.site { padding: 40px 0 60px; font-size: 11px; color: #5A5650; }
+footer.site a { color: #5A5650; }
+
+body.worklook { max-width: 480px; }
+body.worklook header.site, body.worklook footer.site { display: none; }
+.top2 { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; font-size: 11px; }
+.live2 { display: inline-flex; align-items: center; gap: 5px; background: #dbe6f7; color: #1a4d8f; padding: 3px 10px; border-radius: 10px; }
+.live2::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #293DCE; display: inline-block; }
+img.work { width: 100%; display: block; }
+.body2 { padding: 18px 20px 28px; }
+.meta2 { font-size: 11.5px; color: #5A5650; margin: 0 0 4px; }
+.code2 { font-size: 10px; color: #8A8680; margin: 0 0 16px; }
+.priceRow2 { display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid #c3bdb8; border-bottom: 1px solid #c3bdb8; padding: 14px 0; margin-bottom: 18px; }
+.price2 { font-size: 24px; font-weight: 900; }
+.status3 { display: inline-flex; align-items: center; gap: 5px; background: #DDE8D6;
+  color: #2F5A3A; padding: 4px 10px; border-radius: 10px; font-size: 11px; }
+.status3::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2F5A3A; display: inline-block; }
+.foot2 { font-size: 9.5px; color: #8A8680; text-align: center; line-height: 1.6; margin-top: 18px; }
