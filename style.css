@@ -21,79 +21,183 @@ html, body {
 a { color: var(--dawn); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* ── Wrap ── */
 .wrap {
   max-width: 920px;
   margin: 0 auto;
   padding: 0 28px;
 }
 
+/* ── Header / Nav ── */
 header.site {
   border-bottom: 1px solid var(--concrete);
   padding: 22px 0;
+  position: sticky;
+  top: 0;
+  background: var(--chalk);
+  z-index: 100;
 }
-header.site .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-header.site .logo { font-weight: 900; font-size: 15px; letter-spacing: 0.04em; }
+header.site .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+header.site .logo {
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--archive);
+}
 nav.site a {
-  margin-left: 22px; font-size: 12px; color: var(--archive); letter-spacing: 0.03em;
+  margin-left: 22px;
+  font-size: 12px;
+  color: var(--archive);
+  letter-spacing: 0.03em;
 }
 nav.site a:first-child { margin-left: 0; }
 nav.site a:hover { color: var(--dawn); text-decoration: none; }
 
-.eyebrow { font-size: 11px; letter-spacing: 0.08em; color: #5A5650; margin: 0 0 10px; }
-h1 { font-size: 32px; font-weight: 900; line-height: 1.25; margin: 0 0 18px; max-width: 720px; }
+/* ── Typography ── */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #5A5650;
+  margin: 0 0 14px;
+}
+h1 {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  max-width: 760px;
+  letter-spacing: -0.01em;
+}
 h2 { font-size: 19px; font-weight: 900; margin: 0 0 16px; }
 h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; }
 p { font-size: 14px; margin: 0 0 14px; max-width: 640px; }
-.lede { font-size: 16px; max-width: 600px; color: #3a3835; }
+.lede { font-size: 16px; max-width: 600px; color: #3a3835; line-height: 1.65; }
 
-section { padding: 56px 0; border-bottom: 1px solid var(--linen); }
+/* ── Sections ── */
+section { padding: 72px 0; border-bottom: 1px solid var(--linen); }
 section:last-of-type { border-bottom: none; }
 
+section.alt { background: var(--linen); }
+section.dark {
+  background: var(--archive);
+  border-bottom: none;
+}
+section.dark h1,
+section.dark h2,
+section.dark h3,
+section.dark p,
+section.dark .eyebrow,
+section.dark .lede { color: var(--chalk); }
+section.dark .eyebrow { color: var(--concrete); }
+section.dark a.btn { background: var(--chalk); color: var(--archive); }
+section.dark a.btn:hover { opacity: 0.85; }
+
+/* ── Hero ── */
+section.hero {
+  background: var(--archive);
+  padding: 100px 0 96px;
+  border-bottom: none;
+}
+section.hero h1 { color: var(--chalk); }
+section.hero .eyebrow { color: var(--concrete); }
+section.hero .lede { color: var(--concrete); }
+section.hero a.btn {
+  background: var(--chalk);
+  color: var(--archive);
+  margin-top: 8px;
+}
+section.hero a.btn:hover { opacity: 0.85; text-decoration: none; }
+
+/* ── Buttons ── */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--dawn); color: var(--chalk);
-  font-size: 13px; padding: 12px 20px; border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dawn);
+  color: var(--chalk);
+  font-size: 13px;
+  padding: 13px 22px;
+  border-radius: 2px;
   font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 .btn:hover { text-decoration: none; opacity: 0.9; }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid var(--archive); color: var(--archive);
-  font-size: 13px; padding: 11px 20px; border-radius: 8px; font-family: inherit;
-}
 
-.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--archive);
+  color: var(--archive);
+  font-size: 13px;
+  padding: 12px 22px;
+  border-radius: 2px;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.btn-outline:hover { text-decoration: none; background: var(--archive); color: var(--chalk); }
+
+/* ── Grids ── */
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
 @media (max-width: 720px) {
   .grid4, .grid3, .grid2 { grid-template-columns: 1fr; }
-  h1 { font-size: 26px; }
+  h1 { font-size: 30px; }
+  section { padding: 52px 0; }
+  section.hero { padding: 64px 0 60px; }
 }
 
+/* ── Cards ── */
 .card {
-  background: var(--linen); border-radius: 12px; padding: 22px;
+  background: var(--linen);
+  border-radius: 2px;
+  padding: 28px;
 }
 .maker-card {
-  border: 1px solid var(--concrete); border-radius: 12px; padding: 20px;
-  display: flex; flex-direction: column; gap: 6px;
+  border: 1px solid var(--concrete);
+  border-radius: 2px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .maker-card .gallery { font-size: 11px; color: #5A5650; }
 .maker-card .status { font-size: 11px; margin-top: 8px; }
 .status.live { color: #2F5A3A; }
 .status.soon { color: #8A8680; }
 
+/* ── Misc ── */
 .placeholder {
-  border: 1px dashed var(--concrete); border-radius: 8px; padding: 14px;
-  font-size: 12px; color: #8A8680; background: var(--chalk);
+  border: 1px dashed var(--concrete);
+  border-radius: 2px;
+  padding: 14px;
+  font-size: 12px;
+  color: #8A8680;
+  background: var(--chalk);
 }
-
 table.dims { width: 100%; border-collapse: collapse; font-size: 13px; margin: 0 0 20px; }
 table.dims td { padding: 8px 0; border-bottom: 1px solid var(--linen); vertical-align: top; }
 table.dims td:first-child { font-weight: 700; width: 90px; }
 
+/* ── Footer ── */
 footer.site { padding: 40px 0 60px; font-size: 11px; color: #5A5650; }
 footer.site a { color: #5A5650; }
 
+/* ════════════════════════════════════════════════════
+   WORKLOOK — maker work pages (QR-code destination)
+   DO NOT CHANGE — QR codes are printed physically
+   ════════════════════════════════════════════════════ */
 body.worklook { max-width: 480px; }
 body.worklook header.site, body.worklook footer.site { display: none; }
 .top2 { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; font-size: 11px; }
