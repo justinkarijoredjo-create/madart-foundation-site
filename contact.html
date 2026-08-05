@@ -1,32 +1,304 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — MADART FOUNDATION</title>
+<meta name="description" content="Get in touch with MADART Foundation.">
 <link rel="stylesheet" href="style.css">
+<style>
+  * { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  .imgph {
+    background: var(--linen);
+    border: 1px dashed var(--concrete);
+    display: flex; align-items: center; justify-content: center;
+    color: #8A8680; font-size: 11px; text-align: center; padding: 16px;
+    line-height: 1.5;
+  }
+  .imgph.tall { aspect-ratio: 3/4; }
+  .imgph.wide { aspect-ratio: 16/9; }
+  .imgph.square { aspect-ratio: 1; }
+  .imgph.portrait { aspect-ratio: 4/5; }
+  .imgph.hero-ph { aspect-ratio: 21/9; }
+  /* Echte foto's hergebruiken dezelfde klassen als de placeholders */
+  img.tall, img.wide, img.square, img.portrait, img.hero-ph {
+    width: 100%; display: block; object-fit: cover; border: none; background: var(--linen);
+  }
+  .peoplegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .personcard h3 { margin-bottom: 2px; }
+  .personcard .role { font-size: 12px; color: #5A5650; margin-bottom: 12px; display: block; }
+  .mood-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .peoplegrid { grid-template-columns: 1fr; } .mood-strip { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ── Beweging: subtiele reveal-animatie bij scrollen ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal-stagger.in > *:nth-child(1) { transition-delay: 0.02s; }
+  .reveal-stagger.in > *:nth-child(2) { transition-delay: 0.08s; }
+  .reveal-stagger.in > *:nth-child(3) { transition-delay: 0.14s; }
+  .reveal-stagger.in > *:nth-child(4) { transition-delay: 0.20s; }
+  .reveal-stagger.in > *:nth-child(5) { transition-delay: 0.26s; }
+  .reveal-stagger.in > *:nth-child(6) { transition-delay: 0.32s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  /* Zachte hover-lift op klikbare kaarten */
+  .maker-card, .swipecard, .shopcard, .card, .xcard { transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+  .maker-card:hover, .swipecard:hover, .shopcard:hover, .xcard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(30,29,28,0.08); }
+
+  .swiperow { scroll-behavior: auto; }
+  .swiperow {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 12px; margin: 0 -28px; padding-left: 28px; padding-right: 28px;
+  }
+  .swiperow::-webkit-scrollbar { height: 6px; }
+  .swiperow::-webkit-scrollbar-thumb { background: var(--concrete); border-radius: 3px; }
+
+  /* Carpenters-stijl makerskaart: grote portret-foto, naam eronder in caps */
+  .swipecard {
+    flex: 0 0 240px; scroll-snap-align: start; display: block; color: var(--archive);
+  }
+  .swipecard:hover { text-decoration: none; }
+  .swipecard .info { padding: 12px 2px 0; }
+  .swipecard h3 { font-size: 12px; margin: 0 0 2px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+  .swipecard .gallery { font-size: 10.5px; color: #5A5650; }
+
+  .sectionhead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+  .sectionhead .seeall { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Exhibitions-kaarten (archief) */
+  .xcard { display: block; color: var(--archive); flex: 0 0 480px; scroll-snap-align: start; }
+  .xcard:hover { text-decoration: none; }
+  .xcard .info { padding: 14px 2px 0; }
+  .xcard h3 { font-size: 15px; margin: 0 0 2px; text-transform: uppercase; }
+  .xcard .sub { font-size: 12px; color: #5A5650; margin-bottom: 6px; }
+  .xcard .meta { font-size: 11px; color: #8A8680; }
+  .tabbar { display: flex; gap: 24px; margin-bottom: 28px; }
+  .tabbar button {
+    background: none; border: none; font-family: inherit; font-size: 12px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #8A8680; padding: 0 0 6px; cursor: pointer; border-bottom: 2px solid transparent;
+  }
+  .tabbar button.active { color: var(--archive); border-bottom-color: var(--dawn); }
+  .xitem { display: none; }
+  .xitem.shown { display: block; }
+
+  /* Hero-carrousel — werkt voor zowel placeholder-vakken als echte foto's */
+  .carousel { position: relative; overflow: hidden; }
+  .carousel .hero-ph { display: none; transition: opacity 0.9s ease; }
+  .carousel .hero-ph.active { display: flex; }
+  .carousel img.hero-ph.active { display: block; }
+  .carousel-dots { position: absolute; bottom: 20px; right: 28px; display: flex; gap: 8px; z-index: 5; }
+  .carousel-dots button {
+    width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--chalk); background: transparent;
+    padding: 0; cursor: pointer; transition: background 0.25s ease;
+  }
+  .carousel-dots button.active { background: var(--chalk); }
+
+  /* Volledig-scherm hero, transparante navigatie eroverheen (alleen homepage) */
+  body.hero-full header.site {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    background: transparent; border-bottom: none;
+  }
+  body.hero-full header.site {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: transparent; border-bottom: none; transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  body.hero-full.scrolled header.site { background: var(--chalk); border-bottom: 1px solid var(--concrete); }
+  body.hero-full.scrolled header.site nav.site a { color: var(--archive); }
+  body.hero-full header.site .logo { color: var(--dawn); }
+  body.hero-full header.site nav.site a { color: var(--chalk); }
+  body.hero-full header.site nav.site a:hover { color: var(--concrete); }
+  body.hero-full.scrolled header.site nav.site a:hover { color: var(--dawn); }
+  header.site .logo { color: var(--dawn); }
+  body.hero-full { padding-top: 0; }
+  section.hero.fullbleed {
+    position: relative; height: 100vh; min-height: 560px; padding: 0; border-bottom: none; background: var(--archive);
+    overflow: hidden;
+  }
+  section.hero.fullbleed .hero-ph {
+    position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;
+    border: none; border-radius: 0; background: #2a2825; color: var(--concrete); object-fit: cover;
+  }
+  section.hero.fullbleed .hero-overlay {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 0 32px; z-index: 3;
+    background: linear-gradient(transparent, rgba(30,29,28,0.85));
+  }
+  section.hero.fullbleed .hero-overlay .eyebrow { color: var(--concrete); }
+  section.hero.fullbleed .hero-overlay h1 { color: var(--chalk); font-size: 30px; margin-bottom: 8px; max-width: 640px; }
+  section.hero.fullbleed .hero-overlay .nowshowing { color: var(--concrete); font-size: 12px; letter-spacing: 0.03em; margin-bottom: 4px; }
+  section.hero.fullbleed .hero-overlay a.viewlink { color: var(--chalk); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Who we are — betere uitlijning, gegarandeerd identieke afmetingen ongeacht bronformaat */
+  .peoplegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 640px; margin: 0 auto; }
+  .personcard { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .personcard img.portrait4x5 { width: 220px; max-width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .personcard h3 { margin-top: 18px; margin-bottom: 2px; }
+  .personcard .role { font-size: 12px; color: #5A5650; margin-bottom: 12px; display: block; }
+  .personcard p { max-width: 260px; }
+  @media (max-width: 720px) { .peoplegrid { grid-template-columns: 1fr; } }
+
+  /* Slogan als intro-scherm: bedekt de hele pagina bij het laden, verdwijnt daarna automatisch */
+  .slogan-overlay {
+    position: fixed; inset: 0; z-index: 200; background: var(--archive);
+    display: flex; align-items: center; justify-content: center; padding: 0 24px;
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .slogan-overlay.hide { opacity: 0; transform: translateY(-4%); pointer-events: none; }
+  .slogan-text {
+    color: var(--chalk); font-size: clamp(14px, 3.3vw, 44px); white-space: nowrap; margin: 0; line-height: 1.2;
+  }
+  @media (max-width: 700px) { .slogan-text { white-space: normal; } }
+
+  /* Uitgebreide footer, zoals Carpenters Workshop Gallery */
+  footer.site-footer { background: var(--archive); color: var(--chalk); padding: 56px 0 0; margin-top: 0; }
+  footer.site-footer .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid #3a3835; }
+  footer.site-footer h3 { color: var(--chalk); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  footer.site-footer p, footer.site-footer a { color: var(--concrete); font-size: 12.5px; }
+  footer.site-footer a:hover { color: var(--chalk); }
+  .newsletter-form { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .newsletter-form input {
+    flex: 1; min-width: 160px; background: transparent; border: 1px solid #55524c; color: var(--chalk);
+    font-family: inherit; font-size: 12.5px; padding: 11px 14px; border-radius: 2px;
+  }
+  .newsletter-form input::placeholder { color: #8A8680; }
+  .newsletter-form button { background: var(--chalk); color: var(--archive); border: none; }
+  .footer-social { display: flex; gap: 14px; margin-top: 12px; }
+  .footer-social a { border: 1px solid #55524c; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  footer.site-footer .footer-bottom { padding: 18px 0 28px; font-size: 11px; color: #8A8680; }
+  footer.site-footer .footer-bottom a { color: #8A8680; }
+  @media (max-width: 720px) { footer.site-footer .footer-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html">MADART FOUNDATION</a>
   <nav class="site">
-    <a href="missie.html">Missie</a>
-    <a href="seizoen-02-ground.html">Season 02 — GROUND</a>
-    <a href="pers.html">Pers</a>
-    <a href="contact.html">Contact</a>
+    <a href="missie.html">Mission</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="shop.html">Shop</a>
+    <a href="team.html">Team</a>
+    <a href="support-us.html">Support us</a>
+    <a href="contact.html" style="color:var(--dawn)">Contact</a>
   </nav>
 </div></header>
 
-<section><div class="wrap">
-  <p class="eyebrow">Contact</p>
-  <h1>NIO House Amsterdam</h1>
-  <p class="lede">Leidsestraat 32-34, Amsterdam &middot; vierde verdieping</p>
-  <div class="placeholder">Algemeen e-mailadres nog invoegen.</div>
-  <p><a href="https://www.instagram.com/madartfoundation">Instagram — @madartfoundation</a></p>
-</div></section>
-<footer class="site"><div class="wrap">
-  MADART FOUNDATION &middot; NIO House Amsterdam &middot; Leidsestraat 32-34 &middot; 2026<br>
-  <a href="https://www.instagram.com/madartfoundation">Instagram</a>
-</div></footer>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">GET IN TOUCH</p>
+    <h1>NIO House Amsterdam</h1>
+    <p class="lede">Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</p>
+    <a class="btn" href="mailto:contact@madartfoundation.com">contact@madartfoundation.com</a>
+    <p style="margin-top:20px;"><a href="https://www.instagram.com/madartfoundation">Instagram &mdash; @madartfoundation</a></p>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Be the first to know</h3>
+      <p>Join our newsletter for updates on exhibitions, openings and new work.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Email" required>
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+    </div>
+    <div>
+      <h3>Visit</h3>
+      <p>NIO House Amsterdam<br>Leidsestraat 32-34, 1017 PB Amsterdam<br>Fourth floor</p>
+      <p style="margin-top:10px;"><a href="contact.html">Plan a visit &#8594;</a></p>
+    </div>
+    <div>
+      <h3>Follow us on social media</h3>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/madartfoundation" aria-label="Instagram">IG</a>
+      </div>
+      <p style="margin-top:14px;"><a href="pers.html">Press</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    MADART FOUNDATION &middot; 2026 &middot; This programme is made possible in part by <a href="https://curatedbymadart.com">Curated by MADART</a>.
+  </div>
+</footer>
+
+<script>
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!('IntersectionObserver' in window) || !els.length) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
+
+// Oneindig swipen: verdubbelt de inhoud van een rij en springt onzichtbaar terug naar het begin
+// Wacht tot alle afbeeldingen geladen zijn, anders klopt de berekende breedte niet en ontstaat er "verspringen"
+(function() {
+  function setupInfinite(row) {
+    const original = row.innerHTML;
+    row.innerHTML = original + original;
+    let halfWidth = row.scrollWidth / 2;
+    let ticking = false;
+    row.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (row.scrollLeft >= halfWidth - 2) {
+          row.scrollLeft -= halfWidth;
+        } else if (row.scrollLeft <= 2) {
+          row.scrollLeft += halfWidth;
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+    return () => { halfWidth = row.scrollWidth / 2; };
+  }
+  const rows = document.querySelectorAll('.swiperow[data-infinite]');
+  const recalcs = Array.from(rows).map(setupInfinite);
+  window.addEventListener('load', () => recalcs.forEach(fn => fn()));
+})();
+
+// Slogan-introscherm: verschijnt bij laden, verdwijnt automatisch na een korte pauze
+(function() {
+  const overlay = document.getElementById('sloganOverlay');
+  if (!overlay) return;
+  document.documentElement.style.overflow = 'hidden';
+  let dismissed = false;
+  function reveal() {
+    if (dismissed) return;
+    dismissed = true;
+    overlay.classList.add('hide');
+    document.documentElement.style.overflow = '';
+    setTimeout(() => { overlay.style.display = 'none'; }, 1050);
+  }
+  const autoTimer = setTimeout(reveal, 1800);
+  // Ongeduldige bezoekers kunnen het zelf versnellen
+  overlay.addEventListener('click', () => { clearTimeout(autoTimer); reveal(); });
+  window.addEventListener('wheel', () => { clearTimeout(autoTimer); reveal(); }, { once: true, passive: true });
+  window.addEventListener('touchstart', () => { clearTimeout(autoTimer); reveal(); }, { once: true, passive: true });
+  window.addEventListener('keydown', () => { clearTimeout(autoTimer); reveal(); }, { once: true });
+})();
+
+// Menu krijgt een ondergrond zodra je voorbij de hero scrolt
+(function() {
+  if (!document.body.classList.contains('hero-full')) return;
+  function computeThreshold() {
+    const hero = document.querySelector('section.hero.fullbleed');
+    return Math.max((hero ? hero.offsetHeight : window.innerHeight) - 140, 200);
+  }
+  let threshold = computeThreshold();
+  window.addEventListener('load', () => { threshold = computeThreshold(); });
+  window.addEventListener('resize', () => { threshold = computeThreshold(); });
+  window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > threshold);
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
