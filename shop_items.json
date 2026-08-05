@@ -1,0 +1,772 @@
+[
+ {
+  "title": "M15",
+  "artist": "Aad Kruiswijk",
+  "material": "MDF",
+  "price_display": "€ 3.500,– incl. btw",
+  "price_num": 3500,
+  "status": "available",
+  "image": "aad-kruiswijk-m15-mdf.jpg",
+  "link": "aad-kruiswijk-m15-mdf.html"
+ },
+ {
+  "title": "M15",
+  "artist": "Aad Kruiswijk",
+  "material": "Hoogglans gepolijst RVS",
+  "price_display": "€ 5.500,– incl. btw",
+  "price_num": 5500,
+  "status": "available",
+  "image": "aad-kruiswijk-m15-rvs.jpg",
+  "link": "aad-kruiswijk-m15-rvs.html"
+ },
+ {
+  "title": "M15",
+  "artist": "Aad Kruiswijk",
+  "material": "Massief hout, Amsterdams stadshout",
+  "price_display": "€ 1.200,– incl. btw",
+  "price_num": 1200,
+  "status": "available",
+  "image": "aad-kruiswijk-m15-stadshout.jpg",
+  "link": "aad-kruiswijk-m15-stadshout.html"
+ },
+ {
+  "title": "M16",
+  "artist": "Aad Kruiswijk",
+  "material": "Massief hout, Amsterdams stadshout",
+  "price_display": "€ 700,– incl. btw",
+  "price_num": 700,
+  "status": "available",
+  "image": "aad-kruiswijk-m16-i.jpg",
+  "link": "aad-kruiswijk-m16-i.html"
+ },
+ {
+  "title": "M16",
+  "artist": "Aad Kruiswijk",
+  "material": "Massief hout, Amsterdams stadshout",
+  "price_display": "€ 1.400,– incl. btw",
+  "price_num": 1400,
+  "status": "available",
+  "image": "aad-kruiswijk-m16-ii.jpg",
+  "link": "aad-kruiswijk-m16-ii.html"
+ },
+ {
+  "title": "M18",
+  "artist": "Aad Kruiswijk",
+  "material": "Massief hout, Amsterdams stadshout",
+  "price_display": "€ 700,– incl. btw",
+  "price_num": 700,
+  "status": "available",
+  "image": "aad-kruiswijk-m18.jpg",
+  "link": "aad-kruiswijk-m18.html"
+ },
+ {
+  "title": "M19",
+  "artist": "Aad Kruiswijk",
+  "material": "Massief hout, Amsterdams stadshout",
+  "price_display": "€ 700,– incl. btw",
+  "price_num": 700,
+  "status": "available",
+  "image": "aad-kruiswijk-m19.jpg",
+  "link": "aad-kruiswijk-m19.html"
+ },
+ {
+  "title": "Pouf",
+  "artist": "Aad Kruiswijk",
+  "material": "MDF in kookverf",
+  "price_display": "€ 1.750,– incl. btw",
+  "price_num": 1750,
+  "status": "available",
+  "image": "aad-kruiswijk-pouf.jpg",
+  "link": "aad-kruiswijk-pouf.html"
+ },
+ {
+  "title": "Arena",
+  "artist": "Anne van Borselen",
+  "material": "Oil on canvas",
+  "price_display": "€ 6.900,–",
+  "price_num": 6900,
+  "status": "available",
+  "image": "anne-van-borselen-arena.jpg",
+  "link": "anne-van-borselen-arena.html"
+ },
+ {
+  "title": "Ceremony",
+  "artist": "Anne van Borselen",
+  "material": "Oil on canvas",
+  "price_display": "€ 5.500,–",
+  "price_num": 5500,
+  "status": "available",
+  "image": "anne-van-borselen-ceremony.jpg",
+  "link": "anne-van-borselen-ceremony.html"
+ },
+ {
+  "title": "Cirque du soleil",
+  "artist": "Anne van Borselen",
+  "material": "Oil on canvas",
+  "price_display": "€ 6.900,–",
+  "price_num": 6900,
+  "status": "available",
+  "image": "anne-van-borselen-cirque-du-soleil.jpg",
+  "link": "anne-van-borselen-cirque-du-soleil.html"
+ },
+ {
+  "title": "Coco du mer",
+  "artist": "Anne van Borselen",
+  "material": "Bronze",
+  "price_display": "€ 4.900,–",
+  "price_num": 4900,
+  "status": "available",
+  "image": "anne-van-borselen-coco-du-mer.jpg",
+  "link": "anne-van-borselen-coco-du-mer.html"
+ },
+ {
+  "title": "Dancer",
+  "artist": "Anne van Borselen",
+  "material": "Bronze",
+  "price_display": "€ 5.500,–",
+  "price_num": 5500,
+  "status": "available",
+  "image": "anne-van-borselen-dancer.jpg",
+  "link": "anne-van-borselen-dancer.html"
+ },
+ {
+  "title": "Ketut mask",
+  "artist": "Anne van Borselen",
+  "material": "Ceramic",
+  "price_display": "€ 3.500,–",
+  "price_num": 3500,
+  "status": "available",
+  "image": "anne-van-borselen-ketut-mask.jpg",
+  "link": "anne-van-borselen-ketut-mask.html"
+ },
+ {
+  "title": "Nyoman mask",
+  "artist": "Anne van Borselen",
+  "material": "Ceramic",
+  "price_display": "€ 3.500,–",
+  "price_num": 3500,
+  "status": "available",
+  "image": "anne-van-borselen-nyoman-mask.jpg",
+  "link": "anne-van-borselen-nyoman-mask.html"
+ },
+ {
+  "title": "Portret",
+  "artist": "Anne van Borselen",
+  "material": "Bronze",
+  "price_display": "€ 4.900,–",
+  "price_num": 4900,
+  "status": "available",
+  "image": "anne-van-borselen-portret.jpg",
+  "link": "anne-van-borselen-portret.html"
+ },
+ {
+  "title": "Ram",
+  "artist": "Anne van Borselen",
+  "material": "Bronze",
+  "price_display": "€ 6.900,–",
+  "price_num": 6900,
+  "status": "available",
+  "image": "anne-van-borselen-ram.jpg",
+  "link": "anne-van-borselen-ram.html"
+ },
+ {
+  "title": "Sarcofaag",
+  "artist": "Anne van Borselen",
+  "material": "Bronze",
+  "price_display": "€ 5.500,–",
+  "price_num": 5500,
+  "status": "available",
+  "image": "anne-van-borselen-sarcofaag.jpg",
+  "link": "anne-van-borselen-sarcofaag.html"
+ },
+ {
+  "title": "Twilight time",
+  "artist": "Anne van Borselen",
+  "material": "Oil on canvas",
+  "price_display": "€ 5.500,–",
+  "price_num": 5500,
+  "status": "available",
+  "image": "anne-van-borselen-twilight-time.jpg",
+  "link": "anne-van-borselen-twilight-time.html"
+ },
+ {
+  "title": "Vaas Stier I",
+  "artist": "Anne van Borselen",
+  "material": "Ceramic",
+  "price_display": "€ 4.500,–",
+  "price_num": 4500,
+  "status": "available",
+  "image": "anne-van-borselen-vaas-stier-i.jpg",
+  "link": "anne-van-borselen-vaas-stier-i.html"
+ },
+ {
+  "title": "Vaas Stier II",
+  "artist": "Anne van Borselen",
+  "material": "Ceramic",
+  "price_display": "€ 4.500,–",
+  "price_num": 4500,
+  "status": "available",
+  "image": "anne-van-borselen-vaas-stier-ii.jpg",
+  "link": "anne-van-borselen-vaas-stier-ii.html"
+ },
+ {
+  "title": "Deus Ex Machina",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — light blue",
+  "price_display": "€ 275,–",
+  "price_num": 275,
+  "status": "available",
+  "image": "arno-hoogland-deus-ex-machina.jpg",
+  "link": "arno-hoogland-deus-ex-machina.html"
+ },
+ {
+  "title": "Dragonfish",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — fluor red",
+  "price_display": "€ 275,–",
+  "price_num": 275,
+  "status": "available",
+  "image": "arno-hoogland-dragonfish.jpg",
+  "link": "arno-hoogland-dragonfish.html"
+ },
+ {
+  "title": "Hexagram",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — ultramarine blue",
+  "price_display": "€ 1.500,–",
+  "price_num": 1500,
+  "status": "available",
+  "image": "arno-hoogland-hexagram.jpg",
+  "link": "arno-hoogland-hexagram.html"
+ },
+ {
+  "title": "Klaver",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — terra & black",
+  "price_display": "€ 900,–",
+  "price_num": 900,
+  "status": "available",
+  "image": "arno-hoogland-klaver.jpg",
+  "link": "arno-hoogland-klaver.html"
+ },
+ {
+  "title": "Klaverblad",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — ultramarine blue",
+  "price_display": "€ 750,–",
+  "price_num": 750,
+  "status": "available",
+  "image": "arno-hoogland-klaverblad.jpg",
+  "link": "arno-hoogland-klaverblad.html"
+ },
+ {
+  "title": "Nagooshi",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — black & white",
+  "price_display": "€ 750,–",
+  "price_num": 750,
+  "status": "available",
+  "image": "arno-hoogland-nagooshi.jpg",
+  "link": "arno-hoogland-nagooshi.html"
+ },
+ {
+  "title": "Talbot",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — petrol blue",
+  "price_display": "€ 1.800,–",
+  "price_num": 1800,
+  "status": "available",
+  "image": "arno-hoogland-talbot.jpg",
+  "link": "arno-hoogland-talbot.html"
+ },
+ {
+  "title": "Wave Lila",
+  "artist": "Arno Hoogland",
+  "material": "Plywood, natural finish",
+  "price_display": "€ 1.100,–",
+  "price_num": 1100,
+  "status": "available",
+  "image": "arno-hoogland-wave-lila.jpg",
+  "link": "arno-hoogland-wave-lila.html"
+ },
+ {
+  "title": "Wave Naturel",
+  "artist": "Arno Hoogland",
+  "material": "Plywood, natural finish",
+  "price_display": "€ 1.250,–",
+  "price_num": 1250,
+  "status": "available",
+  "image": "arno-hoogland-wave-naturel.jpg",
+  "link": "arno-hoogland-wave-naturel.html"
+ },
+ {
+  "title": "Wormhole",
+  "artist": "Arno Hoogland",
+  "material": "Pressed wood, painted — petrol blue",
+  "price_display": "€ 1.600,–",
+  "price_num": 1600,
+  "status": "available",
+  "image": "arno-hoogland-wormhole.jpg",
+  "link": "arno-hoogland-wormhole.html"
+ },
+ {
+  "title": "2.1 - Bench",
+  "artist": "Coen Beeksma",
+  "material": "Solid oak and aluminium (Nedal)",
+  "price_display": "€ 6.600 incl. btw",
+  "price_num": 6600,
+  "status": "available",
+  "image": "echo-2-1-bench-work.jpg",
+  "link": "echo-2-1-bench.html"
+ },
+ {
+  "title": "Alu Weave 01",
+  "artist": "Sophie Wantia",
+  "material": "Aluminium (Nedal) and textile",
+  "price_display": "€ 1.700",
+  "price_num": 1700,
+  "status": "available",
+  "image": "echo-alu-weave-01-work.jpg",
+  "link": "echo-alu-weave-01.html"
+ },
+ {
+  "title": "Billet",
+  "artist": "Frank Penders",
+  "material": "Aluminium (Nedal), local elm (Gouda), copper, felt",
+  "price_display": "€ 2.200 incl. btw",
+  "price_num": 2200,
+  "status": "available",
+  "image": "echo-billet-work.jpg",
+  "link": "echo-billet.html"
+ },
+ {
+  "title": "Bracelet",
+  "artist": "Erwin Woldring",
+  "material": "Polished aluminium residue (Nedal) with genuine leather lining",
+  "price_display": "€ 285",
+  "price_num": 285,
+  "status": "available",
+  "image": "echo-bracelet-work.jpg",
+  "link": "echo-bracelet.html"
+ },
+ {
+  "title": "CandleSwitch",
+  "artist": "Marc th. van der Voorn",
+  "material": "Aluminium (Nedal) and azobé",
+  "price_display": "€ 95",
+  "price_num": 95,
+  "status": "available",
+  "image": "echo-candleswitch-work.jpg",
+  "link": "echo-candleswitch.html"
+ },
+ {
+  "title": "Col — Krukje",
+  "artist": "Jeroen van Veluw",
+  "material": "Anodised aluminium (Nedal)",
+  "price_display": "€ 1.200",
+  "price_num": 1200,
+  "status": "available",
+  "image": "echo-col-krukje-work.jpg",
+  "link": "echo-col-krukje.html"
+ },
+ {
+  "title": "Col — Sokkel",
+  "artist": "Jeroen van Veluw",
+  "material": "Raw aluminium (Nedal)",
+  "price_display": "€ 1.600",
+  "price_num": 1600,
+  "status": "available",
+  "image": "echo-col-sokkel-work.jpg",
+  "link": "echo-col-sokkel.html"
+ },
+ {
+  "title": "Conduit Chair",
+  "artist": "Maaike Rabbinge",
+  "material": "Sandblasted recycled aluminium (Nedal)",
+  "price_display": "€ 2.000",
+  "price_num": 2000,
+  "status": "available",
+  "image": "echo-conduit-chair-work.jpg",
+  "link": "echo-conduit-chair.html"
+ },
+ {
+  "title": "Drop",
+  "artist": "Ritsert Mans",
+  "material": "Solid aluminium (Nedal residue)",
+  "price_display": "€ 1.200",
+  "price_num": 1200,
+  "status": "available",
+  "image": "echo-drop-work.jpg",
+  "link": "echo-drop.html"
+ },
+ {
+  "title": "Flashlight",
+  "artist": "Ritsert Mans",
+  "material": "Solid aluminium (Nedal residue)",
+  "price_display": "€ 240",
+  "price_num": 240,
+  "status": "available",
+  "image": "echo-flashlight-work.jpg",
+  "link": "echo-flashlight.html"
+ },
+ {
+  "title": "Formscape",
+  "artist": "Cynthia & Kevin Kars-Boom",
+  "material": "Aluminium (Nedal) with vinyl, paint and rope",
+  "price_display": "€ 4.600",
+  "price_num": 4600,
+  "status": "available",
+  "image": "echo-formscape-work.jpg",
+  "link": "echo-formscape.html"
+ },
+ {
+  "title": "Here comes the sun",
+  "artist": "Billie-Jo Krul",
+  "material": "Photography on aluminium, satin laminate",
+  "price_display": "€ 550,–",
+  "price_num": 550,
+  "status": "available",
+  "image": "echo-here-comes-the-sun-work.jpg",
+  "link": "echo-here-comes-the-sun.html"
+ },
+ {
+  "title": "Hole in my heart",
+  "artist": "Billie-Jo Krul",
+  "material": "Photography on aluminium, satin laminate",
+  "price_display": "€ 550,–",
+  "price_num": 550,
+  "status": "available",
+  "image": "echo-hole-in-my-heart-work.jpg",
+  "link": "echo-hole-in-my-heart.html"
+ },
+ {
+  "title": "Knik-Knak lamp",
+  "artist": "Erwin Woldring",
+  "material": "Polished hard aluminium residue (Nedal), 100% pre-consumer waste",
+  "price_display": "€ 620",
+  "price_num": 620,
+  "status": "available",
+  "image": "echo-knik-knak-lamp-work.jpg",
+  "link": "echo-knik-knak-lamp.html"
+ },
+ {
+  "title": "Latch Bench",
+  "artist": "Maaike Rabbinge",
+  "material": "Sandblasted recycled aluminium (Nedal)",
+  "price_display": "€ 1.800",
+  "price_num": 1800,
+  "status": "available",
+  "image": "echo-latch-stool-work.jpg",
+  "link": "echo-latch-bench.html"
+ },
+ {
+  "title": "Latch Stool",
+  "artist": "Maaike Rabbinge",
+  "material": "Sandblasted recycled aluminium (Nedal)",
+  "price_display": "€ 850",
+  "price_num": 850,
+  "status": "available",
+  "image": "echo-latch-bench-work.jpg",
+  "link": "echo-latch-stool.html"
+ },
+ {
+  "title": "REST",
+  "artist": "Jan Willem van Elten",
+  "material": "Aluminium extrusion profile (Nedal residue)",
+  "price_display": "€ 1.320",
+  "price_num": 1320,
+  "status": "available",
+  "image": "echo-rest-work.jpg",
+  "link": "echo-rest.html"
+ },
+ {
+  "title": "Spectral Form",
+  "artist": "Frederik Wasseur",
+  "material": "Rejected aluminium extrusion profile and reclaimed ash wood",
+  "price_display": "€ 2.700 incl. btw",
+  "price_num": 2700,
+  "status": "available",
+  "image": "echo-spectral-form-work.jpg",
+  "link": "echo-spectral-form.html"
+ },
+ {
+  "title": "Still standing",
+  "artist": "Billie-Jo Krul",
+  "material": "Photography on aluminium, satin laminate",
+  "price_display": "€ 550,–",
+  "price_num": 550,
+  "status": "available",
+  "image": "echo-still-standing-work.jpg",
+  "link": "echo-still-standing.html"
+ },
+ {
+  "title": "Sway",
+  "artist": "Zowa Rindt",
+  "material": "Aluminium baseplate and cap (Nedal), stainless steel rod",
+  "price_display": "€ 650",
+  "price_num": 650,
+  "status": "available",
+  "image": "echo-sway-work.jpg",
+  "link": "echo-sway.html"
+ },
+ {
+  "title": "Yield",
+  "artist": "Frank Penders",
+  "material": "Aluminium (Nedal), Douglas fir, 12V LED with dimmer",
+  "price_display": "€ 3.200 incl. btw",
+  "price_num": 3200,
+  "status": "available",
+  "image": "echo-yield-work.jpg",
+  "link": "echo-yield.html"
+ },
+ {
+  "title": "Ikebana Table",
+  "artist": "Lilia Luganskaia-Kuilder",
+  "material": "Gradient glass",
+  "price_display": "€ 4.900",
+  "price_num": 4900,
+  "status": "available",
+  "image": "lilia-luganskaia-kuilder-ikebana-table.jpg",
+  "link": "lilia-luganskaia-kuilder-ikebana-table.html"
+ },
+ {
+  "title": "Ritual Light Piece",
+  "artist": "Lilia Luganskaia-Kuilder",
+  "material": "Gradient glass, metal, LED system",
+  "price_display": "€ 4.500",
+  "price_num": 4500,
+  "status": "available",
+  "image": "lilia-luganskaia-kuilder-ritual-light-piece.jpg",
+  "link": "lilia-luganskaia-kuilder-ritual-light-piece.html"
+ },
+ {
+  "title": "Ritual Mirror",
+  "artist": "Lilia Luganskaia-Kuilder",
+  "material": "Gradient glass",
+  "price_display": "€ 2.800",
+  "price_num": 2800,
+  "status": "available",
+  "image": "lilia-luganskaia-kuilder-ritual-mirror.jpg",
+  "link": "lilia-luganskaia-kuilder-ritual-mirror.html"
+ },
+ {
+  "title": "Between arms",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 2.500,–",
+  "price_num": 2500,
+  "status": "available",
+  "image": "Seated_crop.jpg",
+  "link": "loutje-hoekstra-between-arms.html"
+ },
+ {
+  "title": "Blue Print I (Letting You Go)",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen, framed",
+  "price_display": "€ 4.200,–",
+  "price_num": 4200,
+  "status": "available",
+  "image": "Blue_Print_I.jpg",
+  "link": "loutje-hoekstra-blue-print-i.html"
+ },
+ {
+  "title": "Blue Print II (Three Graces)",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen, framed",
+  "price_display": "€ 4.200,–",
+  "price_num": 4200,
+  "status": "available",
+  "image": "Blue_Print_II.jpg",
+  "link": "loutje-hoekstra-blue-print-ii.html"
+ },
+ {
+  "title": "Danae",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 2.500,–",
+  "price_num": 2500,
+  "status": "available",
+  "image": "Danae_crop.jpg",
+  "link": "loutje-hoekstra-danae.html"
+ },
+ {
+  "title": "Dance of Impermanence",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 3.100,–",
+  "price_num": 3100,
+  "status": "available",
+  "image": "Cycle.jpg",
+  "link": "loutje-hoekstra-dance-of-impermanence.html"
+ },
+ {
+  "title": "En Vol",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 2.500,–",
+  "price_num": 2500,
+  "status": "available",
+  "image": "An_Angel_s_Jump_crop.jpg",
+  "link": "loutje-hoekstra-en-vol.html"
+ },
+ {
+  "title": "Sleep Revolution",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 3.400,–",
+  "price_num": 3400,
+  "status": "available",
+  "image": "Sleep_revelution.jpg",
+  "link": "loutje-hoekstra-sleep-revolution.html"
+ },
+ {
+  "title": "Small Study",
+  "artist": "Loutje Hoekstra",
+  "material": "Acrylic, pigments, colored canvas on linen",
+  "price_display": "€ 300,–",
+  "price_num": 300,
+  "status": "available",
+  "image": "Small_Face_Study.jpg",
+  "link": "loutje-hoekstra-small-study.html"
+ },
+ {
+  "title": "The Kiss",
+  "artist": "Loutje Hoekstra",
+  "material": "Pigments, oil, oil stick on linen",
+  "price_display": "€ 1.100,–",
+  "price_num": 1100,
+  "status": "available",
+  "image": "Kiss.jpg",
+  "link": "loutje-hoekstra-the-kiss.html"
+ },
+ {
+  "title": "Bubbels",
+  "artist": "Rogier Bosschaart",
+  "material": "Acrylic on wood",
+  "price_display": "€ 640,–",
+  "price_num": 640,
+  "status": "available",
+  "image": "rogier-bosschaart-bubbels-work.jpg",
+  "link": "rogier-bosschaart-bubbels.html"
+ },
+ {
+  "title": "Lotte",
+  "artist": "Rogier Bosschaart",
+  "material": "Acrylic on wood",
+  "price_display": "€ 3.600,–",
+  "price_num": 3600,
+  "status": "available",
+  "image": "rogier-bosschaart-lotte-work.jpg",
+  "link": "rogier-bosschaart-lotte.html"
+ },
+ {
+  "title": "Obviously A Self Portrait",
+  "artist": "Rogier Bosschaart",
+  "material": "Acrylic on wood",
+  "price_display": "€ 3.600,–",
+  "price_num": 3600,
+  "status": "available",
+  "image": "rogier-bosschaart-obviously-a-self-portrait-work.jpg",
+  "link": "rogier-bosschaart-obviously-a-self-portrait.html"
+ },
+ {
+  "title": "Stubborn",
+  "artist": "Rogier Bosschaart",
+  "material": "Acrylic on wood",
+  "price_display": "€ 840,–",
+  "price_num": 840,
+  "status": "available",
+  "image": "rogier-bosschaart-stubborn-work.jpg",
+  "link": "rogier-bosschaart-stubborn.html"
+ },
+ {
+  "title": "Thekla",
+  "artist": "Rogier Bosschaart",
+  "material": "Acrylic on wood",
+  "price_display": "€ 3.600,–",
+  "price_num": 3600,
+  "status": "available",
+  "image": "rogier-bosschaart-thekla-work.jpg",
+  "link": "rogier-bosschaart-thekla.html"
+ },
+ {
+  "title": "Nani Bloom wall hanging",
+  "artist": "Sandra Keja Planken",
+  "material": "Recycled and remnant natural yarns",
+  "price_display": "€ 4.444,–",
+  "price_num": 4444,
+  "status": "available",
+  "image": "sandra-keja-planken-nani-bloom-wall-hanging.jpg",
+  "link": "sandra-keja-planken-nani-bloom-wall-hanging.html"
+ },
+ {
+  "title": "Nani Drop hanging sculpture",
+  "artist": "Sandra Keja Planken",
+  "material": "Recycled and remnant natural yarns",
+  "price_display": "€ 3.333,–",
+  "price_num": 3333,
+  "status": "available",
+  "image": "sandra-keja-planken-nani-drop-hanging-sculpture.jpg",
+  "link": "sandra-keja-planken-nani-drop-hanging-sculpture.html"
+ },
+ {
+  "title": "Nani Drop sculpture 1",
+  "artist": "Sandra Keja Planken",
+  "material": "Remnant glass, recycled yarns",
+  "price_display": "€ 3.333,–",
+  "price_num": 3333,
+  "status": "available",
+  "image": "sandra-keja-planken-nani-drop-sculpture-1.jpg",
+  "link": "sandra-keja-planken-nani-drop-sculpture-1.html"
+ },
+ {
+  "title": "Nani Drop sculpture 2",
+  "artist": "Sandra Keja Planken",
+  "material": "Remnant glass, recycled yarns",
+  "price_display": "€ 3.333,–",
+  "price_num": 3333,
+  "status": "available",
+  "image": "sandra-keja-planken-nani-drop-sculpture-2.jpg",
+  "link": "sandra-keja-planken-nani-drop-sculpture-2.html"
+ },
+ {
+  "title": "Nani Weave",
+  "artist": "Sandra Keja Planken",
+  "material": "Recycled plastic, recycled wool, remnant yarns",
+  "price_display": "€ 3.333,–",
+  "price_num": 3333,
+  "status": "available",
+  "image": "sandra-keja-planken-nani-weave.jpg",
+  "link": "sandra-keja-planken-nani-weave.html"
+ },
+ {
+  "title": "Ocean Wave weave",
+  "artist": "Sandra Keja Planken",
+  "material": "Recycled wool, remnant cotton satin, wool yarns, recycled plastic yarns",
+  "price_display": "€ 8.888,–",
+  "price_num": 8888,
+  "status": "available",
+  "image": "sandra-keja-planken-ocean-wave-weave.jpg",
+  "link": "sandra-keja-planken-ocean-wave-weave.html"
+ },
+ {
+  "title": "Sea Cucumber sculpture",
+  "artist": "Sandra Keja Planken",
+  "material": "Remnant glass, recycled yarns",
+  "price_display": "€ 2.121,–",
+  "price_num": 2121,
+  "status": "available",
+  "image": "sandra-keja-planken-sea-cucumber-sculpture.jpg",
+  "link": "sandra-keja-planken-sea-cucumber-sculpture.html"
+ },
+ {
+  "title": "Valorosa Viva wall sculpture",
+  "artist": "Sandra Keja Planken",
+  "material": "Recycled and remnant cotton",
+  "price_display": "€ 7.997,–",
+  "price_num": 7997,
+  "status": "available",
+  "image": "sandra-keja-planken-valorosa-viva-wall-sculpture.jpg",
+  "link": "sandra-keja-planken-valorosa-viva-wall-sculpture.html"
+ }
+]

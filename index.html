@@ -3,105 +3,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MADART Foundation | Curating Amsterdam's Overlooked Artists</title>
-<meta name="description" content="MADART Foundation curates contemporary makers the art world has overlooked, and gives them a platform on landmark locations in Amsterdam.">
+<title>Home — MADART FOUNDATION</title>
+<meta name="description" content="MADART Foundation curates contemporary makers overlooked by the traditional art world.">
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<style>
+  * { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  .imgph {
+    background: var(--linen);
+    border: 1px dashed var(--concrete);
+    display: flex; align-items: center; justify-content: center;
+    color: #8A8680; font-size: 11px; text-align: center; padding: 16px;
+    line-height: 1.5;
+  }
+  .imgph.tall { aspect-ratio: 3/4; }
+  .imgph.wide { aspect-ratio: 16/9; }
+  .imgph.square { aspect-ratio: 1; }
+  .imgph.portrait { aspect-ratio: 4/5; }
+  .imgph.hero-ph { aspect-ratio: 21/9; }
+  /* Echte foto's hergebruiken dezelfde klassen als de placeholders */
+  img.tall, img.wide, img.square, img.portrait, img.hero-ph {
+    width: 100%; display: block; object-fit: cover; border: none; background: var(--linen);
+  }
+  .peoplegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .personcard h3 { margin-bottom: 2px; }
+  .personcard .role { font-size: 12px; color: #5A5650; margin-bottom: 12px; display: block; }
+  .mood-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .peoplegrid { grid-template-columns: 1fr; } .mood-strip { grid-template-columns: repeat(2, 1fr); } }
 
+  /* ── Beweging: subtiele reveal-animatie bij scrollen ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal-stagger.in > *:nth-child(1) { transition-delay: 0.02s; }
+  .reveal-stagger.in > *:nth-child(2) { transition-delay: 0.08s; }
+  .reveal-stagger.in > *:nth-child(3) { transition-delay: 0.14s; }
+  .reveal-stagger.in > *:nth-child(4) { transition-delay: 0.20s; }
+  .reveal-stagger.in > *:nth-child(5) { transition-delay: 0.26s; }
+  .reveal-stagger.in > *:nth-child(6) { transition-delay: 0.32s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  /* Zachte hover-lift op klikbare kaarten */
+  .maker-card, .swipecard, .shopcard, .card, .xcard { transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+  .maker-card:hover, .swipecard:hover, .shopcard:hover, .xcard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(30,29,28,0.08); }
+
+  .swiperow { scroll-behavior: auto; }
+  .swiperow {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 12px; margin: 0 -28px; padding-left: 28px; padding-right: 28px;
+  }
+  .swiperow::-webkit-scrollbar { height: 6px; }
+  .swiperow::-webkit-scrollbar-thumb { background: var(--concrete); border-radius: 3px; }
+
+  /* Carpenters-stijl makerskaart: grote portret-foto, naam eronder in caps */
+  .swipecard {
+    flex: 0 0 240px; scroll-snap-align: start; display: block; color: var(--archive);
+  }
+  .swipecard:hover { text-decoration: none; }
+  .swipecard .info { padding: 12px 2px 0; }
+  .swipecard h3 { font-size: 12px; margin: 0 0 2px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+  .swipecard .gallery { font-size: 10.5px; color: #5A5650; }
+
+  .sectionhead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+  .sectionhead .seeall { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Exhibitions-kaarten (archief) */
+  .xcard { display: block; color: var(--archive); flex: 0 0 480px; scroll-snap-align: start; }
+  .xcard:hover { text-decoration: none; }
+  .xcard .info { padding: 14px 2px 0; }
+  .xcard h3 { font-size: 15px; margin: 0 0 2px; text-transform: uppercase; }
+  .xcard .sub { font-size: 12px; color: #5A5650; margin-bottom: 6px; }
+  .xcard .meta { font-size: 11px; color: #8A8680; }
+  .tabbar { display: flex; gap: 24px; margin-bottom: 28px; }
+  .tabbar button {
+    background: none; border: none; font-family: inherit; font-size: 12px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #8A8680; padding: 0 0 6px; cursor: pointer; border-bottom: 2px solid transparent;
+  }
+  .tabbar button.active { color: var(--archive); border-bottom-color: var(--dawn); }
+  .xitem { display: none; }
+  .xitem.shown { display: block; }
+
+  /* Hero-carrousel — werkt voor zowel placeholder-vakken als echte foto's */
+  .carousel { position: relative; overflow: hidden; }
+  .carousel .hero-ph { display: none; transition: opacity 0.9s ease; }
+  .carousel .hero-ph.active { display: flex; }
+  .carousel img.hero-ph.active { display: block; }
+  .carousel-dots { position: absolute; bottom: 20px; right: 28px; display: flex; gap: 8px; z-index: 5; }
+  .carousel-dots button {
+    width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--chalk); background: transparent;
+    padding: 0; cursor: pointer; transition: background 0.25s ease;
+  }
+  .carousel-dots button.active { background: var(--chalk); }
+
+  /* Volledig-scherm hero, transparante navigatie eroverheen (alleen homepage) */
+  body.hero-full header.site {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    background: transparent; border-bottom: none;
+  }
+  body.hero-full header.site {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: transparent; border-bottom: none; transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  body.hero-full.scrolled header.site { background: var(--chalk); border-bottom: 1px solid var(--concrete); }
+  body.hero-full.scrolled header.site nav.site a { color: var(--archive); }
+  body.hero-full header.site .logo { color: var(--dawn); }
+  body.hero-full header.site nav.site a { color: var(--chalk); }
+  body.hero-full header.site nav.site a:hover { color: var(--concrete); }
+  body.hero-full.scrolled header.site nav.site a:hover { color: var(--dawn); }
+  header.site .logo { color: var(--dawn); }
+  body.hero-full { padding-top: 0; }
+  section.hero.fullbleed {
+    position: relative; height: 100vh; min-height: 560px; padding: 0; border-bottom: none; background: var(--archive);
+    overflow: hidden;
+  }
+  section.hero.fullbleed .hero-ph {
+    position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto;
+    border: none; border-radius: 0; background: #2a2825; color: var(--concrete); object-fit: cover;
+  }
+  section.hero.fullbleed .hero-overlay {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 0 32px; z-index: 3;
+    background: linear-gradient(transparent, rgba(30,29,28,0.85));
+  }
+  section.hero.fullbleed .hero-overlay .eyebrow { color: var(--concrete); }
+  section.hero.fullbleed .hero-overlay h1 { color: var(--chalk); font-size: 30px; margin-bottom: 8px; max-width: 640px; }
+  section.hero.fullbleed .hero-overlay .nowshowing { color: var(--concrete); font-size: 12px; letter-spacing: 0.03em; margin-bottom: 4px; }
+  section.hero.fullbleed .hero-overlay a.viewlink { color: var(--chalk); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Who we are — betere uitlijning, gegarandeerd identieke afmetingen ongeacht bronformaat */
+  .peoplegrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 640px; margin: 0 auto; }
+  .personcard { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .personcard img.portrait4x5 { width: 220px; max-width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; }
+  .personcard h3 { margin-top: 18px; margin-bottom: 2px; }
+  .personcard .role { font-size: 12px; color: #5A5650; margin-bottom: 12px; display: block; }
+  .personcard p { max-width: 260px; }
+  @media (max-width: 720px) { .peoplegrid { grid-template-columns: 1fr; } }
+
+  /* Slogan als intro-scherm: bedekt de hele pagina bij het laden, verdwijnt daarna automatisch */
+  .slogan-overlay {
+    position: fixed; inset: 0; z-index: 200; background: var(--archive);
+    display: flex; align-items: center; justify-content: center; padding: 0 24px;
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .slogan-overlay.hide { opacity: 0; transform: translateY(-4%); pointer-events: none; }
+  .slogan-text {
+    color: var(--chalk); font-size: clamp(14px, 3.3vw, 44px); white-space: nowrap; margin: 0; line-height: 1.2;
+  }
+  @media (max-width: 700px) { .slogan-text { white-space: normal; } }
+
+  /* Uitgebreide footer, zoals Carpenters Workshop Gallery */
+  footer.site-footer { background: var(--archive); color: var(--chalk); padding: 56px 0 0; margin-top: 0; }
+  footer.site-footer .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid #3a3835; }
+  footer.site-footer h3 { color: var(--chalk); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  footer.site-footer p, footer.site-footer a { color: var(--concrete); font-size: 12.5px; }
+  footer.site-footer a:hover { color: var(--chalk); }
+  .newsletter-form { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .newsletter-form input {
+    flex: 1; min-width: 160px; background: transparent; border: 1px solid #55524c; color: var(--chalk);
+    font-family: inherit; font-size: 12.5px; padding: 11px 14px; border-radius: 2px;
+  }
+  .newsletter-form input::placeholder { color: #8A8680; }
+  .newsletter-form button { background: var(--chalk); color: var(--archive); border: none; }
+  .footer-social { display: flex; gap: 14px; margin-top: 12px; }
+  .footer-social a { border: 1px solid #55524c; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  footer.site-footer .footer-bottom { padding: 18px 0 28px; font-size: 11px; color: #8A8680; }
+  footer.site-footer .footer-bottom a { color: #8A8680; }
+  @media (max-width: 720px) { footer.site-footer .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="hero-full">
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html">MADART FOUNDATION</a>
   <nav class="site">
     <a href="missie.html">Mission</a>
-    <a href="seizoen-02-ground.html">Season 02 — GROUND</a>
-    <a href="pers.html">Press</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="shop.html">Shop</a>
+    <a href="team.html">Team</a>
+    <a href="support-us.html">Support us</a>
     <a href="contact.html">Contact</a>
   </nav>
 </div></header>
 
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">MADART FOUNDATION &middot; Amsterdam</p>
-    <h1>We curate the blind spots<br>of the art world.</h1>
-    <p class="lede">The median Dutch visual artist earns &euro;16,000 a year &mdash; the lowest of any creative profession, well below the social minimum. Funds finance what institutions already show. Galleries show what is already sold. MADART Foundation exists for who is left outside that circle.</p>
-    <a class="btn" href="seizoen-02-ground.html">View Season 02 &mdash; GROUND &rarr;</a>
+
+
+<div class="slogan-overlay" id="sloganOverlay">
+  <h2 class="slogan-text">We curate the blind spots of the art world.</h2>
+</div>
+
+<section class="hero fullbleed carousel">
+  <img class="hero-ph active" data-slide="0" src="hero-1.jpg" alt="GROUND exhibition space">
+  <img class="hero-ph" data-slide="1" src="hero-2.jpg" alt="GROUND exhibition space">
+  <img class="hero-ph" data-slide="2" src="hero-3.jpg" alt="GROUND exhibition space">
+  <div class="carousel-dots">
+    <button class="active" data-dot="0" aria-label="Slide 1"></button>
+    <button data-dot="1" aria-label="Slide 2"></button>
+    <button data-dot="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="hero-overlay">
+    <div class="wrap">
+      <p class="nowshowing">NOW SHOWING &mdash; SEASON 02</p>
+      <h1>GROUND</h1>
+      <p class="eyebrow" style="margin-bottom:16px;">NIO House Amsterdam, fourth floor &nbsp;|&nbsp; 3 Jul &ndash; 30 Sep 2026</p>
+      <a class="viewlink" href="seizoen-02-ground.html">&#8594; View the season</a>
+    </div>
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="wrap">
-    <h2>What We Do</h2>
-    <p class="lede">MADART Foundation curates contemporary makers overlooked by the traditional art world &mdash; self-taught, uncategorisable, or simply outside institutional criteria &mdash; and gives them visibility on landmark locations in Amsterdam.</p>
-    <p>We finance their exhibitions: production, presentation, fee. 100% of sales proceeds go to the maker. No exclusive contract. No fee to participate.</p>
-    <a class="btn-outline" href="missie.html">Read our mission &rarr;</a>
+    <div class="grid2" style="align-items:center;">
+      <div>
+        <p class="eyebrow">WHAT WE DO</p>
+        <h2>We curate overlooked makers, and give them a stage on landmark locations in Amsterdam.</h2>
+        <p class="lede">We finance the exhibition. The maker keeps 100% of every sale. No exclusive contract, no fee to participate — just a room, an audience, and a fair deal.</p>
+        <p>The system that overlooks these makers isn't broken by accident. Funds finance what institutions already show. Galleries show what is already sold. Somewhere between the two, a whole category of serious, exciting work falls through the cracks — not because it isn't good enough, but because it doesn't fit the boxes the system was built around.</p>
+        <p>MADART Foundation exists for exactly that gap. We cover production costs, presentation, and a fee for the maker, on landmark locations most of them could never access on their own. In return, we ask for nothing back: no commission, no exclusivity, no say over what they make next.</p>
+        <a href="missie.html">Read our mission &#8594;</a>
+      </div>
+      <img class="tall" src="whatwedo-1.JPG" alt="Installing a work at MADART Foundation">
+    </div>
   </div>
 </section>
 
-<section class="alt">
+<section class="reveal">
   <div class="wrap">
-    <p class="eyebrow">Who We Curate</p>
-    <h2>The system didn't overlook these makers because their work falls short.<br>It overlooked them because the system is too narrow to contain them.</h2>
-    <div class="grid4" style="margin-top: 36px;">
+    <div class="sectionhead">
       <div>
-        <h3>The Autodidact</h3>
-        <p>No recognised diploma, so no official start date for funds that require institutional credentials.</p>
+        <p class="eyebrow">THE MAKERS</p>
+        <h2 style="margin-bottom:0;">Seven practices. One ground.</h2>
       </div>
+      <a class="seeall" href="seizoen-02-ground.html">See all &#8594;</a>
+    </div>
+  </div>
+  <div class="swiperow" data-infinite>
+    <a class="swipecard" href="anne-van-borselen.html"><img class="portrait" src="maker-annevanborselen.jpeg" alt="Anne van Borselen"><div class="info"><h3>Anne van Borselen</h3><span class="gallery">Gallery 1</span></div></a>
+    <a class="swipecard" href="rogier-bosschaart.html"><img class="portrait" src="maker-rogierbosschaart.jpg" alt="Rogier Bosschaart"><div class="info"><h3>Rogier Bosschaart</h3><span class="gallery">Gallery 2</span></div></a>
+    <a class="swipecard" href="aad-kruiswijk.html"><img class="portrait" src="maker-aadkruiswijk.jpg" alt="Aad Kruiswijk"><div class="info"><h3>Aad Kruiswijk</h3><span class="gallery">Gallery 2</span></div></a>
+    <a class="swipecard" href="sandra-keja-planken.html"><img class="portrait" src="maker-sandrakejaplanken.png" alt="Sandra Keja Planken"><div class="info"><h3>Sandra Keja Planken</h3><span class="gallery">Gallery 3</span></div></a>
+    <a class="swipecard" href="loutje-hoekstra.html"><img class="portrait" src="maker-loutjehoekstra.jpeg" alt="Loutje Hoekstra"><div class="info"><h3>Loutje Hoekstra</h3><span class="gallery">Gallery 4</span></div></a>
+    <a class="swipecard" href="arno-hoogland.html"><img class="portrait" src="maker-arnohoogland.png" alt="Arno Hoogland"><div class="info"><h3>Arno Hoogland</h3><span class="gallery">Gallery Lounge</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-coenbeeksma.jpg" alt="Coen Beeksma, ECHO"><div class="info"><h3>Coen Beeksma</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-cynthiakevin.jpg" alt="Cynthia &amp; Kevin Kars-Boom, ECHO"><div class="info"><h3>Cynthia &amp; Kevin Kars-Boom</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-billiejokrul.jpg" alt="Billie-Jo Krul, ECHO"><div class="info"><h3>Billie-Jo Krul</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-ritsertmans.png" alt="Ritsert Mans, ECHO"><div class="info"><h3>Ritsert Mans</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-frankpenders.jpg" alt="Frank Penders, ECHO"><div class="info"><h3>Frank Penders</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-maaikerabbinge.jpeg" alt="Maaike Rabbinge, ECHO"><div class="info"><h3>Maaike Rabbinge</h3><span class="gallery">ECHO &mdash; initiator</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-zowarindt.jpg" alt="Zowa Rindt, ECHO"><div class="info"><h3>Zowa Rindt</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-marcvoorn.jpg" alt="Marc th. van der Voorn, ECHO"><div class="info"><h3>Marc th. van der Voorn</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-janwillemvanelten.png" alt="Jan Willem van Elten, ECHO"><div class="info"><h3>Jan Willem van Elten</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-jeroenvanveluw.jpeg" alt="Jeroen van Veluw, ECHO"><div class="info"><h3>Jeroen van Veluw</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-sophiewantia.jpg" alt="Sophie Wantia, ECHO"><div class="info"><h3>Sophie Wantia</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-frederikwasseur.jpeg" alt="Frederik Wasseur, ECHO"><div class="info"><h3>Frederik Wasseur</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+    <a class="swipecard" href="echo.html"><img class="portrait" src="maker-echo-erwinwoldring.jpeg" alt="Erwin Woldring, ECHO"><div class="info"><h3>Erwin Woldring</h3><span class="gallery">ECHO &mdash; Gallery 4</span></div></a>
+  </div>
+</section>
+
+<section class="alt reveal">
+  <div class="wrap">
+    <div class="sectionhead">
       <div>
-        <h3>The Uncategorisable</h3>
-        <p>Working between disciplines. The work falls just outside every recognisable box.</p>
+        <p class="eyebrow">EXHIBITIONS</p>
+        <h2 style="margin-bottom:0;">Past, current and upcoming &mdash; documented.</h2>
       </div>
+      <a class="seeall" href="exhibitions.html">See all &#8594;</a>
+    </div>
+  </div>
+  <div class="swiperow" data-infinite>
+    <a class="xcard" href="seizoen-02-ground.html">
+      <img class="wide" style="aspect-ratio:4/3;" src="exhibition-ground.jpg" alt="Season 02 GROUND installation view">
+      <div class="info"><h3>Season 02 &mdash; GROUND</h3><p class="sub">7 makers, one ground</p><p class="meta">3 Jul &ndash; 30 Sep 2026</p></div>
+    </a>
+    <a class="xcard" href="events.html">
+      <img class="wide" style="aspect-ratio:4/3;" src="exhibition-glue.jpg" alt="GLUE Amsterdam, Maison d'Artiste">
+      <div class="info"><h3>GLUE Amsterdam 2026</h3><p class="sub">15 more makers, 6th &amp; 7th floor</p><p class="meta">Runs alongside GROUND</p></div>
+    </a>
+    <a class="xcard" href="exhibitions.html">
+      <img class="wide" style="aspect-ratio:4/3;" src="exhibition-paradox.png" alt="Season 01 PARADOX archive image">
+      <div class="info"><h3>Season 01 &mdash; PARADOX</h3><p class="sub">Where opposites no longer hold</p><p class="meta">Past &mdash; 1 Apr &ndash; 1 Jul 2026</p></div>
+    </a>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <p class="eyebrow">THE PLACE</p>
+    <h2>NIO House Amsterdam</h2>
+    <div class="grid2">
+      <img class="tall" src="place-1.jpg" alt="NIO House Amsterdam exterior">
       <div>
-        <h3>The Too-Versatile Maker</h3>
-        <p>A practice too broad for the institutional expectation of one consistent signature.</p>
-      </div>
-      <div>
-        <h3>The Experienced Outsider</h3>
-        <p>Decades of work, never institutional recognition. Quality has no expiry date.</p>
+        <p class="lede">A Rijksmonument on the Amsterdam canals. Built in 1891, home to Metz &amp; Co for over a century, crowned with a Rietveld glass dome, restored by MVRDV in 2024. MADART Foundation occupies the fourth floor.</p>
+        <p>The architecture, the canal, the history &mdash; they communicate a position no brochure can replicate. As visitors move up through the building, they move up through its history: from the ground floor entrance, past a century of design retail, to the fourth floor, where daylight floods in through the Rietveld dome.</p>
+        <p>Seven floors in total. The Foundation occupies the fourth &mdash; a room that already meant something before a single work was hung in it.</p>
+        <p>Leidsestraat 32-34, 1017 PB Amsterdam</p>
+        <a href="contact.html">Plan a visit &#8594;</a>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="alt reveal">
   <div class="wrap">
-    <p class="eyebrow">How We Curate</p>
-    <h2>The Dimensions</h2>
-    <p>Every maker, every work, every exhibition is tested against four conditions. Each is necessary. A maker who meets three of the four is not curated.</p>
-    <div class="grid4" style="margin-top: 36px; border-top: 1px solid var(--linen); padding-top: 32px;">
-      <div>
-        <h3>Future-Oriented</h3>
-        <p>Points forward in content, aesthetics or material. Not nostalgic &mdash; direction-giving.</p>
+    <p class="eyebrow">WHO WE ARE</p>
+    <h2>The people behind the Foundation</h2>
+    <div class="peoplegrid">
+      <div class="personcard">
+        <img class="portrait4x5" src="founder-justin.png" alt="Justin Karijoredjo">
+        <h3 style="margin-top:14px;">Justin Karijoredjo</h3>
+        <span class="role">Founder, Curatorial &amp; Strategic Director</span>
+        <p style="font-size:13px;">Sees what the institutional art world overlooks, and brings it to the highest tables.</p>
       </div>
-      <div>
-        <h3>Joyful</h3>
-        <p>Activates a positive, connecting response in the viewer.</p>
-      </div>
-      <div>
-        <h3>Optimistic</h3>
-        <p>Forward-looking and human-centred. Critical is welcome. Cynical is not.</p>
-      </div>
-      <div>
-        <h3>Innovative</h3>
-        <p>Objectively new in form, medium, technique or material.</p>
+      <div class="personcard">
+        <img class="portrait4x5" src="founder-kimberly-portrait.jpg" alt="Kimberly Tanikromo">
+        <h3 style="margin-top:14px;">Kimberly Tanikromo</h3>
+        <span class="role">Operational Partner, Stichting The Bloys</span>
+        <p style="font-size:13px;">Turns vision into production &mdash; and brings a proven grant track record to every maker we curate.</p>
       </div>
     </div>
+    <p style="margin-top:20px;"><a href="team.html">Meet the full team &#8594;</a></p>
   </div>
 </section>
 
-<section class="dark">
-  <div class="wrap">
-    <p class="eyebrow">Now Showing &middot; Season 02</p>
-    <h1>GROUND</h1>
-    <p class="lede">3 July &mdash; 30 September 2026 &middot; NIO House Amsterdam, fourth floor</p>
-    <p>The common ground shared by maker, Foundation and visitor alike. Not a stage built on favour. A foundation built on conviction.</p>
-    <a class="btn" href="seizoen-02-ground.html">Go to the season &rarr;</a>
+<script>
+(function() {
+  const slides = document.querySelectorAll('.carousel .hero-ph');
+  const dots = document.querySelectorAll('.carousel-dots button');
+  let current = 0;
+  function show(i) {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    current = i;
+  }
+  dots.forEach((d, idx) => d.addEventListener('click', () => show(idx)));
+  setInterval(() => show((current + 1) % slides.length), 4500);
+})();
+</script>
+
+
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Be the first to know</h3>
+      <p>Join our newsletter for updates on exhibitions, openings and new work.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Email" required>
+        <button class="btn" type="submit">Sign up</button>
+      </form>
+    </div>
+    <div>
+      <h3>Visit</h3>
+      <p>NIO House Amsterdam<br>Leidsestraat 32-34, 1017 PB Amsterdam<br>Fourth floor</p>
+      <p style="margin-top:10px;"><a href="contact.html">Plan a visit &#8594;</a></p>
+    </div>
+    <div>
+      <h3>Follow us on social media</h3>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/madartfoundation" aria-label="Instagram">IG</a>
+      </div>
+      <p style="margin-top:14px;"><a href="pers.html">Press</a></p>
+    </div>
   </div>
-</section>
+  <div class="wrap footer-bottom">
+    MADART FOUNDATION &middot; 2026 &middot; This programme is made possible in part by <a href="https://curatedbymadart.com">Curated by MADART</a>.
+  </div>
+</footer>
 
-<footer class="site"><div class="wrap">
-  MADART FOUNDATION &middot; NIO House Amsterdam &middot; Leidsestraat 32-34, Amsterdam &middot; 2026<br>
-  <a href="https://www.instagram.com/madartfoundation">Instagram &rarr;</a>
-</div></footer>
+<script>
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!('IntersectionObserver' in window) || !els.length) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
+})();
 
+// Oneindig swipen: verdubbelt de inhoud van een rij en springt onzichtbaar terug naar het begin
+// Wacht tot alle afbeeldingen geladen zijn, anders klopt de berekende breedte niet en ontstaat er "verspringen"
+(function() {
+  function setupInfinite(row) {
+    const original = row.innerHTML;
+    row.innerHTML = original + original;
+    let halfWidth = row.scrollWidth / 2;
+    let ticking = false;
+    row.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (row.scrollLeft >= halfWidth - 2) {
+          row.scrollLeft -= halfWidth;
+        } else if (row.scrollLeft <= 2) {
+          row.scrollLeft += halfWidth;
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+    return () => { halfWidth = row.scrollWidth / 2; };
+  }
+  const rows = document.querySelectorAll('.swiperow[data-infinite]');
+  const recalcs = Array.from(rows).map(setupInfinite);
+  window.addEventListener('load', () => recalcs.forEach(fn => fn()));
+})();
+
+// Slogan-introscherm: verschijnt bij laden, verdwijnt automatisch na een korte pauze
+(function() {
+  const overlay = document.getElementById('sloganOverlay');
+  if (!overlay) return;
+  document.documentElement.style.overflow = 'hidden';
+  let dismissed = false;
+  function reveal() {
+    if (dismissed) return;
+    dismissed = true;
+    overlay.classList.add('hide');
+    document.documentElement.style.overflow = '';
+    setTimeout(() => { overlay.style.display = 'none'; }, 1050);
+  }
+  const autoTimer = setTimeout(reveal, 1800);
+  // Ongeduldige bezoekers kunnen het zelf versnellen
+  overlay.addEventListener('click', () => { clearTimeout(autoTimer); reveal(); });
+  window.addEventListener('wheel', () => { clearTimeout(autoTimer); reveal(); }, { once: true, passive: true });
+  window.addEventListener('touchstart', () => { clearTimeout(autoTimer); reveal(); }, { once: true, passive: true });
+  window.addEventListener('keydown', () => { clearTimeout(autoTimer); reveal(); }, { once: true });
+})();
+
+// Menu krijgt een ondergrond zodra je voorbij de hero scrolt
+(function() {
+  if (!document.body.classList.contains('hero-full')) return;
+  function computeThreshold() {
+    const hero = document.querySelector('section.hero.fullbleed');
+    return Math.max((hero ? hero.offsetHeight : window.innerHeight) - 140, 200);
+  }
+  let threshold = computeThreshold();
+  window.addEventListener('load', () => { threshold = computeThreshold(); });
+  window.addEventListener('resize', () => { threshold = computeThreshold(); });
+  window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > threshold);
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
