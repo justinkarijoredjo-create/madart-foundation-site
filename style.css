@@ -1,216 +1,82 @@
+/* MADART FOUNDATION — Maison d'Artiste — gedeeld stylesheet
+   LET OP: dit is een zelfstandig opgebouwd stylesheet o.b.v. de vastgelegde designtokens,
+   omdat het bestaande style.css uit de live site-repo niet in deze sessie beschikbaar was.
+   Voor deployment: vergelijken met / vervangen door het daadwerkelijke style.css op
+   madart-foundation-site, zodat er geen twee versies naast elkaar bestaan. */
+
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;700;900&display=swap');
 
-:root {
-  --archive: #1E1D1C;
-  --concrete: #C3BDB8;
-  --linen: #E1DAD2;
-  --chalk: #F4EDE4;
-  --dawn: #293DCE;
+:root{
+  --archive-black:#1E1D1C;
+  --concrete-memory:#C3BDB8;
+  --linen-dust:#E1DAD2;
+  --chalk-light:#F4EDE4;
+  --dawn-blue:#293DCE;
+  --stat-available-bg:#DDE8D6;
+  --stat-available-tx:#2F5A3A;
+  --stat-estimate-bg:#F7E3C4;
+  --stat-estimate-tx:#7A5A1E;
+  --stat-pending-bg:#E3DDD3;
+  --stat-pending-tx:#5A5650;
+  --grey-meta:#5A5650;
+  --grey-code:#8A8680;
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Chivo Mono', monospace;
+  background:var(--chalk-light);
+  color:var(--archive-black);
+}
+a{color:var(--dawn-blue); text-decoration:none;}
+a:hover{text-decoration:underline;}
 
-html, body {
-  margin: 0;
-  background: var(--chalk);
-  color: var(--archive);
-  font-family: 'Chivo Mono', monospace;
-  line-height: 1.6;
+header, footer{
+  padding:16px 20px;
+  border-bottom:1px solid var(--concrete-memory);
+  font-size:13px;
 }
+footer{border-bottom:none; border-top:1px solid var(--concrete-memory); color:var(--grey-meta);}
 
-a { color: var(--dawn); text-decoration: none; }
-a:hover { text-decoration: underline; }
+.wrap{max-width:900px; margin:0 auto; padding:0 20px;}
+.eyebrow{font-size:12px; color:var(--grey-meta); letter-spacing:.04em; margin-bottom:6px;}
+.lede{font-size:14px; line-height:1.6; max-width:640px;}
 
-/* ── Wrap ── */
-.wrap {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 28px;
+/* Mobile worklook page */
+body.worklook{background:var(--chalk-light);}
+.top2{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 16px; font-size:12px; border-bottom:1px solid var(--concrete-memory);
 }
+.top2 a{font-weight:700;}
+.live2{
+  background:var(--stat-available-bg); color:var(--stat-available-tx);
+  padding:2px 8px; border-radius:8px; font-size:10px;
+}
+img.work{width:100%; display:block; background:var(--linen-dust);}
+.body2{padding:16px;}
+.meta2{font-size:12px; color:var(--grey-meta); margin:0 0 4px;}
+.code2{font-size:11px; color:var(--grey-code); margin:0 0 14px;}
+.priceRow2{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+.price2{font-size:20px; font-weight:900;}
+.status3{
+  background:var(--stat-available-bg); color:var(--stat-available-tx);
+  padding:4px 10px; border-radius:8px; font-size:11px;
+}
+.btn, .btn-outline{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:12px 16px; font-family:'Chivo Mono', monospace; font-size:13px;
+  border-radius:2px; margin-bottom:0;
+}
+.btn{background:var(--archive-black); color:var(--chalk-light);}
+.btn:hover{text-decoration:none; opacity:.9;}
+.btn-outline{border:1px solid var(--archive-black); color:var(--archive-black); background:transparent;}
+.btn-outline:hover{text-decoration:none; background:var(--linen-dust);}
+.foot2{font-size:11px; color:var(--grey-meta); line-height:1.6; margin-top:18px;}
 
-/* ── Header / Nav ── */
-header.site {
-  border-bottom: 1px solid var(--concrete);
-  padding: 22px 0;
-  position: sticky;
-  top: 0;
-  background: var(--chalk);
-  z-index: 100;
-}
-header.site .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-header.site .logo {
-  font-weight: 900;
-  font-size: 15px;
-  letter-spacing: 0.04em;
-  color: var(--archive);
-}
-nav.site a {
-  margin-left: 22px;
-  font-size: 12px;
-  color: var(--archive);
-  letter-spacing: 0.03em;
-}
-nav.site a:first-child { margin-left: 0; }
-nav.site a:hover { color: var(--dawn); text-decoration: none; }
-
-/* ── Typography ── */
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: #5A5650;
-  margin: 0 0 14px;
-}
-h1 {
-  font-size: 44px;
-  font-weight: 900;
-  line-height: 1.1;
-  margin: 0 0 24px;
-  max-width: 760px;
-  letter-spacing: -0.01em;
-}
-h2 { font-size: 19px; font-weight: 900; margin: 0 0 16px; }
-h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; }
-p { font-size: 14px; margin: 0 0 14px; max-width: 640px; }
-.lede { font-size: 16px; max-width: 600px; color: #3a3835; line-height: 1.65; }
-
-/* ── Sections ── */
-section { padding: 72px 0; border-bottom: 1px solid var(--linen); }
-section:last-of-type { border-bottom: none; }
-
-section.alt { background: var(--linen); }
-section.dark {
-  background: var(--archive);
-  border-bottom: none;
-}
-section.dark h1,
-section.dark h2,
-section.dark h3,
-section.dark p,
-section.dark .eyebrow,
-section.dark .lede { color: var(--chalk); }
-section.dark .eyebrow { color: var(--concrete); }
-section.dark a.btn { background: var(--chalk); color: var(--archive); }
-section.dark a.btn:hover { opacity: 0.85; }
-
-/* ── Hero ── */
-section.hero {
-  background: var(--archive);
-  padding: 100px 0 96px;
-  border-bottom: none;
-}
-section.hero h1 { color: var(--chalk); }
-section.hero .eyebrow { color: var(--concrete); }
-section.hero .lede { color: var(--concrete); }
-section.hero a.btn {
-  background: var(--chalk);
-  color: var(--archive);
-  margin-top: 8px;
-}
-section.hero a.btn:hover { opacity: 0.85; text-decoration: none; }
-
-/* ── Buttons ── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--dawn);
-  color: var(--chalk);
-  font-size: 13px;
-  padding: 13px 22px;
-  border-radius: 2px;
-  font-family: inherit;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.btn:hover { text-decoration: none; opacity: 0.9; }
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--archive);
-  color: var(--archive);
-  font-size: 13px;
-  padding: 12px 22px;
-  border-radius: 2px;
-  font-family: inherit;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.btn-outline:hover { text-decoration: none; background: var(--archive); color: var(--chalk); }
-
-/* ── Grids ── */
-.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-
-@media (max-width: 720px) {
-  .grid4, .grid3, .grid2 { grid-template-columns: 1fr; }
-  h1 { font-size: 30px; }
-  section { padding: 52px 0; }
-  section.hero { padding: 64px 0 60px; }
-}
-
-/* ── Cards ── */
-.card {
-  background: var(--linen);
-  border-radius: 2px;
-  padding: 28px;
-}
-.maker-card {
-  border: 1px solid var(--concrete);
-  border-radius: 2px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.maker-card .gallery { font-size: 11px; color: #5A5650; }
-.maker-card .status { font-size: 11px; margin-top: 8px; }
-.status.live { color: #2F5A3A; }
-.status.soon { color: #8A8680; }
-
-/* ── Misc ── */
-.placeholder {
-  border: 1px dashed var(--concrete);
-  border-radius: 2px;
-  padding: 14px;
-  font-size: 12px;
-  color: #8A8680;
-  background: var(--chalk);
-}
-table.dims { width: 100%; border-collapse: collapse; font-size: 13px; margin: 0 0 20px; }
-table.dims td { padding: 8px 0; border-bottom: 1px solid var(--linen); vertical-align: top; }
-table.dims td:first-child { font-weight: 700; width: 90px; }
-
-/* ── Footer ── */
-footer.site { padding: 40px 0 60px; font-size: 11px; color: #5A5650; }
-footer.site a { color: #5A5650; }
-
-/* ════════════════════════════════════════════════════
-   WORKLOOK — maker work pages (QR-code destination)
-   DO NOT CHANGE — QR codes are printed physically
-   ════════════════════════════════════════════════════ */
-body.worklook { max-width: 480px; }
-body.worklook header.site, body.worklook footer.site { display: none; }
-.top2 { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; font-size: 11px; }
-.live2 { display: inline-flex; align-items: center; gap: 5px; background: #dbe6f7; color: #1a4d8f; padding: 3px 10px; border-radius: 10px; }
-.live2::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #293DCE; display: inline-block; }
-img.work { width: 100%; display: block; }
-.body2 { padding: 18px 20px 28px; }
-.meta2 { font-size: 11.5px; color: #5A5650; margin: 0 0 4px; }
-.code2 { font-size: 10px; color: #8A8680; margin: 0 0 16px; }
-.priceRow2 { display: flex; justify-content: space-between; align-items: center;
-  border-top: 1px solid #c3bdb8; border-bottom: 1px solid #c3bdb8; padding: 14px 0; margin-bottom: 18px; }
-.price2 { font-size: 24px; font-weight: 900; }
-.status3 { display: inline-flex; align-items: center; gap: 5px; background: #DDE8D6;
-  color: #2F5A3A; padding: 4px 10px; border-radius: 10px; font-size: 11px; }
-.status3::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2F5A3A; display: inline-block; }
-.foot2 { font-size: 9.5px; color: #8A8680; text-align: center; line-height: 1.6; margin-top: 18px; }
+/* Maker overview page */
+.grid2{display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:20px; margin-top:20px;}
+.maker-card{border:1px solid var(--concrete-memory); padding:14px; background:var(--linen-dust);}
+.maker-card h3{font-size:14px; margin:0 0 8px;}
+.maker-card .gallery{display:block; font-size:11px; color:var(--grey-meta); margin-top:2px;}
