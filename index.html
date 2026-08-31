@@ -109,7 +109,7 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-bottom: none;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, opacity 0.4s ease 0.1s;
   }
   body.hero-full header.site .logo { color: var(--chalk); }
   body.hero-full header.site nav.site a { color: var(--chalk); }
@@ -122,6 +122,9 @@
   body.hero-full.scrolled header.site .logo { color: var(--dawn); }
   body.hero-full.scrolled header.site nav.site a { color: var(--archive); }
   body.hero-full.scrolled header.site nav.site a:hover { color: var(--dawn); }
+
+  /* Loading page: nav blijft onzichtbaar zolang de introquote actief is */
+  body.hero-full.loading header.site { opacity: 0; pointer-events: none; }
 
   body.hero-full { padding-top: 0; }
 
@@ -193,7 +196,7 @@
   @media (max-width: 720px) { footer.site-footer .footer-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
-<body class="hero-full">
+<body class="hero-full loading">
 
 <!-- Sloganscherm -->
 <div class="slogan-overlay" id="sloganOverlay">
@@ -383,6 +386,7 @@
     if (dismissed) return;
     dismissed = true;
     overlay.classList.add('hide');
+    document.body.classList.remove('loading');
     document.documentElement.style.overflow = '';
     setTimeout(function() { overlay.style.display = 'none'; }, 1100);
   }
