@@ -200,7 +200,7 @@
 <div class="wrap railnav"><button data-prev aria-label="Previous">&#8592;</button><button data-next aria-label="Next">&#8594;</button></div>
 </section>
 <section class="reveal wide"><div class="wrap">
-  <p class="index"><span class="no">05</span><span>The Dome — seventh floor</span><span class="of">1 makers</span></p>
+  <p class="index"><span class="no">05</span><span>The Dome — seventh floor</span><span class="of">1 maker</span></p>
   <p class="lede" style="max-width:62ch;margin-bottom:28px">Rietveld&#39;s 1933 glass dome, given over now to sound rather than sight. Seventy-six square metres at the top of the house, where the route ends.</p>
 </div>
 <div class="rail" data-rail>
@@ -382,10 +382,17 @@
 
     var nav = rail.nextElementSibling;
     if (nav && nav.classList.contains('railnav')) {
+      // Smooth scrollBy silently does nothing on a rail that is far outside the
+      // viewport. Ask for the smooth version, then check: if nothing moved,
+      // set the position outright. The arrows work either way.
       var step = function(dir){
         var card = rail.querySelector('.slide');
         var w = card ? card.getBoundingClientRect().width + 18 : 320;
+        var from = rail.scrollLeft, to = from + dir * w * 2;
         rail.scrollBy({left: dir * w * 2, behavior: reduce ? 'auto' : 'smooth'});
+        setTimeout(function(){
+          if (Math.abs(rail.scrollLeft - from) < 2) rail.scrollLeft = to;
+        }, 320);
       };
       nav.querySelector('[data-prev]').addEventListener('click', function(){ step(-1); });
       nav.querySelector('[data-next]').addEventListener('click', function(){ step(1); });
