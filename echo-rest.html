@@ -1,34 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REST — Jan Willem van Elten — MADART FOUNDATION</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REST — ECHO — MADART FOUNDATION</title>
+<meta name="description" content="REST by ECHO. Aluminium extrusion profile (Nedal residue) · 35 × 30 × 45 cm · 2026">
+<link rel="canonical" href="https://madartfoundation.com/echo-rest.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="REST">
+<meta property="og:description" content="REST by ECHO. Aluminium extrusion profile (Nedal residue) · 35 × 30 × 45 cm · 2026">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/echo-rest-work.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="worklook">
-  <div class="top2">
-    <a href="https://www.instagram.com/madartfoundation">MADART FOUNDATION</a>
-    <span class="live2">live</span>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="top2">
+  <a href="index.html">MADART FOUNDATION</a>
+<span class="live2">SEASON 02 · LIVE</span></div>
+
+<main id="main">
+<img class="work" src="echo-rest-work.jpg" alt="REST, by ECHO">
+<div class="body2">
+  <p class="code2">GROUND-ECHO-17</p>
+  <a class="maker2" href="echo.html">ECHO &#8594;</a>
+  <h1>REST</h1>
+  <p class="meta2">Aluminium extrusion profile (Nedal residue) · 35 × 30 × 45 cm · 2026</p>
+
+  <div class="priceRow2">
+    <span class="price2">€ 1.320,–</span>
+    <span class="pill available">available</span>
   </div>
-  <img class="work" src="echo-rest-work.jpg" alt="REST, by Jan Willem van Elten">
-  <div class="body2">
-    <a href="echo.html">Jan Willem van Elten &#8594;</a>
-    <h1 style="font-size:17px;margin:6px 0 4px;">REST</h1>
-    <p class="meta2">Aluminium extrusion profile (Nedal residue) · 35 × 30 × 45 cm · 2026</p>
-    <p class="code2">GROUND-ECHO-17 &middot; updated today</p>
-    <div class="priceRow2">
-      <span class="price2">€ 1.320</span>
-      <span class="status3">available</span>
-    </div>
-    <a class="btn" style="width:100%;justify-content:center;margin-bottom:10px;"
-       href="https://wa.me/31622308015?text=Hi%20Maaike%2C%20I%27m%20interested%20in%20%27REST%27%20%28GROUND-ECHO-17%29%20%E2%80%94%20MADART%20FOUNDATION%2C%20Season%2002%20GROUND%20/%20ECHO.">Inquire via WhatsApp &#8594;</a>
-    <a class="btn-outline" style="width:100%;justify-content:center;"
-       href="echo.html">View full catalogue — ECHO</a>
-    <p class="foot2">100% of the sale proceeds go to the artist.<br>
-  Jan Willem van Elten works independently, without gallery representation.<br>
-  Sales inquiries are coordinated by Maaike Rabbinge.<br>
-  <a href="https://www.instagram.com/janwillemvanelten">Instagram — @janwillemvanelten</a></p>
+
+<a class="btn" href="https://wa.me/31622308015?text=Hi%20Maaike%2C%20I%27m%20interested%20in%20%27REST%27%20%28GROUND-ECHO-17%29%20%E2%80%94%20MADART%20FOUNDATION%2C%20Season%2002%20GROUND%20/%20ECHO.">Ask ECHO about this work</a>  <a class="btn-outline" href="echo.html">See all work by ECHO</a>
+
+  <p class="foot2">
+    100% of the sale price goes to the maker. MADART Foundation takes no commission and holds no
+    exclusive contract. You buy from ECHO; we made the room.
+  </p>
+
+  <div class="backline">
+    <a href="shop.html">All available works</a>
+<a href="seizoen-02-ground.html">Season 02 — GROUND</a>    <a href="visit.html">Plan a visit</a>
+    <a href="index.html">MADART Foundation</a>
   </div>
-</body>
+</div>
+</main>
+
+
+<script>
+(function(){
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+
+  // Opening state. Hours live in one place: data/site.yaml -> rendered here.
+  var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    var now=new Date();
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day];
+    var label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
 </html>
