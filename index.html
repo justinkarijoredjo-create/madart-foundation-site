@@ -16,10 +16,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=abee5b18">
+<link rel="stylesheet" href="style.css?v=62b202e9">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "description": "MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.", "email": "contact@madartfoundation.com", "legalName": "Stichting The Bloys", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "MADART Foundation", "sameAs": ["https://www.instagram.com/madartfoundation"], "url": "https://madartfoundation.com"}</script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -39,193 +39,264 @@
 
 <main id="main">
 
-<div class="hero" data-carousel>
+<div class="curtain" id="curtain" role="presentation">
+  <p class="slogan">We curate the blind spots<br>of the art world.</p>
+</div>
+
+<div class="hero full" data-carousel>
   <div class="frames">
     <img src="hero-ground-01.jpg" alt="Installation view of GROUND: paintings by Anne van Borselen with sculptural work on the floor, fourth floor, NIO House Amsterdam" class="frame on">
     <img src="hero-ground-02.jpg" alt="Installation view of GROUND: faceted stone-like seating and stools grouped on the gallery floor, fourth floor, NIO House Amsterdam" loading="lazy" class="frame">
     <img src="hero-ground-03.jpg" alt="Installation view of GROUND: a large woven textile work by Sandra Keja Planken on the gallery wall, fourth floor, NIO House Amsterdam" loading="lazy" class="frame">
   </div>
-  <div class="overlay"><div class="wrap">
-    <p class="code">SEASON 02 · NOW SHOWING</p>
-    <h1 class="display">GROUND</h1>
-    <p class="meta">NIO House Amsterdam, fourth floor &nbsp;·&nbsp; 3 July – 30 September 2026</p>
-    <a class="enter" href="seizoen-02-ground.html">Enter the season</a>
-  </div></div>
-  <div class="dots" role="tablist" aria-label="Installation views">
-    <button role="tab" aria-label="View 1" aria-selected="true"></button>
-    <button role="tab" aria-label="View 2"></button>
-    <button role="tab" aria-label="View 3"></button>
+  <div class="hero-foot">
+    <div class="wrap">
+      <p class="code">SEASON 02 · NOW SHOWING</p>
+      <h1 class="display">GROUND</h1>
+      <p class="meta">NIO House Amsterdam, fourth floor &nbsp;·&nbsp; 3 July – 30 September 2026</p>
+      <a class="enter" href="seizoen-02-ground.html">Enter the season</a>
+    </div>
+    <div class="dots" role="tablist" aria-label="Installation views">
+      <button role="tab" aria-label="View 1" aria-selected="true"></button>
+      <button role="tab" aria-label="View 2"></button>
+      <button role="tab" aria-label="View 3"></button>
+    </div>
   </div>
+  <div class="scrollcue" aria-hidden="true"><span></span></div>
 </div>
 
-<div class="scale">
-  <a href="makers.html"><span class="n">15</span><span class="l">makers curated</span></a>
-  <a href="shop.html"><span class="n">130</span><span class="l">works in the register</span></a>
-  <a href="exhibitions.html"><span class="n">2</span><span class="l">seasons so far</span></a>
+<div class="scale reveal">
+  <a href="makers.html"><span class="n" data-count="15">0</span><span class="l">makers curated</span></a>
+  <a href="shop.html"><span class="n" data-count="130">0</span><span class="l">works in the register</span></a>
+  <a href="exhibitions.html"><span class="n" data-count="2">0</span><span class="l">seasons so far</span></a>
   <div><span class="n">100%</span><span class="l">of every sale to the maker</span></div>
 </div>
 
-<section><div class="wrap">
+<section class="reveal"><div class="wrap">
   <p class="index"><span class="no">01</span><span>What we do</span></p>
   <div class="prose">
     <h2>We curate the makers the system overlooked, and give them a room in the middle of Amsterdam.</h2>
     <p>We finance the exhibition. The maker keeps 100% of every sale. No exclusive contract, no fee to take part — a room, an audience, and a fair deal.</p>
     <p>The system that overlooks these makers is not broken by accident. Funds finance what institutions already show. Galleries show what already sells. Somewhere between the two, a whole category of serious work falls through — not because it isn't good enough, but because it doesn't fit the boxes the system was built around.</p>
-    <p>MADART Foundation exists for that gap. We cover production, presentation and a fee for the maker, on locations most of them could never reach on their own. In return we ask for nothing back: no commission, no exclusivity, no say over what they make next.</p>
     <p><a href="missie.html">How we select, and what we test against</a></p>
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section class="reveal wide"><div class="wrap">
   <p class="index"><span class="no">02</span><span>The makers</span><span class="of"><a href="makers.html">All 15 →</a></span></p>
-  <div class="reg">
-    <a class="row" href="aad-kruiswijk.html">
-      <span class="c">01</span>
-      <span class="t">Aad Kruiswijk</span>
-      <span class="m">Gallery 2 — Floor</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">8 works</span>
+</div>
+<div class="rail" data-rail data-loop>
+  <div class="track">
+    <a class="slide portrait" href="aad-kruiswijk.html">
+      <figure class="swap">
+        <img class="face" src="portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" loading="lazy" decoding="async">
+<img class="work" src="t-aad-kruiswijk-m15-mdf.jpg" alt="Work by Aad Kruiswijk" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Aad Kruiswijk</h3>
+      <p class="sub">Gallery 2 — Floor</p>
+      <p class="cnt">8 works</p>
     </a>
-    <a class="row" href="anne-van-borselen.html">
-      <span class="c">02</span>
-      <span class="t">Anne van Borselen</span>
-      <span class="m">Gallery 1</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">13 works</span>
+    <a class="slide portrait" href="anne-van-borselen.html">
+      <figure class="swap">
+        <img class="face" src="portrait-anne-van-borselen.jpg" alt="Anne van Borselen" loading="lazy" decoding="async">
+<img class="work" src="t-anne-van-borselen-arena.jpg" alt="Work by Anne van Borselen" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Anne van Borselen</h3>
+      <p class="sub">Gallery 1</p>
+      <p class="cnt">13 works</p>
     </a>
-    <a class="row" href="arno-hoogland.html">
-      <span class="c">03</span>
-      <span class="t">Arno Hoogland</span>
-      <span class="m">Gallery Lounge</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">10 works</span>
+    <a class="slide portrait" href="arno-hoogland.html">
+      <figure class="swap">
+        <img class="face" src="portrait-arno-hoogland.jpg" alt="Arno Hoogland" loading="lazy" decoding="async">
+<img class="work" src="t-arno-hoogland-deus-ex-machina.jpg" alt="Work by Arno Hoogland" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Arno Hoogland</h3>
+      <p class="sub">Gallery Lounge</p>
+      <p class="cnt">10 works</p>
     </a>
-    <a class="row" href="echo.html">
-      <span class="c">04</span>
-      <span class="t">ECHO</span>
-      <span class="m">Gallery 4 — Floor</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">21 works</span>
+    <a class="slide portrait" href="loutje-hoekstra.html">
+      <figure class="swap">
+        <img class="face" src="portrait-loutje-hoekstra.jpg" alt="Loutje Hoekstra" loading="lazy" decoding="async">
+<img class="work" src="t-Seated_crop.jpg" alt="Work by Loutje Hoekstra" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Loutje Hoekstra</h3>
+      <p class="sub">Gallery 4 — Walls</p>
+      <p class="cnt">9 works</p>
     </a>
-    <a class="row" href="loutje-hoekstra.html">
-      <span class="c">05</span>
-      <span class="t">Loutje Hoekstra</span>
-      <span class="m">Gallery 4 — Walls</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">9 works</span>
+    <a class="slide portrait" href="rogier-bosschaart.html">
+      <figure class="swap">
+        <img class="face" src="portrait-rogier-bosschaart.jpg" alt="Rogier Bosschaart" loading="lazy" decoding="async">
+<img class="work" src="t-rogier-bosschaart-bubbels-work.jpg" alt="Work by Rogier Bosschaart" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Rogier Bosschaart</h3>
+      <p class="sub">Gallery 2</p>
+      <p class="cnt">5 works</p>
     </a>
-    <a class="row" href="rogier-bosschaart.html">
-      <span class="c">06</span>
-      <span class="t">Rogier Bosschaart</span>
-      <span class="m">Gallery 2</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">5 works</span>
+    <a class="slide portrait" href="sandra-keja-planken.html">
+      <figure class="swap">
+        <img class="face" src="portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" loading="lazy" decoding="async">
+<img class="work" src="t-sandra-keja-planken-nani-bloom-wall-hanging.jpg" alt="Work by Sandra Keja Planken" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Sandra Keja Planken</h3>
+      <p class="sub">Gallery 3</p>
+      <p class="cnt">8 works</p>
     </a>
-    <a class="row" href="sandra-keja-planken.html">
-      <span class="c">07</span>
-      <span class="t">Sandra Keja Planken</span>
-      <span class="m">Gallery 3</span>
-      <span class="s">Season 02 — GROUND</span>
-      <span class="p">8 works</span>
+    <a class="slide portrait" href="herma-de-wit.html">
+      <figure class="swap">
+        <img class="face" src="portrait-herma-de-wit.jpg" alt="Herma de Wit" loading="lazy" decoding="async">
+<img class="work" src="t-herma-de-wit-abstract-04.jpg" alt="Work by Herma de Wit" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Herma de Wit</h3>
+      <p class="sub">Staircases, Ground / 4Th / 5Th Floor</p>
+      <p class="cnt">3 works</p>
     </a>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <p class="index"><span class="no">03</span><span>Selected works</span><span class="of"><a href="shop.html">All 131 →</a></span></p>
-  <div class="grid g4">
-    <a class="card" href="aad-kruiswijk-m15-mdf.html">
-      <figure><img src="t-aad-kruiswijk-m15-mdf.jpg" alt="M15 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-01</span>
-      <span class="t">M15</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 3.500,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="inge-becka.html">
+      <figure class="swap">
+        <img class="face" src="portrait-inge-becka.jpg" alt="Inge Bečka" loading="lazy" decoding="async">
+<img class="work" src="t-inge-becka-build-your-own-silver.jpg" alt="Work by Inge Bečka" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Inge Bečka</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">18 works</p>
     </a>
-    <a class="card" href="aad-kruiswijk-m15-rvs.html">
-      <figure><img src="t-aad-kruiswijk-m15-rvs.jpg" alt="M15 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-02</span>
-      <span class="t">M15</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 5.500,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="jim-bob-ruijgrok.html">
+      <figure class="swap">
+        <img class="face" src="portrait-jim-bob-ruijgrok.jpg" alt="Jim Bob Ruijgrok" loading="lazy" decoding="async">
+<img class="work" src="t-jim-bob-ruijgrok-eiken-latten-bank.jpg" alt="Work by Jim Bob Ruijgrok" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Jim Bob Ruijgrok</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">4 works</p>
     </a>
-    <a class="card" href="aad-kruiswijk-m15-stadshout.html">
-      <figure><img src="t-aad-kruiswijk-m15-stadshout.jpg" alt="M15 by Aad Kruiswijk" width="1350" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-03</span>
-      <span class="t">M15</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 1.200,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="lilia-luganskaia-kuilder.html">
+      <figure class="swap">
+        <img class="face" src="portrait-lilia-luganskaia-kuilder.jpg" alt="Lilia Luganskaia-Kuilder" loading="lazy" decoding="async">
+<img class="work" src="t-lilia-luganskaia-kuilder-ikebana-table.jpg" alt="Work by Lilia Luganskaia-Kuilder" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Lilia Luganskaia-Kuilder</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">3 works</p>
     </a>
-    <a class="card" href="aad-kruiswijk-m16-i.html">
-      <figure><img src="t-aad-kruiswijk-m16-i.jpg" alt="M16 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-04</span>
-      <span class="t">M16</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 700,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="maurice-albert-jan.html">
+      <figure class="swap">
+        <img class="face" src="portrait-maurice-albert-jan.jpg" alt="Maurice Albert Jan" loading="lazy" decoding="async">
+<img class="work" src="t-maurice-albert-jan-bench.jpg" alt="Work by Maurice Albert Jan" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Maurice Albert Jan</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">4 works</p>
     </a>
-    <a class="card" href="aad-kruiswijk-m16-ii.html">
-      <figure><img src="t-aad-kruiswijk-m16-ii.jpg" alt="M16 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-05</span>
-      <span class="t">M16</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 1.400,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="nicolette-de-waart.html">
+      <figure class="swap">
+        <img class="face" src="portrait-nicolette-de-waart.jpg" alt="Nicolette de Waart" loading="lazy" decoding="async">
+<img class="work" src="t-nicolette-de-waart-berry-lamp-regular.jpg" alt="Work by Nicolette de Waart" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Nicolette de Waart</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">3 works</p>
     </a>
-    <a class="card" href="aad-kruiswijk-m18.html">
-      <figure><img src="t-aad-kruiswijk-m18.jpg" alt="M18 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-06</span>
-      <span class="t">M18</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 700,– <span class="pill available">available</span></div>
-    </a>
-    <a class="card" href="aad-kruiswijk-m19.html">
-      <figure><img src="t-aad-kruiswijk-m19.jpg" alt="M19 by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-07</span>
-      <span class="t">M19</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 700,– <span class="pill available">available</span></div>
-    </a>
-    <a class="card" href="aad-kruiswijk-pouf.html">
-      <figure><img src="t-aad-kruiswijk-pouf.jpg" alt="Pouf by Aad Kruiswijk" width="1440" height="1800" loading="lazy" decoding="async"></figure>
-      <span class="c">GROUND-AK-08</span>
-      <span class="t">Pouf</span>
-      <div class="m">Aad Kruiswijk</div>
-      <div class="p">€ 1.750,– <span class="pill available">available</span></div>
+    <a class="slide portrait" href="echo.html">
+      <figure class="swap">
+        <img class="face" src="t-echo-2-1-bench-work.jpg" alt="ECHO" loading="lazy" decoding="async">
+<img class="work" src="t-echo-formscape-work.jpg" alt="Work by ECHO" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>ECHO</h3>
+      <p class="sub">Gallery 4 — Floor</p>
+      <p class="cnt">21 works</p>
     </a>
   </div>
-</div></section>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous makers">&#8592;</button><button data-next aria-label="Next makers">&#8594;</button><span class="hint">Drag, scroll or use the arrows</span><a class="railall" href="makers.html">All 15 makers &#8594;</a></div>
+</section>
 
-<section><div class="wrap">
-  <p class="index"><span class="no">04</span><span>Exhibitions</span><span class="of"><a href="exhibitions.html">All →</a></span></p>
-  <div class="reg">
-    <a class="row" href="seizoen-02-ground.html">
-      <span class="c">SEASON 02</span>
-      <span class="t">Season 02 — GROUND</span>
-      <span class="m">The common ground shared by maker, Foundation and…</span>
-      <span class="s">NIO House Amsterdam, fourth floor</span>
-      <span class="p">3 July – 30 September 2026</span>
+<section class="reveal wide"><div class="wrap">
+  <p class="index"><span class="no">03</span><span>Exhibitions</span><span class="of"><a href="exhibitions.html">All &#8594;</a></span></p>
+</div>
+<div class="rail" data-rail>
+  <div class="track">
+    <a class="slide land" href="seizoen-02-ground.html">
+      <figure>
+<img src="exhibition-ground.jpg" alt="Season 02 — GROUND" loading="lazy" decoding="async">
+      </figure>
+      <p class="kind">SEASON 02</p>
+      <h3>Season 02 — GROUND</h3>
+      <p class="sub">3 July – 30 September 2026</p>
     </a>
-    <a class="row" href="seizoen-01-paradox.html">
-      <span class="c">SEASON 01</span>
-      <span class="t">Season 01 — PARADOX</span>
-      <span class="m">Where opposites no longer…</span>
-      <span class="s">NIO House Amsterdam</span>
-      <span class="p">1 April – 1 July 2026</span>
+    <a class="slide land" href="seizoen-01-paradox.html">
+      <figure>
+<img src="exhibition-paradox.jpg" alt="Season 01 — PARADOX" loading="lazy" decoding="async">
+      </figure>
+      <p class="kind">SEASON 01</p>
+      <h3>Season 01 — PARADOX</h3>
+      <p class="sub">1 April – 1 July 2026</p>
     </a>
-    <a class="row" href="visit.html">
-      <span class="c">EVENT</span>
-      <span class="t">GLUE Amsterdam 2026</span>
-      <span class="m">Three days, three floors, one route. GROUND stays open…</span>
-      <span class="s">NIO House Amsterdam, fourth, sixth and seventh floors</span>
-      <span class="p">17 – 19 September 2026</span>
+    <a class="slide land" href="events.html">
+      <figure>
+<img src="exhibition-glue.jpg" alt="GLUE Amsterdam 2026" loading="lazy" decoding="async">
+      </figure>
+      <p class="kind">EVENT</p>
+      <h3>GLUE Amsterdam 2026</h3>
+      <p class="sub">17 – 19 September 2026</p>
     </a>
   </div>
-</div></section>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous exhibitions">&#8592;</button><button data-next aria-label="Next exhibitions">&#8594;</button></div>
+</section>
 
-<section><div class="wrap">
-  <p class="index"><span class="no">05</span><span>The place</span></p>
-  <div class="prose">
+<section class="reveal wide"><div class="wrap">
+  <p class="index"><span class="no">04</span><span>Brand partners</span><span class="of">Presented alongside the programme</span></p>
+</div>
+<div class="rail" data-rail>
+  <div class="track">
+    <a class="slide portrait" href="buro-berger.html">
+      <figure class="swap">
+        <img class="face" src="t-BJ002-01.jpg" alt="Buro Berger" loading="lazy" decoding="async">
+<img class="work" src="t-BJ002-02.jpg" alt="Work by Buro Berger" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Buro Berger</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">16 works</p>
+    </a>
+    <a class="slide portrait" href="dot-objects.html">
+      <figure class="swap">
+        <img class="face" src="t-dot-objects-grid-shelving-unit-rust.jpg" alt="Dot Objects" loading="lazy" decoding="async">
+<img class="work" src="t-dot-objects-grid-shelving-unit-stainless-steel.jpg" alt="Work by Dot Objects" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Dot Objects</h3>
+      <p class="sub">6Th Floor</p>
+      <p class="cnt">6 works</p>
+    </a>
+    <div class="slide portrait soon">
+      <div class="soonbox"><span>Devoonsounds</span></div>
+      <h3>Devoonsounds</h3>
+      <p class="sub">Seventh floor, The Dome — GLUE Amsterdam 2026</p>
+    </div>
+    <div class="slide portrait soon">
+      <div class="soonbox"><span>Ignore</span></div>
+      <h3>Ignore</h3>
+      <p class="sub">Talks programme, second floor — GLUE Amsterdam 2026</p>
+    </div>
+  </div>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous partners">&#8592;</button><button data-next aria-label="Next partners">&#8594;</button></div>
+</section>
+
+<section class="reveal place"><div class="wrap place-grid">
+  <figure><img src="place-nio-house.jpg" alt="NIO House Amsterdam at dusk, seen from across the Keizersgracht: the 1891 Metz building with its clock tower and lit windows reflected in the canal" loading="lazy" decoding="async"></figure>
+  <div>
+    <p class="index"><span class="no">05</span><span>The place</span></p>
     <h2>NIO House Amsterdam</h2>
-    <p>A national monument on the Amsterdam canals. Built in 1891, home to Metz &amp; Co for more than a century, crowned with a Rietveld glass dome. The fourth floor is ours for the length of each season.</p>
-    <p><a href="visit.html">Opening hours, directions and what to expect</a></p>
+    <div class="prose">
+<p>A national monument on the corner of the Leidsestraat and the Keizersgracht. Built in 1891 as the head office of an insurance company, it housed Metz &amp; Co for more than a century — the department store that brought Rietveld, Bauhaus and Liberty of London to Amsterdam.</p><p>Gerrit Rietveld crowned it in 1933 with a glass dome on the roof, built as a viewing room. It is still there. The building was restored by MVRDV and reopened in 2025.</p><p>The fourth floor is ours for the length of each season. It is not a rented hall dressed for an evening; it is a gallery floor that has meant something for three months before anyone walks in. That is the difference a maker feels, and a visitor feels it too.</p>      <p><a href="visit.html">Opening hours, directions and what to expect</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="index"><span class="no">06</span><span>The team</span></p>
+  <h2 style="max-width:26ch">MADART does not derive its value from a system or a format. It sits with the people who build it.</h2>
+  <div class="team-grid">
+    <div class="person">
+      <figure>
+<img src="team-justin.jpg" alt="Justin Karijoredjo" loading="lazy" decoding="async">
+      </figure>
+      <h3>Justin Karijoredjo</h3>
+      <p class="role">Founder · Curatorial and Strategic Director</p>
+      <p class="bio">Architect of the MADART ecosystem. He devises the concept, makes the connections and sets the direction: which makers get a room, which partners get a seat at the table, and where the ecosystem goes next. He has seen the commercial art world from the inside, and the curatorial choices come out of that experience rather than out of marketing.</p>
+    </div>
+    <div class="person">
+      <figure>
+<img src="team-kimberly.jpg" alt="Kimberly Tanikromo" loading="lazy" decoding="async">
+      </figure>
+      <h3>Kimberly Tanikromo</h3>
+      <p class="role">Managing Director · Operations and Partnerships</p>
+      <p class="bio">Responsible for production and execution, commercial acquisition and grant management. Her background in artist management turns intention into a working season. She holds full power of attorney for Stichting The Bloys, the legal entity behind MADART Foundation.</p>
+    </div>
   </div>
 </div></section>
 
@@ -303,31 +374,170 @@
 </script>
 <script>
 (function(){
-  var hero=document.querySelector('[data-carousel]');
-  if(!hero) return;
-  var frames=hero.querySelector('.frames'),
-      imgs=[].slice.call(frames.querySelectorAll('img')),
-      dots=[].slice.call(hero.querySelectorAll('.dots button'));
-  if(imgs.length<2) return;
-  frames.classList.add('js');
-  var i=0, timer=null,
-      still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function show(n){
-    i=(n+imgs.length)%imgs.length;
-    imgs.forEach(function(im,k){ im.classList.toggle('on', k===i); });
-    dots.forEach(function(d,k){
-      if(k===i) d.setAttribute('aria-selected','true'); else d.removeAttribute('aria-selected');
-    });
+  /* ---- opening screen: the slogan, then out of the way ---- */
+  var curtain = document.getElementById('curtain');
+  if (curtain) {
+    var seen = false;
+    try { seen = sessionStorage.getItem('madart-seen') === '1'; } catch(e){}
+    if (seen || reduce) {
+      curtain.remove();
+    } else {
+      document.body.classList.add('curtained');
+      var lift = function(){
+        if (curtain.classList.contains('up')) return;
+        curtain.classList.add('up');
+        document.body.classList.remove('curtained');
+        try { sessionStorage.setItem('madart-seen','1'); } catch(e){}
+        setTimeout(function(){ curtain.remove(); }, 1200);
+      };
+      setTimeout(lift, 3600);
+      ['wheel','touchstart','keydown','click'].forEach(function(ev){
+        window.addEventListener(ev, lift, {once:true, passive:true});
+      });
+    }
   }
-  function start(){ if(still) return; stop(); timer=setInterval(function(){ show(i+1); }, 6500); }
-  function stop(){ if(timer) clearInterval(timer); timer=null; }
 
-  dots.forEach(function(d,k){ d.addEventListener('click',function(){ show(k); start(); }); });
-  hero.addEventListener('mouseenter', stop);
-  hero.addEventListener('mouseleave', start);
-  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
-  show(0); start();
+  /* ---- header and the counts appear once you leave the hero ---- */
+  var hero = document.querySelector('.hero.full');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){
+      document.body.classList.toggle('past-hero', en[0].intersectionRatio < 0.6);
+    }, {threshold:[0.6]}).observe(hero);
+  } else {
+    document.body.classList.add('past-hero');
+  }
+
+  /* ---- sections arrive as you reach them ---- */
+  if ('IntersectionObserver' in window && !reduce) {
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- the counters climb to their number, once ---- */
+  if ('IntersectionObserver' in window) {
+    var counters = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        counters.unobserve(e.target);
+        var end = +e.target.dataset.count, t0 = null;
+        if (reduce) { e.target.textContent = end; return; }
+        requestAnimationFrame(function step(t){
+          if (!t0) t0 = t;
+          var k = Math.min((t - t0) / 900, 1);
+          e.target.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(step);
+        });
+      });
+    }, {threshold:1});
+    document.querySelectorAll('.n[data-count]').forEach(function(el){ counters.observe(el); });
+  } else {
+    document.querySelectorAll('.n[data-count]').forEach(function(el){ el.textContent = el.dataset.count; });
+  }
+
+  /* ---- rails: drag with the mouse, flick on a phone, arrows on a desktop ---- */
+  document.querySelectorAll('[data-rail]').forEach(function(rail){
+    var down = false, startX = 0, startL = 0, moved = 0;
+
+    /* An endless rail is one run of slides, cloned, with the scroll position
+       wrapped back by exactly one run whenever you pass it. Nothing to reach
+       the end of, and no jump you can see. */
+    var loop = rail.hasAttribute('data-loop'), runWidth = 0, track = rail.querySelector('.track');
+    if (loop) {
+      var originals = [].slice.call(track.children);
+      var clone = function(){
+        originals.forEach(function(el){
+          var c = el.cloneNode(true);
+          c.setAttribute('aria-hidden','true');
+          c.querySelectorAll('a, button').forEach(function(f){ f.setAttribute('tabindex','-1'); });
+          if (c.tagName === 'A') c.setAttribute('tabindex','-1');
+          track.appendChild(c);
+        });
+      };
+      var measure = function(){
+        runWidth = originals.reduce(function(sum, el){
+          return sum + el.getBoundingClientRect().width + 18;
+        }, 0);
+      };
+      measure();
+      clone();
+      // enough copies to cover any viewport, so the rail never runs dry
+      while (track.getBoundingClientRect().width < rail.clientWidth * 2 + runWidth) clone();
+      rail.addEventListener('scroll', function(){
+        if (!runWidth) return;
+        if (rail.scrollLeft >= runWidth * 2) rail.scrollLeft -= runWidth;
+        else if (rail.scrollLeft < 1) rail.scrollLeft += runWidth;
+      }, {passive:true});
+      window.addEventListener('resize', function(){ measure(); });
+      rail.scrollLeft = runWidth;
+    }
+    rail.addEventListener('pointerdown', function(e){
+      down = true; moved = 0; startX = e.clientX; startL = rail.scrollLeft;
+      rail.classList.add('grabbing');
+    });
+    rail.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      rail.scrollLeft = startL - dx;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      rail.addEventListener(ev, function(){ down = false; rail.classList.remove('grabbing'); });
+    });
+    rail.addEventListener('click', function(e){ if (moved > 6) e.preventDefault(); }, true);
+
+    var nav = rail.nextElementSibling;
+    if (nav && nav.classList.contains('railnav')) {
+      var step = function(dir){
+        var card = rail.querySelector('.slide');
+        var w = card ? card.getBoundingClientRect().width + 18 : 320;
+        rail.scrollBy({left: dir * w * 2, behavior: reduce ? 'auto' : 'smooth'});
+      };
+      nav.querySelector('[data-prev]').addEventListener('click', function(){ step(-1); });
+      nav.querySelector('[data-next]').addEventListener('click', function(){ step(1); });
+      if (!loop) {
+        var ends = function(){
+          nav.querySelector('[data-prev]').disabled = rail.scrollLeft < 4;
+          nav.querySelector('[data-next]').disabled =
+            rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+        };
+        rail.addEventListener('scroll', ends, {passive:true}); ends();
+      }
+    }
+  });
+
+  /* ---- hero crossfade ---- */
+  var carousel = document.querySelector('[data-carousel]');
+  if (carousel) {
+    var frames = carousel.querySelector('.frames'),
+        imgs = [].slice.call(frames.querySelectorAll('img')),
+        dots = [].slice.call(carousel.querySelectorAll('.dots button'));
+    if (imgs.length > 1) {
+      frames.classList.add('js');
+      var i = 0, timer = null;
+      var show = function(n){
+        i = (n + imgs.length) % imgs.length;
+        imgs.forEach(function(im,k){ im.classList.toggle('on', k===i); });
+        dots.forEach(function(d,k){
+          if (k===i) d.setAttribute('aria-selected','true'); else d.removeAttribute('aria-selected');
+        });
+      };
+      var start = function(){ if (reduce) return; stop(); timer = setInterval(function(){ show(i+1); }, 6500); };
+      var stop = function(){ if (timer) clearInterval(timer); timer = null; };
+      dots.forEach(function(d,k){ d.addEventListener('click', function(){ show(k); start(); }); });
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+      show(0); start();
+    }
+  }
 })();
 </script>
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
