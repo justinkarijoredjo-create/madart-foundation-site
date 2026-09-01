@@ -329,6 +329,14 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://madartfoundation.com/enquire.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://madartfoundation.com/enquiry-thanks.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://madartfoundation.com/events.html</loc>
     <priority>0.7</priority>
   </url>
