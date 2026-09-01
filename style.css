@@ -448,3 +448,15 @@ section.wide{padding-left:0;padding-right:0}
   .claim{max-width:none;margin-left:0}
   .claim-block p{margin-left:0}
 }
+
+/* a work whose photograph has not arrived yet: say so rather than break */
+.worklook .work.noimg{
+  display:flex;align-items:center;justify-content:center;min-height:44vh;
+  background:var(--linen);border-bottom:1px solid var(--concrete);
+  color:var(--grey-light);font-size:12px;text-align:center;line-height:1.6;letter-spacing:.06em;
+}
+.card figure .noimg{
+  aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;
+  background:var(--linen);border:1px dashed var(--concrete);
+  color:var(--grey-light);font-size:12px;text-align:center;line-height:1.6;
+}
