@@ -313,13 +313,15 @@ body.home .mainnav.open a{color:var(--ink);text-shadow:none}
 @keyframes cue{0%,100%{transform:scaleY(.35);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 
 /* counts strip: only once you have scrolled */
-body.home .scale{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-body.home .scale.in{opacity:1;transform:none}
+body.js.home .scale{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+body.js.home .scale.in{opacity:1;transform:none}
 .scale .n{font-variant-numeric:tabular-nums}
 
-/* sections arrive */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.3,1)}
-.reveal.in{opacity:1;transform:none}
+/* Sections fade in as you reach them — but only when the script that reveals
+   them is actually running. Hiding first and revealing later means that any
+   page without that script shows nothing at all, which is what happened here. */
+body.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.3,1)}
+body.js .reveal.in{opacity:1;transform:none}
 section.wide{padding-left:0;padding-right:0}
 
 /* horizontal rails */
@@ -382,7 +384,7 @@ section.wide{padding-left:0;padding-right:0}
   .railnav .hint{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  .reveal,body.home .scale{opacity:1;transform:none}
+  body.js .reveal,body.js.home .scale{opacity:1;transform:none}
   .curtain .slogan{animation:none;opacity:1;transform:none}
   .scrollcue span{animation:none}
 }

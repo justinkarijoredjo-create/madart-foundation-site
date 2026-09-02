@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=82edb972">
+<link rel="stylesheet" href="style.css?v=cacc25c2">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VisualArtwork", "artMedium": "Eco-resin, beige \u00b7 \u00d8 225 \u00d7 265 mm \u00b7 2026", "creator": {"@type": "Person", "name": "Devoonsounds", "url": "https://madartfoundation.com/devoonsounds.html"}, "identifier": "MAISONDARTISTE-JG-04", "image": "https://madartfoundation.com/devoonsounds-original-3.jpg", "name": "Devoon Original #3", "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "price": 2200, "priceCurrency": "EUR", "seller": {"@type": "Person", "name": "Devoonsounds"}, "url": "https://madartfoundation.com/devoonsounds-original-3.html"}, "url": "https://madartfoundation.com/devoonsounds-original-3.html"}</script>
 </head>
 <body class="worklook">
@@ -60,6 +60,22 @@
 
 <script>
 (function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mark the document as scripted before anything is hidden, so a page without
+     working JavaScript simply shows everything instead of showing nothing. */
+  document.body.classList.add('js');
+  if ('IntersectionObserver' in window && !reduce) {
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
   var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
   if(t&&n){t.addEventListener('click',function(){
     var open=n.classList.toggle('open');
