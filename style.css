@@ -467,3 +467,23 @@ section.wide{padding-left:0;padding-right:0}
 /* a document that does not exist yet is stated, not linked to nothing */
 .doclink-empty{padding:13px 0;border-bottom:1px solid var(--linen-dust);font-size:13px;margin:0}
 .doclink-empty span{color:var(--grey-code)}
+
+/* ---------- giving ---------- */
+.give-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.give{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid var(--concrete);transition:all .25s ease}
+.give:hover{background:var(--ink);border-color:var(--ink);color:var(--chalk)}
+.give:hover .note{color:var(--linen)}
+.give .amt{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.give .note{font-size:12px;line-height:1.55;color:var(--grey);flex:1}
+.give .go{font-size:12px;letter-spacing:.06em}
+.notice{border-left:3px solid var(--dawn);background:var(--linen);padding:18px 20px;margin-top:24px;font-size:13px}
+.notice p{margin:0}
+.notice code{font-size:12px;background:var(--chalk);padding:1px 5px}
+.tier{border:1px solid var(--concrete);padding:26px}
+.tier .amt-line{font-size:13px;color:var(--dawn);margin:0 0 18px}
+.benefits{list-style:none;margin:0 0 22px;padding:0}
+.benefits li{font-size:13px;line-height:1.6;padding:9px 0;border-bottom:1px solid var(--linen);color:var(--grey)}
+@media(max-width:860px){.give-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.give-grid{grid-template-columns:1fr}}
+/* the middle amount carries a little more weight, without claiming anything about it */
+.give.anchor{border-width:2px;border-color:var(--ink)}
