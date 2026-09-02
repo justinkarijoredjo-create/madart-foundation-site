@@ -464,3 +464,6 @@ section.wide{padding-left:0;padding-right:0}
 /* footer column labels: they read as headings but are not document structure,
    so they no longer skip from h1 straight to h4 */
 .foot-h{font-size:11px;letter-spacing:.16em;font-weight:500;color:var(--concrete);margin:0 0 14px}
+/* a document that does not exist yet is stated, not linked to nothing */
+.doclink-empty{padding:13px 0;border-bottom:1px solid var(--linen-dust);font-size:13px;margin:0}
+.doclink-empty span{color:var(--grey-code)}
