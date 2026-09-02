@@ -454,15 +454,36 @@
   /* Mark the document as scripted before anything is hidden, so a page without
      working JavaScript simply shows everything instead of showing nothing. */
   document.body.classList.add('js');
+  var reveal = function(el){ el.classList.add('in'); };
   if ('IntersectionObserver' in window && !reduce) {
+    /* Threshold 0, not 0.1. A section can be ten times taller than a phone
+       screen — the members of a collective, the makers of a season — and can
+       then never reach ten per cent visibility. It would stay invisible for
+       ever. Zero fires the moment any part of it enters. */
     var revealer = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('in'); revealer.unobserve(e.target); }
+        if (e.isIntersecting) { reveal(e.target); revealer.unobserve(e.target); }
       });
-    }, {threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+    /* Second safety net: anything still hidden four seconds after load is shown
+       regardless. An animation that fails should cost a fade, never the content. */
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(reveal); }, 4000);
+
+    /* Third: on any scroll, reveal whatever is already on screen. Cheap, and it
+       covers the devices where the observer behaves differently than expected. */
+    var sweep = function(){
+      var open = document.querySelectorAll('.reveal:not(.in)');
+      if (!open.length) { window.removeEventListener('scroll', sweep); return; }
+      open.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, {passive:true});
+    sweep();
   } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.reveal').forEach(reveal);
   }
 
   var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
