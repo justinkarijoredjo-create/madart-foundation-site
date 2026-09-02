@@ -11,7 +11,7 @@
   --linen:#E1DAD2;
   --concrete:#C3BDB8;
   --grey:#5A5650;
-  --grey-light:#8A8680;
+  --grey-light:#64605A;
   --dawn:#293DCE;
 
   --ok-bg:#DDE8D6;  --ok-tx:#2F5A3A;
@@ -25,7 +25,7 @@
 
   /* legacy aliases, kept so older pages keep rendering */
   --archive-black:#1E1D1C; --chalk-light:#F4EDE4; --concrete-memory:#C3BDB8;
-  --dawn-blue:#293DCE; --grey-code:#8A8680; --grey-meta:#5A5650; --linen-dust:#E1DAD2;
+  --dawn-blue:#293DCE; --grey-code:#64605A; --grey-meta:#5A5650; --linen-dust:#E1DAD2;
   --stat-available-bg:#DDE8D6; --stat-available-tx:#2F5A3A;
   --stat-estimate-bg:#F7E3C4;  --stat-estimate-tx:#7A5A1E;
   --stat-pending-bg:#E3DDD3;   --stat-pending-tx:#5A5650;
@@ -489,3 +489,5 @@ section.wide{padding-left:0;padding-right:0}
 @media(max-width:560px){.give-grid{grid-template-columns:1fr}}
 /* the middle amount carries a little more weight, without claiming anything about it */
 .give.anchor{border-width:2px;border-color:var(--ink)}
+/* a focused rail must show it has focus, or keyboard users cannot tell where they are */
+.rail:focus-visible{outline:2px solid var(--dawn);outline-offset:3px}

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=cacc25c2">
+<link rel="stylesheet" href="style.css?v=e99b198f">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "description": "MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.", "email": "contact@madartfoundation.com", "legalName": "Stichting The Bloys", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "MADART Foundation", "sameAs": ["https://www.instagram.com/madartfoundation"], "url": "https://madartfoundation.com"}</script>
 </head>
 <body class="home">
@@ -33,7 +33,7 @@
       <a href="shop.html">Works</a>
       <a href="visit.html">Visit</a>
       <a href="support-us.html">Support</a>
-      <a href="missie.html">About</a>
+      <a href="mission.html">About</a>
     </nav>
   </div>
 </header>
@@ -55,7 +55,7 @@
       <p class="code">SEASON 02 · NOW SHOWING</p>
       <h1 class="display">GROUND</h1>
       <p class="meta">NIO House Amsterdam, fourth floor &nbsp;·&nbsp; 3 July – 30 September 2026</p>
-      <a class="enter" href="seizoen-02-ground.html">Enter the season</a>
+      <a class="enter" href="season-02-ground.html">Enter the season</a>
     </div>
     <div class="dots" role="tablist" aria-label="Installation views">
       <button role="tab" aria-label="View 1" aria-selected="true"></button>
@@ -78,7 +78,7 @@
     <h2 class="claim">We curate the makers the system overlooked, and give them a room in the middle of Amsterdam.</h2>
     <p>We finance the exhibition. The maker keeps 100% of every sale. No exclusive contract, no fee to take part — a room, an audience, and a fair deal.</p>
     <p>The system that overlooks these makers is not broken by accident. Funds finance what institutions already show. Galleries show what already sells. Somewhere between the two, a whole category of serious work falls through — not because it isn't good enough, but because it doesn't fit the boxes the system was built around.</p>
-    <p class="claim-link"><a href="missie.html">How we select, and what we test against &#8594;</a></p>
+    <p class="claim-link"><a href="mission.html">How we select, and what we test against &#8594;</a></p>
   </div>
 </div></section>
 
@@ -346,7 +346,7 @@
 </div>
 <div class="rail" data-rail data-loop>
   <div class="track">
-    <a class="slide land" href="seizoen-02-ground.html">
+    <a class="slide land" href="season-02-ground.html">
       <figure>
 <img src="exhibition-ground.jpg" alt="Season 02 — GROUND" loading="lazy" decoding="async">
       </figure>
@@ -354,7 +354,7 @@
       <h3>Season 02 — GROUND</h3>
       <p class="sub">3 July – 30 September 2026</p>
     </a>
-    <a class="slide land" href="seizoen-01-paradox.html">
+    <a class="slide land" href="season-01-paradox.html">
       <figure>
 <img src="exhibition-paradox.jpg" alt="Season 01 — PARADOX" loading="lazy" decoding="async">
       </figure>
@@ -493,12 +493,12 @@
       <div>
         <p class="foot-h">MADART FOUNDATION</p>
         <p>
-          <a href="missie.html">Mission</a><br>
+          <a href="mission.html">Mission</a><br>
           <a href="team.html">Team</a><br>
           <a href="support-us.html">Support us</a><br>
           <a href="friend.html">Become a Friend</a><br>
           <a href="anbi.html">Governance and ANBI</a><br>
-          <a href="pers.html">Press</a><br>
+          <a href="press.html">Press</a><br>
           <a href="contact.html">Contact</a><br>
           <a href="https://www.instagram.com/madartfoundation">Instagram</a>
         </p>
@@ -623,6 +623,19 @@
   /* ---- rails: drag with the mouse, flick on a phone, arrows on a desktop ---- */
   document.querySelectorAll('[data-rail]').forEach(function(rail){
     var down = false, startX = 0, startL = 0, moved = 0;
+
+    /* A rail you can only drag is a rail some people cannot use at all.
+       Focusable, with the arrow keys doing what the arrow buttons do. */
+    rail.setAttribute('tabindex', '0');
+    rail.setAttribute('role', 'region');
+    rail.addEventListener('keydown', function(e){
+      var card = rail.querySelector('.slide');
+      var w = card ? card.getBoundingClientRect().width + 18 : 320;
+      if (e.key === 'ArrowRight') { rail.scrollLeft += w; e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= w; e.preventDefault(); }
+      else if (e.key === 'Home') { rail.scrollLeft = 0; e.preventDefault(); }
+      else if (e.key === 'End') { rail.scrollLeft = rail.scrollWidth; e.preventDefault(); }
+    });
 
     /* An endless rail: the run of slides is cloned before and after itself, and
        the scroll position is wrapped by exactly one run whenever you cross a
