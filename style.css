@@ -224,7 +224,9 @@ body.worklook{background:var(--chalk)}
   .mainnav.open{display:flex}
   .mainnav a{padding:13px 0;border-bottom:var(--hair)}
   .navtoggle{display:block}
-  .masthead .status-dot{display:none}
+  /* Kept on a phone: someone reading this on the Leidsestraat wants to know
+     whether the doors are open before anything else. Only the label shrinks. */
+  .masthead .status-dot{font-size:10px;letter-spacing:.08em;margin-left:auto;margin-right:10px}
   .grid.g4,.grid.g3{grid-template-columns:repeat(2,1fr)}
   .grid{gap:20px 14px}
   section{padding:44px 0}
@@ -564,3 +566,50 @@ section.editorial{padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw
 .plain a{font-weight:700;color:var(--ink)}
 .plain a:hover{color:var(--dawn)}
 @media(max-width:760px){.alongside{grid-template-columns:1fr;gap:30px}}
+
+
+/* ==========================================================================
+   Touch
+   Every hover rule above assumes a pointer that can rest on something without
+   pressing it. A finger cannot: on a touchscreen the first tap applies :hover
+   and it stays applied until something else is tapped, so cards were left
+   frozen mid-transform and portraits stuck on their work image after a visitor
+   came back from a maker page. On a device without hover, nothing hovers.
+   ========================================================================== */
+@media (hover: none) {
+  .card:hover img,
+  .slide:hover img,
+  .pcard:hover figure.swap img.face,
+  .slide:hover figure.swap img.face{transform:none}
+  .slide:hover figure.swap img.work,
+  .member:hover figure.swap img.work,
+  .pcard:hover figure.swap img.work{opacity:0}
+  .row:hover{background:transparent}
+  .give:hover{background:var(--chalk);border-color:var(--concrete);color:var(--ink)}
+  .give:hover .note{color:var(--grey)}
+  .btn:hover{background:var(--ink);border-color:var(--ink)}
+  .btn-outline:hover{background:transparent;color:var(--ink)}
+}
+
+/* --------------------------------------------------------------------------
+   Tap targets
+   A control that is only as tall as its text is a control a thumb misses. The
+   arrows under the carousels, the menu button and the newsletter button were
+   all under the 44px a finger needs.
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .railnav button,
+  .navtoggle,
+  .signup button,
+  .hero .dots button{min-height:44px;min-width:44px}
+  .mainnav a{min-height:44px;display:flex;align-items:center}
+  .worklook .backline a{padding:6px 0}
+}
+
+/* --------------------------------------------------------------------------
+   Nothing scrolls sideways
+   A single overflowing element drags the whole page with it, and on a phone
+   that reads as a broken layout rather than as one wide word.
+   -------------------------------------------------------------------------- */
+html{overflow-x:hidden}
+.prose,.ed-body,.body2{overflow-wrap:break-word}
