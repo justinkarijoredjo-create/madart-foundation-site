@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=f8a658ca">
+<link rel="stylesheet" href="style.css?v=e6f252ee">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VisualArtwork", "artMedium": "cast + hand-built \u00b7 porcelain \u00b7 10 \u00d7 18 \u00d7 16,5 cm \u00b7 2018 co-production with Mari\u00ebtte Wolbert", "creator": {"@type": "Person", "name": "Inge Be\u010dka", "url": "https://madartfoundation.com/inge-becka.html"}, "identifier": "MAISONDARTISTE-IB-10", "image": "https://madartfoundation.com/inge-becka-the-ridge-collection-the-little-gold-silver.jpg", "name": "The Ridge Collection - The LITTLE \u2502 silver", "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "price": 450, "priceCurrency": "EUR", "seller": {"@type": "Person", "name": "Inge Be\u010dka"}, "url": "https://madartfoundation.com/inge-becka-the-ridge-collection-the-little-silver.html"}, "url": "https://madartfoundation.com/inge-becka-the-ridge-collection-the-little-silver.html"}</script>
 </head>
 <body class="worklook">
@@ -28,7 +28,9 @@
 </div>
 
 <main id="main">
-<img class="work" src="inge-becka-the-ridge-collection-the-little-gold-silver.jpg" alt="The Ridge Collection - The LITTLE │ silver, by Inge Bečka">
+<img class="work" src="w-inge-becka-the-ridge-collection-the-little-gold-silver.jpg" alt="The Ridge Collection - The LITTLE │ silver, by Inge Bečka"
+     width="1800" height="1200"
+     fetchpriority="high" decoding="async">
 <div class="body2">
   <p class="code2">MAISONDARTISTE-IB-10</p>
   <a class="maker2" href="inge-becka.html">Inge Bečka &#8594;</a>
@@ -108,7 +110,21 @@
   var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
   var el=document.getElementById('openstate');
   if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
     var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
     var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
     var today=HOURS[day];
     var label='Closed today', open=false;
