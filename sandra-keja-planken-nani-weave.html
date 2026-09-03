@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=f8a658ca">
+<link rel="stylesheet" href="style.css?v=e6f252ee">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VisualArtwork", "artMedium": "Recycled plastic, recycled wool, remnant yarns \u00b7 160 x 50 cm (circa) \u00b7 2026", "creator": {"@type": "Person", "name": "Sandra Keja Planken", "url": "https://madartfoundation.com/sandra-keja-planken.html"}, "identifier": "GROUND-SK-05", "image": "https://madartfoundation.com/sandra-keja-planken-nani-weave.jpg", "name": "Nani Weave", "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "price": 3333, "priceCurrency": "EUR", "seller": {"@type": "Person", "name": "Sandra Keja Planken"}, "url": "https://madartfoundation.com/sandra-keja-planken-nani-weave.html"}, "url": "https://madartfoundation.com/sandra-keja-planken-nani-weave.html"}</script>
 </head>
 <body class="worklook">
@@ -27,7 +27,9 @@
 <span class="live2">SEASON 02 · LIVE</span></div>
 
 <main id="main">
-<img class="work" src="sandra-keja-planken-nani-weave.jpg" alt="Nani Weave, by Sandra Keja Planken">
+<img class="work" src="w-sandra-keja-planken-nani-weave.jpg" alt="Nani Weave, by Sandra Keja Planken"
+     width="1350" height="1800"
+     fetchpriority="high" decoding="async">
 <div class="body2">
   <p class="code2">GROUND-SK-05</p>
   <a class="maker2" href="sandra-keja-planken.html">Sandra Keja Planken &#8594;</a>
@@ -106,7 +108,21 @@
   var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
   var el=document.getElementById('openstate');
   if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
     var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
     var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
     var today=HOURS[day];
     var label='Closed today', open=false;
