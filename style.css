@@ -10,6 +10,7 @@
   --ink:#1E1D1C;
   --linen:#E1DAD2;
   --concrete:#C3BDB8;
+  --index-no:#8C857E;   /* een sectienummer is informatie, geen lijn: 1.60:1 haalde de norm niet */
   --grey:#5A5650;
   --grey-light:#64605A;
   --dawn:#293DCE;
@@ -70,7 +71,7 @@ h2.index,
   font-size:11px;font-weight:400;letter-spacing:.16em;color:var(--grey);
   padding-bottom:10px;margin:0 0 26px;border-bottom:var(--rule);
 }
-.index .no{color:var(--concrete)}
+.index .no{color:var(--index-no)}
 .index .of{margin-left:auto;color:var(--grey-light);letter-spacing:.06em}
 
 /* ---------- header ---------- */
@@ -168,7 +169,7 @@ section + section{border-top:var(--hair)}
 
 /* ---------- filter bar ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 0;border-bottom:var(--rule);position:sticky;top:56px;background:var(--chalk);z-index:20}
-.filters select,.filters input{font:inherit;font-size:13px;padding:9px 11px;background:var(--chalk);border:1px solid var(--concrete);color:var(--ink);border-radius:0}
+.filters select,.filters input{font:inherit;font-size:16px;padding:9px 11px;background:var(--chalk);border:1px solid var(--concrete);color:var(--ink);border-radius:0}
 .filters input{min-width:210px}
 .filters .count{margin-left:auto;font-size:12px;color:var(--grey)}
 .viewtoggle{display:flex;border:1px solid var(--concrete)}
@@ -206,9 +207,9 @@ body.worklook{background:var(--chalk)}
 .footer-grid h4{font-size:11px;letter-spacing:.16em;font-weight:500;color:var(--concrete);margin:0 0 14px}
 .footer-grid p{margin:0 0 10px;color:var(--linen)}
 .signup{display:flex;gap:0;margin-top:14px;max-width:340px}
-.signup input{flex:1;font:inherit;font-size:13px;padding:12px;background:transparent;border:1px solid var(--grey);border-right:0;color:var(--chalk);border-radius:0}
+.signup input{flex:1;font:inherit;font-size:16px;padding:12px;background:transparent;border:1px solid var(--grey);border-right:0;color:var(--chalk);border-radius:0}
 .signup input::placeholder{color:var(--grey-light)}
-.signup button{font:inherit;font-size:13px;padding:12px 18px;background:var(--chalk);color:var(--ink);border:1px solid var(--chalk);cursor:pointer}
+.signup button{font:inherit;font-size:16px;padding:12px 18px;background:var(--chalk);color:var(--ink);border:1px solid var(--chalk);cursor:pointer}
 .signup button:hover{background:var(--dawn);border-color:var(--dawn);color:var(--chalk)}
 .footer-bottom{border-top:1px solid rgba(244,237,228,.16);margin-top:44px;padding-top:18px;font-size:11px;color:var(--concrete);display:flex;flex-wrap:wrap;gap:8px 20px}
 
@@ -234,7 +235,11 @@ body.worklook{background:var(--chalk)}
   .row .c{grid-column:1/-1}
   .row .m{grid-column:1/-1}
   .footer-grid{grid-template-columns:1fr;gap:30px}
-  .filters{position:static}
+  /* 27.000 pixels aan kaarten eronder: zonder meelopende balk kun je pas
+     opnieuw filteren na 32 schermen terugscrollen. */
+  .filters{position:sticky;top:56px;z-index:20;padding:10px 0;gap:8px}
+  .filters input{min-width:0;width:100%}
+  .filters .count{margin-left:auto;font-size:11px}
   .filters input{min-width:0;width:100%}
   .hero img{height:64vh}
 }
@@ -367,8 +372,29 @@ section.wide{padding-left:0;padding-right:0}
 .railnav .hint{font-size:12px;color:var(--grey-light);margin-left:8px}
 
 /* the place */
-.place-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.place-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 .place-grid figure{margin:0;overflow:hidden;background:var(--linen)}
+/* the place, on the homepage: the elevation stands in for the photograph */
+/* Geen vak, geen achtergrond, geen bijsnijden: alleen de tekening. De hoogte
+   komt uit de tekst ernaast, gemeten bij het laden, zodat de twee kolommen
+   even hoog beginnen en de tekening daarna nooit meer beweegt. */
+.place-grid figure.place-elev{margin:0;background:none;overflow:visible;
+  display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.place-elev svg.elev{height:var(--elev-h,460px);width:auto;max-width:100%;display:block}
+.place-text{min-height:var(--elev-h,460px)}
+.elev-jump{font-size:12px;letter-spacing:.04em;color:var(--grey);
+  border-bottom:1px solid var(--concrete);padding-bottom:2px;align-self:flex-start}
+.elev-jump:hover{color:var(--dawn);border-color:var(--dawn)}
+/* het beeld van de verdieping, op eigen verhouding, niet bijgesneden */
+.place-hero{margin:0 0 16px;background:var(--linen);overflow:hidden;
+  width:min(100%,300px);aspect-ratio:3/2;display:block}
+.place-hero[hidden]{display:none}
+.place-hero img{width:100%;height:100%;object-fit:cover;display:block}
+#place-level .people{columns:2}
+#place-cta{margin:2px 0 0}
+#place-cta[hidden]{display:none}
+#place-level .lvl-eyebrow{margin-bottom:16px}
+#place-level h2{margin-bottom:6px}
 .place-grid img{width:100%;height:auto;display:block}
 
 /* the team */
@@ -381,6 +407,10 @@ section.wide{padding-left:0;padding-right:0}
 
 @media(max-width:860px){
   .place-grid{grid-template-columns:1fr;gap:26px}
+  .place-elev{align-items:center}
+  .place-elev svg.elev{height:auto;width:min(100%,320px)}
+  .place-text{min-height:0}
+  .elev-jump{align-self:center}
   .team-grid{grid-template-columns:1fr;gap:34px}
   .hero-foot{padding-top:100px;padding-bottom:28px}
   .railnav .hint{display:none}
@@ -632,8 +662,9 @@ body.page-building .pagehead{flex:0 0 auto;padding:18px 0 2px}
 .bld-detail h2{margin-bottom:8px}
 .bld-detail h2 a{border-bottom:1px solid var(--concrete);padding-bottom:1px}
 .bld-detail h2 a:hover{color:var(--dawn);border-color:var(--dawn)}
-svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));min-width:230px;height:auto;
-  display:block;margin:0 auto;overflow:visible}
+body.page-building svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));
+  min-width:230px;height:auto;display:block;margin:0 auto;overflow:visible}
+svg.elev{overflow:visible}
 #levelreg{flex:0 0 auto}
 #d-people{flex:0 0 auto}
 .bld-draw,.bld-reg,.bld-detail{height:auto}
@@ -724,7 +755,18 @@ svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));min-width:230
 }
 @media(max-width:760px){
   .bld{grid-template-columns:1fr;gap:22px}
-  .bld-draw svg.elev{max-width:330px;margin:0 auto}
+
+  /* Op een telefoon wordt de breedte van de tekening bepaald door de schermhoogte,
+     en dat is de verkeerde maat: hij kwam uit op 251 van de 390 pixels, links
+     uitgelijnd. Hier telt de breedte. */
+  body.page-building svg.elev{width:min(100%,340px);margin:0 auto}
+
+  /* De site laat op een telefoon het codeveld van een registerregel over beide
+     kolommen lopen. In het verdiepingsregister staat de naam in kolom twee, en
+     die werd daardoor 22 pixels breed: elk woord op een eigen regel. */
+  .reg.levels .row .c{grid-column:1}
+  .reg.levels .row{grid-template-columns:26px 1fr;align-items:baseline}
+  .reg.levels .row .t em{display:inline;margin-left:8px}
   .bld-detail{grid-column:auto}
   .lvl-inner{grid-template-columns:1fr;gap:0}
   .lvl-hero{margin-bottom:16px}
