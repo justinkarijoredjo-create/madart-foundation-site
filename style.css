@@ -640,8 +640,16 @@ section.editorial{padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw
 @media (max-width: 760px) {
   .railnav button,
   .navtoggle,
-  .signup button,
-  .hero .dots button{min-height:44px;min-width:44px}
+  .signup button{min-height:44px;min-width:44px}
+
+  /* De streepjes onder de hero waren streepjes op een laptop en vierkanten van
+     44 bij 44 op een telefoon, omdat de tikruimte de vorm zelf oprekte. Het
+     streepje blijft nu 26 bij 3; de tikruimte zit eromheen in een onzichtbaar
+     vlak, zodat een vinger hem haalt zonder dat je hem ziet. */
+  .hero .dots{gap:14px}
+  .hero .dots button{min-height:0;min-width:0;width:26px;height:3px;position:relative}
+  .hero .dots button::after{content:"";position:absolute;
+    left:-7px;right:-7px;top:-20px;bottom:-20px}
   .mainnav a{min-height:44px;display:flex;align-items:center}
   .worklook .backline a{padding:6px 0}
 }
