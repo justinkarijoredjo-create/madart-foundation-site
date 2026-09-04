@@ -721,7 +721,7 @@ function show(L){
   if(L.hero){
     const img = document.createElement("img");
     img.alt = "Level " + L.label + " of NIO House Amsterdam";
-    img.loading = "lazy"; img.decoding = "async";
+    img.loading = "eager"; img.decoding = "async";
     img.onerror = function(){ const sp = document.createElement("span");
       sp.textContent = L.hero; d.hero.innerHTML = ""; d.hero.appendChild(sp); };
     img.src = L.hero; d.hero.appendChild(img);

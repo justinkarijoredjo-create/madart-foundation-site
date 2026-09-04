@@ -1090,7 +1090,7 @@ PROGRAMME.route.forEach(function(id){
     if(L.hero){
       const img = document.createElement("img");
       img.alt = "Level " + L.label + " of NIO House Amsterdam";
-      img.loading = "lazy"; img.decoding = "async"; img.src = L.hero;
+      img.loading = "eager"; img.decoding = "async"; img.src = L.hero;
       p.hero.appendChild(img);
     }
 
