@@ -619,12 +619,12 @@ html{overflow-x:hidden}
    Three columns: the elevation, the register of levels, and the level itself.
    The register is the site's own .reg/.row, narrowed to fit a column.
    ========================================================================== */
-main#main{display:flex;flex-direction:column;height:calc(100dvh - 56px);min-height:520px}
-.pagehead{flex:0 0 auto;padding:18px 0 2px}
+body.page-building main#main{display:flex;flex-direction:column;min-height:calc(100dvh - 56px)}
+body.page-building .pagehead{flex:0 0 auto;padding:18px 0 2px}
 .pagehead .lede{font-size:14px;line-height:1.55;margin:0}
 #panel{flex:1 1 auto;min-height:0;display:flex;padding-bottom:24px}
 #panel > .wrap{width:100%;display:flex}
-.bld{width:100%;height:100%;min-height:0;display:grid;
+.bld{width:100%;height:auto;min-height:0;display:grid;
   grid-template-columns:minmax(225px,1.05fr) minmax(178px,.7fr) minmax(250px,1.1fr);
   gap:26px;align-items:stretch}
 .bld > div{min-height:0;display:flex;flex-direction:column}
@@ -632,10 +632,12 @@ main#main{display:flex;flex-direction:column;height:calc(100dvh - 56px);min-heig
 .bld-detail h2{margin-bottom:8px}
 .bld-detail h2 a{border-bottom:1px solid var(--concrete);padding-bottom:1px}
 .bld-detail h2 a:hover{color:var(--dawn);border-color:var(--dawn)}
-svg.elev{flex:1 1 auto;min-height:0;height:100%;width:auto;max-width:100%;
+svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));min-width:230px;height:auto;
   display:block;margin:0 auto;overflow:visible}
 #levelreg{flex:0 0 auto}
-#d-people{flex:1 1 auto;min-height:0;overflow-y:auto}
+#d-people{flex:0 0 auto}
+.bld-draw,.bld-reg,.bld-detail{height:auto}
+.lvl-inner,.lvl-text{flex:0 0 auto}
 #d-cta-wrap{flex:0 0 auto;margin:0}
 #d-cta-wrap[hidden]{display:none}
 .btn[hidden]{display:none}
@@ -712,7 +714,7 @@ svg.elev{flex:1 1 auto;min-height:0;height:100%;width:auto;max-width:100%;
 .sw.route{border:0;border-top:1.5px dashed var(--dawn);width:15px;height:0;margin-bottom:3px}
 
 @media(max-width:900px){
-  main#main{height:auto;min-height:0}
+  body.page-building main#main{min-height:0}
   .bld{grid-template-columns:minmax(240px,.95fr) 1.05fr;height:auto}
   .bld-detail{grid-column:1/-1;border-top:var(--rule);padding-top:22px}
   .lvl-inner{display:grid;grid-template-columns:minmax(190px,.8fr) 1.5fr;gap:26px;align-items:start}
