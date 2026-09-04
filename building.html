@@ -17,6 +17,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=a8a3fcc2">
+<style>
+/* Reparatie van 4 september, bewust hier en niet in style.css: een wijziging
+   daar verandert de vingerafdruk ?v= op alle 215 pagina's en dwingt een
+   volledige upload af. Bij de eerstvolgende volledige upload horen deze regels
+   alsnog naar static/style.css te verhuizen.
+
+   Wat er misging: main kreeg een vaste hoogte om de pagina op een scherm te
+   houden. Op een laptop van 756 pixels hoog was die hoogte kleiner dan de
+   inhoud, en liepen het register en de leestekst onder de voeter door. Vraag
+   om een scherm, eis het niet. */
+main#main{height:auto;min-height:calc(100dvh - 56px)}
+.bld{height:auto;align-items:start}
+.bld-draw,.bld-reg,.bld-detail{height:auto}
+svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));
+  min-width:230px;height:auto;margin:0 auto}
+#d-people{flex:0 0 auto;min-height:0;overflow:visible}
+.lvl-inner,.lvl-text{flex:0 0 auto}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -208,7 +226,7 @@
 <script>
 /* The eight levels and what is on them, straight out of data/building.yaml. */
 const BUILDING  = [{"count": "76 m\u00b2", "from": 26745, "hero": "hero-level-7.jpg", "id": "7", "idle": "Beneath the glass Gerrit Rietveld raised over the building in 1933.", "kind": "The Dome", "label": "7", "to": 29220}, {"count": "217 m\u00b2", "from": 23120, "hero": "hero-level-6.jpg", "id": "6", "idle": "One continuous space of 217 m\u00b2, used by NIO House for events.", "kind": "Blue Sky Lounge", "label": "6", "to": 26745}, {"count": "NIO House", "from": 20260, "hero": null, "id": "5", "idle": "NIO House\u0027s own offices. The staircase passes the landing; the floor itself is not open.", "kind": "Offices", "label": "5", "to": 23120}, {"count": "Foundation", "from": 16320, "hero": "hero-level-4.jpg", "id": "4", "idle": "The Foundation\u0027s exhibition floor: five galleries and a lounge. A new season opens on the first Friday of each quarter.", "kind": "Artspace", "label": "4", "permanent": true, "to": 20260}, {"count": "NIO House", "from": 12420, "hero": "hero-level-3.jpg", "house": true, "id": "3", "idle": "NIO House\u0027s working floor \u2014 desks and rooms for members.", "kind": "Lab", "label": "3", "to": 16320}, {"count": "NIO House", "from": 8400, "hero": "hero-level-2.jpg", "id": "2", "idle": "NIO House\u0027s gathering floor, used for talks and public programme.", "kind": "Studio", "label": "2", "to": 12420}, {"count": "NIO House", "from": 4620, "hero": "hero-level-1.jpg", "id": "1", "idle": "NIO House\u0027s caf\u00e9, open to anyone who walks in.", "kind": "NIO Caf\u00e9", "label": "1", "to": 8400}, {"count": "Entrance", "from": 0, "hero": "hero-level-0.jpg", "id": "0", "idle": "The way in, from the corner of the Keizersgracht and the Leidsestraat.", "kind": "Gallery", "label": "0", "to": 4620}];
-const PROGRAMME = {"levels": {"0": {"blurb": "Where the route begins, under the clock on the corner.", "count": "1 maker", "groups": [{"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-0.jpg", "name": "Entrance"}, "1": {"blurb": "The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.", "count": "Caf\u00e9", "hero": "hero-level-1.jpg", "name": "Lunch"}, "2": {"blurb": "Short talks on design, colour, material and the brain, every afternoon from 15:00.", "count": "5 talks", "groups": [{"label": "Talks", "one_column": true, "people": [{"external": "https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator", "name": "Martijn den Otter"}, {"external": "https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator", "name": "Femke Hofhuis", "note": "Femm Amsterdam"}, {"external": "https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator\u0026keep_tld=true", "name": "Thomas Eurlings", "note": "Forbo"}, {"external": "https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator\u0026keep_tld=true", "name": "Marc th. van der Voorn"}, {"name": "Nicola Cherubini", "note": "Listone Giordano"}]}, {"label": "Running presentation", "people": [{"href": "andreea-pirlica.html", "name": "Andreea Pirlica"}]}], "hero": "hero-level-2.jpg", "name": "Talks", "plan": "plan-2.html", "to": "events.html"}, "4": {"blurb": "The Foundation\u0027s running season, open throughout GLUE \u2014 not a separate visit but part of the same route.", "count": "19 makers", "groups": [{"people": [{"href": "arno-hoogland.html", "name": "Arno Hoogland"}, {"href": "anne-van-borselen.html", "name": "Anne van Borselen"}, {"href": "rogier-bosschaart.html", "name": "Rogier Bosschaart"}, {"href": "aad-kruiswijk.html", "name": "Aad Kruiswijk"}, {"href": "sandra-keja-planken.html", "name": "Sandra Keja Planken"}, {"href": "loutje-hoekstra.html", "name": "Loutje Hoekstra"}, {"href": "echo.html", "name": "ECHO", "note": "13 makers"}]}, {"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-4.jpg", "name": "Season 02 \u2014 GROUND", "plan": "plan-4.html", "to": "season-02-ground.html"}, "5": {"blurb": "NIO House\u0027s own floor, closed to visitors \u2014 but the staircase runs through it.", "count": "1 maker", "groups": [{"label": "On the landing", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "name": "On the landing"}, "6": {"blurb": "One continuous space read as four rooms, entered from either end.", "count": "12 makers", "groups": [{"people": [{"href": "marnix-van-strydonck.html", "name": "Marnix Van Strydonck"}, {"href": "dot-objects.html", "name": "Dot Objects"}, {"href": "inge-becka.html", "name": "Inge Be\u010dka"}, {"href": "maurice-albert-jan.html", "name": "Maurice Albert Jan"}, {"href": "jim-bob-ruijgrok.html", "name": "Jim Bob Ruijgrok"}, {"href": "nicolette-de-waart.html", "name": "Nicolette de Waart"}, {"href": "buro-berger.html", "name": "Buro Berger"}, {"href": "lilia-luganskaia-kuilder.html", "name": "Lilia Luganskaia-Kuilder"}, {"href": "eric-sloot.html", "name": "Eric Sloot"}, {"href": "ignore.html", "name": "ignore"}, {"name": "Natalia Coleman Wyspianska"}, {"href": "joost-de-munnik-ruud-van-den-eijnden.html", "name": "Joost de Munnik \u0026 Ruud van den Eijnden", "note": "presented by SPoT"}]}], "hero": "hero-level-6.jpg", "name": "Maison d\u0027Artiste", "plan": "plan-6.html", "to": "maison-dartiste.html"}, "7": {"blurb": "Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.", "count": "1 maker", "groups": [{"people": [{"href": "devoonsounds.html", "name": "Devoonsounds"}]}], "hero": "hero-level-7.jpg", "name": "The Dome", "plan": "plan-7.html", "to": "maison-dartiste.html"}}, "route": ["0", "2", "4", "5", "6", "7"], "title": "GLUE Amsterdam 2026"};
+const PROGRAMME = {"levels": {"0": {"blurb": "Where the route begins, under the clock on the corner.", "count": "1 maker", "groups": [{"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-0.jpg", "name": "Entrance"}, "1": {"blurb": "The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.", "count": "Caf\u00e9", "hero": "hero-level-1.jpg", "name": "Lunch"}, "2": {"blurb": "Short talks on design, colour, material and the brain, every afternoon from 15:00.", "count": "5 talks", "groups": [{"label": "Talks", "one_column": true, "people": [{"external": "https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator", "name": "Martijn den Otter"}, {"external": "https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator", "name": "Femke Hofhuis", "note": "Femm Amsterdam"}, {"external": "https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator\u0026keep_tld=true", "name": "Thomas Eurlings", "note": "Forbo"}, {"external": "https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator\u0026keep_tld=true", "name": "Marc th. van der Voorn"}, {"name": "Nicola Cherubini", "note": "Listone Giordano"}]}, {"label": "Running presentation", "people": [{"href": "andreea-pirlica.html", "name": "Andreea Pirlica"}]}], "hero": "hero-level-2.jpg", "link": "events.html", "name": "Talks", "plan": "plan-2.html"}, "4": {"blurb": "The Foundation\u0027s running season, open throughout GLUE \u2014 not a separate visit but part of the same route.", "count": "19 makers", "groups": [{"people": [{"href": "arno-hoogland.html", "name": "Arno Hoogland"}, {"href": "anne-van-borselen.html", "name": "Anne van Borselen"}, {"href": "rogier-bosschaart.html", "name": "Rogier Bosschaart"}, {"href": "aad-kruiswijk.html", "name": "Aad Kruiswijk"}, {"href": "sandra-keja-planken.html", "name": "Sandra Keja Planken"}, {"href": "loutje-hoekstra.html", "name": "Loutje Hoekstra"}, {"href": "echo.html", "name": "ECHO", "note": "13 makers"}]}, {"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-4.jpg", "link": "season-02-ground.html", "name": "Season 02 \u2014 GROUND", "plan": "plan-4.html"}, "5": {"blurb": "NIO House\u0027s own floor, closed to visitors \u2014 but the staircase runs through it.", "count": "1 maker", "groups": [{"label": "On the landing", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "name": "On the landing"}, "6": {"blurb": "One continuous space read as four rooms, entered from either end.", "count": "12 makers", "groups": [{"people": [{"href": "marnix-van-strydonck.html", "name": "Marnix Van Strydonck"}, {"href": "dot-objects.html", "name": "Dot Objects"}, {"href": "inge-becka.html", "name": "Inge Be\u010dka"}, {"href": "maurice-albert-jan.html", "name": "Maurice Albert Jan"}, {"href": "jim-bob-ruijgrok.html", "name": "Jim Bob Ruijgrok"}, {"href": "nicolette-de-waart.html", "name": "Nicolette de Waart"}, {"href": "buro-berger.html", "name": "Buro Berger"}, {"href": "lilia-luganskaia-kuilder.html", "name": "Lilia Luganskaia-Kuilder"}, {"href": "eric-sloot.html", "name": "Eric Sloot"}, {"href": "ignore.html", "name": "ignore"}, {"name": "Natalia Coleman Wyspianska"}, {"href": "joost-de-munnik-ruud-van-den-eijnden.html", "name": "Joost de Munnik \u0026 Ruud van den Eijnden", "note": "presented by SPoT"}]}], "hero": "hero-level-6.jpg", "link": "maison-dartiste.html", "name": "Maison d\u0027Artiste", "plan": "plan-6.html"}, "7": {"blurb": "Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.", "count": "1 maker", "groups": [{"people": [{"href": "devoonsounds.html", "name": "Devoonsounds"}]}], "hero": "hero-level-7.jpg", "link": "maison-dartiste.html", "name": "The Dome", "plan": "plan-7.html"}}, "route": ["0", "2", "4", "5", "6", "7"], "title": "GLUE Amsterdam 2026"};
 
 const LEVELS = BUILDING.map(function(b){
   const p = PROGRAMME.levels[b.id] || null;
@@ -220,7 +238,7 @@ const LEVELS = BUILDING.map(function(b){
     count:  p && p.count ? p.count : b.count,
     groups: p && p.groups ? p.groups : [],
     href:   p && p.plan ? p.plan : null,
-    to:     p && p.to   ? p.to   : null };
+    link:   p && p.link ? p.link : null };   /* not `to`: that is a height */
 });
 
 const S = 65, YG = 560;
@@ -674,7 +692,9 @@ LEVELS.forEach(function(L){
   if(L.href) a.href = L.href; else { a.setAttribute("role","button"); a.tabIndex = 0; }
   a.dataset.id = L.id;
   a.innerHTML = '<span class="c">' + L.label + '</span>' +
-                '<span class="t">' + L.name + '<em>' + L.kind + '</em></span>';
+                '<span class="t">' + L.name +
+                (L.kind && L.kind !== L.name ? '<em>' + L.kind + '</em>' : '') +
+                '</span>';
   reg.appendChild(a);
 });
 
@@ -686,12 +706,12 @@ for(const k in d) d[k] = document.getElementById(d[k]);
 
 function show(L){
   d.no.textContent   = "LEVEL " + L.label;
-  d.kind.textContent = L.kind;
+  d.kind.textContent = (L.kind && L.kind !== L.name) ? L.kind : "";
   d.of.textContent   = L.count;
   /* the name of a level is also the way out of this page: to the season, to
      the exhibition, to the programme. A level without one stays plain text. */
   d.name.textContent = "";
-  if(L.to){ const a = document.createElement("a"); a.href = L.to;
+  if(L.link){ const a = document.createElement("a"); a.href = L.link;
     a.textContent = L.name; d.name.appendChild(a); }
   else d.name.textContent = L.name;
   d.perm.hidden      = !L.perm;
