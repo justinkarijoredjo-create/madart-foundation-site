@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=a8a3fcc2">
+<link rel="stylesheet" href="style.css?v=46c4a478">
 <style>
 /* Reparatie van 4 september, bewust hier en niet in style.css: een wijziging
    daar verandert de vingerafdruk ?v= op alle 215 pagina's en dwingt een
@@ -36,7 +36,7 @@ svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));
 .lvl-inner,.lvl-text{flex:0 0 auto}
 </style>
 </head>
-<body>
+<body class="page-building">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -781,8 +781,11 @@ function wire(node, L){
   node.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
   node.addEventListener("focus", function(){ show(L); });
   node.addEventListener("click", function(ev){
+    /* Het paneel staat op een telefoon ruim dertienhonderd pixels onder de
+       tekening. Springen naar de sectie bracht je terug naar de bovenkant en
+       liet het antwoord buiten beeld; spring naar het antwoord zelf. */
     if(narrow()){ ev.preventDefault(); show(L);
-      document.getElementById("panel").scrollIntoView({behavior:"smooth",block:"start"});
+      document.querySelector(".bld-detail").scrollIntoView({behavior:"smooth",block:"start"});
       return; }
     if(L.href){ ev.preventDefault(); window.location.href = L.href; }
     else ev.preventDefault();
