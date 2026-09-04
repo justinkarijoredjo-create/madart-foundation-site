@@ -1,0 +1,121 @@
+LEVERING — building.html
+MADART FOUNDATION · 4 september 2026
+
+--------------------------------------------------------------------------
+EERST BESLISSEN, VOOR JE IETS UPLOADT
+--------------------------------------------------------------------------
+
+De vier plattegrondknoppen wijzen naar plan-2.html, plan-4.html, plan-6.html
+en plan-7.html. Die pagina's bestaan nog niet. Zet je dit nu live, dan komen
+bezoekers op vier doodlopende links.
+
+  OPTIE A — publiceren zonder knoppen, en ze aanzetten zodra de
+            plattegronden er zijn. Open building.html, zoek de vier regels
+            href:"plan-2.html"  href:"plan-4.html"
+            href:"plan-6.html"  href:"plan-7.html"
+            en maak er href:null van. De knop verdwijnt dan vanzelf en de
+            verdiepingen worden onklikbaar. Vier tekens per regel.
+
+  OPTIE B — publiceren zoals het is, en dezelfde dag de vier plattegronden
+            erachteraan.
+
+Ik heb niets veranderd. De bestanden staan klaar voor optie B.
+
+Let op: zodra plan-2, plan-4, plan-6 en plan-7 live staan, liggen die namen
+vast. Wil je een andere naamgeving, dan nu.
+
+--------------------------------------------------------------------------
+OMVANG
+--------------------------------------------------------------------------
+
+8 bestanden, 640 KB. Allemaal nieuw. Er verandert niets aan bestaande
+bestanden, dus er hoeft niets anders opnieuw geupload te worden.
+
+  building.html        47 KB
+  hero-level-0.jpg     77 KB   entree en autogalerie
+  hero-level-1.jpg     90 KB   NIO Cafe
+  hero-level-2.jpg     66 KB   Studio, de talkszaal
+  hero-level-3.jpg     76 KB   Lab
+  hero-level-4.jpg     69 KB   GROUND (van de homepage)
+  hero-level-6.jpg     83 KB   Blue Sky Lounge
+  hero-level-7.jpg    113 KB   The Dome
+
+Verdieping 5 heeft geen beeld. Dat is een keuze, geen omissie.
+
+--------------------------------------------------------------------------
+UPLOADVOLGORDE
+--------------------------------------------------------------------------
+
+1. De zeven jpg's. Beelden altijd eerst.
+2. building.html.
+
+Alles in de root van de repository, naast index.html. De site is plat, er is
+geen submap.
+
+Ver onder de honderd bestanden die de GitHub-webinterface aankan, dus dit
+kan in een keer.
+
+--------------------------------------------------------------------------
+WAT ER NIET VERANDERT
+--------------------------------------------------------------------------
+
+style.css blijft ongemoeid. De paginaspecifieke opmaak zit in een <style>
+in building.html zelf. Dat is bewust: had ik het in style.css gezet, dan
+verandert de vingerafdruk ?v=e6f252ee op alle 214 pagina's en hadden ze
+alle 214 opnieuw geupload moeten worden. Voor een nieuwe pagina is dat een
+onnodig risico.
+
+Wel iets om te weten: zodra dit de generator in gaat hoort die CSS alsnog
+naar static/style.css, en dan wel in een lading waarin alle pagina's
+meegaan. Nu niet.
+
+--------------------------------------------------------------------------
+CONTROLEPUNTEN NA UPLOAD
+--------------------------------------------------------------------------
+
+  1. madartfoundation.com/building.html opent.
+  2. De gevel staat er, en muis over een verdieping kleurt hem blauw met
+     witte lijnen.
+  3. De rechterkolom wisselt mee, met foto.
+  4. Verdieping 5 toont geen fotovak en geen knop.
+  5. Verdieping 0, 1 en 3 tonen geen knop.
+  6. Klik op een makersnaam: die opent de juiste makerpagina.
+     Alle 34 links zijn gecontroleerd tegen de repository.
+  7. Klik op een spreker: die opent Eventbrite in een nieuw tabblad.
+  8. Op een telefoon: tik op een verdieping, de tekening blijft staan en de
+     tekst verschijnt eronder.
+  9. De openingsindicator in de header werkt (Amsterdamse klok).
+
+--------------------------------------------------------------------------
+WELK BESTAND WAARHEEN VOOR JUSTIN
+--------------------------------------------------------------------------
+
+Naar GitHub, root:      alle 8 bestanden hierboven.
+
+Naar de generator, zodra ik de map heb:
+  data/building.yaml      de acht niveaus en het programma
+  templates/building.html het sjabloon
+  static/style.css        de paginaopmaak
+  assets/                 de zeven hero-jpg's
+  urls.lock               een regel erbij: building.html
+
+Zolang die generatorbestanden er niet zijn, overschrijft de eerstvolgende
+build deze pagina NIET (hij kent hem niet) maar bewaart hem ook niet. Stuur
+me de generator-zip, dan bouw ik het in en verdwijnt dit risico.
+
+--------------------------------------------------------------------------
+WAT ER OPENSTAAT
+--------------------------------------------------------------------------
+
+  - De vier plattegrondpagina's.
+  - De pagina is nergens vandaan te vinden. Nog geen enkele link wijst
+    ernaartoe. Voorstel, in volgorde: vanaf visit.html, vanaf
+    season-02-ground.html en maison-dartiste.html, en in de voeter onder
+    VISIT. De voeter staat op alle 214 pagina's, dus die stap is een aparte
+    lading.
+  - maison-dartiste.html noemt Andreea Pirlica bij de zesde verdieping.
+    Volgens jou staat zij op de tweede. Een van beide pagina's klopt niet.
+  - Natalia Coleman Wyspianska staat in de lijst zonder link, omdat zij
+    geen eigen pagina heeft.
+  - Nicola Cherubini heeft nog geen ticketlink.
+  - Verdieping 5 mist een foto van het bordes, mocht je er ooit een willen.

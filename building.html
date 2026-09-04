@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The building &mdash; MADART FOUNDATION</title>
+<meta name="description" content="Eight levels of NIO House Amsterdam, the former Metz &amp; Co building on the Keizersgracht. What is on each floor, who shows there, and the plan of every level.">
+<link rel="canonical" href="https://madartfoundation.com/building.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="The building">
+<meta property="og:description" content="Eight levels of NIO House Amsterdam, the former Metz &amp; Co building on the Keizersgracht.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/hero-level-4.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=e6f252ee">
+<style>
+
+/* ==========================================================================
+   the building — page styles
+   Three columns: the elevation, the register of levels, and the level itself.
+   The register is the site's own .reg/.row, narrowed to fit a column.
+   ========================================================================== */
+main#main{display:flex;flex-direction:column;height:calc(100dvh - 56px);min-height:520px}
+.pagehead{flex:0 0 auto;padding:18px 0 2px}
+.pagehead .lede{font-size:14px;line-height:1.55;margin:0}
+#panel{flex:1 1 auto;min-height:0;display:flex;padding-bottom:24px}
+#panel > .wrap{width:100%;display:flex}
+.bld{width:100%;height:100%;min-height:0;display:grid;
+  grid-template-columns:minmax(225px,1.05fr) minmax(178px,.7fr) minmax(250px,1.1fr);
+  gap:26px;align-items:stretch}
+.bld > div{min-height:0;display:flex;flex-direction:column}
+.bld .index{flex:0 0 auto;margin-bottom:14px}
+.bld-detail h2{margin-bottom:8px}
+svg.elev{flex:1 1 auto;min-height:0;height:100%;width:auto;max-width:100%;
+  display:block;margin:0 auto;overflow:visible}
+#levelreg{flex:0 0 auto}
+#d-people{flex:1 1 auto;min-height:0;overflow-y:auto}
+#d-cta-wrap{flex:0 0 auto;margin:0}
+#d-cta-wrap[hidden]{display:none}
+.btn[hidden]{display:none}
+.legend{flex:0 0 auto}
+
+.reg.levels{border-top:0}
+.reg.levels .row.noplan{cursor:default}
+.reg.levels .row{grid-template-columns:22px 1fr;gap:12px;padding:11px 8px 11px 6px;
+  align-items:start;cursor:pointer;transition:background .16s ease,color .16s ease}
+.reg.levels .row .c{font-size:12px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.35}
+.reg.levels .row .t{font-weight:500;line-height:1.35}
+.reg.levels .row .t em{display:block;font-style:normal;font-size:11.5px;color:var(--grey);margin-top:1px}
+.reg.levels .row .p{font-size:11.5px;color:var(--grey-light);text-align:right;line-height:1.35}
+.reg.levels .row.perm .c{color:var(--dawn)}
+.reg.levels .row.on,.reg.levels .row:hover{background:var(--dawn);color:var(--chalk)}
+.reg.levels .row.on .c,.reg.levels .row.on .t,.reg.levels .row.on .t em,.reg.levels .row.on .p,
+.reg.levels .row:hover .c,.reg.levels .row:hover .t,.reg.levels .row:hover .t em,.reg.levels .row:hover .p{color:var(--chalk)}
+.reg.levels .row.house .t{color:var(--grey)}
+.reg.levels .row.on.house .t,.reg.levels .row.house:hover .t{color:var(--chalk)}
+
+.lvl-inner{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.lvl-text{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.lvl-hero{flex:0 0 auto;margin:0 0 14px;background:var(--linen);overflow:hidden;
+  width:min(100%,30vh);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center}
+.lvl-hero[hidden]{display:none}
+.lvl-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.lvl-hero span{padding:0 14px;text-align:center;font-size:10px;letter-spacing:.06em;color:var(--concrete)}
+.lvl-perm{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dawn);margin:0 0 10px}
+.lvl-perm[hidden]{display:none}
+.bld-detail .lede{font-size:13.5px;line-height:1.55;margin:0 0 14px;max-width:44ch}
+.grp{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-light);margin:0 0 4px}
+.grp + .people{margin-bottom:10px}
+.people + .grp{margin-top:2px}
+.people{list-style:none;margin:0 0 12px;padding:0;columns:2;column-gap:20px}
+.people.one{columns:1}
+.people li{font-size:12.5px;line-height:1.4;break-inside:avoid;margin:0 0 3px}
+.people em{margin-left:2px}
+.people a{border-bottom:1px solid var(--concrete);padding-bottom:1px}
+.people a:hover{color:var(--dawn);border-color:var(--dawn)}
+.people span.plain{color:var(--grey)}
+.people em{font-style:normal;color:var(--grey-light);font-size:11.5px}
+
+/* the drawing */
+.flr rect.band{fill:transparent;transition:fill .16s ease}
+.flr rect.hit{fill:transparent;cursor:pointer}
+.flr text{font-family:inherit;fill:var(--grey);transition:fill .16s ease}
+.flr text.no{font-size:12.5px;font-weight:700;fill:var(--ink);letter-spacing:.02em}
+.flr text.perm{font-size:6.2px;letter-spacing:.13em;fill:var(--dawn)}
+.flr line.tick{stroke:var(--concrete);stroke-width:1;transition:stroke .16s ease}
+.flr.is-house text.no{fill:var(--grey-light)}
+.flr.is-perm text.no{fill:var(--dawn)}
+.flr.is-perm line.tick{stroke:var(--dawn)}
+.flr.is-on rect.band{fill:var(--dawn)}
+.flr.is-on text.no,.flr.is-on text.perm{fill:var(--dawn)}
+.flr.is-on line.tick{stroke:var(--dawn);stroke-width:1.5}
+.flr:hover rect.band{fill:var(--dawn)}
+.flr:focus-visible rect.band{fill:var(--dawn)}
+.trace{pointer-events:none}
+.trace .out{fill:none;stroke:var(--ink);stroke-width:.9;stroke-linejoin:round;stroke-linecap:round}
+.trace .med{fill:none;stroke:var(--grey);stroke-width:.6;stroke-linejoin:round}
+.trace .thin{fill:none;stroke:var(--concrete);stroke-width:.38;stroke-linejoin:round}
+.trace .hair{fill:none;stroke:var(--concrete);stroke-width:.26}
+.trace .ground{fill:var(--ink);stroke:none}
+.trace text.metz{font-family:inherit;font-size:8.5px;font-weight:700;letter-spacing:.34em;fill:var(--grey)}
+.trace.inv .out,.trace.inv .med,.trace.inv .thin,.trace.inv .hair{stroke:var(--chalk)}
+.trace.inv .ground{fill:var(--chalk)}
+.trace.inv text.metz{fill:var(--chalk)}
+.route{fill:none;stroke:var(--dawn);stroke-width:1.4;stroke-dasharray:3 4;pointer-events:none}
+.routedot{fill:var(--dawn);pointer-events:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:12px 0 0;font-size:11px;
+  letter-spacing:.04em;color:var(--grey);align-items:center}
+.sw{display:inline-block;width:11px;height:11px;border:1px solid var(--concrete);margin-right:7px;vertical-align:-1px}
+.sw.sel{background:var(--dawn);border-color:var(--dawn)}
+.sw.route{border:0;border-top:1.5px dashed var(--dawn);width:15px;height:0;margin-bottom:3px}
+
+@media(max-width:900px){
+  main#main{height:auto;min-height:0}
+  .bld{grid-template-columns:minmax(240px,.95fr) 1.05fr;height:auto}
+  .bld-detail{grid-column:1/-1;border-top:var(--rule);padding-top:22px}
+  .lvl-inner{display:grid;grid-template-columns:minmax(190px,.8fr) 1.5fr;gap:26px;align-items:start}
+  .lvl-hero{margin-bottom:0}
+  svg.elev{height:auto;width:100%}
+  #d-people{overflow:visible}
+}
+@media(max-width:760px){
+  .bld{grid-template-columns:1fr;gap:22px}
+  .bld-draw svg.elev{max-width:330px;margin:0 auto}
+  .bld-detail{grid-column:auto}
+  .lvl-inner{grid-template-columns:1fr;gap:0}
+  .lvl-hero{margin-bottom:16px}
+  .tapnote{color:var(--dawn)}
+}
+@media(min-width:761px){ .tapnote{display:none} }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MADART FOUNDATION</a>
+    <span class="status-dot" id="openstate"><i></i><span>Checking hours</span></span>
+    <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="makers.html">Makers</a>
+      <a href="shop.html">Works</a>
+      <a href="visit.html">Visit</a>
+      <a href="support-us.html">Support</a>
+      <a href="mission.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section><div class="wrap">
+  <p class="index"><span class="no">&mdash;</span><span>The building</span><span class="of">Eight levels, ground to seventh</span></p>
+  <h1>Every level of the house, and what is on it.</h1>
+  <p class="lede">NIO House Amsterdam, the former Metz &amp; Co building on the corner of the
+    Keizersgracht and the Leidsestraat. <a href="visit.html">Opening hours and directions</a>.</p>
+</div></section>
+
+<section id="panel"><div class="wrap">
+  <div class="bld">
+
+    <div class="bld-draw">
+      <svg class="elev" id="svg" viewBox="0 0 482 596" role="group"
+           aria-label="Keizersgracht elevation of NIO House Amsterdam, the former Metz building, eight levels"></svg>
+      <p class="legend">
+        <span><i class="sw sel"></i>The level you are reading</span>
+        <span><i class="sw route"></i>The visitor route during GLUE</span>
+        <span class="tapnote">Tap a level for what is on it.</span>
+      </p>
+    </div>
+
+    <div class="bld-reg">
+      <p class="index" aria-hidden="true">&nbsp;</p>
+      <div class="reg levels" id="levelreg"></div>
+    </div>
+
+    <div class="bld-detail">
+      <p class="index"><span class="no" id="d-no">LEVEL 4</span><span id="d-kind"></span><span class="of" id="d-of"></span></p>
+      <div class="lvl-inner">
+      <figure class="lvl-hero" id="d-hero"></figure>
+      <div class="lvl-text">
+      <h2 id="d-name"></h2>
+      <p class="lvl-perm" id="d-perm" hidden>MADART Foundation &middot; Artspace &middot; the permanent floor</p>
+      <p class="lede" id="d-blurb"></p>
+      <div id="d-people"></div>
+      <p id="d-cta-wrap"><a class="btn" id="d-cta" href="#">Open the plan</a></p>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="foot-h">BE THE FIRST TO KNOW</p>
+        <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+        <form class="signup" action="https://submit-form.com/1DWonyUTP" method="POST">
+          <input type="hidden" name="_redirect" value="https://madartfoundation.com/thanks.html">
+          <input type="hidden" name="_append" value="false">
+          <input type="hidden" name="source" value="newsletter">
+          <label class="skip" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div>
+        <p class="foot-h">VISIT</p>
+        <p>NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</p>
+        <p><a href="visit.html">Opening hours and directions</a></p>
+      </div>
+      <div>
+        <p class="foot-h">MADART FOUNDATION</p>
+        <p><a href="mission.html">Mission</a><br><a href="team.html">Team</a><br>
+           <a href="support-us.html">Support us</a><br><a href="friend.html">Become a Friend</a><br>
+           <a href="anbi.html">Governance and ANBI</a><br><a href="press.html">Press</a><br>
+           <a href="contact.html">Contact</a><br>
+           <a href="https://www.instagram.com/madartfoundation">Instagram</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MADART FOUNDATION &middot; Stichting The Bloys &middot; KvK 99713853 &middot; 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <span>Structurally supported by Curated by MADART</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+  var HOURS={"mon":[10,0,18,0],"tue":[10,0,18,0],"wed":[10,0,18,0],"thu":[10,0,18,0],
+             "fri":[10,0,18,0],"sat":[10,0,18,0],"sun":[10,0,18,0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day], label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
+
+<script>
+
+/* ==========================================================================
+   BUILDING belongs to the building, PROGRAMME to the event. Replace PROGRAMME
+   for Season 03 and the drawing, the register and the panel all follow. A
+   level with no entry falls back to its BUILDING description, so this page
+   cannot go stale when GLUE is over.
+
+   Every maker link below is a real page in the repository root — the site is
+   flat, there is no /makers/ folder. Names are spelled as the maker pages and
+   the exhibition pages spell them.
+   ========================================================================== */
+
+const m = function(n,href,note){ return { name:n, href:href, note:note }; };
+const x = function(n,note){ return { name:n, href:null, note:note }; };
+const e = function(n,url,note){ return { name:n, href:url, ext:true, note:note }; };
+
+const BUILDING = [
+  { id:"7", label:"7", from:26745, to:29220, kind:"The Dome", count:"76 m\u00b2",
+    hero:"hero-level-7.jpg",
+    idle:"Beneath the glass Gerrit Rietveld raised over the building in 1933." },
+  { id:"6", label:"6", from:23120, to:26745, kind:"Blue Sky Lounge", count:"217 m\u00b2",
+    hero:"hero-level-6.jpg",
+    idle:"One continuous space of 217 m\u00b2, used by NIO House for events." },
+  { id:"5", label:"5", from:20260, to:23120, kind:"Offices", count:"NIO House",
+    hero:null,
+    idle:"NIO House's own offices. The staircase passes the landing; the floor itself is not open." },
+  { id:"4", label:"4", perm:true, from:16320, to:20260, kind:"Artspace", count:"Foundation",
+    hero:"hero-level-4.jpg",
+    idle:"The Foundation's exhibition floor: five galleries and a lounge. A new season opens on the first Friday of each quarter." },
+  { id:"3", label:"3", house:true, from:12420, to:16320, kind:"Lab", count:"NIO House",
+    hero:"hero-level-3.jpg",
+    idle:"NIO House's working floor \u2014 desks and rooms for members." },
+  { id:"2", label:"2", from:8400, to:12420, kind:"Studio", count:"NIO House",
+    hero:"hero-level-2.jpg",
+    idle:"NIO House's gathering floor, used for talks and public programme." },
+  { id:"1", label:"1", from:4620, to:8400, kind:"NIO Caf\u00e9", count:"NIO House",
+    hero:"hero-level-1.jpg",
+    idle:"NIO House's caf\u00e9, open to anyone who walks in." },
+  { id:"0", label:"0", from:0, to:4620, kind:"Gallery", count:"Entrance",
+    hero:"hero-level-0.jpg",
+    idle:"The way in, from the corner of the Keizersgracht and the Leidsestraat." }
+];
+
+const PROGRAMME = {
+  route:["0","2","4","5","6","7"],
+  levels:{
+    "7":{ name:"The Dome", count:"1 maker", hero:"hero-level-7.jpg",
+      blurb:"Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.",
+      groups:[{ people:[ m("Devoonsounds","devoonsounds.html") ] }],
+      href:"plan-7.html" },
+
+    "6":{ name:"Maison d'Artiste", count:"12 makers", hero:"hero-level-6.jpg",
+      blurb:"One continuous space read as four rooms, entered from either end.",
+      groups:[{ people:[
+        m("Marnix Van Strydonck","marnix-van-strydonck.html"),
+        m("Dot Objects","dot-objects.html"),
+        m("Inge Be\u010dka","inge-becka.html"),
+        m("Maurice Albert Jan","maurice-albert-jan.html"),
+        m("Jim Bob Ruijgrok","jim-bob-ruijgrok.html"),
+        m("Nicolette de Waart","nicolette-de-waart.html"),
+        m("Buro Berger","buro-berger.html"),
+        m("Lilia Luganskaia-Kuilder","lilia-luganskaia-kuilder.html"),
+        m("Eric Sloot","eric-sloot.html"),
+        m("ignore","ignore.html"),
+        x("Natalia Coleman Wyspianska"),
+        m("Joost de Munnik & Ruud van den Eijnden","joost-de-munnik-ruud-van-den-eijnden.html","presented by SPoT") ] }],
+      href:"plan-6.html" },
+
+    "5":{ name:"On the landing", count:"1 maker", hero:null,
+      blurb:"NIO House's own floor, closed to visitors \u2014 but the staircase runs through it.",
+      groups:[{ label:"On the landing", people:[ m("Herma de Wit","herma-de-wit.html") ] }],
+      href:null },
+
+    "4":{ name:"Season 02 \u2014 GROUND", count:"19 makers", hero:"hero-level-4.jpg",
+      blurb:"The Foundation's running season, open throughout GLUE \u2014 not a separate visit but part of the same route.",
+      groups:[{ people:[
+        m("Arno Hoogland","arno-hoogland.html"),
+        m("Anne van Borselen","anne-van-borselen.html"),
+        m("Rogier Bosschaart","rogier-bosschaart.html"),
+        m("Aad Kruiswijk","aad-kruiswijk.html"),
+        m("Sandra Keja Planken","sandra-keja-planken.html"),
+        m("Loutje Hoekstra","loutje-hoekstra.html"),
+        m("ECHO","echo.html","13 makers") ] },
+        { label:"In the stairwell", people:[ m("Herma de Wit","herma-de-wit.html") ] }],
+      href:"plan-4.html" },
+
+    /* Nicola Cherubini has no ticket link yet; swap x(...) for e(...) when it
+       exists. Marc Th. van der Voorn speaks here and also shows on level 4 as
+       a member of ECHO \u2014 the same person, two roles.                        */
+    "2":{ name:"Talks", count:"5 talks", hero:"hero-level-2.jpg",
+      blurb:"Short talks on design, colour, material and the brain, every afternoon from 15:00.",
+      groups:[
+        { label:"Talks", one:true, people:[
+          e("Martijn den Otter","https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator"),
+          e("Femke Hofhuis","https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator","Femm Amsterdam"),
+          e("Thomas Eurlings","https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator&keep_tld=true","Forbo"),
+          e("Marc th. van der Voorn","https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator&keep_tld=true"),
+          x("Nicola Cherubini","Listone Giordano") ] },
+        { label:"Running presentation", people:[ m("Andreea Pirlica","andreea-pirlica.html") ] }],
+      href:"plan-2.html" },
+
+    "1":{ name:"Lunch", count:"Caf\u00e9", hero:"hero-level-1.jpg",
+      blurb:"The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.",
+      groups:[], href:null },
+
+    "0":{ name:"Entrance", count:"1 maker", hero:"hero-level-0.jpg",
+      blurb:"Where the route begins, under the clock on the corner.",
+      groups:[{ label:"In the stairwell", people:[ m("Herma de Wit","herma-de-wit.html") ] }],
+      href:null }
+  }
+};
+
+const LEVELS = BUILDING.map(function(b){
+  const p = PROGRAMME.levels[b.id];
+  return { id:b.id, label:b.label, from:b.from, to:b.to,
+    house:!!b.house, perm:!!b.perm, kind:b.kind, active:!!p,
+    name:   p ? p.name  : b.kind,
+    blurb:  p ? p.blurb : b.idle,
+    hero:   p && p.hero ? p.hero : b.hero,
+    count:  p && p.count ? p.count : b.count,
+    groups: p ? (p.groups || []) : [],
+    href:   p && p.href ? p.href : null };
+});
+
+
+/* ==========================================================================
+   THE ELEVATION
+   Set out in millimetres of real building, off the level marks and the
+   dimension chain on the architect's Keizersgracht elevation:
+     0 - 4620 - 8400 - 12420 - 16320 - 20260 - 23120 - 26745 - 29220 vertical;
+     axes 4-3-2-1 at 4165 - 4579 - 3767 - 4545, 17052 in total horizontal.
+   ========================================================================== */
+
+const S = 65, YG = 560;
+const Y  = function(mm){ return YG - mm/S; };
+const U  = function(mm){ return mm/S; };
+const XL   = 8,
+      XF   = XL + 15233/S,
+      XR   = XF + 4464/S,
+      XLAB = XR + 22,
+      RX   = XR + 12;
+const FX = function(mm){ return XL + mm/S; };
+const TX = function(mm){ return XF + mm/S; };
+const COLS = [[0,973],[2893,4243],[10990,12340],[14260,15233]];
+const WINS = [1933, 5216, 7616, 10004, 13300];
+const WFR  = 1920, WOP = 1580;
+const NS = "http://www.w3.org/2000/svg", svg = document.getElementById("svg");
+function el(t,a){ const n = document.createElementNS(NS,t); for(const k in a) n.setAttribute(k,a[k]); return n; }
+function add(p,t,a){ const n = el(t,a); p.appendChild(n); return n; }
+
+/* ---- 1. clickable level bands ------------------------------------------- */
+const geom = {};
+LEVELS.forEach(function(L){
+  const yTop = Y(L.to), yBot = Y(L.from), h = yBot - yTop;
+  geom[L.id] = { top:yTop, bot:yBot, mid:yTop + h/2 };
+  const g = el("g",{ class:"flr" + (L.house ? " is-house" : "") + (L.perm ? " is-perm" : ""),
+                     tabindex:"0", role:"button",
+                     "data-id":L.id, "aria-label":"Level " + L.label + " — " + L.name });
+  add(g,"rect",{ class:"band", x:XL-4, y:yTop, width:(XR+4)-(XL-4), height:h });
+  add(g,"line",{ class:"tick", x1:XR+5, y1:yBot, x2:XLAB-6, y2:yBot });
+  add(g,"text",{ class:"no", x:XLAB, y:geom[L.id].mid+1 }).textContent = L.label;
+  if(L.perm) add(g,"text",{ class:"perm", x:XLAB, y:geom[L.id].mid+10 }).textContent = "MADART FOUNDATION";
+  add(g,"rect",{ class:"hit", x:XL-4, y:yTop, width:(XLAB+108)-(XL-4), height:h });
+  svg.appendChild(g);
+});
+
+/* ---- 2. the tracing ------------------------------------------------------ */
+const T = el("g",{ class:"trace" });
+const P  = function(c,d){ return add(T,"path",{ class:c, d:d }); };
+const R  = function(c,x,y,w,h){ return add(T,"rect",{ class:c, x:x, y:y, width:w, height:h }); };
+const LN = function(c,x1,y1,x2,y2){ return add(T,"line",{ class:c, x1:x1, y1:y1, x2:x2, y2:y2 }); };
+const C  = function(c,cx,cy,r){ return add(T,"circle",{ class:c, cx:cx, cy:cy, r:r }); };
+
+/* -- vocabulary ------------------------------------------------------------ */
+function dentils(x1,x2,y,h,step){
+  for(let x = x1+0.7; x < x2-1; x += (step||2.3)) R("hair",x,y,1.1,h);
+}
+function cornice(x1,x2,y,d,tooth){
+  R("out",x1-d,y-3.2,(x2-x1)+2*d,3.2);
+  LN("med",x1-d*0.55,y-3.2,x2+d*0.55,y-3.2);
+  if(tooth !== false) dentils(x1-d*0.6,x2+d*0.6,y-5.9,2.3);
+  LN("med",x1,y,x2,y);
+}
+function sash(x,y,w,h){                                /* transom over two lights */
+  const t = y + h*0.29;
+  LN("med",x,t,x+w,t);
+  LN("thin",x+w/2,t,x+w/2,y+h);
+  LN("hair",x+w*0.30,y,x+w*0.30,t);
+  LN("hair",x+w*0.70,y,x+w*0.70,t);
+}
+function crossette(cx,y,h){                            /* eared architrave        */
+  const w = U(WOP), x = cx-w/2, fw = U(WFR), fx = cx-fw/2;
+  R("med",x,y,w,h); sash(x,y,w,h);
+  R("thin",fx,y-1.4,fw,h+2.8);
+  R("hair",fx+0.8,y-0.6,fw-1.6,h+1.2);
+  [y+1.6,y+h-1.6].forEach(function(yy){ LN("hair",fx-1.1,yy,fx+fw+1.1,yy); });
+  LN("med",fx-1.4,y+h+2.8,fx+fw+1.4,y+h+2.8);          /* sill                    */
+}
+function column(a,b,yTop,yBot){                        /* the engaged order       */
+  const cx = FX((a+b)/2), w = U(b-a)*0.72, x = cx-w/2;
+  R("out",x,yTop+5.2,w,yBot-yTop-8.4);
+  for(let i = 1; i < 4; i++) LN("hair",x+w*i/4,yTop+7.4,x+w*i/4,yBot-5);
+  /* the capital: a bolster between two volutes under a square abacus */
+  R("out",x-1.5,yTop,w+3,1.9);
+  P("out","M"+(x-0.9)+" "+(yTop+5.2)+" Q"+cx+" "+(yTop+1.3)+" "+(x+w+0.9)+" "+(yTop+5.2));
+  C("med",x+0.6,yTop+3.3,1.15); C("med",x+w-0.6,yTop+3.3,1.15);
+  P("hair","M"+(cx-1.9)+" "+(yTop+4.4)+" q1.9 -2.2 3.8 0");
+  R("out",x-1.3,yBot-2.6,w+2.6,2.6);                   /* base                    */
+  R("hair",x-0.6,yBot-4.2,w+1.2,1.6);
+}
+function balusters(x,w,y,h){
+  LN("med",x,y,x+w,y); LN("med",x,y+h,x+w,y+h);
+  for(let bx = x+1.4; bx < x+w-1; bx += 2.1) R("hair",bx,y+0.7,0.95,h-1.4);
+}
+function panelBand(x,w,y,h,n){                          /* run of sunk panels     */
+  R("med",x,y,w,h);
+  const step = w/n;
+  for(let i = 0; i < n; i++) R("hair",x+i*step+0.9,y+0.9,step-1.8,h-1.8);
+}
+function caryatid(cx,yTop,h){                           /* the herm figures       */
+  C("med",cx,yTop+2.7,1.35);
+  P("out","M"+(cx-2.7)+" "+(yTop+5)+" C "+(cx-3.2)+" "+(yTop+h*0.32)+", "+(cx-2.6)+" "+(yTop+h*0.42)+", "+
+        (cx-2.4)+" "+(yTop+h*0.52)+" L"+(cx-1.35)+" "+(yTop+h-3.2)+" L"+(cx+1.35)+" "+(yTop+h-3.2)+
+        " L"+(cx+2.4)+" "+(yTop+h*0.52)+" C "+(cx+2.6)+" "+(yTop+h*0.42)+", "+(cx+3.2)+" "+(yTop+h*0.32)+", "+
+        (cx+2.7)+" "+(yTop+5)+" Z");
+  P("med","M"+(cx-2.3)+" "+(yTop+7.6)+" q2.3 2.1 4.6 0");           /* folded arms */
+  LN("hair",cx-1.1,yTop+h*0.5,cx-1.1,yTop+h-4);
+  LN("hair",cx+1.1,yTop+h*0.5,cx+1.1,yTop+h-4);
+  P("out","M"+(cx-2.9)+" "+(yTop+h-3.2)+" L"+(cx-1.9)+" "+(yTop+h)+" L"+(cx+1.9)+" "+(yTop+h)+
+    " L"+(cx+2.9)+" "+(yTop+h-3.2)+" Z");
+}
+function pedTri(cx,y,w,hatch){
+  const x = cx-w/2, a = 6.6;
+  P("out","M"+(x-3)+" "+y+" L"+cx+" "+(y-a)+" L"+(x+w+3)+" "+y+" Z");
+  P("med","M"+(x-1.2)+" "+(y-1.5)+" L"+cx+" "+(y-a+1.6)+" L"+(x+w+1.2)+" "+(y-1.5));
+  if(hatch) for(let i = 0; i <= 10; i++){
+    const t = i/10, px = x-1.2+(cx-(x-1.2))*t, py = (y-1.5)+((y-a+1.6)-(y-1.5))*t;
+    LN("hair",px,py,px+1.6,py+1.4);
+    const qx = (x+w+1.2)-((x+w+1.2)-cx)*t;
+    LN("hair",qx,py,qx-1.6,py+1.4); }
+}
+function pedSeg(cx,y,w,bird){
+  const x = cx-w/2;
+  P("out","M"+(x-3)+" "+y+" Q"+cx+" "+(y-10.4)+" "+(x+w+3)+" "+y+" Z");
+  P("med","M"+(x-1.2)+" "+(y-1)+" Q"+cx+" "+(y-8.6)+" "+(x+w+1.2)+" "+(y-1));
+  if(bird){                                                /* the spread wings  */
+    P("med","M"+(cx-4.6)+" "+(y-3.2)+" Q"+(cx-2.2)+" "+(y-5.6)+" "+cx+" "+(y-3.6)+
+      " Q"+(cx+2.2)+" "+(y-5.6)+" "+(cx+4.6)+" "+(y-3.2));
+    P("hair","M"+(cx-3.4)+" "+(y-3.4)+" q1.7 1.1 3.4 0.2");
+    P("hair","M"+(cx+3.4)+" "+(y-3.4)+" q-1.7 1.1 -3.4 0.2");
+    C("med",cx,y-4.1,0.85); }
+}
+function colonnette(cx,yTop,yBot){                         /* slender flanking shaft */
+  R("med",cx-0.85,yTop+2.6,1.7,yBot-yTop-4.2);
+  P("out","M"+(cx-1.7)+" "+(yTop+2.6)+" Q"+cx+" "+(yTop-0.9)+" "+(cx+1.7)+" "+(yTop+2.6));
+  LN("hair",cx-1.6,yTop+1.4,cx+1.6,yTop+1.4);
+  R("med",cx-1.4,yBot-2.1,2.8,2.1);
+}
+
+/* ======================= THE KEIZERSGRACHT ELEVATION ====================== */
+
+/* -- levels 0 and 1 · shopfront and the front door -------------------------- */
+(function shopfront(){
+  const yT = Y(8400), yM = Y(4620), yB = Y(0), yP = Y(900);
+  LN("out",XL,yT,XL,yB);
+  const glazing = [[4243,7566],[7826,11018],[11849,14703]];
+  glazing.forEach(function(g){
+    const a = FX(g[0]), b = FX(g[1]);
+    R("out",a,yT+5,b-a,yM-yT-9);  R("hair",a+1.3,yT+6.3,(b-a)-2.6,yM-yT-11.6);
+    R("out",a,yM+3,b-a,yP-yM-4);  R("hair",a+1.3,yM+4.3,(b-a)-2.6,yP-yM-6.6);
+  });
+  [3900,7566,7826,11018,11849,14703,15233].forEach(function(m){ LN("med",FX(m),yT+5,FX(m),yP); });
+  panelBand(FX(3900),U(11333),yP,U(900)/1,3);              /* stall riser        */
+  [FX(3900),FX(7700),FX(11430),FX(14970)].forEach(function(x){ C("thin",x,yT+8,1.3); });
+
+  /* the entrance bay */
+  const dl = FX(1080), dr = FX(3023), dc = (dl+dr)/2;
+  R("out",dl,Y(4000),dr-dl,yB-Y(4000));                    /* the double door    */
+  LN("med",dc,Y(4000),dc,yB-1.1);
+  [[dl,dc],[dc,dr]].forEach(function(p){
+    for(let k = 0; k < 3; k++) R("hair",p[0]+1.4,Y(3600)+k*U(1000),(p[1]-p[0])-2.8,U(800)); });
+  C("med",dl+(dc-dl)/2,Y(1900),1.1); C("med",dc+(dr-dc)/2,Y(1900),1.1);
+  R("out",FX(950),Y(7000),U(2190),Y(4100)-Y(7000));        /* louvred fanlight   */
+  for(let y = Y(7000)+1.4; y < Y(4100)-0.8; y += 1.5) LN("hair",FX(980),y,FX(3110),y);
+  [FX(700),FX(3300)].forEach(function(x){                  /* flanking pilasters */
+    R("med",x-1.5,Y(7200),3,yB-Y(7200));
+    R("out",x-2.1,Y(7200),4.2,2); C("thin",x,Y(6700),1.1); });
+  /* the segmental hood with its cartouche and two ball finials */
+  P("out","M"+FX(170)+" "+Y(4620)+" Q"+FX(2000)+" "+Y(6100)+" "+FX(3853)+" "+Y(4620));
+  P("med","M"+FX(420)+" "+Y(4620)+" Q"+FX(2000)+" "+Y(5850)+" "+FX(3600)+" "+Y(4620));
+  P("out","M"+FX(1560)+" "+Y(5300)+" Q"+FX(2000)+" "+Y(6300)+" "+FX(2440)+" "+Y(5300)+
+    " Q"+FX(2000)+" "+Y(4850)+" "+FX(1560)+" "+Y(5300)+" Z");
+  C("med",FX(2000),Y(5480),1.5);
+  C("out",FX(700),Y(5450),2.1); C("out",FX(3300),Y(5450),2.1);
+  R("out",FX(950),Y(7550),U(2190),Y(5920)-Y(7550));        /* mezzanine window   */
+  sash(FX(950),Y(7550),U(2190),Y(5920)-Y(7550));
+
+  cornice(XL,XR,yT,3.2);
+})();
+
+/* -- level 2 · caryatids in the end bays ------------------------------------ */
+(function level2(){
+  const yT = Y(12420), yB = Y(8400), wT = yT+10, wH = (yB-yT)-19;
+  balusters(XL,XR-XL,yB-5.2,3.8);
+  panelBand(XL,XR-XL,yB-1.4,1.6,30);
+
+  WINS.forEach(function(m,i){
+    crossette(FX(m),wT,wH);
+    if(i === 0 || i === 4){
+      caryatid(FX(m)-U(1560),wT-3,wH+6);
+      caryatid(FX(m)+U(1560),wT-3,wH+6);
+      pedTri(FX(m),wT-6.5,U(3900),true);                   /* hatched tympanum  */
+      panelBand(FX(m)-U(2100),U(4200),yB-5.6,4.2,4);
+    }
+  });
+  [3568,6416,8810,11660].forEach(function(m){              /* panelled piers    */
+    const x = FX(m)-U(475);
+    R("med",x,wT-2,U(950),wH+4);
+    for(let k = 0; k < 5; k++) R("hair",x+1.1,wT+0.6+k*((wH)/5),U(950)-2.2,(wH/5)-2.2); });
+  [[5216,7616],[7616,10004]].forEach(function(p){          /* the two masks     */
+    const cx = FX((p[0]+p[1])/2);
+    C("med",cx,wT-2.6,1.5); P("med","M"+(cx-2.4)+" "+(wT-2.2)+" q2.4 2.2 4.8 0");
+    LN("hair",cx,wT-4.1,cx,wT-7.4); });
+  LN("med",XL,yT+1.4,XR,yT+1.4);
+  LN("med",XL,yT+3.6,XR,yT+3.6);
+})();
+
+/* -- level 3 · aedicules, pediments and balconies --------------------------- */
+(function level3(){
+  const yT = Y(16320), yB = Y(12420), wT = yT+14.5, wH = (yB-yT)-26;
+  WINS.forEach(function(m,i){
+    const cx = FX(m);
+    crossette(cx,wT,wH);
+    colonnette(cx-U(1240),wT-3.4,wT+wH+1.4);
+    colonnette(cx+U(1240),wT-3.4,wT+wH+1.4);
+    R("out",cx-U(1400),wT-6.6,U(2800),3.2);                /* the entablature   */
+    R("hair",cx-U(1100),wT-9.6,U(2200),2.6);               /* the panel over    */
+    if(i === 2){ for(let k = -2; k <= 2; k++) C("hair",cx+k*U(280),wT-8.3,0.5); }
+    if(i === 0 || i === 4) pedSeg(cx,wT-10.4,U(2600),true);
+    else if(i === 2){
+      P("out","M"+(cx-U(1500))+" "+(wT-10.4)+" Q"+(cx-U(700))+" "+(wT-20)+" "+cx+" "+(wT-19.6)+
+        " Q"+(cx+U(700))+" "+(wT-20)+" "+(cx+U(1500))+" "+(wT-10.4));
+      P("med","M"+(cx-U(1150))+" "+(wT-11.2)+" q1.4 -3.4 3.4 -2.2");
+      P("med","M"+(cx+U(1150))+" "+(wT-11.2)+" q-1.4 -3.4 -3.4 -2.2");
+      C("med",cx,wT-21.4,1.5); LN("med",cx,wT-19.9,cx,wT-17.4);
+      P("hair","M"+(cx-3.4)+" "+(wT-13.4)+" q3.4 -2.6 6.8 0");
+    } else pedTri(cx,wT-10.4,U(2600),false);
+    /* apron with consoles */
+    R("med",cx-U(900),wT+wH+4.4,U(1800),4.4);
+    [cx-U(1150),cx+U(1150)].forEach(function(bx){
+      P("med","M"+(bx-1)+" "+(wT+wH+4)+" l1 4.4 l1 -4.4"); });
+  });
+  COLS.forEach(function(c){ column(c[0],c[1],yT+6,yB-4); });
+  R("hair",FX(6900),yB-6.6,U(1450),3.4);                   /* the little frieze */
+  for(let k = 0; k < 7; k++) C("hair",FX(7020)+k*U(200),yB-4.9,0.55);
+  LN("med",XL,yT+1.6,XR,yT+1.6);
+})();
+
+/* -- level 4 · the column storey and the main cornice ----------------------- */
+(function level4(){
+  const yT = Y(20260), yB = Y(16320), wT = yT+17, wH = (yB-yT)-28;
+  WINS.forEach(function(m){ crossette(FX(m),wT,wH); });
+  COLS.forEach(function(c){ column(c[0],c[1],yT+10.5,yB-3); });
+  LN("med",XL,yT+10.5,XR,yT+10.5);
+  LN("med",XL,yT+7,XR,yT+7);
+  cornice(XL,XR,yT,4.4);
+})();
+
+/* -- levels 5 and 6 · the mansard, the glass room, the stone pavilion ------- */
+(function roof(){
+  const yC = Y(20260), yT = Y(26745), yS = Y(23120), yP = Y(21600);
+  const pav = [0,3545], rib1 = [3545,4453], gls = [4453,11590],
+        rib2 = [11590,14315], hip = [14315,15145];
+
+  /* slate mansard, drawn as its battens */
+  [rib1,rib2].forEach(function(r){
+    R("out",FX(r[0]),yT+2,U(r[1]-r[0]),yC-yT-2);
+    for(let m = r[0]+180; m < r[1]-60; m += 180) LN("hair",FX(m),yT+3.4,FX(m),yC-1.4); });
+  P("out","M"+FX(hip[0])+" "+(yT+2)+" L"+FX(hip[1])+" "+yC);   /* the hip        */
+  LN("out",FX(hip[0]),yT+2,FX(hip[0]),yC);
+
+  /* the glass room: mullions, transoms, solid base */
+  R("out",FX(gls[0]),yT+2,U(gls[1]-gls[0]),yP-yT-2);
+  for(let m = gls[0]+890; m < gls[1]-100; m += 890) LN("med",FX(m),yT+3.4,FX(m),yP-1.2);
+  [yS,Y(24900)].forEach(function(y){ LN("med",FX(gls[0]),y,FX(gls[1]),y); });
+  R("med",FX(gls[0]),yP,U(gls[1]-gls[0]),yC-yP);
+  LN("hair",FX(gls[0]),yP+2,FX(gls[1]),yP+2);
+  R("med",FX(rib2[0]),yP,U(hip[1]-rib2[0]),yC-yP);
+
+  /* the stone pavilion at the left end */
+  (function(){ const a = FX(pav[0]), b = FX(pav[1]), cx = (a+b)/2;
+    R("out",a,yT+4,b-a,yC-yT-4);
+    [a+2.2,b-2.2].forEach(function(x){                        /* pilasters      */
+      R("med",x-1.5,Y(25400),3,yC-Y(25400));
+      R("out",x-2.2,Y(25400),4.4,1.9); });
+    R("out",a+3.4,Y(25100),(b-a)-6.8,2.6);                    /* entablature    */
+    R("hair",cx-U(900),Y(24700),U(1800),2.6);                 /* the panel      */
+    pedTri(cx,Y(25100)-2.6,U(2500),false);                    /* pediment       */
+    for(let i = -4; i <= 4; i++)                              /* radiating fan  */
+      LN("hair",cx,Y(25100)-3.4,cx+i*U(260),Y(25100)-8.4);
+    /* twin round-arched lights */
+    R("out",cx-U(1150),Y(24300),U(2300),Y(21900)-Y(24300));
+    [cx-U(560),cx+U(560)].forEach(function(x){
+      P("med","M"+(x-U(430))+" "+Y(22100)+" L"+(x-U(430))+" "+Y(23700)+
+        " Q"+x+" "+Y(24250)+" "+(x+U(430))+" "+Y(23700)+" L"+(x+U(430))+" "+Y(22100)+" Z");
+      LN("hair",x,Y(23700),x,Y(22100));
+      LN("hair",x-U(430),Y(23100),x+U(430),Y(23100)); });
+  })();
+
+  cornice(XL,XF,yT,3.4);
+})();
+
+/* -- level 7 · the roof structure and the lettering ------------------------- */
+(function level7(){
+  const yT = Y(29220), yB = Y(26745), a = FX(2884), b = FX(13920);
+  R("out",a,yT+3.6,b-a,yB-yT-3.6);
+  for(let m = 2884+800; m < 13920-200; m += 800) LN("med",FX(m),yT+5,FX(m),yB-1.2);
+  R("out",a-3.4,yT,(b-a)+6.8,3.6);
+  LN("med",a-1.6,yT+3.6,b+1.6,yT+3.6);
+  add(T,"text",{ class:"metz", x:FX(8400), y:yT-3.4, "text-anchor":"middle" }).textContent = "METZ";
+})();
+
+/* ============================ THE CORNER TOWER ============================ */
+(function tower(){
+  const cx = TX(2232), yG = Y(0);
+  LN("out",XR,Y(20260),XR,yG);
+  [8400,12420,16320].forEach(function(m){ LN("med",XF,Y(m),XR,Y(m)); });
+
+  /* levels 0 and 1: the corner entrance */
+  (function(){ const yT = Y(8400), yM = Y(4620), dw = U(1900);
+    R("out",TX(500),yT+5,U(3464),yM-yT-9); sash(TX(500),yT+5,U(3464),yM-yT-9);
+    P("out","M"+(cx-U(1500))+" "+yM+" Q"+cx+" "+(yM-U(1400))+" "+(cx+U(1500))+" "+yM);
+    C("med",cx,yM-U(850),1.5);
+    R("out",cx-dw/2,Y(4000),dw,yG-Y(4000));
+    LN("med",cx,Y(4000),cx,yG-1.1);
+    for(let k = 0; k < 3; k++){
+      R("hair",cx-dw/2+1.2,Y(3600)+k*U(1000),dw/2-2.2,U(800));
+      R("hair",cx+1,Y(3600)+k*U(1000),dw/2-2.2,U(800)); }
+    [TX(650),TX(3814)].forEach(function(x){ R("med",x-1.5,Y(4300),3,yG-Y(4300)); }); })();
+
+  /* level 2: window between two caryatids */
+  (function(){ const yT = Y(12420), yB = Y(8400), t = yT+10, h = (yB-yT)-19;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    caryatid(TX(700),t-3,h+6); caryatid(TX(3764),t-3,h+6);
+})();
+
+  /* level 3: aedicule with a segmental pediment, between the big columns */
+  (function(){ const yT = Y(16320), yB = Y(12420), t = yT+14.5, h = (yB-yT)-26;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    colonnette(cx-U(1240),t-3.4,t+h+1.4); colonnette(cx+U(1240),t-3.4,t+h+1.4);
+    R("out",cx-U(1400),t-6.6,U(2800),3.2);
+    pedSeg(cx,t-10.4,U(2600),true);
+    R("med",cx-U(900),t+h+4.4,U(1800),4.4);
+    [[100,1100],[3364,4364]].forEach(function(c){
+      const a = XF+U(c[0]), b = XF+U(c[1]), ccx = (a+b)/2, w2 = (b-a)*0.72, xx = ccx-w2/2;
+      R("out",xx,yT+11,w2,yB-yT-15);
+      R("out",xx-1.5,yT+6,w2+3,1.9);
+      P("out","M"+(xx-0.9)+" "+(yT+11)+" Q"+ccx+" "+(yT+7.1)+" "+(xx+w2+0.9)+" "+(yT+11));
+      R("out",xx-1.3,yB-6.6,w2+2.6,2.6); }); })();
+
+  /* level 4: tall window, columns, the tower's own cornice above */
+  (function(){ const yT = Y(20260), yB = Y(16320), t = yT+17, h = (yB-yT)-28;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    [[100,1100],[3364,4364]].forEach(function(c){
+      const a = XF+U(c[0]), b = XF+U(c[1]), ccx = (a+b)/2, w2 = (b-a)*0.72, xx = ccx-w2/2;
+      R("out",xx,yT+13,w2,yB-yT-17);
+      R("out",xx-1.5,yT+8,w2+3,1.9);
+      P("out","M"+(xx-0.9)+" "+(yT+13)+" Q"+ccx+" "+(yT+9.1)+" "+(xx+w2+0.9)+" "+(yT+13));
+      R("out",xx-1.3,yB-4,w2+2.6,2.6); });
+    R("med",XF+1,Y(21830),(XR-XF)-2,Y(20260)-Y(21830));
+    cornice(XF-2,XR+2,Y(21830),3.2); })();
+
+  /* the shaft: one mass of stone from the cornice to the cupola, drawn first
+     so the sculpted gable and the clock face read as applied to its front    */
+  (function(){
+    R("out",TX(300),Y(29990)+7,U(3864),Y(21830)-(Y(29990)+7));
+    [TX(300),TX(4164)].forEach(function(x){
+      for(let m = 22200; m < 29800; m += 700) LN("hair",x,Y(m),x+2.2,Y(m)); }); })();
+
+  /* the sculpted gable applied to the front of the shaft */
+  (function(){ const yB = Y(22350), yT = Y(26745);
+    P("out","M"+(XF-1)+" "+yB+" L"+(XF-1)+" "+Y(24300)+
+      " Q"+cx+" "+(yT-1.5)+" "+(XR+1)+" "+Y(24300)+" L"+(XR+1)+" "+yB);
+    P("out","M"+(cx-U(1500))+" "+yB+" L"+(cx-U(1500))+" "+Y(24500)+
+      " Q"+cx+" "+Y(26200)+" "+(cx+U(1500))+" "+Y(24500)+" L"+(cx+U(1500))+" "+yB);
+    P("thin","M"+(cx-U(1150))+" "+Y(24400)+" Q"+cx+" "+Y(25750)+" "+(cx+U(1150))+" "+Y(24400));
+    P("med","M"+(cx-U(1050))+" "+Y(24850)+" Q"+(cx-U(350))+" "+Y(25250)+" "+cx+" "+Y(24800)+
+      " Q"+(cx+U(350))+" "+Y(25250)+" "+(cx+U(1050))+" "+Y(24850));
+    P("hair","M"+(cx-U(800))+" "+Y(24900)+" q1.7 1.2 3.4 0.3");
+    P("hair","M"+(cx+U(800))+" "+Y(24900)+" q-1.7 1.2 -3.4 0.3");
+    C("med",cx,Y(24980),1.2);
+    R("out",cx-U(1150),Y(24350),U(2300),Y(22800)-Y(24350));
+    [-1,0,1].forEach(function(k){ LN("med",cx+k*U(700),Y(24350),cx+k*U(700),Y(22800)); });
+    LN("med",cx-U(1150),Y(23600),cx+U(1150),Y(23600));
+    P("out","M"+(XF+1)+" "+yB+" Q"+cx+" "+Y(21850)+" "+(XR-1)+" "+yB);
+    [[TX(780),1],[TX(3684),-1]].forEach(function(f){
+      const x = f[0], d = f[1];
+      P("med","M"+x+" "+Y(22750)+" C "+(x+2.4*d)+" "+Y(23400)+", "+(x+5.2*d)+" "+Y(23150)+", "+
+            (x+6.2*d)+" "+Y(23600));
+      P("med","M"+x+" "+Y(22750)+" q"+(3.2*d)+" -1.5 "+(6.2*d)+" -0.8");
+      C("med",x+7.2*d,Y(23840),1.45); }); })();
+
+  /* the clock face, on the front of the same shaft */
+  (function(){ const yT = Y(29990);
+    [TX(560),TX(3904)].forEach(function(x){
+      R("med",x-1.7,yT+9,3.4,Y(26900)-(yT+9));
+      R("out",x-2.3,yT+9,4.6,1.8); });
+    LN("med",TX(300),Y(29450),TX(4164),Y(29450));
+    C("out",cx,Y(28150),U(1120)); C("thin",cx,Y(28150),U(940));
+    LN("med",cx,Y(28150),cx,Y(28150)-U(730));
+    LN("med",cx,Y(28150),cx+U(540),Y(28150)+U(220));
+    for(let a = 0; a < 12; a++){ const t = a*Math.PI/6;
+      LN("hair",cx+U(940)*Math.sin(t),Y(28150)-U(940)*Math.cos(t),
+                cx+U(790)*Math.sin(t),Y(28150)-U(790)*Math.cos(t)); }
+    [[TX(1180),1],[TX(3284),-1]].forEach(function(f){
+      P("med","M"+f[0]+" "+Y(27400)+" q"+(4.2*f[1])+" 0 "+(5+f[1])+" -3.2"); });
+    [TX(560),TX(3904)].forEach(function(x){ C("med",x,Y(27700),1.9); });
+    cornice(TX(150),TX(4314),yT+7,3.2);
+    R("out",TX(150),Y(31200),U(4164),Y(29990)-Y(31200));
+    P("out","M"+(cx-U(1300))+" "+Y(30150)+" Q"+cx+" "+Y(31080)+" "+(cx+U(1300))+" "+Y(30150));
+    for(let i = -4; i <= 4; i++) LN("hair",cx,Y(30150),cx+i*U(290),Y(30960));
+    cornice(TX(100),TX(4364),Y(31200),3.2); })();
+
+  /* the cupola: it swells above the attic and draws back into a neck, and the
+     lantern sits on that neck rather than above a point                      */
+  (function(){ const yS = Y(31200), yN = Y(34100), yL = Y(35500);
+    const nL = cx-U(700), nR = cx+U(700);
+    P("out","M"+TX(320)+" "+yS+
+      " C "+TX(-70)+" "+Y(32100)+", "+TX(880)+" "+Y(33450)+", "+nL+" "+yN+
+      " L"+nR+" "+yN+
+      " C "+TX(3584)+" "+Y(33450)+", "+TX(4534)+" "+Y(32100)+", "+TX(4144)+" "+yS+" Z");
+    [0.24,0.46,0.68].forEach(function(t){
+      const yy = yS+(yN-yS)*t, ww = (4464/2)*(1-t*t*0.82);
+      P("hair","M"+(cx-U(ww))+" "+yy+" Q"+cx+" "+(yy+2)+" "+(cx+U(ww))+" "+yy); });
+    R("out",nL-1.4,yN-1.6,(nR-nL)+2.8,1.6);            /* the plate it stands on */
+
+    R("out",cx-U(620),yL+4.2,U(1240),yN-(yL+4.2));     /* the open lantern       */
+    [-U(430),-U(150),U(150),U(430)].forEach(function(d){ LN("med",cx+d,yL+5.4,cx+d,yN-1.3); });
+    R("med",cx-U(780),yL+2.1,U(1560),2.1);
+    P("out","M"+(cx-U(600))+" "+(yL+2.1)+" Q"+cx+" "+(yL-4.4)+" "+(cx+U(600))+" "+(yL+2.1));
+    LN("out",cx,yL-4.4,cx,yL-12.4);                    /* spire and weathervane  */
+    C("med",cx,yL-9.2,1.4);
+    LN("med",cx-3.2,yL-12.4,cx+3.2,yL-12.4); })();
+})();
+
+/* the pavement */
+R("ground",0,Y(0),XLAB+108,2.1);
+svg.appendChild(T);
+
+/* the same facade a second time in chalk, clipped to whichever level is lit,
+   so the band can carry the brand blue at full strength without the drawing
+   disappearing into it                                                       */
+var LITRECT;
+(function(){
+  const defs = add(svg,"defs",{});
+  const cp = add(defs,"clipPath",{ id:"litclip" });
+  LITRECT = add(cp,"rect",{ x:0, y:0, width:0, height:0 });
+  const T2 = T.cloneNode(true);
+  T2.setAttribute("class","trace inv");
+  T2.setAttribute("clip-path","url(#litclip)");
+  svg.appendChild(T2);
+})();
+
+/* ---- 3. the route -------------------------------------------------------- */
+for(let i = 0; i < PROGRAMME.route.length-1; i++){
+  const a = geom[PROGRAMME.route[i]], b = geom[PROGRAMME.route[i+1]];
+  if(a && b) add(svg,"path",{ class:"route", d:"M"+RX+" "+a.mid+" L"+RX+" "+b.mid });
+}
+PROGRAMME.route.forEach(function(id){
+  if(geom[id]) add(svg,"circle",{ class:"routedot", cx:RX, cy:geom[id].mid, r:2.4 });
+});
+
+
+/* ---- the register of levels --------------------------------------------- */
+const reg = document.getElementById("levelreg");
+LEVELS.forEach(function(L){
+  const a = document.createElement(L.href ? "a" : "div");
+  a.className = "row" + (L.perm ? " perm" : "") + (L.house ? " house" : "") + (L.href ? "" : " noplan");
+  if(L.href) a.href = L.href; else { a.setAttribute("role","button"); a.tabIndex = 0; }
+  a.dataset.id = L.id;
+  a.innerHTML = '<span class="c">' + L.label + '</span>' +
+                '<span class="t">' + L.name + '<em>' + L.kind + '</em></span>';
+  reg.appendChild(a);
+});
+
+/* ---- the panel ----------------------------------------------------------- */
+const d = { no:"d-no", kind:"d-kind", of:"d-of", hero:"d-hero", name:"d-name",
+            perm:"d-perm", blurb:"d-blurb", people:"d-people", cta:"d-cta",
+            wrap:"d-cta-wrap" };
+for(const k in d) d[k] = document.getElementById(d[k]);
+
+function show(L){
+  d.no.textContent   = "LEVEL " + L.label;
+  d.kind.textContent = L.kind;
+  d.of.textContent   = L.count;
+  d.name.textContent = L.name;
+  d.perm.hidden      = !L.perm;
+  d.blurb.textContent = L.blurb;
+
+  d.hero.innerHTML = ""; d.hero.hidden = !L.hero;
+  if(L.hero){
+    const img = document.createElement("img");
+    img.alt = "Level " + L.label + " of NIO House Amsterdam";
+    img.loading = "lazy"; img.decoding = "async";
+    img.onerror = function(){ const sp = document.createElement("span");
+      sp.textContent = L.hero; d.hero.innerHTML = ""; d.hero.appendChild(sp); };
+    img.src = L.hero; d.hero.appendChild(img);
+  }
+
+  d.people.innerHTML = "";
+  L.groups.forEach(function(g){
+    if(!g.people || !g.people.length) return;
+    if(g.label){ const h = document.createElement("p"); h.className = "grp";
+      h.textContent = g.label; d.people.appendChild(h); }
+    const ul = document.createElement("ul");
+    ul.className = "people" + (g.one ? " one" : "");
+    g.people.forEach(function(pn){
+      const li = document.createElement("li");
+      let node;
+      if(pn.href){ node = document.createElement("a"); node.href = pn.href;
+        node.textContent = pn.name;
+        if(pn.ext){ node.target = "_blank"; node.rel = "noopener"; } }
+      else { node = document.createElement("span"); node.className = "plain";
+        node.textContent = pn.name; }
+      li.appendChild(node);
+      if(pn.note){ const em = document.createElement("em");
+        em.textContent = "  \u00b7 " + pn.note; li.appendChild(em); }
+      ul.appendChild(li);
+    });
+    d.people.appendChild(ul);
+  });
+
+  /* .btn carries display:inline-block, which beats the [hidden] rule, so the
+     wrapper is what gets hidden — otherwise a level without a plan kept the
+     previous level's button on screen.                                      */
+  if(L.href){ d.wrap.hidden = false; d.cta.href = L.href;
+    d.cta.textContent = "Open the plan of level " + L.label; }
+  else d.wrap.hidden = true;
+
+  document.querySelectorAll(".flr").forEach(function(g){
+    g.classList.toggle("is-on", g.dataset.id === L.id); });
+  document.querySelectorAll(".reg.levels .row").forEach(function(r){
+    r.classList.toggle("on", r.dataset.id === L.id); });
+
+  const gm = geom[L.id];
+  LITRECT.setAttribute("x",XL-4);   LITRECT.setAttribute("y",gm.top);
+  LITRECT.setAttribute("width",(XR+4)-(XL-4));
+  LITRECT.setAttribute("height",gm.bot-gm.top);
+}
+
+/* ---- both the drawing and the register drive the panel, and both open the
+   same plan: L.href is the single definition of where a level's plan lives,
+   used by the drawing, by the register row and by the button alike. A level
+   without a plan is inert everywhere — no row link, no button.
+   On a phone the first tap reads the level; the button opens it.           */
+const byId = {}; LEVELS.forEach(function(L){ byId[L.id] = L; });
+const narrow = function(){ return window.matchMedia("(max-width:760px)").matches; };
+
+function wire(node, L){
+  node.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
+  node.addEventListener("focus", function(){ show(L); });
+  node.addEventListener("click", function(ev){
+    if(narrow()){ ev.preventDefault(); show(L);
+      document.getElementById("panel").scrollIntoView({behavior:"smooth",block:"start"});
+      return; }
+    if(L.href){ ev.preventDefault(); window.location.href = L.href; }
+    else ev.preventDefault();
+  });
+}
+document.querySelectorAll(".flr").forEach(function(g){ wire(g, byId[g.dataset.id]); });
+document.querySelectorAll(".reg.levels .row").forEach(function(r){ wire(r, byId[r.dataset.id]); });
+
+show(byId["4"]);
+
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
+</html>
