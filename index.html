@@ -1150,10 +1150,18 @@ PROGRAMME.route.forEach(function(id){
     LITRECT.setAttribute("width",0); LITRECT.setAttribute("height",0);
   }
 
+  /* Een aanraakscherm heeft geen hover, maar Safari doet er wel alsof: het
+     stuurt hover-gebeurtenissen bij een tik. Daardoor viel het paneel weg op
+     het moment dat je een makersnaam wilde aanraken, en landde je tik op de
+     teruggekeerde tekst. Op een aanraakscherm binden we hover daarom niet. */
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   document.querySelectorAll(".flr").forEach(function(g){
     const L = byId[g.dataset.id];
-    g.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
-    g.addEventListener("focus", function(){ if(!narrow()) show(L); });
+    if(canHover){
+      g.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
+      g.addEventListener("focus", function(){ if(!narrow()) show(L); });
+    }
     /* Een tik heeft geen hover om te verlaten. Op een telefoon toont de eerste
        tik daarom de verdieping onder de tekening, net als op de gebouwpagina;
        de knop daar opent de plattegrond. Op een laptop opent een klik meteen
@@ -1173,9 +1181,11 @@ PROGRAMME.route.forEach(function(id){
      tekening, dan viel het weg zodra de cursor naar rechts bewoog en was een
      makersnaam onbereikbaar. Nu blijft het staan tot je het blok verlaat. */
   const block = document.getElementById("place");
-  block.addEventListener("mouseleave", rest);
-  block.addEventListener("focusout", function(e){
-    if(!block.contains(e.relatedTarget)) rest(); });
+  if(canHover){
+    block.addEventListener("mouseleave", rest);
+    block.addEventListener("focusout", function(e){
+      if(!block.contains(e.relatedTarget)) rest(); });
+  }
 
   /* De twee kolommen beginnen even hoog: de tekening krijgt de hoogte van het
      verhaal ernaast, gemeten zodra de pagina staat. Daarna verandert die
