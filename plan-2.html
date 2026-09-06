@@ -818,7 +818,8 @@ PROGRAMME.route.forEach(function(id){
     bladnaam.textContent = kop;
     bladwie.innerHTML = html;
     blad.hidden = false;
-    requestAnimationFrame(function(){ blad.classList.add("op"); });
+    void blad.offsetHeight;              /* opmaak afdwingen, dan pas schuiven */
+    blad.classList.add("op");
   }
   function bladDicht(){
     blad.classList.remove("op");
@@ -842,8 +843,13 @@ PROGRAMME.route.forEach(function(id){
       if(smal()){
         var namen = rijen.filter(function(li){ return rijRuimtes(li).indexOf(n)>=0; });
         var kop = z.getAttribute("aria-label") || "";
+        /* Niet elke maker heeft een eigen pagina: Nicola Cherubini heeft nog
+           geen ticketlink en Natalia Wyspianska geen makerspagina. Die regels
+           zijn een span in plaats van een link. Zoeken op alleen "a" gaf daar
+           null en brak het hele blad. */
         bladVul(kop, "<ul>" + namen.map(function(li){
-          return "<li>" + li.querySelector("a").outerHTML + "</li>"; }).join("") + "</ul>");
+          var el = li.querySelector("a, .geenlink");
+          return el ? "<li>" + el.outerHTML + "</li>" : ""; }).join("") + "</ul>");
         inBeeld(z);
       }
     });
