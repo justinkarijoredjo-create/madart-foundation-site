@@ -239,7 +239,8 @@ body.worklook{background:var(--chalk)}
      whether the doors are open before anything else. Only the label shrinks. */
   .masthead .wrap{gap:10px}
   .wordmark{font-size:12px;flex:0 0 auto}
-  .masthead .status-dot{display:none}
+  .masthead .status-dot,
+  body.home.past-hero .masthead .status-dot{display:none}
   .navtoggle{margin-left:auto;flex:0 0 auto}
   .grid.g4,.grid.g3{grid-template-columns:repeat(2,1fr)}
   .grid{gap:20px 14px}
@@ -397,8 +398,14 @@ section.wide{padding-left:0;padding-right:0}
 .place-text{min-height:var(--elev-h,460px)}
 .elev-cta{margin:0}
 .elev-cta[hidden]{display:none}
+/* Het bijschrift hoort bij de tekening en staat er op beide schermen onder.
+   Op een muis beweeg je, op een telefoon tik je; de omgeving kiest de zin. */
 .elev-hint{margin:0;font-size:12px;letter-spacing:.04em;color:var(--grey)}
-@media(min-width:861px){ .elev-hint{display:none} }
+.elev-hint .on-hover{display:none}
+@media (hover:hover) and (pointer:fine){
+  .elev-hint .on-hover{display:inline}
+  .elev-hint .on-touch{display:none}
+}
 /* het beeld van de verdieping, op eigen verhouding, niet bijgesneden */
 .place-hero{margin:0 0 16px;background:var(--linen);overflow:hidden;
   width:min(100%,300px);aspect-ratio:3/2;display:block}
@@ -409,7 +416,7 @@ section.wide{padding-left:0;padding-right:0}
 #place-cta[hidden]{display:none}
 #place-level .lvl-eyebrow{margin-bottom:16px}
 #place-level h2{margin-bottom:6px}
-.place-back{margin:0 0 14px;display:none}
+.place-back{margin:26px 0 0;display:none}
 .place-back a{font-size:12px;letter-spacing:.04em;color:var(--dawn)}
 .place .index{margin-bottom:26px}
 .place-grid img{width:100%;height:auto;display:block}
@@ -427,7 +434,7 @@ section.wide{padding-left:0;padding-right:0}
   .place-elev{align-items:center}
   .place-elev svg.elev{height:auto;width:min(100%,320px)}
   .place-text{min-height:0}
-  .place-back{display:block}
+  .place-back{display:block;padding-top:20px;border-top:var(--hair)}
   .elev-cta{margin-top:20px}
   .elev-cta .btn{display:block;text-align:center}
   /* De kaarten in de stroken namen 86% van het scherm. Dat is bijna een hele
