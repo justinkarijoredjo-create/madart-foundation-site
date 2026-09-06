@@ -614,6 +614,9 @@ section.editorial{padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw
 .pcard h3{font-size:15px;font-weight:700;margin:0 0 2px}
 .pcard .sub{font-size:12px;color:var(--grey);margin:0}
 .pcard .cnt{font-size:12px;color:var(--grey-light);margin:4px 0 0}
+.opplan{margin:5px 0 0;font-size:11px;letter-spacing:.04em}
+.opplan a{color:var(--dawn);border-bottom:1px solid var(--concrete)}
+.opplan a:hover{border-color:var(--dawn)}
 .pcard.soon .soonbox{aspect-ratio:4/5;display:flex;align-items:flex-end;padding:18px;
   background:var(--linen);border:1px solid var(--concrete);margin-bottom:12px}
 .pcard.soon .soonbox span{font-size:17px;font-weight:700;color:var(--grey)}
