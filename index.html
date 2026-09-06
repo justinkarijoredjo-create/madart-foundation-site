@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=45a2c6dc">
+<link rel="stylesheet" href="style.css?v=2e465db5">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "description": "MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.", "email": "contact@madartfoundation.com", "identifier": [{"@type": "PropertyValue", "name": "KvK", "value": "99713853"}, {"@type": "PropertyValue", "name": "RSIN", "value": "869102308"}], "legalName": "Stichting The Bloys", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "MADART Foundation", "nonprofitStatus": "https://schema.org/NonprofitANBI", "sameAs": ["https://www.instagram.com/madartfoundation"], "url": "https://madartfoundation.com", "vatID": null}</script>
 </head>
 <body class="home">
@@ -81,7 +81,7 @@
 
 <section class="statement reveal"><div class="wrap">
   <div class="claim-block">
-    <h2 class="claim">We curate the makers the system overlooked, and give them a room in the middle of Amsterdam.</h2>
+    <h2 class="claim">We curate the makers the system overlooked, and give them a room in Amsterdam.</h2>
     <p>We finance the exhibition. The maker keeps 100% of every sale. No exclusive contract, no fee to take part — a room, an audience, and a fair deal.</p>
     <p>The system that overlooks these makers is not broken by accident. Funds finance what institutions already show. Galleries show what already sells. Somewhere between the two, a whole category of serious work falls through — not because it isn't good enough, but because it doesn't fit the boxes the system was built around.</p>
     <p class="claim-link"><a href="mission.html">How we select, and what we test against &#8594;</a></p>
@@ -262,16 +262,15 @@
 <div class="wrap railnav"><button data-prev aria-label="Previous">&#8592;</button><button data-next aria-label="Next">&#8594;</button><a class="railall" href="exhibitions.html">The full programme &#8594;</a></div>
 </section>
 
-<section class="reveal place" id="place"><div class="wrap place-grid">
+<section class="reveal place" id="place">
+  <div class="wrap"><h2 class="index"><span class="no">04</span><span>The place</span><span class="of">Tap a level to see what is on it</span></h2></div>
+  <div class="wrap place-grid">
   <figure class="place-elev">
     <svg class="elev" id="svg" viewBox="0 0 482 596" role="group"
          aria-label="Elevation of NIO House Amsterdam, the former Metz building, eight levels"></svg>
     <p class="elev-cta" id="place-cta" hidden><a class="btn" id="p-cta" href="#">Open the plan</a></p>
-    <p class="elev-hint">Tap a level to see what is on it.</p>
   </figure>
   <div class="place-text">
-    <h2 class="index"><span class="no">04</span><span>The place</span></h2>
-
     <div id="place-story">
       <h2>NIO House Amsterdam</h2>
       <div class="prose">
@@ -279,6 +278,7 @@
     </div>
 
     <div id="place-level" hidden>
+      <p class="place-back"><a href="#place" id="p-back">&#8593; Back to the elevation</a></p>
       <p class="index lvl-eyebrow"><span class="no" id="p-no"></span><span id="p-kind"></span><span class="of" id="p-of"></span></p>
       <h2 id="p-name"></h2>
       <p class="lvl-perm" id="p-perm" hidden>Madart Foundation &middot; Artspace &middot; the permanent floor</p>
@@ -287,7 +287,8 @@
       <div id="p-people"></div>
     </div>
   </div>
-</div></section>
+  </div>
+</section>
 
 
 </main>
@@ -1203,8 +1204,26 @@ PROGRAMME.route.forEach(function(id){
     rest();
     grid.style.setProperty("--elev-h", Math.min(660, Math.max(380, h + 46)) + "px");
   }
+  /* De plattegrondknop staat op een laptop onder de tekening en op een
+     telefoon onder de informatie van de verdieping. Eén knop, twee plekken,
+     zodat er niets te synchroniseren valt. */
+  const ctaWrap = document.getElementById("place-cta"),
+        onderTekening = document.querySelector(".place-elev"),
+        onderTekst = document.getElementById("place-level");
+  function plaatsKnop(){
+    const doel = narrow() ? onderTekst : onderTekening;
+    if(ctaWrap.parentElement !== doel) doel.appendChild(ctaWrap);
+  }
+  plaatsKnop();
+
+  /* Terug naar de tekening, alleen zichtbaar op een aanraakscherm. */
+  document.getElementById("p-back").addEventListener("click", function(e){
+    e.preventDefault();
+    document.querySelector(".place-elev").scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
   fit();
-  window.addEventListener("resize", fit);
+  window.addEventListener("resize", function(){ fit(); plaatsKnop(); });
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 })();
 </script>
