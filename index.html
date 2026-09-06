@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=2e465db5">
+<link rel="stylesheet" href="style.css?v=2650ed04">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "description": "MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.", "email": "contact@madartfoundation.com", "identifier": [{"@type": "PropertyValue", "name": "KvK", "value": "99713853"}, {"@type": "PropertyValue", "name": "RSIN", "value": "869102308"}], "legalName": "Stichting The Bloys", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "MADART Foundation", "nonprofitStatus": "https://schema.org/NonprofitANBI", "sameAs": ["https://www.instagram.com/madartfoundation"], "url": "https://madartfoundation.com", "vatID": null}</script>
 </head>
 <body class="home">
@@ -263,12 +263,13 @@
 </section>
 
 <section class="reveal place" id="place">
-  <div class="wrap"><h2 class="index"><span class="no">04</span><span>The place</span><span class="of">Tap a level to see what is on it</span></h2></div>
+  <div class="wrap"><h2 class="index"><span class="no">04</span><span>The place</span><span class="of"><a href="building.html">The building &#8594;</a></span></h2></div>
   <div class="wrap place-grid">
   <figure class="place-elev">
     <svg class="elev" id="svg" viewBox="0 0 482 596" role="group"
          aria-label="Elevation of NIO House Amsterdam, the former Metz building, eight levels"></svg>
     <p class="elev-cta" id="place-cta" hidden><a class="btn" id="p-cta" href="#">Open the plan</a></p>
+    <p class="elev-hint"><span class="on-hover">Move over a level to see what is on it.</span><span class="on-touch">Tap a level to see what is on it.</span></p>
   </figure>
   <div class="place-text">
     <div id="place-story">
@@ -278,13 +279,13 @@
     </div>
 
     <div id="place-level" hidden>
-      <p class="place-back"><a href="#place" id="p-back">&#8593; Back to the elevation</a></p>
       <p class="index lvl-eyebrow"><span class="no" id="p-no"></span><span id="p-kind"></span><span class="of" id="p-of"></span></p>
       <h2 id="p-name"></h2>
       <p class="lvl-perm" id="p-perm" hidden>Madart Foundation &middot; Artspace &middot; the permanent floor</p>
       <figure class="place-hero" id="p-hero" hidden></figure>
       <p class="lede" id="p-blurb"></p>
       <div id="p-people"></div>
+      <p class="place-back"><a href="#place" id="p-back">&#8593; Back to the elevation</a></p>
     </div>
   </div>
   </div>
@@ -1210,9 +1211,13 @@ PROGRAMME.route.forEach(function(id){
   const ctaWrap = document.getElementById("place-cta"),
         onderTekening = document.querySelector(".place-elev"),
         onderTekst = document.getElementById("place-level");
+  const terug = document.querySelector(".place-back");
   function plaatsKnop(){
     const doel = narrow() ? onderTekst : onderTekening;
-    if(ctaWrap.parentElement !== doel) doel.appendChild(ctaWrap);
+    if(ctaWrap.parentElement === doel) return;
+    /* op een telefoon vóór de terugkoppeling, zodat die het laatste blijft */
+    if(doel === onderTekst) doel.insertBefore(ctaWrap, terug);
+    else doel.appendChild(ctaWrap);
   }
   plaatsKnop();
 
