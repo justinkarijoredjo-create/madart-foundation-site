@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The building — MADART FOUNDATION</title>
-<meta name="description" content="Eight levels of NIO House Amsterdam, the former Metz &amp; Co building on the Keizersgracht. What is on each floor, who shows there, and the plan of every level.">
-<link rel="canonical" href="https://madartfoundation.com/building.html">
+<title>Plan of level 6 — MADART FOUNDATION</title>
+<meta name="description" content="Level 6 of NIO House Amsterdam: which maker is in which space.">
+<link rel="canonical" href="https://madartfoundation.com/plan-6.html">
 <meta property="og:site_name" content="MADART FOUNDATION">
-<meta property="og:title" content="The building">
-<meta property="og:description" content="Eight levels of NIO House Amsterdam, the former Metz &amp; Co building on the Keizersgracht. What is on each floor, who shows there, and the plan of every level.">
+<meta property="og:title" content="Plan of level 6">
+<meta property="og:description" content="Level 6 of NIO House Amsterdam: which maker is in which space.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://madartfoundation.com/hero-level-4.jpg">
+<meta property="og:image" content="https://madartfoundation.com/hero-level-7.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,25 +23,83 @@
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=1857ce84">
 <style>
-/* Reparatie van 4 september, bewust hier en niet in style.css: een wijziging
-   daar verandert de vingerafdruk ?v= op alle 215 pagina's en dwingt een
-   volledige upload af. Bij de eerstvolgende volledige upload horen deze regels
-   alsnog naar static/style.css te verhuizen.
+/* Vinden is het doel. De plattegrond toont waar, de lijst is de ingang als je
+   een naam zoekt. Alles wat over de maker gaat staat op de makerspagina. */
+.kiezer{padding:6px 0 18px;border-bottom:var(--rule);margin:18px 0 24px}
+.kiezer svg.elev{width:100%;max-width:330px;height:auto;display:block;margin:0 auto;overflow:visible}
+svg.elev .flr{cursor:pointer}
+svg.elev .flr .band{fill:transparent}
+svg.elev .flr.hier .band{fill:var(--dawn);opacity:.9}
+svg.elev .nivnaam{fill:var(--grey);font-size:8.5px;font-family:inherit;letter-spacing:.4px}
+svg.elev .flr.uit{opacity:.34;cursor:default}
+svg.elev .flr.hier .nivnaam,svg.elev .flr.hier .no{fill:var(--dawn);font-weight:700}
+svg.plan{width:100%;height:auto;display:block;overflow:visible}
+svg.plan .romp{fill:var(--linen)}
+svg.plan .omtrek{fill:none;stroke:var(--ink);stroke-width:85;stroke-linejoin:round;pointer-events:none}
+svg.plan .vlak{fill:transparent;stroke:var(--concrete);stroke-width:60;transition:fill .25s cubic-bezier(.2,.7,.3,1)}
+svg.plan .muur line{stroke:var(--ink);stroke-width:240;stroke-linecap:square}
+svg.plan .zaal{cursor:pointer;outline:none}
+svg.plan .tag .zaalregel{fill:var(--grey-light);text-anchor:middle;font-family:inherit;letter-spacing:55px;transition:fill .25s}
+svg.plan .tag .naam{fill:var(--grey);font-weight:500;text-anchor:middle;font-family:inherit;letter-spacing:8px;transition:fill .25s}
+svg.plan .zaal.aan .vlak{fill:var(--dawn)}
+svg.plan .zaal.aan .tag .naam,svg.plan .zaal.aan .tag .zaalregel{fill:var(--chalk)}
+svg.plan .zaal.aan .tag .naam{font-weight:700}
+svg.plan .kern rect{fill:var(--chalk);stroke:#2F5A3A;stroke-width:70}
+svg.plan .kern .pijl{fill:#2F5A3A} svg.plan .kern .tredes line{stroke:#2F5A3A;stroke-width:50}
+svg.plan .kernlabel text{fill:#2F5A3A;font-size:400px;text-anchor:middle;font-family:inherit;letter-spacing:70px;font-weight:700}
+svg.plan .herma .stip{fill:var(--dawn)}
+svg.plan .herma text{fill:var(--dawn);font-size:340px;font-family:inherit;letter-spacing:40px}
+svg.plan .herma.aan .stip{r:520}
+svg.plan .straat text{fill:var(--concrete);font-size:340px;text-anchor:middle;font-family:inherit;letter-spacing:110px}
+.overal{font-size:12px;color:var(--grey);line-height:1.6;margin:14px 0 0;max-width:52ch}
+.namen{list-style:none;margin:26px 0 0;padding:0;counter-reset:n}
+.namen li{border-bottom:var(--hair)}
+.namen li:first-child{border-top:var(--hair)}
+.namen a,.namen .geenlink{display:block;padding:13px 14px;margin:0 -14px;min-height:56px;
+  transition:background .18s ease}
+.namen .geenlink .wie{color:var(--grey)}
+.namen .wie{display:block;font-size:15px;font-weight:700;line-height:1.3}
+.namen .waar{display:block;font-size:11px;letter-spacing:.05em;color:var(--grey);
+  text-transform:uppercase;margin-top:3px}
+.namen li.aan a{background:var(--dawn)}
+.namen li.aan .wie,.namen li.aan .waar{color:var(--chalk)}
+.namen a:hover .wie{color:var(--dawn)}
+.namen li.aan a:hover .wie{color:var(--chalk)}
+@media(min-width:861px){
+  .planwrap{display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:start}
+  .leg{margin-top:0}
+}
 
-   Wat er misging: main kreeg een vaste hoogte om de pagina op een scherm te
-   houden. Op een laptop van 756 pixels hoog was die hoogte kleiner dan de
-   inhoud, en liepen het register en de leestekst onder de voeter door. Vraag
-   om een scherm, eis het niet. */
-main#main{height:auto;min-height:calc(100dvh - 56px)}
-.bld{height:auto;align-items:start}
-.bld-draw,.bld-reg,.bld-detail{height:auto}
-svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));
-  min-width:230px;height:auto;margin:0 auto}
-#d-people{flex:0 0 auto;min-height:0;overflow:visible}
-.lvl-inner,.lvl-text{flex:0 0 auto}
-</style>
-</head>
-<body class="page-building">
+/* --------------------------------------------------------------------------
+   Het blad
+   Op een telefoon staat de lijst onder de plattegrond, en die begint pas rond
+   942 pixels terwijl het scherm er 844 hoog is. Wie op een zaal tikte moest
+   scrollen om de naam te lezen, en verloor daarbij de kaart uit beeld. Het
+   blad schuift daarom over de onderkant: de kaart blijft staan, de namen zijn
+   grote raakvlakken, en één tik verder ben je bij de maker.
+   -------------------------------------------------------------------------- */
+.blad{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--chalk);
+  border-top:2px solid var(--ink);box-shadow:0 -18px 40px rgba(30,29,28,.14);
+  transform:translateY(101%);transition:transform .26s cubic-bezier(.2,.7,.3,1);
+  padding:0 var(--gut) calc(14px + env(safe-area-inset-bottom));max-height:56vh;overflow-y:auto}
+.blad.op{transform:none}
+.bladkop{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 0 9px;position:sticky;top:0;background:var(--chalk)}
+.bladkop h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--grey);margin:0}
+.bladdicht{width:44px;height:44px;margin-right:-12px;background:none;border:0;
+  font:inherit;font-size:20px;line-height:1;color:var(--ink);cursor:pointer}
+.blad ol,.blad ul{list-style:none;margin:0;padding:0 0 6px}
+.blad a{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:17px 0;font-size:17px;font-weight:700;min-height:58px;border-bottom:var(--hair)}
+.blad li:last-child a{border-bottom:0}
+.blad a::after{content:"\2192";color:var(--dawn);font-weight:400}
+.blad a:hover,.blad a:focus{color:var(--dawn)}
+.blad .waar{display:block;font-size:11px;letter-spacing:.05em;color:var(--grey);
+  text-transform:uppercase;font-weight:400;margin-top:3px}
+@media(min-width:861px){ .blad{display:none} }
+</style></head>
+<body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -61,48 +119,112 @@ svg.elev{flex:none;width:min(100%, calc((100dvh - 330px) * 0.809));
 </header>
 
 <main id="main">
-
 <section><div class="wrap">
-  <p class="index"><span class="no">&mdash;</span><span>The building</span><span class="of">Eight levels, ground to seventh</span></p>
-  <h1>Every level of the house, and what is on it.</h1>
-  <p class="lede">NIO House Amsterdam, the former Metz &amp; Co building on the corner of the
-    Keizersgracht and the Leidsestraat. <a href="visit.html">Opening hours and directions</a>.</p>
-</div></section>
+  <p class="index"><span class="no">&mdash;</span><span>Plan</span>
+    <span class="of"><a href="building.html">The building &#8594;</a></span></p>
+  <h1>Level 6 &mdash; who is where.</h1>
 
-<section id="panel"><div class="wrap">
-  <div class="bld">
+  <nav class="kiezer" aria-label="Levels">
+    <svg class="elev" id="svg" viewBox="0 0 482 596" role="img"
+         aria-label="The building. Choose a level."></svg>
+  </nav>
 
-    <div class="bld-draw">
-      <svg class="elev" id="svg" viewBox="0 0 482 596" role="group"
-           aria-label="Keizersgracht elevation of NIO House Amsterdam, the former Metz building, eight levels"></svg>
-      <p class="legend">
-        <span><i class="sw sel"></i>The level you are reading</span>
-        <span><i class="sw route"></i>The visitor route during GLUE</span>
-        <span class="tapnote">Tap a level for what is on it.</span>
-      </p>
+  <div class="planwrap">
+    <div><svg viewBox="0 0 20971 21619" xmlns="http://www.w3.org/2000/svg" class="plan" role="img" aria-label="Plan of Level 6"><defs><filter id="diepte" x="-10%" y="-10%" width="125%" height="125%"><feDropShadow dx="0" dy="150" stdDeviation="190" flood-color="#1E1D1C" flood-opacity=".13"/></filter></defs><g class="kern" aria-hidden="true"><rect x="5684" y="5134" width="1560" height="1700" rx="80"/><path class="pijl" d="M6134 5824 l330 -420 l330 420 z M6134 6144 l330 420 l330 -420 z"/><rect x="7494" y="5134" width="1560" height="1700" rx="80"/><path class="pijl" d="M7944 5824 l330 -420 l330 420 z M7944 6144 l330 420 l330 -420 z"/><rect x="1467" y="14158" width="2600" height="5400" rx="80"/><g class="tredes"><line x1="1467" y1="14698" x2="4067" y2="14698"/><line x1="1467" y1="15238" x2="4067" y2="15238"/><line x1="1467" y1="15778" x2="4067" y2="15778"/><line x1="1467" y1="16318" x2="4067" y2="16318"/><line x1="1467" y1="16858" x2="4067" y2="16858"/><line x1="1467" y1="17398" x2="4067" y2="17398"/><line x1="1467" y1="17938" x2="4067" y2="17938"/><line x1="1467" y1="18478" x2="4067" y2="18478"/><line x1="1467" y1="19018" x2="4067" y2="19018"/></g></g><g class="kernlabel"><text x="7369" y="4834">LIFTS</text><text x="2767" y="13708">STAIRWELL</text></g><g filter="url(#diepte)"><polygon class="romp" points="19821,2181 14139,1150 13979,7404 1287,7587 1150,13681 5892,14071 5342,19477 12581,19569 13796,18034 18904,14116"/></g><g class="zalen"><g class="zaal" id="room-1" data-z="1" tabindex="0" role="button" aria-label="The Drawing Room"><polygon class="vlak" points="13865,7843 19386,7843 19821,2181 14139,1150 13979,7404 13865,7406 13865,7843"/><g class="tag"><text class="zaalregel" font-size="308" x="16840" y="3295">THE DRAWING ROOM</text><text class="naam" font-size="498" x="16840" y="4022">SLOOT</text><text class="naam" font-size="498" x="16840" y="4580">ALBERT JAN</text><text class="naam" font-size="498" x="16840" y="5138">DE WAART</text><text class="naam" font-size="498" x="16840" y="5695">DOT OBJECTS</text><text class="naam" font-size="498" x="16840" y="6253">IGNORE</text></g></g><g class="zaal" id="room-2" data-z="2" tabindex="0" role="button" aria-label="The Dining Room"><polygon class="vlak" points="13865,7843 13865,14808 18002,14808 18904,14116 19386,7843 13865,7843"/><g class="tag"><text class="zaalregel" font-size="313" x="16516" y="9421">THE DINING ROOM</text><text class="naam" font-size="506" x="16516" y="10159">SLOOT</text><text class="naam" font-size="506" x="16516" y="10726">STRYDONCK</text><text class="naam" font-size="506" x="16516" y="11293">ALBERT JAN</text><text class="naam" font-size="506" x="16516" y="11860">IGNORE</text></g></g><g class="zaal" id="room-3" data-z="3" tabindex="0" role="button" aria-label="The Conservatory"><polygon class="vlak" points="14459,15044 8823,15044 8823,19455 12671,19455 13796,18034 14459,17525 14459,15044"/><g class="tag"><text class="zaalregel" font-size="248" x="11030" y="16624">THE CONSERVATORY</text><text class="naam" font-size="400" x="11030" y="17208">MUNNIK</text><text class="naam" font-size="400" x="11030" y="17656">SPOT DEN HAAG</text><text class="naam" font-size="400" x="11030" y="18104">IGNORE</text></g></g><g class="zaal" id="room-4" data-z="4" tabindex="0" role="button" aria-label="The Parlour"><polygon class="vlak" points="8823,19455 8823,15044 5793,15044 5344,19455 8823,19455"/><g class="tag"><text class="zaalregel" font-size="259" x="7219" y="16226">THE PARLOUR</text><text class="naam" font-size="418" x="7219" y="16837">RUIJGROK</text><text class="naam" font-size="418" x="7219" y="17305">STRYDONCK</text><text class="naam" font-size="418" x="7219" y="17773">JAN</text></g></g><g class="zaal" id="room-5" data-z="5" tabindex="0" role="button" aria-label="Buro Berger"><polygon class="vlak" points="5279,7645 1286,7645 1150,13681 5279,14021 5279,7645"/><g class="tag"><text class="zaalregel" font-size="329" x="3240" y="11477">BURO BERGER</text><text class="naam" font-size="531" x="3240" y="12252">BURO BERGER</text></g></g><g class="zaal" id="room-6" data-z="6" tabindex="0" role="button" aria-label="Lilia Luganskaia-Kuilder"><polygon class="vlak" points="10698,14271 13431,14271 13431,11689 10698,11689 10698,14271"/><g class="tag"><text class="zaalregel" font-size="248" x="11989" y="12825">LILIA</text><text class="naam" font-size="400" x="11989" y="13409">LUGANSKAIA</text></g></g></g><g class="muur" aria-hidden="true"></g><polygon class="omtrek" points="19821,2181 14139,1150 13979,7404 1287,7587 1150,13681 5892,14071 5342,19477 12581,19569 13796,18034 18904,14116"/><g class="straat" aria-hidden="true"><text x="9783" y="20389">KEIZERSGRACHT</text><text transform="rotate(90 20601 10830)" x="20601" y="10830">LEIDSESTRAAT</text></g></svg>
+<p class="overal">Inge Bečka and Natalia Wyspianska
+        show throughout the rooms, in and on the
+        furniture of the others.</p>    </div>
+    <div>
+      <ol class="namen" aria-label="Makers on this level">
+        <li data-rooms="5">
+<a href="buro-berger.html">
+            <span class="wie">Buro Berger</span>
+            <span class="waar">Buro Berger</span>
+          </a>
+        </li>
+        <li data-rooms="1,2,3,4">
+<a href="inge-becka.html">
+            <span class="wie">Inge Bečka</span>
+            <span class="waar">The Drawing Room &middot; The Dining Room &middot; The Conservatory &middot; The Parlour</span>
+          </a>
+        </li>
+        <li data-rooms="3">
+<a href="joost-de-munnik-ruud-van-den-eijnden.html">
+            <span class="wie">Joost de Munnik &amp; Ruud van den Eijnden</span>
+            <span class="waar">The Conservatory</span>
+          </a>
+        </li>
+        <li data-rooms="3">
+<a href="spot-den-haag.html">
+            <span class="wie">SPoT Den Haag</span>
+            <span class="waar">The Conservatory</span>
+          </a>
+        </li>
+        <li data-rooms="1,2,3">
+<a href="ignore.html">
+            <span class="wie">ignore</span>
+            <span class="waar">The Drawing Room &middot; The Dining Room &middot; The Conservatory</span>
+          </a>
+        </li>
+        <li data-rooms="1,2,4">
+<a href="maurice-albert-jan.html">
+            <span class="wie">Maurice Albert Jan</span>
+            <span class="waar">The Drawing Room &middot; The Dining Room &middot; The Parlour</span>
+          </a>
+        </li>
+        <li data-rooms="6">
+<a href="lilia-luganskaia-kuilder.html">
+            <span class="wie">Lilia Luganskaia-Kuilder</span>
+            <span class="waar">Lilia Luganskaia-Kuilder</span>
+          </a>
+        </li>
+        <li data-rooms="1">
+<a href="dot-objects.html">
+            <span class="wie">Dot Objects</span>
+            <span class="waar">The Drawing Room</span>
+          </a>
+        </li>
+        <li data-rooms="4">
+<a href="jim-bob-ruijgrok.html">
+            <span class="wie">Jim Bob Ruijgrok</span>
+            <span class="waar">The Parlour</span>
+          </a>
+        </li>
+        <li data-rooms="1,2">
+<a href="eric-sloot.html">
+            <span class="wie">Eric Sloot</span>
+            <span class="waar">The Drawing Room &middot; The Dining Room</span>
+          </a>
+        </li>
+        <li data-rooms="2,4">
+<a href="marnix-van-strydonck.html">
+            <span class="wie">Marnix Van Strydonck</span>
+            <span class="waar">The Dining Room &middot; The Parlour</span>
+          </a>
+        </li>
+        <li data-rooms="1">
+<a href="nicolette-de-waart.html">
+            <span class="wie">Nicolette de Waart</span>
+            <span class="waar">The Drawing Room</span>
+          </a>
+        </li>
+        <li data-rooms="1,2,3,4">
+<span class="geenlink">
+            <span class="wie">Natalia Wyspianska</span>
+            <span class="waar">The Drawing Room &middot; The Dining Room &middot; The Conservatory &middot; The Parlour</span>
+          </span>        </li>
+      </ol>
     </div>
-
-    <div class="bld-reg">
-      <p class="index" aria-hidden="true">&nbsp;</p>
-      <div class="reg levels" id="levelreg"></div>
-    </div>
-
-    <div class="bld-detail">
-      <p class="index"><span class="no" id="d-no"></span><span id="d-kind"></span><span class="of" id="d-of"></span></p>
-      <div class="lvl-inner">
-      <figure class="lvl-hero" id="d-hero"></figure>
-      <div class="lvl-text">
-      <h2 id="d-name"></h2>
-      <p class="lvl-perm" id="d-perm" hidden>Madart Foundation &middot; Artspace &middot; the permanent floor</p>
-      <p class="lede" id="d-blurb"></p>
-      <div id="d-people"></div>
-      <p id="d-cta-wrap"><a class="btn" id="d-cta" href="#">Open the plan</a></p>
-      </div>
-      </div>
-    </div>
-
   </div>
 </div></section>
+
+<div class="blad" id="blad" role="dialog" aria-modal="false" aria-labelledby="bladnaam" hidden>
+  <div class="bladkop">
+    <h2 id="bladnaam"></h2>
+    <button class="bladdicht" type="button" aria-label="Close">&times;</button>
+  </div>
+  <div id="bladwie"></div>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -688,120 +810,123 @@ PROGRAMME.route.forEach(function(id){
   if(geom[id]) add(svg,"circle",{ class:"routedot", cx:RX, cy:geom[id].mid, r:2.4 });
 });
 
+(function(){
+  var HEEFT={"4": 1, "6": 1, "7": 1}, NU="6";
+  LEVELS.forEach(function(L){
+    var g=document.querySelector('.flr[data-id="'+L.id+'"]'); if(!g) return;
+    var gm=geom[L.id];
+    if(L.name){
+      var t=document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("class","nivnaam"); t.setAttribute("x", XLAB+14);
+      t.setAttribute("y", gm.mid+3); t.textContent=L.name; g.appendChild(t);
+    }
+    var r=document.createElementNS("http://www.w3.org/2000/svg","rect");
+    r.setAttribute("x",0); r.setAttribute("y",gm.top);
+    r.setAttribute("width",482); r.setAttribute("height",gm.bot-gm.top);
+    r.setAttribute("fill","transparent"); g.appendChild(r);
+    if(L.id===NU) g.classList.add("hier");
+    else if(!HEEFT[L.id]) g.classList.add("uit");
+    else g.addEventListener("click",function(){ location.href="plan-"+L.id+".html"; });
+  });
+})();
 
-/* ---- the register of levels --------------------------------------------- */
-const reg = document.getElementById("levelreg");
-LEVELS.forEach(function(L){
-  const a = document.createElement(L.href ? "a" : "div");
-  a.className = "row" + (L.perm ? " perm" : "") + (L.house ? " house" : "") + (L.href ? "" : " noplan");
-  if(L.href) a.href = L.href; else { a.setAttribute("role","button"); a.tabIndex = 0; }
-  a.dataset.id = L.id;
-  a.innerHTML = '<span class="c">' + L.label + '</span>' +
-                '<span class="t">' + L.name +
-                (L.kind && L.kind !== L.name ? '<em>' + L.kind + '</em>' : '') +
-                '</span>';
-  reg.appendChild(a);
-});
+(function(){
+  /* Twee ingangen, één beeld. Kies een naam en zijn ruimte licht op; kies een
+     ruimte en de namen daar lichten op. Op een telefoon schuift er een blad
+     omhoog zodat de kaart in beeld blijft; op een laptop staat alles al naast
+     elkaar en is dat blad niet nodig. */
+  var zalen = [].slice.call(document.querySelectorAll(".zaal")),
+      rijen = [].slice.call(document.querySelectorAll(".namen li")),
+      blad  = document.getElementById("blad"),
+      bladnaam = document.getElementById("bladnaam"),
+      bladwie  = document.getElementById("bladwie"),
+      dicht = blad.querySelector(".bladdicht"),
+      plan  = document.querySelector("svg.plan");
+  var hover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var smal  = function(){ return window.matchMedia("(max-width:860px)").matches; };
 
-/* ---- the panel ----------------------------------------------------------- */
-const d = { no:"d-no", kind:"d-kind", of:"d-of", hero:"d-hero", name:"d-name",
-            perm:"d-perm", blurb:"d-blurb", people:"d-people", cta:"d-cta",
-            wrap:"d-cta-wrap" };
-for(const k in d) d[k] = document.getElementById(d[k]);
+  function rijRuimtes(li){ return (li.dataset.rooms||"").split(",").filter(Boolean); }
 
-function show(L){
-  d.no.textContent   = "LEVEL " + L.label;
-  d.kind.textContent = (L.kind && L.kind !== L.name) ? L.kind : "";
-  d.of.textContent   = L.count;
-  /* the name of a level is also the way out of this page: to the season, to
-     the exhibition, to the programme. A level without one stays plain text. */
-  d.name.textContent = "";
-  if(L.link){ const a = document.createElement("a"); a.href = L.link;
-    a.textContent = L.name; d.name.appendChild(a); }
-  else d.name.textContent = L.name;
-  d.perm.hidden      = !L.perm;
-  d.blurb.textContent = L.blurb;
+  function licht(ruimtes, actieveRij){
+    zalen.forEach(function(z){ z.classList.toggle("aan", ruimtes.indexOf(z.dataset.z)>=0); });
+    rijen.forEach(function(li){
+      var eigen = rijRuimtes(li);
+      var raak  = actieveRij ? li===actieveRij
+                : (ruimtes.length && eigen.some(function(r){ return ruimtes.indexOf(r)>=0; }));
+      li.classList.toggle("aan", !!raak);
+    });
+  }
+  function wis(){ licht([], null); }
 
-  d.hero.innerHTML = ""; d.hero.hidden = !L.hero;
-  if(L.hero){
-    const img = document.createElement("img");
-    img.alt = "Level " + L.label + " of NIO House Amsterdam";
-    img.loading = "eager"; img.decoding = "async";
-    img.onerror = function(){ const sp = document.createElement("span");
-      sp.textContent = L.hero; d.hero.innerHTML = ""; d.hero.appendChild(sp); };
-    img.src = L.hero; d.hero.appendChild(img);
+  function bladVul(kop, html){
+    bladnaam.textContent = kop;
+    bladwie.innerHTML = html;
+    blad.hidden = false;
+    requestAnimationFrame(function(){ blad.classList.add("op"); });
+  }
+  function bladDicht(){
+    blad.classList.remove("op");
+    setTimeout(function(){ if(!blad.classList.contains("op")) blad.hidden = true; }, 280);
+  }
+  function inBeeld(z){
+    if(!z) return;
+    var r = z.getBoundingClientRect(), h = window.innerHeight;
+    if(r.top < 60 || r.bottom > h*0.48) window.scrollBy({ top: r.top - h*0.15, behavior:"smooth" });
   }
 
-  d.people.innerHTML = "";
-  L.groups.forEach(function(g){
-    if(!g.people || !g.people.length) return;
-    if(g.label){ const h = document.createElement("p"); h.className = "grp";
-      h.textContent = g.label; d.people.appendChild(h); }
-    const ul = document.createElement("ul");
-    ul.className = "people" + (g.one_column ? " one" : "");
-    g.people.forEach(function(pn){
-      const li = document.createElement("li");
-      let node;
-      const link = pn.external || pn.href;
-      if(link){ node = document.createElement("a"); node.href = link;
-        node.textContent = pn.name;
-        if(pn.external){ node.target = "_blank"; node.rel = "noopener"; } }
-      else { node = document.createElement("span"); node.className = "plain";
-        node.textContent = pn.name; }
-      li.appendChild(node);
-      if(pn.note){ const em = document.createElement("em");
-        em.textContent = "  \u00b7 " + pn.note; li.appendChild(em); }
-      ul.appendChild(li);
+  /* vanuit de plattegrond: wie staat hier? */
+  zalen.forEach(function(z){
+    var n = z.dataset.z;
+    function aan(){ licht([n], null); }
+    if(hover) z.addEventListener("mouseenter", function(){ if(!smal()) aan(); });
+    z.addEventListener("focus", aan);
+    z.addEventListener("click", function(ev){
+      ev.stopPropagation(); aan();
+      try{ history.replaceState(null,"","#room-"+n); }catch(e){}
+      if(smal()){
+        var namen = rijen.filter(function(li){ return rijRuimtes(li).indexOf(n)>=0; });
+        var kop = z.getAttribute("aria-label") || "";
+        bladVul(kop, "<ul>" + namen.map(function(li){
+          return "<li>" + li.querySelector("a").outerHTML + "</li>"; }).join("") + "</ul>");
+        inBeeld(z);
+      }
     });
-    d.people.appendChild(ul);
+    z.addEventListener("keydown", function(ev){
+      if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); z.dispatchEvent(new MouseEvent("click")); }
+    });
   });
 
-  /* .btn carries display:inline-block, which beats the [hidden] rule, so the
-     wrapper is what gets hidden — otherwise a level without a plan kept the
-     previous level's button on screen.                                      */
-  if(L.href){ d.wrap.hidden = false; d.cta.href = L.href;
-    d.cta.textContent = "Open the plan of level " + L.label; }
-  else d.wrap.hidden = true;
-
-  document.querySelectorAll(".flr").forEach(function(g){
-    g.classList.toggle("is-on", g.dataset.id === L.id); });
-  document.querySelectorAll(".reg.levels .row").forEach(function(r){
-    r.classList.toggle("on", r.dataset.id === L.id); });
-
-  const gm = geom[L.id];
-  LITRECT.setAttribute("x",XL-4);   LITRECT.setAttribute("y",gm.top);
-  LITRECT.setAttribute("width",(XR+4)-(XL-4));
-  LITRECT.setAttribute("height",gm.bot-gm.top);
-}
-
-/* ---- both the drawing and the register drive the panel, and both open the
-   same plan: L.href is the single definition of where a level's plan lives,
-   used by the drawing, by the register row and by the button alike. A level
-   without a plan is inert everywhere — no row link, no button.
-   On a phone the first tap reads the level; the button opens it.           */
-const byId = {}; LEVELS.forEach(function(L){ byId[L.id] = L; });
-const narrow = function(){ return window.matchMedia("(max-width:760px)").matches; };
-
-function wire(node, L){
-  node.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
-  node.addEventListener("focus", function(){ show(L); });
-  node.addEventListener("click", function(ev){
-    /* Het paneel staat op een telefoon ruim dertienhonderd pixels onder de
-       tekening. Springen naar de sectie bracht je terug naar de bovenkant en
-       liet het antwoord buiten beeld; spring naar het antwoord zelf. */
-    if(narrow()){ ev.preventDefault(); show(L);
-      document.querySelector(".bld-detail").scrollIntoView({behavior:"smooth",block:"start"});
-      return; }
-    if(L.href){ ev.preventDefault(); window.location.href = L.href; }
-    else ev.preventDefault();
+  /* vanuit de lijst: waar staat deze maker? */
+  rijen.forEach(function(li){
+    var a = li.querySelector("a") || li.querySelector(".geenlink"),
+        ruimtes = rijRuimtes(li);
+    if(hover){
+      li.addEventListener("mouseenter", function(){ if(!smal()) licht(ruimtes, li); });
+      li.addEventListener("mouseleave", function(){ if(!smal()) wis(); });
+    }
+    if(a.tagName==="A") a.addEventListener("focus", function(){ licht(ruimtes, li); });
+    /* Op een telefoon toont de eerste tik waar de maker staat; de knop in het
+       blad brengt je naar de pagina. Zo raak je de kaart niet kwijt. */
+    a.addEventListener("click", function(ev){
+      if(!smal()) return;
+      ev.preventDefault();
+      licht(ruimtes, li);
+      bladVul(li.querySelector(".waar").textContent,
+              "<ul><li>" + a.outerHTML + "</li></ul>");
+      inBeeld(document.querySelector('.zaal[data-z="'+ruimtes[0]+'"]'));
+    });
   });
-}
-document.querySelectorAll(".flr").forEach(function(g){ wire(g, byId[g.dataset.id]); });
-document.querySelectorAll(".reg.levels .row").forEach(function(r){ wire(r, byId[r.dataset.id]); });
 
-show(byId["4"]);
+  dicht.addEventListener("click", function(){ wis(); bladDicht(); });
+  document.addEventListener("keydown", function(ev){
+    if(ev.key==="Escape" && !blad.hidden){ wis(); bladDicht(); }
+  });
+  if(plan) plan.addEventListener("click", function(){ wis(); bladDicht(); });
+  if(hover) document.querySelector(".planwrap")
+    .addEventListener("mouseleave", function(){ if(!smal()) wis(); });
 
-
-</script>
+  var h=(location.hash||"").replace("#room-","");
+  if(h && document.querySelector('.zaal[data-z="'+h+'"]')) licht([h], null);
+})();</script>
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
 </html>
