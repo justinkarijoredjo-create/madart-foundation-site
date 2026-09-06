@@ -307,7 +307,7 @@ body.home .navtoggle{color:var(--chalk);text-shadow:0 1px 14px rgba(30,29,28,.45
 body.home.past-hero .masthead{background:var(--chalk);border-bottom-color:var(--concrete-memory)}
 body.home.past-hero .masthead .wordmark{color:var(--dawn);text-shadow:none}
 body.home.past-hero .masthead .mainnav a{color:var(--ink);text-shadow:none}
-body.home.past-hero .masthead .status-dot{display:inline-flex}
+@media(min-width:761px){ body.home.past-hero .masthead .status-dot{display:inline-flex} }
 body.home.past-hero .navtoggle{color:var(--ink);text-shadow:none}
 /* the panel that drops open on a phone always needs its own ground */
 body.home .mainnav.open{background:var(--chalk)}
