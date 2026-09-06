@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan of level 4 — MADART FOUNDATION</title>
+<meta name="description" content="Level 4 of NIO House Amsterdam: which maker is in which gallery, and where you arrive.">
+<link rel="canonical" href="https://madartfoundation.com/visit.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="Visit">
+<meta property="og:description" content="Opening hours, directions and the anchor-event programme at NIO House Amsterdam, Leidsestraat 32-34. Entry to the gallery floor is free.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/place-nio-house.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F4EDE4">
+<link rel="stylesheet" href="style.css?v=2b332151">
+<style>
+.kiezer{display:grid;grid-template-columns:126px 1fr;gap:18px;align-items:start;
+  padding:20px 0 24px;border-top:var(--rule);border-bottom:var(--rule);margin:22px 0 26px}
+.kiezer svg.elev{width:100%;height:auto;display:block;overflow:visible}
+.nivlijst{list-style:none;margin:0;padding:0}
+.nivlijst li a{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;
+  padding:10px;margin:0 -10px;font-size:13px;min-height:44px;transition:background .18s}
+.nivlijst .c{font-weight:700}
+.nivlijst .l{color:var(--grey);font-size:12px}
+.nivlijst li a:hover{background:var(--linen)}
+.nivlijst li.nu a{background:var(--dawn)} .nivlijst li.nu .c,.nivlijst li.nu .l{color:var(--chalk)}
+.nivlijst li.uit{opacity:.42} .nivlijst li.uit a{pointer-events:none}
+svg.elev .flr .band{fill:transparent}
+svg.elev .flr.kies .band{fill:var(--dawn);opacity:.16}
+svg.elev .flr.hier .band{fill:var(--dawn);opacity:.9}
+svg.plan{width:100%;height:auto;display:block;overflow:visible}
+svg.plan .romp{fill:var(--linen)}
+svg.plan .omtrek{fill:none;stroke:var(--ink);stroke-width:85;stroke-linejoin:round;pointer-events:none}
+svg.plan .vlak{fill:transparent;stroke:var(--concrete);stroke-width:60;transition:fill .26s cubic-bezier(.2,.7,.3,1)}
+svg.plan .muur line{stroke:var(--ink);stroke-width:240;stroke-linecap:square}
+svg.plan .zaal{cursor:pointer;outline:none}
+svg.plan .tag .zaalregel{fill:var(--grey);text-anchor:middle;font-family:inherit;letter-spacing:60px;transition:fill .26s}
+svg.plan .tag .naam{fill:var(--ink);font-weight:700;text-anchor:middle;font-family:inherit;letter-spacing:10px;transition:fill .26s}
+svg.plan .zaal.aan .vlak{fill:var(--dawn)}
+svg.plan .zaal.aan .tag .naam,svg.plan .zaal.aan .tag .zaalregel{fill:var(--chalk)}
+svg.plan .kern rect{fill:var(--chalk);stroke:var(--grey);stroke-width:70}
+svg.plan .kern .pijl{fill:var(--grey)} svg.plan .kern .tredes line{stroke:var(--grey);stroke-width:50}
+svg.plan .kernlabel text{fill:#2F5A3A;font-size:400px;text-anchor:middle;font-family:inherit;letter-spacing:60px;font-weight:700}
+svg.plan .herma .stip{fill:var(--dawn)}
+svg.plan .herma text{fill:var(--dawn);font-size:360px;font-family:inherit;letter-spacing:40px}
+svg.plan .herma.aan .stip{r:520}
+svg.plan .straat text{fill:var(--concrete);font-size:360px;text-anchor:middle;font-family:inherit;letter-spacing:110px}
+.leg{list-style:none;margin:24px 0 0;padding:0}
+.leg li{border-bottom:var(--hair)} .leg li:first-child{border-top:var(--hair)}
+.leg .kop{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;
+  padding:14px;margin:0 -14px;background:none;border:0;font:inherit;font-size:14px;text-align:left;
+  color:var(--ink);cursor:pointer;min-height:56px}
+.leg .zn{display:block;font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--grey);
+  text-transform:uppercase;margin-bottom:4px}
+.leg .wie a{border-bottom:1px solid var(--concrete)}
+.leg .plus::before{content:"+";font-weight:700;color:var(--grey);font-size:16px}
+.leg li.aan .kop{background:var(--dawn)}
+.leg li.aan .zn,.leg li.aan .wie a,.leg li.aan .kop{color:var(--chalk)}
+.leg li.aan .wie a{border-color:rgba(244,237,228,.5)}
+.leg li.aan .plus::before{content:"\2212";color:var(--chalk)}
+.paneel[hidden]{display:none} .paneel{padding:2px 0 16px}
+.mk{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:16px 0 0;
+  animation:opkomst .3s cubic-bezier(.2,.7,.3,1)}
+@keyframes opkomst{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mk figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--linen)}
+.mk img{width:100%;height:100%;object-fit:cover;display:block}
+.mk h3{font-size:15px;font-weight:700;margin:0 0 3px}
+.mk .waar{font-size:11px;letter-spacing:.06em;color:var(--dawn);margin:0 0 8px;text-transform:uppercase}
+.mk .pr{font-size:12.5px;line-height:1.6;color:var(--grey);margin:0 0 6px}
+.mk .tel{font-size:11px;color:var(--grey-light);margin:0}
+@media(min-width:861px){
+  .planwrap{display:grid;grid-template-columns:1.45fr .55fr;gap:52px;align-items:start}
+  .leg{margin-top:0}
+  .kiezer{grid-template-columns:150px 1fr;max-width:440px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MADART FOUNDATION</a>
+    <span class="status-dot" id="openstate"><i></i><span>Open daily 10:00–18:00</span></span>
+    <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="makers.html">Makers</a>
+      <a href="shop.html">Works</a>
+      <a href="visit.html" aria-current="page">Visit</a>
+      <a href="support-us.html">Support</a>
+      <a href="mission.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section><div class="wrap">
+  <p class="index"><span class="no">&mdash;</span><span>Plan</span><span class="of"><a href="building.html">The building &#8594;</a></span></p>
+  <h1>Level 4 &mdash; who is where.</h1>
+  <nav class="kiezer" aria-label="Levels">
+    <svg class="elev" id="svg" viewBox="0 0 482 596" role="img" aria-label="The building, eight levels"></svg>
+    <ul class="nivlijst" id="nivlijst"></ul>
+  </nav>
+  <div class="planwrap">
+    <div><svg viewBox="0 0 21796 21825" xmlns="http://www.w3.org/2000/svg" class="plan"
+  role="img" aria-label="Plan of the fourth floor of NIO House Amsterdam">
+  <defs><filter id="diepte" x="-10%" y="-10%" width="125%" height="125%">
+    <feDropShadow dx="0" dy="150" stdDeviation="190" flood-color="#1E1D1C" flood-opacity=".13"/>
+  </filter></defs>
+  <g class="kern" aria-hidden="true"><rect x="5753" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M6203 5664 l330 -420 l330 420 z M6203 5984 l330 420 l330 -420 z"/><rect x="7563" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M8013 5664 l330 -420 l330 420 z M8013 5984 l330 420 l330 -420 z"/>
+  <rect x="2002" y="7970" width="2600" height="5400" rx="80"/>
+  <g class="tredes"><line x1="2002" y1="8510" x2="4602" y2="8510"/><line x1="2002" y1="9050" x2="4602" y2="9050"/><line x1="2002" y1="9590" x2="4602" y2="9590"/><line x1="2002" y1="10130" x2="4602" y2="10130"/><line x1="2002" y1="10670" x2="4602" y2="10670"/><line x1="2002" y1="11210" x2="4602" y2="11210"/><line x1="2002" y1="11750" x2="4602" y2="11750"/><line x1="2002" y1="12290" x2="4602" y2="12290"/><line x1="2002" y1="12830" x2="4602" y2="12830"/></g></g>
+<g class="kernlabel">
+  <text x="7438" y="4674">YOU ARRIVE HERE</text>
+  <text x="3302" y="7520">STAIRWELL</text></g><g filter="url(#diepte)"><polygon class="romp" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/></g>
+  <g class="zalen"><g class="zaal" data-z="1" tabindex="0" role="button" aria-label="GALLERY 1, BORSELEN">
+    <polygon class="vlak" points="4472,15010 4358,14330 1173,14330 1150,19707 4357,19730 4357,16499 4902,16413 4902,14997 4472,15010"/><g class="tag"><text class="zaalregel" font-size="339" x="3063" y="15741">GALLERY 1</text><text class="naam" font-size="653" x="3063" y="16594">BORSELEN</text></g></g><g class="zaal" data-z="2" tabindex="0" role="button" aria-label="GALLERY 2, KRUISWIJK, BOSSCHAART">
+    <polygon class="vlak" points="7473,14919 4902,14997 4902,16413 5228,16362 5388,19730 12742,19775 12765,16499 13172,16453 13172,14330 7462,14330 7473,14919"/><g class="tag"><text class="zaalregel" font-size="405" x="9634" y="16319">GALLERY 2</text><text class="naam" font-size="780" x="9634" y="17338">KRUISWIJK</text><text class="naam" font-size="780" x="9634" y="18133">BOSSCHAART</text></g></g><g class="zaal" data-z="3" tabindex="0" role="button" aria-label="GALLERY 3, KEJA PLANKEN">
+    <polygon class="vlak" points="13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15710,14330 13172,14330 13172,16453 13567,16408"/><g class="tag"><text class="zaalregel" font-size="301" x="16014" y="16670">GALLERY 3</text><text class="naam" font-size="580" x="16014" y="17427">KEJA PLANKEN</text></g></g><g class="zaal" data-z="4" tabindex="0" role="button" aria-label="GALLERY 4, ECHO, HOEKSTRA">
+    <polygon class="vlak" points="13796,1150 13681,5503 13272,5514 13272,14330 15710,14330 15629,13475 19042,13384 20646,2250 13796,1150"/><g class="tag"><text class="zaalregel" font-size="405" x="16591" y="6383">GALLERY 4</text><text class="naam" font-size="780" x="16591" y="7402">ECHO</text><text class="naam" font-size="780" x="16591" y="8197">HOEKSTRA</text></g></g><g class="zaal" data-z="5" tabindex="0" role="button" aria-label="GALLERY LOUNGE, HOOGLAND">
+    <polygon class="vlak" points="11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7462,14330 13272,14330 13272,5514 11161,5571"/><g class="tag"><text class="zaalregel" font-size="405" x="9502" y="10519">GALLERY LOUNGE</text><text class="naam" font-size="780" x="9502" y="11537">HOOGLAND</text></g></g></g>
+  <g class="muur" aria-hidden="true"><line x1="13272" y1="8710" x2="13272" y2="14570"/><line x1="11842" y1="14570" x2="14022" y2="14570"/></g>
+  <polygon class="omtrek" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/><g class="zaal herma" data-z="h" tabindex="0" role="button" aria-label="Herma de Wit, in the stairwell">
+  <circle class="stip" cx="4602" cy="13170" r="330"/>
+  <text x="5222" y="14120" text-anchor="middle">HERMA DE WIT</text></g><g class="straat" aria-hidden="true">
+  <text x="9852" y="20595">KEIZERSGRACHT</text>
+  <text transform="rotate(90 21426 10670)"
+        x="21426" y="10670">LEIDSESTRAAT</text></g></svg></div>
+    <div><ul class="leg"><li data-z="1"><button class="kop" type="button" aria-expanded="false" aria-controls="p-1"><span><span class="zn">Gallery 1</span><span class="wie"><a href="anne-van-borselen.html">Anne van Borselen</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-1" hidden><article class="mk"><figure><img src="p-portrait-anne-van-borselen.jpg" alt="Anne van Borselen" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="anne-van-borselen.html">Anne van Borselen</a></h3><p class="waar">Gallery 1</p><p class="pr">Anne van Borselen was born in Surabaya in 1937 and brings a rare physical dynamism to her work; the vitality is visible in every canvas. She moves between painting, bronze and ceramic, shifting materi&hellip;</p><p class="tel">13 works</p></div></article></div></li><li data-z="2"><button class="kop" type="button" aria-expanded="false" aria-controls="p-2"><span><span class="zn">Gallery 2</span><span class="wie"><a href="aad-kruiswijk.html">Aad Kruiswijk</a> &middot; <a href="rogier-bosschaart.html">Rogier Bosschaart</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-2" hidden><article class="mk"><figure><img src="p-portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="aad-kruiswijk.html">Aad Kruiswijk</a></h3><p class="waar">Gallery 2 — floor</p><p class="pr">Aad Kruiswijk trained at the Hout en Meubileringscollege and continued at the Gerrit Rietveld Academie, a route that grounded his work equally in making and in thinking about form. The machine, for hi&hellip;</p><p class="tel">8 works</p></div></article><article class="mk"><figure><img src="p-portrait-rogier-bosschaart.jpg" alt="Rogier Bosschaart" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="rogier-bosschaart.html">Rogier Bosschaart</a></h3><p class="waar">Gallery 2 — walls</p><p class="pr">Rogier Bosschaart works between Amsterdam and Miami, at the intersection of the naïve and the calculated. His paintings are built from thousands of meticulously placed dots, a method he describes as e&hellip;</p><p class="tel">5 works</p></div></article></div></li><li data-z="3"><button class="kop" type="button" aria-expanded="false" aria-controls="p-3"><span><span class="zn">Gallery 3</span><span class="wie"><a href="sandra-keja-planken.html">Sandra Keja Planken</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-3" hidden><article class="mk"><figure><img src="p-portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="sandra-keja-planken.html">Sandra Keja Planken</a></h3><p class="waar">Gallery 3</p><p class="pr">Sandra Keja Planken examines the relationship between people, nature and material at a time when visual culture is becoming faster, more polished and more emotionally distant. Growing up between the e&hellip;</p><p class="tel">8 works</p></div></article></div></li><li data-z="4"><button class="kop" type="button" aria-expanded="false" aria-controls="p-4"><span><span class="zn">Gallery 4</span><span class="wie"><a href="echo.html">ECHO</a> &middot; <a href="loutje-hoekstra.html">Loutje Hoekstra</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-4" hidden><article class="mk"><figure><img src="t-echo-2-1-bench-work.jpg" alt="ECHO" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="echo.html">ECHO</a></h3><p class="waar">Gallery 4 — floor</p><p class="pr">ECHO is a recurring exhibition that asks when something stops being waste and becomes material again. Each edition takes a different residual stream as its starting point, and gathers makers around th&hellip;</p><p class="tel">13 makers &middot; 21 works</p></div></article><article class="mk"><figure><img src="p-portrait-loutje-hoekstra.jpg" alt="Loutje Hoekstra" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="loutje-hoekstra.html">Loutje Hoekstra</a></h3><p class="waar">Gallery 4 — walls</p><p class="pr">Loutje Hoekstra (1994) works in Amsterdam and came to art from biology. Her practice runs through painting, performance and illustration, and turns on the human body in its continuous search for belon&hellip;</p><p class="tel">9 works</p></div></article></div></li><li data-z="5"><button class="kop" type="button" aria-expanded="false" aria-controls="p-5"><span><span class="zn">Gallery Lounge</span><span class="wie"><a href="arno-hoogland.html">Arno Hoogland</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-5" hidden><article class="mk"><figure><img src="p-portrait-arno-hoogland.jpg" alt="Arno Hoogland" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="arno-hoogland.html">Arno Hoogland</a></h3><p class="waar">Gallery Lounge</p><p class="pr">Arno Hoogland is a designer shaped by futurism — by the urge to make things that feel otherworldly, artefacts arriving from realities not yet built. Unbound by the constraints of the present, his wall&hellip;</p><p class="tel">10 works</p></div></article></div></li><li data-z="h"><button class="kop" type="button" aria-expanded="false" aria-controls="p-h"><span><span class="zn">Stairwell</span><span class="wie"><a href="herma-de-wit.html">Herma de Wit</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-h" hidden><article class="mk"><figure><img src="p-portrait-herma-de-wit.jpg" alt="Herma de Wit" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="herma-de-wit.html">Herma de Wit</a></h3><p class="waar">In the stairwell, by the door to the Artspace</p><p class="pr">Herma de Wit works in bronze — sculptures, objects, drawings, etchings, monotypes — each occupied with a single question: what happens to a fragment of nature once it is fixed in a material built to o&hellip;</p><p class="tel">3 works</p></div></article></div></li></ul></div>
+  </div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="foot-h">BE THE FIRST TO KNOW</p>
+        <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+        <form class="signup" action="https://submit-form.com/lDWonyUTP" method="POST">
+          <input type="hidden" name="_redirect" value="https://madartfoundation.com/thanks.html">
+          <input type="hidden" name="_append" value="false">
+          <input type="hidden" name="source" value="newsletter">
+          <label class="skip" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div>
+        <p class="foot-h">VISIT</p>
+        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
+        <p><a href="visit.html">Opening hours and directions</a><br>
+           <a href="building.html">The building, level by level</a></p>
+      </div>
+      <div>
+        <p class="foot-h">MADART FOUNDATION</p>
+        <p>
+          <a href="mission.html">Mission</a><br>
+          <a href="team.html">Team</a><br>
+          <a href="support-us.html">Support us</a><br>
+          <a href="friend.html">Become a Friend</a><br>
+          <a href="anbi.html">Governance and ANBI</a><br>
+          <a href="press.html">Press</a><br>
+          <a href="contact.html">Contact</a><br>
+          <a href="https://www.instagram.com/madartfoundation">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MADART FOUNDATION · Stichting The Bloys · KvK 99713853 · 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <span>Structurally supported by Curated by MADART</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mark the document as scripted before anything is hidden, so a page without
+     working JavaScript simply shows everything instead of showing nothing. */
+  document.body.classList.add('js');
+  var reveal = function(el){ el.classList.add('in'); };
+  if ('IntersectionObserver' in window && !reduce) {
+    /* Threshold 0, not 0.1. A section can be ten times taller than a phone
+       screen — the members of a collective, the makers of a season — and can
+       then never reach ten per cent visibility. It would stay invisible for
+       ever. Zero fires the moment any part of it enters. */
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { reveal(e.target); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+    /* Second safety net: anything still hidden four seconds after load is shown
+       regardless. An animation that fails should cost a fade, never the content. */
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(reveal); }, 4000);
+
+    /* Third: on any scroll, reveal whatever is already on screen. Cheap, and it
+       covers the devices where the observer behaves differently than expected. */
+    var sweep = function(){
+      var open = document.querySelectorAll('.reveal:not(.in)');
+      if (!open.length) { window.removeEventListener('scroll', sweep); return; }
+      open.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, {passive:true});
+    sweep();
+  } else {
+    document.querySelectorAll('.reveal').forEach(reveal);
+  }
+
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+
+  // Opening state. Hours live in one place: data/site.yaml -> rendered here.
+  var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
+    var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day];
+    var label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script><script>
+/* The eight levels and what is on them, straight out of data/building.yaml. */
+const BUILDING  = [{"count": "76 m\u00b2", "from": 26745, "hero": "hero-level-7.jpg", "id": "7", "idle": "Beneath the glass Gerrit Rietveld raised over the building in 1933.", "kind": "The Dome", "label": "7", "to": 29220}, {"count": "217 m\u00b2", "from": 23120, "hero": "hero-level-6.jpg", "id": "6", "idle": "One continuous space of 217 m\u00b2, used by NIO House for events.", "kind": "Blue Sky Lounge", "label": "6", "to": 26745}, {"count": "NIO House", "from": 20260, "hero": null, "id": "5", "idle": "NIO House\u0027s own offices. The staircase passes the landing; the floor itself is not open.", "kind": "Offices", "label": "5", "to": 23120}, {"count": "Foundation", "from": 16320, "hero": "hero-level-4.jpg", "id": "4", "idle": "The Foundation\u0027s exhibition floor: five galleries and a lounge. A new season opens on the first Friday of each quarter.", "kind": "Artspace", "label": "4", "permanent": true, "to": 20260}, {"count": "NIO House", "from": 12420, "hero": "hero-level-3.jpg", "house": true, "id": "3", "idle": "NIO House\u0027s working floor \u2014 desks and rooms for members.", "kind": "Lab", "label": "3", "to": 16320}, {"count": "NIO House", "from": 8400, "hero": "hero-level-2.jpg", "id": "2", "idle": "NIO House\u0027s gathering floor, used for talks and public programme.", "kind": "Studio", "label": "2", "to": 12420}, {"count": "NIO House", "from": 4620, "hero": "hero-level-1.jpg", "id": "1", "idle": "NIO House\u0027s caf\u00e9, open to anyone who walks in.", "kind": "NIO Caf\u00e9", "label": "1", "to": 8400}, {"count": "Entrance", "from": 0, "hero": "hero-level-0.jpg", "id": "0", "idle": "The way in, from the corner of the Keizersgracht and the Leidsestraat.", "kind": "Gallery", "label": "0", "to": 4620}];
+const PROGRAMME = {"levels": {"0": {"blurb": "Where the route begins, under the clock on the corner.", "count": "1 maker", "groups": [{"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-0.jpg", "name": "Entrance"}, "1": {"blurb": "The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.", "count": "Caf\u00e9", "hero": "hero-level-1.jpg", "name": "Lunch"}, "2": {"blurb": "Short talks on design, colour, material and the brain, every afternoon from 15:00.", "count": "5 talks", "groups": [{"label": "Talks", "one_column": true, "people": [{"external": "https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator", "name": "Martijn den Otter"}, {"external": "https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator", "name": "Femke Hofhuis", "note": "Femm Amsterdam"}, {"external": "https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator\u0026keep_tld=true", "name": "Thomas Eurlings", "note": "Forbo"}, {"external": "https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator\u0026keep_tld=true", "name": "Marc Th. van der Voorn"}, {"name": "Nicola Cherubini", "note": "Listone Giordano"}]}, {"label": "Running presentation", "people": [{"href": "andreea-pirlica.html", "name": "Andreea Pirlica"}]}], "hero": "hero-level-2.jpg", "link": "events.html", "name": "Talks", "plan": "plan-2.html"}, "4": {"blurb": "The Foundation\u0027s running season, open throughout GLUE \u2014 not a separate visit but part of the same route.", "count": "19 makers", "groups": [{"people": [{"href": "arno-hoogland.html", "name": "Arno Hoogland"}, {"href": "anne-van-borselen.html", "name": "Anne van Borselen"}, {"href": "rogier-bosschaart.html", "name": "Rogier Bosschaart"}, {"href": "aad-kruiswijk.html", "name": "Aad Kruiswijk"}, {"href": "sandra-keja-planken.html", "name": "Sandra Keja Planken"}, {"href": "loutje-hoekstra.html", "name": "Loutje Hoekstra"}, {"href": "echo.html", "name": "ECHO", "note": "13 makers"}]}, {"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-4.jpg", "link": "season-02-ground.html", "name": "Season 02 \u2014 GROUND", "plan": "plan-4.html"}, "5": {"blurb": "NIO House\u0027s own floor, closed to visitors \u2014 but the staircase runs through it.", "count": "1 maker", "groups": [{"label": "On the landing", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "name": "On the landing"}, "6": {"blurb": "One continuous space read as four rooms, entered from either end.", "count": "12 on this floor", "groups": [{"people": [{"href": "marnix-van-strydonck.html", "name": "Marnix Van Strydonck"}, {"href": "dot-objects.html", "name": "Dot Objects"}, {"href": "inge-becka.html", "name": "Inge Be\u010dka"}, {"href": "maurice-albert-jan.html", "name": "Maurice Albert Jan"}, {"href": "jim-bob-ruijgrok.html", "name": "Jim Bob Ruijgrok"}, {"href": "nicolette-de-waart.html", "name": "Nicolette de Waart"}, {"href": "buro-berger.html", "name": "Buro Berger"}, {"href": "lilia-luganskaia-kuilder.html", "name": "Lilia Luganskaia-Kuilder"}, {"href": "eric-sloot.html", "name": "Eric Sloot"}, {"href": "ignore.html", "name": "ignore"}, {"name": "Natalia Wyspianska"}, {"href": "joost-de-munnik-ruud-van-den-eijnden.html", "name": "Joost de Munnik \u0026 Ruud van den Eijnden", "note": "presented by SPoT"}]}], "hero": "hero-level-6.jpg", "link": "maison-dartiste.html", "name": "Maison d\u0027Artiste", "plan": "plan-6.html"}, "7": {"blurb": "Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.", "count": "1 maker", "groups": [{"people": [{"href": "devoonsounds.html", "name": "Devoonsounds"}]}], "hero": "hero-level-7.jpg", "link": "maison-dartiste.html", "name": "The Dome", "plan": "plan-7.html"}}, "route": ["0", "2", "4", "5", "6", "7"], "title": "GLUE Amsterdam 2026"};
+
+const LEVELS = BUILDING.map(function(b){
+  const p = PROGRAMME.levels[b.id] || null;
+  return { id:b.id, label:b.label, from:b.from, to:b.to,
+    house:!!b.house, perm:!!b.permanent, kind:b.kind, active:!!p,
+    name:   p ? p.name  : b.kind,
+    blurb:  p ? p.blurb : b.idle,
+    hero:   p && p.hero ? p.hero : (b.hero || null),
+    count:  p && p.count ? p.count : b.count,
+    groups: p && p.groups ? p.groups : [],
+    href:   p && p.plan ? p.plan : null,
+    link:   p && p.link ? p.link : null };   /* not `to`: that is a height */
+});
+
+const S = 65, YG = 560;
+const Y  = function(mm){ return YG - mm/S; };
+const U  = function(mm){ return mm/S; };
+const XL   = 8,
+      XF   = XL + 15233/S,
+      XR   = XF + 4464/S,
+      XLAB = XR + 22,
+      RX   = XR + 12;
+const FX = function(mm){ return XL + mm/S; };
+const TX = function(mm){ return XF + mm/S; };
+const COLS = [[0,973],[2893,4243],[10990,12340],[14260,15233]];
+const WINS = [1933, 5216, 7616, 10004, 13300];
+const WFR  = 1920, WOP = 1580;
+const NS = "http://www.w3.org/2000/svg", svg = document.getElementById("svg");
+function el(t,a){ const n = document.createElementNS(NS,t); for(const k in a) n.setAttribute(k,a[k]); return n; }
+function add(p,t,a){ const n = el(t,a); p.appendChild(n); return n; }
+
+/* ---- 1. clickable level bands ------------------------------------------- */
+const geom = {};
+LEVELS.forEach(function(L){
+  const yTop = Y(L.to), yBot = Y(L.from), h = yBot - yTop;
+  geom[L.id] = { top:yTop, bot:yBot, mid:yTop + h/2 };
+  const g = el("g",{ class:"flr" + (L.house ? " is-house" : "") + (L.perm ? " is-perm" : ""),
+                     tabindex:"0", role:"button",
+                     "data-id":L.id, "aria-label":"Level " + L.label + " — " + L.name });
+  add(g,"rect",{ class:"band", x:XL-4, y:yTop, width:(XR+4)-(XL-4), height:h });
+  add(g,"line",{ class:"tick", x1:XR+5, y1:yBot, x2:XLAB-6, y2:yBot });
+  add(g,"text",{ class:"no", x:XLAB, y:geom[L.id].mid+1 }).textContent = L.label;
+  if(L.perm) add(g,"text",{ class:"perm", x:XLAB, y:geom[L.id].mid+10 }).textContent = "MADART FOUNDATION";
+  add(g,"rect",{ class:"hit", x:XL-4, y:yTop, width:(XLAB+108)-(XL-4), height:h });
+  svg.appendChild(g);
+});
+
+/* ---- 2. the tracing ------------------------------------------------------ */
+const T = el("g",{ class:"trace" });
+const P  = function(c,d){ return add(T,"path",{ class:c, d:d }); };
+const R  = function(c,x,y,w,h){ return add(T,"rect",{ class:c, x:x, y:y, width:w, height:h }); };
+const LN = function(c,x1,y1,x2,y2){ return add(T,"line",{ class:c, x1:x1, y1:y1, x2:x2, y2:y2 }); };
+const C  = function(c,cx,cy,r){ return add(T,"circle",{ class:c, cx:cx, cy:cy, r:r }); };
+
+/* -- vocabulary ------------------------------------------------------------ */
+function dentils(x1,x2,y,h,step){
+  for(let x = x1+0.7; x < x2-1; x += (step||2.3)) R("hair",x,y,1.1,h);
+}
+function cornice(x1,x2,y,d,tooth){
+  R("out",x1-d,y-3.2,(x2-x1)+2*d,3.2);
+  LN("med",x1-d*0.55,y-3.2,x2+d*0.55,y-3.2);
+  if(tooth !== false) dentils(x1-d*0.6,x2+d*0.6,y-5.9,2.3);
+  LN("med",x1,y,x2,y);
+}
+function sash(x,y,w,h){                                /* transom over two lights */
+  const t = y + h*0.29;
+  LN("med",x,t,x+w,t);
+  LN("thin",x+w/2,t,x+w/2,y+h);
+  LN("hair",x+w*0.30,y,x+w*0.30,t);
+  LN("hair",x+w*0.70,y,x+w*0.70,t);
+}
+function crossette(cx,y,h){                            /* eared architrave        */
+  const w = U(WOP), x = cx-w/2, fw = U(WFR), fx = cx-fw/2;
+  R("med",x,y,w,h); sash(x,y,w,h);
+  R("thin",fx,y-1.4,fw,h+2.8);
+  R("hair",fx+0.8,y-0.6,fw-1.6,h+1.2);
+  [y+1.6,y+h-1.6].forEach(function(yy){ LN("hair",fx-1.1,yy,fx+fw+1.1,yy); });
+  LN("med",fx-1.4,y+h+2.8,fx+fw+1.4,y+h+2.8);          /* sill                    */
+}
+function column(a,b,yTop,yBot){                        /* the engaged order       */
+  const cx = FX((a+b)/2), w = U(b-a)*0.72, x = cx-w/2;
+  R("out",x,yTop+5.2,w,yBot-yTop-8.4);
+  for(let i = 1; i < 4; i++) LN("hair",x+w*i/4,yTop+7.4,x+w*i/4,yBot-5);
+  /* the capital: a bolster between two volutes under a square abacus */
+  R("out",x-1.5,yTop,w+3,1.9);
+  P("out","M"+(x-0.9)+" "+(yTop+5.2)+" Q"+cx+" "+(yTop+1.3)+" "+(x+w+0.9)+" "+(yTop+5.2));
+  C("med",x+0.6,yTop+3.3,1.15); C("med",x+w-0.6,yTop+3.3,1.15);
+  P("hair","M"+(cx-1.9)+" "+(yTop+4.4)+" q1.9 -2.2 3.8 0");
+  R("out",x-1.3,yBot-2.6,w+2.6,2.6);                   /* base                    */
+  R("hair",x-0.6,yBot-4.2,w+1.2,1.6);
+}
+function balusters(x,w,y,h){
+  LN("med",x,y,x+w,y); LN("med",x,y+h,x+w,y+h);
+  for(let bx = x+1.4; bx < x+w-1; bx += 2.1) R("hair",bx,y+0.7,0.95,h-1.4);
+}
+function panelBand(x,w,y,h,n){                          /* run of sunk panels     */
+  R("med",x,y,w,h);
+  const step = w/n;
+  for(let i = 0; i < n; i++) R("hair",x+i*step+0.9,y+0.9,step-1.8,h-1.8);
+}
+function caryatid(cx,yTop,h){                           /* the herm figures       */
+  C("med",cx,yTop+2.7,1.35);
+  P("out","M"+(cx-2.7)+" "+(yTop+5)+" C "+(cx-3.2)+" "+(yTop+h*0.32)+", "+(cx-2.6)+" "+(yTop+h*0.42)+", "+
+        (cx-2.4)+" "+(yTop+h*0.52)+" L"+(cx-1.35)+" "+(yTop+h-3.2)+" L"+(cx+1.35)+" "+(yTop+h-3.2)+
+        " L"+(cx+2.4)+" "+(yTop+h*0.52)+" C "+(cx+2.6)+" "+(yTop+h*0.42)+", "+(cx+3.2)+" "+(yTop+h*0.32)+", "+
+        (cx+2.7)+" "+(yTop+5)+" Z");
+  P("med","M"+(cx-2.3)+" "+(yTop+7.6)+" q2.3 2.1 4.6 0");           /* folded arms */
+  LN("hair",cx-1.1,yTop+h*0.5,cx-1.1,yTop+h-4);
+  LN("hair",cx+1.1,yTop+h*0.5,cx+1.1,yTop+h-4);
+  P("out","M"+(cx-2.9)+" "+(yTop+h-3.2)+" L"+(cx-1.9)+" "+(yTop+h)+" L"+(cx+1.9)+" "+(yTop+h)+
+    " L"+(cx+2.9)+" "+(yTop+h-3.2)+" Z");
+}
+function pedTri(cx,y,w,hatch){
+  const x = cx-w/2, a = 6.6;
+  P("out","M"+(x-3)+" "+y+" L"+cx+" "+(y-a)+" L"+(x+w+3)+" "+y+" Z");
+  P("med","M"+(x-1.2)+" "+(y-1.5)+" L"+cx+" "+(y-a+1.6)+" L"+(x+w+1.2)+" "+(y-1.5));
+  if(hatch) for(let i = 0; i <= 10; i++){
+    const t = i/10, px = x-1.2+(cx-(x-1.2))*t, py = (y-1.5)+((y-a+1.6)-(y-1.5))*t;
+    LN("hair",px,py,px+1.6,py+1.4);
+    const qx = (x+w+1.2)-((x+w+1.2)-cx)*t;
+    LN("hair",qx,py,qx-1.6,py+1.4); }
+}
+function pedSeg(cx,y,w,bird){
+  const x = cx-w/2;
+  P("out","M"+(x-3)+" "+y+" Q"+cx+" "+(y-10.4)+" "+(x+w+3)+" "+y+" Z");
+  P("med","M"+(x-1.2)+" "+(y-1)+" Q"+cx+" "+(y-8.6)+" "+(x+w+1.2)+" "+(y-1));
+  if(bird){                                                /* the spread wings  */
+    P("med","M"+(cx-4.6)+" "+(y-3.2)+" Q"+(cx-2.2)+" "+(y-5.6)+" "+cx+" "+(y-3.6)+
+      " Q"+(cx+2.2)+" "+(y-5.6)+" "+(cx+4.6)+" "+(y-3.2));
+    P("hair","M"+(cx-3.4)+" "+(y-3.4)+" q1.7 1.1 3.4 0.2");
+    P("hair","M"+(cx+3.4)+" "+(y-3.4)+" q-1.7 1.1 -3.4 0.2");
+    C("med",cx,y-4.1,0.85); }
+}
+function colonnette(cx,yTop,yBot){                         /* slender flanking shaft */
+  R("med",cx-0.85,yTop+2.6,1.7,yBot-yTop-4.2);
+  P("out","M"+(cx-1.7)+" "+(yTop+2.6)+" Q"+cx+" "+(yTop-0.9)+" "+(cx+1.7)+" "+(yTop+2.6));
+  LN("hair",cx-1.6,yTop+1.4,cx+1.6,yTop+1.4);
+  R("med",cx-1.4,yBot-2.1,2.8,2.1);
+}
+
+/* ======================= THE KEIZERSGRACHT ELEVATION ====================== */
+
+/* -- levels 0 and 1 · shopfront and the front door -------------------------- */
+(function shopfront(){
+  const yT = Y(8400), yM = Y(4620), yB = Y(0), yP = Y(900);
+  LN("out",XL,yT,XL,yB);
+  const glazing = [[4243,7566],[7826,11018],[11849,14703]];
+  glazing.forEach(function(g){
+    const a = FX(g[0]), b = FX(g[1]);
+    R("out",a,yT+5,b-a,yM-yT-9);  R("hair",a+1.3,yT+6.3,(b-a)-2.6,yM-yT-11.6);
+    R("out",a,yM+3,b-a,yP-yM-4);  R("hair",a+1.3,yM+4.3,(b-a)-2.6,yP-yM-6.6);
+  });
+  [3900,7566,7826,11018,11849,14703,15233].forEach(function(m){ LN("med",FX(m),yT+5,FX(m),yP); });
+  panelBand(FX(3900),U(11333),yP,U(900)/1,3);              /* stall riser        */
+  [FX(3900),FX(7700),FX(11430),FX(14970)].forEach(function(x){ C("thin",x,yT+8,1.3); });
+
+  /* the entrance bay */
+  const dl = FX(1080), dr = FX(3023), dc = (dl+dr)/2;
+  R("out",dl,Y(4000),dr-dl,yB-Y(4000));                    /* the double door    */
+  LN("med",dc,Y(4000),dc,yB-1.1);
+  [[dl,dc],[dc,dr]].forEach(function(p){
+    for(let k = 0; k < 3; k++) R("hair",p[0]+1.4,Y(3600)+k*U(1000),(p[1]-p[0])-2.8,U(800)); });
+  C("med",dl+(dc-dl)/2,Y(1900),1.1); C("med",dc+(dr-dc)/2,Y(1900),1.1);
+  R("out",FX(950),Y(7000),U(2190),Y(4100)-Y(7000));        /* louvred fanlight   */
+  for(let y = Y(7000)+1.4; y < Y(4100)-0.8; y += 1.5) LN("hair",FX(980),y,FX(3110),y);
+  [FX(700),FX(3300)].forEach(function(x){                  /* flanking pilasters */
+    R("med",x-1.5,Y(7200),3,yB-Y(7200));
+    R("out",x-2.1,Y(7200),4.2,2); C("thin",x,Y(6700),1.1); });
+  /* the segmental hood with its cartouche and two ball finials */
+  P("out","M"+FX(170)+" "+Y(4620)+" Q"+FX(2000)+" "+Y(6100)+" "+FX(3853)+" "+Y(4620));
+  P("med","M"+FX(420)+" "+Y(4620)+" Q"+FX(2000)+" "+Y(5850)+" "+FX(3600)+" "+Y(4620));
+  P("out","M"+FX(1560)+" "+Y(5300)+" Q"+FX(2000)+" "+Y(6300)+" "+FX(2440)+" "+Y(5300)+
+    " Q"+FX(2000)+" "+Y(4850)+" "+FX(1560)+" "+Y(5300)+" Z");
+  C("med",FX(2000),Y(5480),1.5);
+  C("out",FX(700),Y(5450),2.1); C("out",FX(3300),Y(5450),2.1);
+  R("out",FX(950),Y(7550),U(2190),Y(5920)-Y(7550));        /* mezzanine window   */
+  sash(FX(950),Y(7550),U(2190),Y(5920)-Y(7550));
+
+  cornice(XL,XR,yT,3.2);
+})();
+
+/* -- level 2 · caryatids in the end bays ------------------------------------ */
+(function level2(){
+  const yT = Y(12420), yB = Y(8400), wT = yT+10, wH = (yB-yT)-19;
+  balusters(XL,XR-XL,yB-5.2,3.8);
+  panelBand(XL,XR-XL,yB-1.4,1.6,30);
+
+  WINS.forEach(function(m,i){
+    crossette(FX(m),wT,wH);
+    if(i === 0 || i === 4){
+      caryatid(FX(m)-U(1560),wT-3,wH+6);
+      caryatid(FX(m)+U(1560),wT-3,wH+6);
+      pedTri(FX(m),wT-6.5,U(3900),true);                   /* hatched tympanum  */
+      panelBand(FX(m)-U(2100),U(4200),yB-5.6,4.2,4);
+    }
+  });
+  [3568,6416,8810,11660].forEach(function(m){              /* panelled piers    */
+    const x = FX(m)-U(475);
+    R("med",x,wT-2,U(950),wH+4);
+    for(let k = 0; k < 5; k++) R("hair",x+1.1,wT+0.6+k*((wH)/5),U(950)-2.2,(wH/5)-2.2); });
+  [[5216,7616],[7616,10004]].forEach(function(p){          /* the two masks     */
+    const cx = FX((p[0]+p[1])/2);
+    C("med",cx,wT-2.6,1.5); P("med","M"+(cx-2.4)+" "+(wT-2.2)+" q2.4 2.2 4.8 0");
+    LN("hair",cx,wT-4.1,cx,wT-7.4); });
+  LN("med",XL,yT+1.4,XR,yT+1.4);
+  LN("med",XL,yT+3.6,XR,yT+3.6);
+})();
+
+/* -- level 3 · aedicules, pediments and balconies --------------------------- */
+(function level3(){
+  const yT = Y(16320), yB = Y(12420), wT = yT+14.5, wH = (yB-yT)-26;
+  WINS.forEach(function(m,i){
+    const cx = FX(m);
+    crossette(cx,wT,wH);
+    colonnette(cx-U(1240),wT-3.4,wT+wH+1.4);
+    colonnette(cx+U(1240),wT-3.4,wT+wH+1.4);
+    R("out",cx-U(1400),wT-6.6,U(2800),3.2);                /* the entablature   */
+    R("hair",cx-U(1100),wT-9.6,U(2200),2.6);               /* the panel over    */
+    if(i === 2){ for(let k = -2; k <= 2; k++) C("hair",cx+k*U(280),wT-8.3,0.5); }
+    if(i === 0 || i === 4) pedSeg(cx,wT-10.4,U(2600),true);
+    else if(i === 2){
+      P("out","M"+(cx-U(1500))+" "+(wT-10.4)+" Q"+(cx-U(700))+" "+(wT-20)+" "+cx+" "+(wT-19.6)+
+        " Q"+(cx+U(700))+" "+(wT-20)+" "+(cx+U(1500))+" "+(wT-10.4));
+      P("med","M"+(cx-U(1150))+" "+(wT-11.2)+" q1.4 -3.4 3.4 -2.2");
+      P("med","M"+(cx+U(1150))+" "+(wT-11.2)+" q-1.4 -3.4 -3.4 -2.2");
+      C("med",cx,wT-21.4,1.5); LN("med",cx,wT-19.9,cx,wT-17.4);
+      P("hair","M"+(cx-3.4)+" "+(wT-13.4)+" q3.4 -2.6 6.8 0");
+    } else pedTri(cx,wT-10.4,U(2600),false);
+    /* apron with consoles */
+    R("med",cx-U(900),wT+wH+4.4,U(1800),4.4);
+    [cx-U(1150),cx+U(1150)].forEach(function(bx){
+      P("med","M"+(bx-1)+" "+(wT+wH+4)+" l1 4.4 l1 -4.4"); });
+  });
+  COLS.forEach(function(c){ column(c[0],c[1],yT+6,yB-4); });
+  R("hair",FX(6900),yB-6.6,U(1450),3.4);                   /* the little frieze */
+  for(let k = 0; k < 7; k++) C("hair",FX(7020)+k*U(200),yB-4.9,0.55);
+  LN("med",XL,yT+1.6,XR,yT+1.6);
+})();
+
+/* -- level 4 · the column storey and the main cornice ----------------------- */
+(function level4(){
+  const yT = Y(20260), yB = Y(16320), wT = yT+17, wH = (yB-yT)-28;
+  WINS.forEach(function(m){ crossette(FX(m),wT,wH); });
+  COLS.forEach(function(c){ column(c[0],c[1],yT+10.5,yB-3); });
+  LN("med",XL,yT+10.5,XR,yT+10.5);
+  LN("med",XL,yT+7,XR,yT+7);
+  cornice(XL,XR,yT,4.4);
+})();
+
+/* -- levels 5 and 6 · the mansard, the glass room, the stone pavilion ------- */
+(function roof(){
+  const yC = Y(20260), yT = Y(26745), yS = Y(23120), yP = Y(21600);
+  const pav = [0,3545], rib1 = [3545,4453], gls = [4453,11590],
+        rib2 = [11590,14315], hip = [14315,15145];
+
+  /* slate mansard, drawn as its battens */
+  [rib1,rib2].forEach(function(r){
+    R("out",FX(r[0]),yT+2,U(r[1]-r[0]),yC-yT-2);
+    for(let m = r[0]+180; m < r[1]-60; m += 180) LN("hair",FX(m),yT+3.4,FX(m),yC-1.4); });
+  P("out","M"+FX(hip[0])+" "+(yT+2)+" L"+FX(hip[1])+" "+yC);   /* the hip        */
+  LN("out",FX(hip[0]),yT+2,FX(hip[0]),yC);
+
+  /* the glass room: mullions, transoms, solid base */
+  R("out",FX(gls[0]),yT+2,U(gls[1]-gls[0]),yP-yT-2);
+  for(let m = gls[0]+890; m < gls[1]-100; m += 890) LN("med",FX(m),yT+3.4,FX(m),yP-1.2);
+  [yS,Y(24900)].forEach(function(y){ LN("med",FX(gls[0]),y,FX(gls[1]),y); });
+  R("med",FX(gls[0]),yP,U(gls[1]-gls[0]),yC-yP);
+  LN("hair",FX(gls[0]),yP+2,FX(gls[1]),yP+2);
+  R("med",FX(rib2[0]),yP,U(hip[1]-rib2[0]),yC-yP);
+
+  /* the stone pavilion at the left end */
+  (function(){ const a = FX(pav[0]), b = FX(pav[1]), cx = (a+b)/2;
+    R("out",a,yT+4,b-a,yC-yT-4);
+    [a+2.2,b-2.2].forEach(function(x){                        /* pilasters      */
+      R("med",x-1.5,Y(25400),3,yC-Y(25400));
+      R("out",x-2.2,Y(25400),4.4,1.9); });
+    R("out",a+3.4,Y(25100),(b-a)-6.8,2.6);                    /* entablature    */
+    R("hair",cx-U(900),Y(24700),U(1800),2.6);                 /* the panel      */
+    pedTri(cx,Y(25100)-2.6,U(2500),false);                    /* pediment       */
+    for(let i = -4; i <= 4; i++)                              /* radiating fan  */
+      LN("hair",cx,Y(25100)-3.4,cx+i*U(260),Y(25100)-8.4);
+    /* twin round-arched lights */
+    R("out",cx-U(1150),Y(24300),U(2300),Y(21900)-Y(24300));
+    [cx-U(560),cx+U(560)].forEach(function(x){
+      P("med","M"+(x-U(430))+" "+Y(22100)+" L"+(x-U(430))+" "+Y(23700)+
+        " Q"+x+" "+Y(24250)+" "+(x+U(430))+" "+Y(23700)+" L"+(x+U(430))+" "+Y(22100)+" Z");
+      LN("hair",x,Y(23700),x,Y(22100));
+      LN("hair",x-U(430),Y(23100),x+U(430),Y(23100)); });
+  })();
+
+  cornice(XL,XF,yT,3.4);
+})();
+
+/* -- level 7 · the roof structure and the lettering ------------------------- */
+(function level7(){
+  const yT = Y(29220), yB = Y(26745), a = FX(2884), b = FX(13920);
+  R("out",a,yT+3.6,b-a,yB-yT-3.6);
+  for(let m = 2884+800; m < 13920-200; m += 800) LN("med",FX(m),yT+5,FX(m),yB-1.2);
+  R("out",a-3.4,yT,(b-a)+6.8,3.6);
+  LN("med",a-1.6,yT+3.6,b+1.6,yT+3.6);
+  add(T,"text",{ class:"metz", x:FX(8400), y:yT-3.4, "text-anchor":"middle" }).textContent = "METZ";
+})();
+
+/* ============================ THE CORNER TOWER ============================ */
+(function tower(){
+  const cx = TX(2232), yG = Y(0);
+  LN("out",XR,Y(20260),XR,yG);
+  [8400,12420,16320].forEach(function(m){ LN("med",XF,Y(m),XR,Y(m)); });
+
+  /* levels 0 and 1: the corner entrance */
+  (function(){ const yT = Y(8400), yM = Y(4620), dw = U(1900);
+    R("out",TX(500),yT+5,U(3464),yM-yT-9); sash(TX(500),yT+5,U(3464),yM-yT-9);
+    P("out","M"+(cx-U(1500))+" "+yM+" Q"+cx+" "+(yM-U(1400))+" "+(cx+U(1500))+" "+yM);
+    C("med",cx,yM-U(850),1.5);
+    R("out",cx-dw/2,Y(4000),dw,yG-Y(4000));
+    LN("med",cx,Y(4000),cx,yG-1.1);
+    for(let k = 0; k < 3; k++){
+      R("hair",cx-dw/2+1.2,Y(3600)+k*U(1000),dw/2-2.2,U(800));
+      R("hair",cx+1,Y(3600)+k*U(1000),dw/2-2.2,U(800)); }
+    [TX(650),TX(3814)].forEach(function(x){ R("med",x-1.5,Y(4300),3,yG-Y(4300)); }); })();
+
+  /* level 2: window between two caryatids */
+  (function(){ const yT = Y(12420), yB = Y(8400), t = yT+10, h = (yB-yT)-19;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    caryatid(TX(700),t-3,h+6); caryatid(TX(3764),t-3,h+6);
+})();
+
+  /* level 3: aedicule with a segmental pediment, between the big columns */
+  (function(){ const yT = Y(16320), yB = Y(12420), t = yT+14.5, h = (yB-yT)-26;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    colonnette(cx-U(1240),t-3.4,t+h+1.4); colonnette(cx+U(1240),t-3.4,t+h+1.4);
+    R("out",cx-U(1400),t-6.6,U(2800),3.2);
+    pedSeg(cx,t-10.4,U(2600),true);
+    R("med",cx-U(900),t+h+4.4,U(1800),4.4);
+    [[100,1100],[3364,4364]].forEach(function(c){
+      const a = XF+U(c[0]), b = XF+U(c[1]), ccx = (a+b)/2, w2 = (b-a)*0.72, xx = ccx-w2/2;
+      R("out",xx,yT+11,w2,yB-yT-15);
+      R("out",xx-1.5,yT+6,w2+3,1.9);
+      P("out","M"+(xx-0.9)+" "+(yT+11)+" Q"+ccx+" "+(yT+7.1)+" "+(xx+w2+0.9)+" "+(yT+11));
+      R("out",xx-1.3,yB-6.6,w2+2.6,2.6); }); })();
+
+  /* level 4: tall window, columns, the tower's own cornice above */
+  (function(){ const yT = Y(20260), yB = Y(16320), t = yT+17, h = (yB-yT)-28;
+    const w = U(1580), x = cx-w/2;
+    R("med",x,t,w,h); sash(x,t,w,h); R("thin",x-1.4,t-1.4,w+2.8,h+2.8);
+    [[100,1100],[3364,4364]].forEach(function(c){
+      const a = XF+U(c[0]), b = XF+U(c[1]), ccx = (a+b)/2, w2 = (b-a)*0.72, xx = ccx-w2/2;
+      R("out",xx,yT+13,w2,yB-yT-17);
+      R("out",xx-1.5,yT+8,w2+3,1.9);
+      P("out","M"+(xx-0.9)+" "+(yT+13)+" Q"+ccx+" "+(yT+9.1)+" "+(xx+w2+0.9)+" "+(yT+13));
+      R("out",xx-1.3,yB-4,w2+2.6,2.6); });
+    R("med",XF+1,Y(21830),(XR-XF)-2,Y(20260)-Y(21830));
+    cornice(XF-2,XR+2,Y(21830),3.2); })();
+
+  /* the shaft: one mass of stone from the cornice to the cupola, drawn first
+     so the sculpted gable and the clock face read as applied to its front    */
+  (function(){
+    R("out",TX(300),Y(29990)+7,U(3864),Y(21830)-(Y(29990)+7));
+    [TX(300),TX(4164)].forEach(function(x){
+      for(let m = 22200; m < 29800; m += 700) LN("hair",x,Y(m),x+2.2,Y(m)); }); })();
+
+  /* the sculpted gable applied to the front of the shaft */
+  (function(){ const yB = Y(22350), yT = Y(26745);
+    P("out","M"+(XF-1)+" "+yB+" L"+(XF-1)+" "+Y(24300)+
+      " Q"+cx+" "+(yT-1.5)+" "+(XR+1)+" "+Y(24300)+" L"+(XR+1)+" "+yB);
+    P("out","M"+(cx-U(1500))+" "+yB+" L"+(cx-U(1500))+" "+Y(24500)+
+      " Q"+cx+" "+Y(26200)+" "+(cx+U(1500))+" "+Y(24500)+" L"+(cx+U(1500))+" "+yB);
+    P("thin","M"+(cx-U(1150))+" "+Y(24400)+" Q"+cx+" "+Y(25750)+" "+(cx+U(1150))+" "+Y(24400));
+    P("med","M"+(cx-U(1050))+" "+Y(24850)+" Q"+(cx-U(350))+" "+Y(25250)+" "+cx+" "+Y(24800)+
+      " Q"+(cx+U(350))+" "+Y(25250)+" "+(cx+U(1050))+" "+Y(24850));
+    P("hair","M"+(cx-U(800))+" "+Y(24900)+" q1.7 1.2 3.4 0.3");
+    P("hair","M"+(cx+U(800))+" "+Y(24900)+" q-1.7 1.2 -3.4 0.3");
+    C("med",cx,Y(24980),1.2);
+    R("out",cx-U(1150),Y(24350),U(2300),Y(22800)-Y(24350));
+    [-1,0,1].forEach(function(k){ LN("med",cx+k*U(700),Y(24350),cx+k*U(700),Y(22800)); });
+    LN("med",cx-U(1150),Y(23600),cx+U(1150),Y(23600));
+    P("out","M"+(XF+1)+" "+yB+" Q"+cx+" "+Y(21850)+" "+(XR-1)+" "+yB);
+    [[TX(780),1],[TX(3684),-1]].forEach(function(f){
+      const x = f[0], d = f[1];
+      P("med","M"+x+" "+Y(22750)+" C "+(x+2.4*d)+" "+Y(23400)+", "+(x+5.2*d)+" "+Y(23150)+", "+
+            (x+6.2*d)+" "+Y(23600));
+      P("med","M"+x+" "+Y(22750)+" q"+(3.2*d)+" -1.5 "+(6.2*d)+" -0.8");
+      C("med",x+7.2*d,Y(23840),1.45); }); })();
+
+  /* the clock face, on the front of the same shaft */
+  (function(){ const yT = Y(29990);
+    [TX(560),TX(3904)].forEach(function(x){
+      R("med",x-1.7,yT+9,3.4,Y(26900)-(yT+9));
+      R("out",x-2.3,yT+9,4.6,1.8); });
+    LN("med",TX(300),Y(29450),TX(4164),Y(29450));
+    C("out",cx,Y(28150),U(1120)); C("thin",cx,Y(28150),U(940));
+    LN("med",cx,Y(28150),cx,Y(28150)-U(730));
+    LN("med",cx,Y(28150),cx+U(540),Y(28150)+U(220));
+    for(let a = 0; a < 12; a++){ const t = a*Math.PI/6;
+      LN("hair",cx+U(940)*Math.sin(t),Y(28150)-U(940)*Math.cos(t),
+                cx+U(790)*Math.sin(t),Y(28150)-U(790)*Math.cos(t)); }
+    [[TX(1180),1],[TX(3284),-1]].forEach(function(f){
+      P("med","M"+f[0]+" "+Y(27400)+" q"+(4.2*f[1])+" 0 "+(5+f[1])+" -3.2"); });
+    [TX(560),TX(3904)].forEach(function(x){ C("med",x,Y(27700),1.9); });
+    cornice(TX(150),TX(4314),yT+7,3.2);
+    R("out",TX(150),Y(31200),U(4164),Y(29990)-Y(31200));
+    P("out","M"+(cx-U(1300))+" "+Y(30150)+" Q"+cx+" "+Y(31080)+" "+(cx+U(1300))+" "+Y(30150));
+    for(let i = -4; i <= 4; i++) LN("hair",cx,Y(30150),cx+i*U(290),Y(30960));
+    cornice(TX(100),TX(4364),Y(31200),3.2); })();
+
+  /* the cupola: it swells above the attic and draws back into a neck, and the
+     lantern sits on that neck rather than above a point                      */
+  (function(){ const yS = Y(31200), yN = Y(34100), yL = Y(35500);
+    const nL = cx-U(700), nR = cx+U(700);
+    P("out","M"+TX(320)+" "+yS+
+      " C "+TX(-70)+" "+Y(32100)+", "+TX(880)+" "+Y(33450)+", "+nL+" "+yN+
+      " L"+nR+" "+yN+
+      " C "+TX(3584)+" "+Y(33450)+", "+TX(4534)+" "+Y(32100)+", "+TX(4144)+" "+yS+" Z");
+    [0.24,0.46,0.68].forEach(function(t){
+      const yy = yS+(yN-yS)*t, ww = (4464/2)*(1-t*t*0.82);
+      P("hair","M"+(cx-U(ww))+" "+yy+" Q"+cx+" "+(yy+2)+" "+(cx+U(ww))+" "+yy); });
+    R("out",nL-1.4,yN-1.6,(nR-nL)+2.8,1.6);            /* the plate it stands on */
+
+    R("out",cx-U(620),yL+4.2,U(1240),yN-(yL+4.2));     /* the open lantern       */
+    [-U(430),-U(150),U(150),U(430)].forEach(function(d){ LN("med",cx+d,yL+5.4,cx+d,yN-1.3); });
+    R("med",cx-U(780),yL+2.1,U(1560),2.1);
+    P("out","M"+(cx-U(600))+" "+(yL+2.1)+" Q"+cx+" "+(yL-4.4)+" "+(cx+U(600))+" "+(yL+2.1));
+    LN("out",cx,yL-4.4,cx,yL-12.4);                    /* spire and weathervane  */
+    C("med",cx,yL-9.2,1.4);
+    LN("med",cx-3.2,yL-12.4,cx+3.2,yL-12.4); })();
+})();
+
+/* the pavement */
+R("ground",0,Y(0),XLAB+108,2.1);
+svg.appendChild(T);
+
+/* the same facade a second time in chalk, clipped to whichever level is lit,
+   so the band can carry the brand blue at full strength without the drawing
+   disappearing into it                                                       */
+var LITRECT;
+(function(){
+  const defs = add(svg,"defs",{});
+  const cp = add(defs,"clipPath",{ id:"litclip" });
+  LITRECT = add(cp,"rect",{ x:0, y:0, width:0, height:0 });
+  const T2 = T.cloneNode(true);
+  T2.setAttribute("class","trace inv");
+  T2.setAttribute("clip-path","url(#litclip)");
+  svg.appendChild(T2);
+})();
+
+/* ---- 3. the route -------------------------------------------------------- */
+for(let i = 0; i < PROGRAMME.route.length-1; i++){
+  const a = geom[PROGRAMME.route[i]], b = geom[PROGRAMME.route[i+1]];
+  if(a && b) add(svg,"path",{ class:"route", d:"M"+RX+" "+a.mid+" L"+RX+" "+b.mid });
+}
+PROGRAMME.route.forEach(function(id){
+  if(geom[id]) add(svg,"circle",{ class:"routedot", cx:RX, cy:geom[id].mid, r:2.4 });
+});
+
+
+
+(function(){
+  const HEEFT={"0":1,"1":1,"2":1,"4":1,"6":1,"7":1}, NU="4";
+  const lijst=document.getElementById("nivlijst");
+  LEVELS.forEach(function(L){
+    const g=document.querySelector('.flr[data-id="'+L.id+'"]');
+    if(g && L.id===NU) g.classList.add("hier");
+    const li=document.createElement("li");
+    if(L.id===NU) li.className="nu"; else if(!HEEFT[L.id]) li.className="uit";
+    li.innerHTML='<a href="plan-'+L.id+'.html"><span class="c">'+L.label+'</span><span class="l">'+(L.name||"")+'</span></a>';
+    lijst.appendChild(li);
+    if(g && HEEFT[L.id]){
+      g.style.cursor="pointer";
+      g.addEventListener("click",function(){ location.href="plan-"+L.id+".html"; });
+      li.addEventListener("mouseenter",function(){ g.classList.add("kies"); });
+      li.addEventListener("mouseleave",function(){ g.classList.remove("kies"); });
+    }
+  });
+})();
+(function(){
+  const zalen=[].slice.call(document.querySelectorAll(".zaal")),
+        regels=[].slice.call(document.querySelectorAll(".leg li"));
+  const hover=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  function zet(n){
+    zalen.forEach(function(z){ z.classList.toggle("aan", z.dataset.z===n); });
+    regels.forEach(function(r){ const aan=r.dataset.z===n;
+      r.classList.toggle("aan",aan); r.querySelector(".paneel").hidden=!aan;
+      r.querySelector(".kop").setAttribute("aria-expanded", aan?"true":"false"); });
+  }
+  zalen.forEach(function(z){ const n=z.dataset.z;
+    if(hover) z.addEventListener("mouseenter",function(){ zet(n); });
+    z.addEventListener("focus",function(){ zet(n); });
+    z.addEventListener("click",function(){ zet(n);
+      if(!hover){ const r=document.querySelector('.leg li[data-z="'+n+'"]');
+        if(r) r.scrollIntoView({behavior:"smooth",block:"center"}); } }); });
+  regels.forEach(function(r){ const n=r.dataset.z, kop=r.querySelector(".kop");
+    if(hover) r.addEventListener("mouseenter",function(){ zet(n); });
+    kop.addEventListener("click",function(){ zet(r.classList.contains("aan")?null:n); });
+    kop.addEventListener("focus",function(){ zet(n); }); });
+  if(hover) document.querySelector(".planwrap").addEventListener("mouseleave",function(){ zet(null); });
+})();
+</script>
+</body>
+</html>
