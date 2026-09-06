@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plan of level 4 — MADART FOUNDATION</title>
-<meta name="description" content="Level 4 of NIO House Amsterdam: which maker is in which gallery, and where you arrive.">
-<link rel="canonical" href="https://madartfoundation.com/visit.html">
+<meta name="description" content="Level 4 of NIO House Amsterdam: which maker is in which space.">
+<link rel="canonical" href="https://madartfoundation.com/plan-4.html">
 <meta property="og:site_name" content="MADART FOUNDATION">
-<meta property="og:title" content="Visit">
-<meta property="og:description" content="Opening hours, directions and the anchor-event programme at NIO House Amsterdam, Leidsestraat 32-34. Entry to the gallery floor is free.">
+<meta property="og:title" content="Plan of level 4">
+<meta property="og:description" content="Level 4 of NIO House Amsterdam: which maker is in which space.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://madartfoundation.com/place-nio-house.jpg">
+<meta property="og:image" content="https://madartfoundation.com/hero-level-7.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,69 +21,56 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=2b332151">
+<link rel="stylesheet" href="style.css?v=1857ce84">
 <style>
-.kiezer{display:grid;grid-template-columns:126px 1fr;gap:18px;align-items:start;
-  padding:20px 0 24px;border-top:var(--rule);border-bottom:var(--rule);margin:22px 0 26px}
-.kiezer svg.elev{width:100%;height:auto;display:block;overflow:visible}
-.nivlijst{list-style:none;margin:0;padding:0}
-.nivlijst li a{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;
-  padding:10px;margin:0 -10px;font-size:13px;min-height:44px;transition:background .18s}
-.nivlijst .c{font-weight:700}
-.nivlijst .l{color:var(--grey);font-size:12px}
-.nivlijst li a:hover{background:var(--linen)}
-.nivlijst li.nu a{background:var(--dawn)} .nivlijst li.nu .c,.nivlijst li.nu .l{color:var(--chalk)}
-.nivlijst li.uit{opacity:.42} .nivlijst li.uit a{pointer-events:none}
+/* Vinden is het doel. De plattegrond toont waar, de lijst is de ingang als je
+   een naam zoekt. Alles wat over de maker gaat staat op de makerspagina. */
+.kiezer{padding:6px 0 18px;border-bottom:var(--rule);margin:18px 0 24px}
+.kiezer svg.elev{width:100%;max-width:330px;height:auto;display:block;margin:0 auto;overflow:visible}
+svg.elev .flr{cursor:pointer}
 svg.elev .flr .band{fill:transparent}
-svg.elev .flr.kies .band{fill:var(--dawn);opacity:.16}
 svg.elev .flr.hier .band{fill:var(--dawn);opacity:.9}
+svg.elev .nivnaam{fill:var(--grey);font-size:8.5px;font-family:inherit;letter-spacing:.4px}
+svg.elev .flr.uit{opacity:.34;cursor:default}
+svg.elev .flr.hier .nivnaam,svg.elev .flr.hier .no{fill:var(--dawn);font-weight:700}
 svg.plan{width:100%;height:auto;display:block;overflow:visible}
 svg.plan .romp{fill:var(--linen)}
 svg.plan .omtrek{fill:none;stroke:var(--ink);stroke-width:85;stroke-linejoin:round;pointer-events:none}
-svg.plan .vlak{fill:transparent;stroke:var(--concrete);stroke-width:60;transition:fill .26s cubic-bezier(.2,.7,.3,1)}
+svg.plan .vlak{fill:transparent;stroke:var(--concrete);stroke-width:60;transition:fill .25s cubic-bezier(.2,.7,.3,1)}
 svg.plan .muur line{stroke:var(--ink);stroke-width:240;stroke-linecap:square}
 svg.plan .zaal{cursor:pointer;outline:none}
-svg.plan .tag .zaalregel{fill:var(--grey);text-anchor:middle;font-family:inherit;letter-spacing:60px;transition:fill .26s}
-svg.plan .tag .naam{fill:var(--ink);font-weight:700;text-anchor:middle;font-family:inherit;letter-spacing:10px;transition:fill .26s}
+svg.plan .tag .zaalregel{fill:var(--grey-light);text-anchor:middle;font-family:inherit;letter-spacing:55px;transition:fill .25s}
+svg.plan .tag .naam{fill:var(--grey);font-weight:500;text-anchor:middle;font-family:inherit;letter-spacing:8px;transition:fill .25s}
 svg.plan .zaal.aan .vlak{fill:var(--dawn)}
 svg.plan .zaal.aan .tag .naam,svg.plan .zaal.aan .tag .zaalregel{fill:var(--chalk)}
-svg.plan .kern rect{fill:var(--chalk);stroke:var(--grey);stroke-width:70}
-svg.plan .kern .pijl{fill:var(--grey)} svg.plan .kern .tredes line{stroke:var(--grey);stroke-width:50}
-svg.plan .kernlabel text{fill:#2F5A3A;font-size:400px;text-anchor:middle;font-family:inherit;letter-spacing:60px;font-weight:700}
+svg.plan .zaal.aan .tag .naam{font-weight:700}
+svg.plan .kern rect{fill:var(--chalk);stroke:#2F5A3A;stroke-width:70}
+svg.plan .kern .pijl{fill:#2F5A3A} svg.plan .kern .tredes line{stroke:#2F5A3A;stroke-width:50}
+svg.plan .kernlabel text{fill:#2F5A3A;font-size:400px;text-anchor:middle;font-family:inherit;letter-spacing:70px;font-weight:700}
 svg.plan .herma .stip{fill:var(--dawn)}
-svg.plan .herma text{fill:var(--dawn);font-size:360px;font-family:inherit;letter-spacing:40px}
+svg.plan .herma text{fill:var(--dawn);font-size:340px;font-family:inherit;letter-spacing:40px}
 svg.plan .herma.aan .stip{r:520}
-svg.plan .straat text{fill:var(--concrete);font-size:360px;text-anchor:middle;font-family:inherit;letter-spacing:110px}
-.leg{list-style:none;margin:24px 0 0;padding:0}
+svg.plan .straat text{fill:var(--concrete);font-size:340px;text-anchor:middle;font-family:inherit;letter-spacing:110px}
+.leg{list-style:none;margin:26px 0 0;padding:0}
 .leg li{border-bottom:var(--hair)} .leg li:first-child{border-top:var(--hair)}
 .leg .kop{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;
-  padding:14px;margin:0 -14px;background:none;border:0;font:inherit;font-size:14px;text-align:left;
-  color:var(--ink);cursor:pointer;min-height:56px}
-.leg .zn{display:block;font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--grey);
-  text-transform:uppercase;margin-bottom:4px}
-.leg .wie a{border-bottom:1px solid var(--concrete)}
+  padding:0 14px;margin:0 -14px;background:none;border:0;font:inherit;font-size:14px;text-align:left;
+  color:var(--ink);cursor:pointer;min-height:54px}
+.leg .zn{font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 .leg .plus::before{content:"+";font-weight:700;color:var(--grey);font-size:16px}
-.leg li.aan .kop{background:var(--dawn)}
-.leg li.aan .zn,.leg li.aan .wie a,.leg li.aan .kop{color:var(--chalk)}
-.leg li.aan .wie a{border-color:rgba(244,237,228,.5)}
+.leg li.aan .kop{background:var(--dawn)} .leg li.aan .zn{color:var(--chalk)}
 .leg li.aan .plus::before{content:"\2212";color:var(--chalk)}
-.paneel[hidden]{display:none} .paneel{padding:2px 0 16px}
-.mk{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:16px 0 0;
-  animation:opkomst .3s cubic-bezier(.2,.7,.3,1)}
-@keyframes opkomst{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.mk figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--linen)}
-.mk img{width:100%;height:100%;object-fit:cover;display:block}
-.mk h3{font-size:15px;font-weight:700;margin:0 0 3px}
-.mk .waar{font-size:11px;letter-spacing:.06em;color:var(--dawn);margin:0 0 8px;text-transform:uppercase}
-.mk .pr{font-size:12.5px;line-height:1.6;color:var(--grey);margin:0 0 6px}
-.mk .tel{font-size:11px;color:var(--grey-light);margin:0}
+.paneel[hidden]{display:none}
+.wie{list-style:none;margin:0;padding:4px 0 14px}
+.wie li{padding:0}
+.wie a{display:block;padding:11px 14px;margin:0 -14px;font-size:15px;min-height:44px;
+  border-bottom:1px solid transparent}
+.wie a:hover{background:var(--linen);color:var(--dawn)}
 @media(min-width:861px){
-  .planwrap{display:grid;grid-template-columns:1.45fr .55fr;gap:52px;align-items:start}
+  .planwrap{display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:start}
   .leg{margin-top:0}
-  .kiezer{grid-template-columns:150px 1fr;max-width:440px}
 }
-</style>
-</head>
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -96,7 +83,7 @@ svg.plan .straat text{fill:var(--concrete);font-size:360px;text-anchor:middle;fo
       <a href="exhibitions.html">Exhibitions</a>
       <a href="makers.html">Makers</a>
       <a href="shop.html">Works</a>
-      <a href="visit.html" aria-current="page">Visit</a>
+      <a href="visit.html">Visit</a>
       <a href="support-us.html">Support</a>
       <a href="mission.html">About</a>
     </nav>
@@ -105,38 +92,84 @@ svg.plan .straat text{fill:var(--concrete);font-size:360px;text-anchor:middle;fo
 
 <main id="main">
 <section><div class="wrap">
-  <p class="index"><span class="no">&mdash;</span><span>Plan</span><span class="of"><a href="building.html">The building &#8594;</a></span></p>
+  <p class="index"><span class="no">&mdash;</span><span>Plan</span>
+    <span class="of"><a href="building.html">The building &#8594;</a></span></p>
   <h1>Level 4 &mdash; who is where.</h1>
+
   <nav class="kiezer" aria-label="Levels">
-    <svg class="elev" id="svg" viewBox="0 0 482 596" role="img" aria-label="The building, eight levels"></svg>
-    <ul class="nivlijst" id="nivlijst"></ul>
+    <svg class="elev" id="svg" viewBox="0 0 482 596" role="img"
+         aria-label="The building. Choose a level."></svg>
   </nav>
+
   <div class="planwrap">
-    <div><svg viewBox="0 0 21796 21825" xmlns="http://www.w3.org/2000/svg" class="plan"
-  role="img" aria-label="Plan of the fourth floor of NIO House Amsterdam">
-  <defs><filter id="diepte" x="-10%" y="-10%" width="125%" height="125%">
-    <feDropShadow dx="0" dy="150" stdDeviation="190" flood-color="#1E1D1C" flood-opacity=".13"/>
-  </filter></defs>
-  <g class="kern" aria-hidden="true"><rect x="5753" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M6203 5664 l330 -420 l330 420 z M6203 5984 l330 420 l330 -420 z"/><rect x="7563" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M8013 5664 l330 -420 l330 420 z M8013 5984 l330 420 l330 -420 z"/>
-  <rect x="2002" y="7970" width="2600" height="5400" rx="80"/>
-  <g class="tredes"><line x1="2002" y1="8510" x2="4602" y2="8510"/><line x1="2002" y1="9050" x2="4602" y2="9050"/><line x1="2002" y1="9590" x2="4602" y2="9590"/><line x1="2002" y1="10130" x2="4602" y2="10130"/><line x1="2002" y1="10670" x2="4602" y2="10670"/><line x1="2002" y1="11210" x2="4602" y2="11210"/><line x1="2002" y1="11750" x2="4602" y2="11750"/><line x1="2002" y1="12290" x2="4602" y2="12290"/><line x1="2002" y1="12830" x2="4602" y2="12830"/></g></g>
-<g class="kernlabel">
-  <text x="7438" y="4674">YOU ARRIVE HERE</text>
-  <text x="3302" y="7520">STAIRWELL</text></g><g filter="url(#diepte)"><polygon class="romp" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/></g>
-  <g class="zalen"><g class="zaal" data-z="1" tabindex="0" role="button" aria-label="GALLERY 1, BORSELEN">
-    <polygon class="vlak" points="4472,15010 4358,14330 1173,14330 1150,19707 4357,19730 4357,16499 4902,16413 4902,14997 4472,15010"/><g class="tag"><text class="zaalregel" font-size="339" x="3063" y="15741">GALLERY 1</text><text class="naam" font-size="653" x="3063" y="16594">BORSELEN</text></g></g><g class="zaal" data-z="2" tabindex="0" role="button" aria-label="GALLERY 2, KRUISWIJK, BOSSCHAART">
-    <polygon class="vlak" points="7473,14919 4902,14997 4902,16413 5228,16362 5388,19730 12742,19775 12765,16499 13172,16453 13172,14330 7462,14330 7473,14919"/><g class="tag"><text class="zaalregel" font-size="405" x="9634" y="16319">GALLERY 2</text><text class="naam" font-size="780" x="9634" y="17338">KRUISWIJK</text><text class="naam" font-size="780" x="9634" y="18133">BOSSCHAART</text></g></g><g class="zaal" data-z="3" tabindex="0" role="button" aria-label="GALLERY 3, KEJA PLANKEN">
-    <polygon class="vlak" points="13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15710,14330 13172,14330 13172,16453 13567,16408"/><g class="tag"><text class="zaalregel" font-size="301" x="16014" y="16670">GALLERY 3</text><text class="naam" font-size="580" x="16014" y="17427">KEJA PLANKEN</text></g></g><g class="zaal" data-z="4" tabindex="0" role="button" aria-label="GALLERY 4, ECHO, HOEKSTRA">
-    <polygon class="vlak" points="13796,1150 13681,5503 13272,5514 13272,14330 15710,14330 15629,13475 19042,13384 20646,2250 13796,1150"/><g class="tag"><text class="zaalregel" font-size="405" x="16591" y="6383">GALLERY 4</text><text class="naam" font-size="780" x="16591" y="7402">ECHO</text><text class="naam" font-size="780" x="16591" y="8197">HOEKSTRA</text></g></g><g class="zaal" data-z="5" tabindex="0" role="button" aria-label="GALLERY LOUNGE, HOOGLAND">
-    <polygon class="vlak" points="11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7462,14330 13272,14330 13272,5514 11161,5571"/><g class="tag"><text class="zaalregel" font-size="405" x="9502" y="10519">GALLERY LOUNGE</text><text class="naam" font-size="780" x="9502" y="11537">HOOGLAND</text></g></g></g>
-  <g class="muur" aria-hidden="true"><line x1="13272" y1="8710" x2="13272" y2="14570"/><line x1="11842" y1="14570" x2="14022" y2="14570"/></g>
-  <polygon class="omtrek" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/><g class="zaal herma" data-z="h" tabindex="0" role="button" aria-label="Herma de Wit, in the stairwell">
-  <circle class="stip" cx="4602" cy="13170" r="330"/>
-  <text x="5222" y="14120" text-anchor="middle">HERMA DE WIT</text></g><g class="straat" aria-hidden="true">
-  <text x="9852" y="20595">KEIZERSGRACHT</text>
-  <text transform="rotate(90 21426 10670)"
-        x="21426" y="10670">LEIDSESTRAAT</text></g></svg></div>
-    <div><ul class="leg"><li data-z="1"><button class="kop" type="button" aria-expanded="false" aria-controls="p-1"><span><span class="zn">Gallery 1</span><span class="wie"><a href="anne-van-borselen.html">Anne van Borselen</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-1" hidden><article class="mk"><figure><img src="p-portrait-anne-van-borselen.jpg" alt="Anne van Borselen" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="anne-van-borselen.html">Anne van Borselen</a></h3><p class="waar">Gallery 1</p><p class="pr">Anne van Borselen was born in Surabaya in 1937 and brings a rare physical dynamism to her work; the vitality is visible in every canvas. She moves between painting, bronze and ceramic, shifting materi&hellip;</p><p class="tel">13 works</p></div></article></div></li><li data-z="2"><button class="kop" type="button" aria-expanded="false" aria-controls="p-2"><span><span class="zn">Gallery 2</span><span class="wie"><a href="aad-kruiswijk.html">Aad Kruiswijk</a> &middot; <a href="rogier-bosschaart.html">Rogier Bosschaart</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-2" hidden><article class="mk"><figure><img src="p-portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="aad-kruiswijk.html">Aad Kruiswijk</a></h3><p class="waar">Gallery 2 — floor</p><p class="pr">Aad Kruiswijk trained at the Hout en Meubileringscollege and continued at the Gerrit Rietveld Academie, a route that grounded his work equally in making and in thinking about form. The machine, for hi&hellip;</p><p class="tel">8 works</p></div></article><article class="mk"><figure><img src="p-portrait-rogier-bosschaart.jpg" alt="Rogier Bosschaart" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="rogier-bosschaart.html">Rogier Bosschaart</a></h3><p class="waar">Gallery 2 — walls</p><p class="pr">Rogier Bosschaart works between Amsterdam and Miami, at the intersection of the naïve and the calculated. His paintings are built from thousands of meticulously placed dots, a method he describes as e&hellip;</p><p class="tel">5 works</p></div></article></div></li><li data-z="3"><button class="kop" type="button" aria-expanded="false" aria-controls="p-3"><span><span class="zn">Gallery 3</span><span class="wie"><a href="sandra-keja-planken.html">Sandra Keja Planken</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-3" hidden><article class="mk"><figure><img src="p-portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="sandra-keja-planken.html">Sandra Keja Planken</a></h3><p class="waar">Gallery 3</p><p class="pr">Sandra Keja Planken examines the relationship between people, nature and material at a time when visual culture is becoming faster, more polished and more emotionally distant. Growing up between the e&hellip;</p><p class="tel">8 works</p></div></article></div></li><li data-z="4"><button class="kop" type="button" aria-expanded="false" aria-controls="p-4"><span><span class="zn">Gallery 4</span><span class="wie"><a href="echo.html">ECHO</a> &middot; <a href="loutje-hoekstra.html">Loutje Hoekstra</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-4" hidden><article class="mk"><figure><img src="t-echo-2-1-bench-work.jpg" alt="ECHO" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="echo.html">ECHO</a></h3><p class="waar">Gallery 4 — floor</p><p class="pr">ECHO is a recurring exhibition that asks when something stops being waste and becomes material again. Each edition takes a different residual stream as its starting point, and gathers makers around th&hellip;</p><p class="tel">13 makers &middot; 21 works</p></div></article><article class="mk"><figure><img src="p-portrait-loutje-hoekstra.jpg" alt="Loutje Hoekstra" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="loutje-hoekstra.html">Loutje Hoekstra</a></h3><p class="waar">Gallery 4 — walls</p><p class="pr">Loutje Hoekstra (1994) works in Amsterdam and came to art from biology. Her practice runs through painting, performance and illustration, and turns on the human body in its continuous search for belon&hellip;</p><p class="tel">9 works</p></div></article></div></li><li data-z="5"><button class="kop" type="button" aria-expanded="false" aria-controls="p-5"><span><span class="zn">Gallery Lounge</span><span class="wie"><a href="arno-hoogland.html">Arno Hoogland</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-5" hidden><article class="mk"><figure><img src="p-portrait-arno-hoogland.jpg" alt="Arno Hoogland" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="arno-hoogland.html">Arno Hoogland</a></h3><p class="waar">Gallery Lounge</p><p class="pr">Arno Hoogland is a designer shaped by futurism — by the urge to make things that feel otherworldly, artefacts arriving from realities not yet built. Unbound by the constraints of the present, his wall&hellip;</p><p class="tel">10 works</p></div></article></div></li><li data-z="h"><button class="kop" type="button" aria-expanded="false" aria-controls="p-h"><span><span class="zn">Stairwell</span><span class="wie"><a href="herma-de-wit.html">Herma de Wit</a></span></span><span class="plus" aria-hidden="true"></span></button><div class="paneel" id="p-h" hidden><article class="mk"><figure><img src="p-portrait-herma-de-wit.jpg" alt="Herma de Wit" loading="lazy" decoding="async" width="88" height="110"></figure><div><h3><a href="herma-de-wit.html">Herma de Wit</a></h3><p class="waar">In the stairwell, by the door to the Artspace</p><p class="pr">Herma de Wit works in bronze — sculptures, objects, drawings, etchings, monotypes — each occupied with a single question: what happens to a fragment of nature once it is fixed in a material built to o&hellip;</p><p class="tel">3 works</p></div></article></div></li></ul></div>
+    <div><svg viewBox="0 0 21796 21825" xmlns="http://www.w3.org/2000/svg" class="plan" role="img" aria-label="Plan of Level 4"><defs><filter id="diepte" x="-10%" y="-10%" width="125%" height="125%"><feDropShadow dx="0" dy="150" stdDeviation="190" flood-color="#1E1D1C" flood-opacity=".13"/></filter></defs><g class="kern" aria-hidden="true"><rect x="5753" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M6203 5664 l330 -420 l330 420 z M6203 5984 l330 420 l330 -420 z"/><rect x="7563" y="4974" width="1560" height="1700" rx="80"/><path class="pijl" d="M8013 5664 l330 -420 l330 420 z M8013 5984 l330 420 l330 -420 z"/><rect x="2002" y="7970" width="2600" height="5400" rx="80"/><g class="tredes"><line x1="2002" y1="8510" x2="4602" y2="8510"/><line x1="2002" y1="9050" x2="4602" y2="9050"/><line x1="2002" y1="9590" x2="4602" y2="9590"/><line x1="2002" y1="10130" x2="4602" y2="10130"/><line x1="2002" y1="10670" x2="4602" y2="10670"/><line x1="2002" y1="11210" x2="4602" y2="11210"/><line x1="2002" y1="11750" x2="4602" y2="11750"/><line x1="2002" y1="12290" x2="4602" y2="12290"/><line x1="2002" y1="12830" x2="4602" y2="12830"/></g></g><g class="kernlabel"><text x="7438" y="4674">LIFTS</text><text x="3302" y="7520">STAIRWELL</text></g><g filter="url(#diepte)"><polygon class="romp" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/></g><g class="zalen"><g class="zaal" id="room-1" data-z="1" tabindex="0" role="button" aria-label="Gallery 1"><polygon class="vlak" points="4472,15010 4358,14330 1173,14330 1150,19707 4357,19730 4357,16499 4902,16413 4902,14997 4472,15010"/><g class="tag"><text class="zaalregel" font-size="311" x="2803" y="15781">GALLERY 1</text><text class="naam" font-size="535" x="2803" y="16530">BORSELEN</text></g></g><g class="zaal" id="room-2" data-z="2" tabindex="0" role="button" aria-label="Gallery 2"><polygon class="vlak" points="7473,14919 4902,14997 4902,16413 5228,16362 5388,19730 12742,19775 12765,16499 13172,16453 13172,14330 7462,14330 7473,14919"/><g class="tag"><text class="zaalregel" font-size="372" x="9634" y="16436">GALLERY 2</text><text class="naam" font-size="639" x="9634" y="17330">KRUISWIJK</text><text class="naam" font-size="639" x="9634" y="18001">BOSSCHAART</text></g></g><g class="zaal" id="room-3" data-z="3" tabindex="0" role="button" aria-label="Gallery 3"><polygon class="vlak" points="13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15710,14330 13172,14330 13172,16453 13567,16408"/><g class="tag"><text class="zaalregel" font-size="276" x="16014" y="16705">GALLERY 3</text><text class="naam" font-size="475" x="16014" y="17370">KEJA PLANKEN</text></g></g><g class="zaal" id="room-4" data-z="4" tabindex="0" role="button" aria-label="Gallery 4"><polygon class="vlak" points="13796,1150 13681,5503 13272,5514 13272,14330 15710,14330 15629,13475 19042,13384 20646,2250 13796,1150"/><g class="tag"><text class="zaalregel" font-size="372" x="16591" y="6500">GALLERY 4</text><text class="naam" font-size="639" x="16591" y="7394">ECHO</text><text class="naam" font-size="639" x="16591" y="8065">HOEKSTRA</text></g></g><g class="zaal" id="room-5" data-z="5" tabindex="0" role="button" aria-label="Gallery Lounge"><polygon class="vlak" points="11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7462,14330 13272,14330 13272,5514 11161,5571"/><g class="tag"><text class="zaalregel" font-size="372" x="9502" y="10567">GALLERY LOUNGE</text><text class="naam" font-size="639" x="9502" y="11461">HOOGLAND</text></g></g></g><g class="muur" aria-hidden="true"><line x1="13272" y1="8710" x2="13272" y2="14570"/><line x1="11842" y1="14570" x2="14022" y2="14570"/></g><polygon class="omtrek" points="20646,2250 13796,1150 13681,5503 11161,5571 10497,5571 9695,7267 5571,7404 5388,13429 7450,13681 7473,14919 4472,15010 4357,14323 1173,14323 1150,19707 4357,19730 4357,16499 5228,16362 5388,19730 12742,19775 12765,16499 13567,16408 13590,19775 16751,19775 18401,17851 18905,14437 15720,14437 15629,13475 19042,13384 20646,2250"/><g class="zaal herma" id="room-6" data-z="6" tabindex="0" role="button" aria-label="Herma de Wit, In the stairwell"><rect x="3002" y="12770" width="4200" height="1700" fill="transparent"/><circle class="stip" cx="4602" cy="13170" r="330"/><text x="5222" y="14120" text-anchor="middle">HERMA DE WIT</text></g><g class="straat" aria-hidden="true"><text x="9852" y="20595">KEIZERSGRACHT</text><text transform="rotate(90 21426 10670)" x="21426" y="10670">LEIDSESTRAAT</text></g></svg></div>
+    <div>
+      <ul class="leg">
+        <li data-z="1">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-1">
+            <span class="zn">Gallery 1</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-1" hidden>
+            <ul class="wie">
+              <li><a href="anne-van-borselen.html">Anne van Borselen</a></li>
+            </ul>
+          </div>
+        </li>
+        <li data-z="2">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-2">
+            <span class="zn">Gallery 2</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-2" hidden>
+            <ul class="wie">
+              <li><a href="aad-kruiswijk.html">Aad Kruiswijk</a></li>
+              <li><a href="rogier-bosschaart.html">Rogier Bosschaart</a></li>
+            </ul>
+          </div>
+        </li>
+        <li data-z="3">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-3">
+            <span class="zn">Gallery 3</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-3" hidden>
+            <ul class="wie">
+              <li><a href="sandra-keja-planken.html">Sandra Keja Planken</a></li>
+            </ul>
+          </div>
+        </li>
+        <li data-z="4">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-4">
+            <span class="zn">Gallery 4</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-4" hidden>
+            <ul class="wie">
+              <li><a href="loutje-hoekstra.html">Loutje Hoekstra</a></li>
+              <li><a href="echo.html">ECHO</a></li>
+            </ul>
+          </div>
+        </li>
+        <li data-z="5">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-5">
+            <span class="zn">Gallery Lounge</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-5" hidden>
+            <ul class="wie">
+              <li><a href="arno-hoogland.html">Arno Hoogland</a></li>
+            </ul>
+          </div>
+        </li>
+        <li data-z="6">
+          <button class="kop" type="button" aria-expanded="false" aria-controls="p-6">
+            <span class="zn">In the stairwell</span><span class="plus" aria-hidden="true"></span>
+          </button>
+          <div class="paneel" id="p-6" hidden>
+            <ul class="wie">
+              <li><a href="herma-de-wit.html">Herma de Wit</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <p class="liftnoot">This level is reached by lift or by the stairs.</p>
+    </div>
   </div>
 </div></section>
 </main>
@@ -264,10 +297,10 @@ svg.plan .straat text{fill:var(--concrete);font-size:360px;text-anchor:middle;fo
   }
 })();
 </script>
-<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script><script>
+<script>
 /* The eight levels and what is on them, straight out of data/building.yaml. */
 const BUILDING  = [{"count": "76 m\u00b2", "from": 26745, "hero": "hero-level-7.jpg", "id": "7", "idle": "Beneath the glass Gerrit Rietveld raised over the building in 1933.", "kind": "The Dome", "label": "7", "to": 29220}, {"count": "217 m\u00b2", "from": 23120, "hero": "hero-level-6.jpg", "id": "6", "idle": "One continuous space of 217 m\u00b2, used by NIO House for events.", "kind": "Blue Sky Lounge", "label": "6", "to": 26745}, {"count": "NIO House", "from": 20260, "hero": null, "id": "5", "idle": "NIO House\u0027s own offices. The staircase passes the landing; the floor itself is not open.", "kind": "Offices", "label": "5", "to": 23120}, {"count": "Foundation", "from": 16320, "hero": "hero-level-4.jpg", "id": "4", "idle": "The Foundation\u0027s exhibition floor: five galleries and a lounge. A new season opens on the first Friday of each quarter.", "kind": "Artspace", "label": "4", "permanent": true, "to": 20260}, {"count": "NIO House", "from": 12420, "hero": "hero-level-3.jpg", "house": true, "id": "3", "idle": "NIO House\u0027s working floor \u2014 desks and rooms for members.", "kind": "Lab", "label": "3", "to": 16320}, {"count": "NIO House", "from": 8400, "hero": "hero-level-2.jpg", "id": "2", "idle": "NIO House\u0027s gathering floor, used for talks and public programme.", "kind": "Studio", "label": "2", "to": 12420}, {"count": "NIO House", "from": 4620, "hero": "hero-level-1.jpg", "id": "1", "idle": "NIO House\u0027s caf\u00e9, open to anyone who walks in.", "kind": "NIO Caf\u00e9", "label": "1", "to": 8400}, {"count": "Entrance", "from": 0, "hero": "hero-level-0.jpg", "id": "0", "idle": "The way in, from the corner of the Keizersgracht and the Leidsestraat.", "kind": "Gallery", "label": "0", "to": 4620}];
-const PROGRAMME = {"levels": {"0": {"blurb": "Where the route begins, under the clock on the corner.", "count": "1 maker", "groups": [{"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-0.jpg", "name": "Entrance"}, "1": {"blurb": "The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.", "count": "Caf\u00e9", "hero": "hero-level-1.jpg", "name": "Lunch"}, "2": {"blurb": "Short talks on design, colour, material and the brain, every afternoon from 15:00.", "count": "5 talks", "groups": [{"label": "Talks", "one_column": true, "people": [{"external": "https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator", "name": "Martijn den Otter"}, {"external": "https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator", "name": "Femke Hofhuis", "note": "Femm Amsterdam"}, {"external": "https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator\u0026keep_tld=true", "name": "Thomas Eurlings", "note": "Forbo"}, {"external": "https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator\u0026keep_tld=true", "name": "Marc Th. van der Voorn"}, {"name": "Nicola Cherubini", "note": "Listone Giordano"}]}, {"label": "Running presentation", "people": [{"href": "andreea-pirlica.html", "name": "Andreea Pirlica"}]}], "hero": "hero-level-2.jpg", "link": "events.html", "name": "Talks", "plan": "plan-2.html"}, "4": {"blurb": "The Foundation\u0027s running season, open throughout GLUE \u2014 not a separate visit but part of the same route.", "count": "19 makers", "groups": [{"people": [{"href": "arno-hoogland.html", "name": "Arno Hoogland"}, {"href": "anne-van-borselen.html", "name": "Anne van Borselen"}, {"href": "rogier-bosschaart.html", "name": "Rogier Bosschaart"}, {"href": "aad-kruiswijk.html", "name": "Aad Kruiswijk"}, {"href": "sandra-keja-planken.html", "name": "Sandra Keja Planken"}, {"href": "loutje-hoekstra.html", "name": "Loutje Hoekstra"}, {"href": "echo.html", "name": "ECHO", "note": "13 makers"}]}, {"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-4.jpg", "link": "season-02-ground.html", "name": "Season 02 \u2014 GROUND", "plan": "plan-4.html"}, "5": {"blurb": "NIO House\u0027s own floor, closed to visitors \u2014 but the staircase runs through it.", "count": "1 maker", "groups": [{"label": "On the landing", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "name": "On the landing"}, "6": {"blurb": "One continuous space read as four rooms, entered from either end.", "count": "12 on this floor", "groups": [{"people": [{"href": "marnix-van-strydonck.html", "name": "Marnix Van Strydonck"}, {"href": "dot-objects.html", "name": "Dot Objects"}, {"href": "inge-becka.html", "name": "Inge Be\u010dka"}, {"href": "maurice-albert-jan.html", "name": "Maurice Albert Jan"}, {"href": "jim-bob-ruijgrok.html", "name": "Jim Bob Ruijgrok"}, {"href": "nicolette-de-waart.html", "name": "Nicolette de Waart"}, {"href": "buro-berger.html", "name": "Buro Berger"}, {"href": "lilia-luganskaia-kuilder.html", "name": "Lilia Luganskaia-Kuilder"}, {"href": "eric-sloot.html", "name": "Eric Sloot"}, {"href": "ignore.html", "name": "ignore"}, {"name": "Natalia Wyspianska"}, {"href": "joost-de-munnik-ruud-van-den-eijnden.html", "name": "Joost de Munnik \u0026 Ruud van den Eijnden", "note": "presented by SPoT"}]}], "hero": "hero-level-6.jpg", "link": "maison-dartiste.html", "name": "Maison d\u0027Artiste", "plan": "plan-6.html"}, "7": {"blurb": "Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.", "count": "1 maker", "groups": [{"people": [{"href": "devoonsounds.html", "name": "Devoonsounds"}]}], "hero": "hero-level-7.jpg", "link": "maison-dartiste.html", "name": "The Dome", "plan": "plan-7.html"}}, "route": ["0", "2", "4", "5", "6", "7"], "title": "GLUE Amsterdam 2026"};
+const PROGRAMME = {"levels": {"0": {"blurb": "Where the route begins, under the clock on the corner.", "count": "1 maker", "groups": [{"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-0.jpg", "name": "Entrance"}, "1": {"blurb": "The caf\u00e9 serves a set lunch menu throughout GLUE, or \u00e0 la carte.", "count": "Caf\u00e9", "hero": "hero-level-1.jpg", "name": "Lunch"}, "2": {"blurb": "Short talks on design, colour, material and the brain, every afternoon from 15:00.", "count": "5 talks", "groups": [{"label": "Talks", "one_column": true, "people": [{"external": "https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator", "name": "Martijn den Otter"}, {"external": "https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator", "name": "Femke Hofhuis", "note": "Femm Amsterdam"}, {"external": "https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator\u0026keep_tld=true", "name": "Thomas Eurlings", "note": "Forbo"}, {"external": "https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator\u0026keep_tld=true", "name": "Marc Th. van der Voorn"}, {"name": "Nicola Cherubini", "note": "Listone Giordano"}]}, {"label": "Running presentation", "people": [{"href": "andreea-pirlica.html", "name": "Andreea Pirlica"}]}], "hero": "hero-level-2.jpg", "link": "events.html", "name": "Talks", "plan": null}, "4": {"blurb": "The Foundation\u0027s running season, open throughout GLUE \u2014 not a separate visit but part of the same route.", "count": "19 makers", "groups": [{"people": [{"href": "arno-hoogland.html", "name": "Arno Hoogland"}, {"href": "anne-van-borselen.html", "name": "Anne van Borselen"}, {"href": "rogier-bosschaart.html", "name": "Rogier Bosschaart"}, {"href": "aad-kruiswijk.html", "name": "Aad Kruiswijk"}, {"href": "sandra-keja-planken.html", "name": "Sandra Keja Planken"}, {"href": "loutje-hoekstra.html", "name": "Loutje Hoekstra"}, {"href": "echo.html", "name": "ECHO", "note": "13 makers"}]}, {"label": "In the stairwell", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "hero": "hero-level-4.jpg", "link": "season-02-ground.html", "name": "Season 02 \u2014 GROUND", "plan": "plan-4.html"}, "5": {"blurb": "NIO House\u0027s own floor, closed to visitors \u2014 but the staircase runs through it.", "count": "1 maker", "groups": [{"label": "On the landing", "people": [{"href": "herma-de-wit.html", "name": "Herma de Wit"}]}], "name": "On the landing"}, "6": {"blurb": "One continuous space read as four rooms, entered from either end.", "count": "12 on this floor", "groups": [{"people": [{"href": "marnix-van-strydonck.html", "name": "Marnix Van Strydonck"}, {"href": "dot-objects.html", "name": "Dot Objects"}, {"href": "inge-becka.html", "name": "Inge Be\u010dka"}, {"href": "maurice-albert-jan.html", "name": "Maurice Albert Jan"}, {"href": "jim-bob-ruijgrok.html", "name": "Jim Bob Ruijgrok"}, {"href": "nicolette-de-waart.html", "name": "Nicolette de Waart"}, {"href": "buro-berger.html", "name": "Buro Berger"}, {"href": "lilia-luganskaia-kuilder.html", "name": "Lilia Luganskaia-Kuilder"}, {"href": "eric-sloot.html", "name": "Eric Sloot"}, {"href": "ignore.html", "name": "ignore"}, {"name": "Natalia Wyspianska"}, {"href": "joost-de-munnik-ruud-van-den-eijnden.html", "name": "Joost de Munnik \u0026 Ruud van den Eijnden", "note": "presented by SPoT"}]}], "hero": "hero-level-6.jpg", "link": "maison-dartiste.html", "name": "Maison d\u0027Artiste", "plan": null}, "7": {"blurb": "Not objects to look at, but sound to stand inside. Once a day the room is given over entirely to listening.", "count": "1 maker", "groups": [{"people": [{"href": "devoonsounds.html", "name": "Devoonsounds"}]}], "hero": "hero-level-7.jpg", "link": "maison-dartiste.html", "name": "The Dome", "plan": null}}, "route": ["0", "2", "4", "5", "6", "7"], "title": "GLUE Amsterdam 2026"};
 
 const LEVELS = BUILDING.map(function(b){
   const p = PROGRAMME.levels[b.id] || null;
@@ -724,48 +757,51 @@ PROGRAMME.route.forEach(function(id){
   if(geom[id]) add(svg,"circle",{ class:"routedot", cx:RX, cy:geom[id].mid, r:2.4 });
 });
 
-
-
 (function(){
-  const HEEFT={"0":1,"1":1,"2":1,"4":1,"6":1,"7":1}, NU="4";
-  const lijst=document.getElementById("nivlijst");
+  var HEEFT={"4": 1}, NU="4";
   LEVELS.forEach(function(L){
-    const g=document.querySelector('.flr[data-id="'+L.id+'"]');
-    if(g && L.id===NU) g.classList.add("hier");
-    const li=document.createElement("li");
-    if(L.id===NU) li.className="nu"; else if(!HEEFT[L.id]) li.className="uit";
-    li.innerHTML='<a href="plan-'+L.id+'.html"><span class="c">'+L.label+'</span><span class="l">'+(L.name||"")+'</span></a>';
-    lijst.appendChild(li);
-    if(g && HEEFT[L.id]){
-      g.style.cursor="pointer";
-      g.addEventListener("click",function(){ location.href="plan-"+L.id+".html"; });
-      li.addEventListener("mouseenter",function(){ g.classList.add("kies"); });
-      li.addEventListener("mouseleave",function(){ g.classList.remove("kies"); });
+    var g=document.querySelector('.flr[data-id="'+L.id+'"]'); if(!g) return;
+    var gm=geom[L.id];
+    if(L.name){
+      var t=document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("class","nivnaam"); t.setAttribute("x", XLAB+14);
+      t.setAttribute("y", gm.mid+3); t.textContent=L.name; g.appendChild(t);
     }
+    var r=document.createElementNS("http://www.w3.org/2000/svg","rect");
+    r.setAttribute("x",0); r.setAttribute("y",gm.top);
+    r.setAttribute("width",482); r.setAttribute("height",gm.bot-gm.top);
+    r.setAttribute("fill","transparent"); g.appendChild(r);
+    if(L.id===NU) g.classList.add("hier");
+    else if(!HEEFT[L.id]) g.classList.add("uit");
+    else g.addEventListener("click",function(){ location.href="plan-"+L.id+".html"; });
   });
 })();
 (function(){
-  const zalen=[].slice.call(document.querySelectorAll(".zaal")),
-        regels=[].slice.call(document.querySelectorAll(".leg li"));
-  const hover=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var zalen=[].slice.call(document.querySelectorAll(".zaal")),
+      regels=[].slice.call(document.querySelectorAll(".leg li"));
+  var hover=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
   function zet(n){
     zalen.forEach(function(z){ z.classList.toggle("aan", z.dataset.z===n); });
-    regels.forEach(function(r){ const aan=r.dataset.z===n;
+    regels.forEach(function(r){ var aan=r.dataset.z===n;
       r.classList.toggle("aan",aan); r.querySelector(".paneel").hidden=!aan;
       r.querySelector(".kop").setAttribute("aria-expanded", aan?"true":"false"); });
+    if(n) history.replaceState(null,"","#gallery-"+n);
   }
-  zalen.forEach(function(z){ const n=z.dataset.z;
+  zalen.forEach(function(z){ var n=z.dataset.z;
     if(hover) z.addEventListener("mouseenter",function(){ zet(n); });
     z.addEventListener("focus",function(){ zet(n); });
     z.addEventListener("click",function(){ zet(n);
-      if(!hover){ const r=document.querySelector('.leg li[data-z="'+n+'"]');
+      if(!hover){ var r=document.querySelector('.leg li[data-z="'+n+'"]');
         if(r) r.scrollIntoView({behavior:"smooth",block:"center"}); } }); });
-  regels.forEach(function(r){ const n=r.dataset.z, kop=r.querySelector(".kop");
+  regels.forEach(function(r){ var n=r.dataset.z, kop=r.querySelector(".kop");
     if(hover) r.addEventListener("mouseenter",function(){ zet(n); });
     kop.addEventListener("click",function(){ zet(r.classList.contains("aan")?null:n); });
     kop.addEventListener("focus",function(){ zet(n); }); });
   if(hover) document.querySelector(".planwrap").addEventListener("mouseleave",function(){ zet(null); });
-})();
-</script>
-</body>
+  /* Een adres als plan-4.html#gallery-3 opent die zaal meteen. Zo kan een
+     werkpagina of een sticker bij de lift rechtstreeks naar een ruimte wijzen. */
+  var h=(location.hash||"").replace("#gallery-","");
+  if(h && document.querySelector('.leg li[data-z="'+h+'"]')) zet(h);
+})();</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
 </html>
