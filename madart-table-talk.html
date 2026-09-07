@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Season 01 — PARADOX — MADART FOUNDATION</title>
-<meta name="description" content="Season 01 — PARADOX at NIO House Amsterdam, 1 April – 1 July 2026. Where opposites no longer hold.">
-<link rel="canonical" href="https://madartfoundation.com/season-01-paradox.html">
+<title>MADART Table Talk — MADART FOUNDATION</title>
+<meta name="description" content="Three makers at ignore&#39;s table on the sixth floor, Thursday 17 September. None of them arrived the way the art world expects.">
+<link rel="canonical" href="https://madartfoundation.com/madart-table-talk.html">
 <meta property="og:site_name" content="MADART FOUNDATION">
-<meta property="og:title" content="Season 01 — PARADOX">
-<meta property="og:description" content="Season 01 — PARADOX at NIO House Amsterdam, 1 April – 1 July 2026. Where opposites no longer hold.">
+<meta property="og:title" content="MADART Table Talk">
+<meta property="og:description" content="Three makers at ignore&#39;s table on the sixth floor, Thursday 17 September. None of them arrived the way the art world expects.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://madartfoundation.com/c-exhibition-paradox.jpg">
+<meta property="og:image" content="https://madartfoundation.com/c-event-glue-2026.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +22,58 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=1857ce84">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ExhibitionEvent", "description": "Where opposites no longer hold.", "endDate": "2026-07-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "image": "https://madartfoundation.com/c-exhibition-paradox.jpg", "isAccessibleForFree": true, "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "Season 01 \u2014 PARADOX", "organizer": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "startDate": "2026-04-01", "url": "https://madartfoundation.com/season-01-paradox.html"}</script>
-</head>
+<style>
+/* Maison d'Artiste — het programma.
+   Hergebruikt de bestaande opmaak: geen nieuwe kleuren, geen nieuwe letters.
+   Dawn Blue blijft voor links en knoppen, nooit voor koppen of datums. */
+.attrib{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 22px}
+.praktisch{margin:0;padding:22px 0 0;border-top:var(--rule)}
+.praktisch > div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:12px 0;
+  border-bottom:var(--hair)}
+.praktisch dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  font-weight:700}
+.praktisch dd{margin:0;font-size:14px;line-height:1.6}
+.dagen{display:flex;gap:0;border-top:var(--rule);border-bottom:var(--rule);margin:34px 0 8px}
+.dag{flex:1 1 0;padding:16px 12px;background:none;border:0;border-right:var(--hair);
+  font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;min-height:54px;
+  transition:background .18s ease}
+.dag:last-child{border-right:0}
+.dag:hover{background:var(--linen)}
+.dag[aria-pressed="true"]{background:var(--dawn);color:var(--chalk)}
+.dagblok[hidden]{display:none}
+.prog{list-style:none;margin:0;padding:0}
+.prog .item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px 0;
+  border-bottom:var(--hair)}
+.prog .item:first-child{border-top:var(--hair)}
+.wanneer{display:block}
+.wanneer .tijd{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.wanneer .waar{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--grey);margin-top:5px;line-height:1.5}
+.wat h3{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 5px}
+.wat .wie{font-size:13px;font-style:italic;color:var(--grey);margin:0 0 9px}
+.wat .tekst{font-size:14px;line-height:1.7;margin:0 0 10px;max-width:62ch}
+.wat .klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 10px}
+.wat .status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0}
+.wat .vrij{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey)}
+.wat .merk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey-light);
+  border:1px solid var(--concrete);padding:4px 8px}
+@media(max-width:760px){
+  .prog .item{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .wanneer{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .wanneer .waar{margin-top:0}
+  .praktisch > div{grid-template-columns:1fr;gap:3px}
+  .dag{font-size:13px;padding:14px 6px}
+}
+.wat .noot{font-size:12.5px;line-height:1.65;color:var(--grey);margin:0 0 10px;
+  padding-left:12px;border-left:2px solid var(--concrete);max-width:60ch}
+.talk-titel{font-size:20px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.talk-wanneer{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 16px}
+.talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 18px}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -46,13 +96,58 @@
 
 <main id="main">
 <section><div class="wrap">
-  <p class="index"><span class="no">SEASON 01</span><span>1 April – 1 July 2026</span><span class="of"><a href="building.html">NIO House Amsterdam</a></span></p>
-<h1>Season 01 — PARADOX</h1>  <div class="prose">
-    <p class="lede">Where opposites no longer hold.</p>
-<p>Season 01 ran at NIO House Amsterdam from April to July 2026 under the title PARADOX: work that holds two things at once without resolving them.</p><p>PARADOX ran under a different model. Galleries took the floor for the season and presented the makers they represent. The Foundation, and the commission-free programme it curates itself, began with Season 02.</p><p>Documentation of this season is being assembled. Installation photography, the maker list and the wall texts will be published here.</p>  </div>
+  <p class="index"><span class="no">TALK</span><span>Maison d&#39;Artiste 2026</span>
+    <span class="of"><a href="maison-dartiste-2026.html">The full programme &#8594;</a></span></p>
+  <h1>MADART Table Talk</h1>
+  <p class="attrib">Thursday 17 September 2026 &middot; 14:00 – 14:45 &middot; Sixth floor</p>
+
+  <div class="prose">
+    <p class="lede">Three makers sit down at ignore&rsquo;s table.</p>
+    <p>Maaike Rabbinge works under the name Eenvoud Ontwerp, from the conviction that what already
+      exists carries its own design logic. Loutje Hoekstra never went to an academy and found her
+      technique on her own. Sandra Keja Planken had a career as an interior architect before she began
+      making autonomous work.</p>
+    <p>None of them arrived here the way the art world expects. That is not a coincidence &mdash; it
+      is what MADART Foundation looks for.</p>
+    <p>Justin Karijoredjo leads the conversation. Forty-five minutes, standing room,
+      30 places.</p>
+  </div>
+
+  <p class="status" style="margin-top:26px">
+<span class="vrij">Book &mdash; 30 places &middot; opens shortly</span>  </p>
 </div></section>
 
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>The three makers</span></h2>
+  <div class="grid g3">
+    <a class="pcard" href="maaike-rabbinge.html">
+      <figure><img src="p-portrait-echo-maaike-rabbinge.jpg" alt="Maaike Rabbinge" loading="lazy" decoding="async"
+        width="700" height="875"></figure>
+      <h3>Maaike Rabbinge</h3>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
+    </a>
+    <a class="pcard" href="loutje-hoekstra.html">
+      <figure><img src="p-portrait-loutje-hoekstra.jpg" alt="Loutje Hoekstra" loading="lazy" decoding="async"
+        width="700" height="875"></figure>
+      <h3>Loutje Hoekstra</h3>
+      <p class="sub">Fourth floor — Gallery 4 · on the walls</p>
+    </a>
+    <a class="pcard" href="sandra-keja-planken.html">
+      <figure><img src="p-portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" loading="lazy" decoding="async"
+        width="700" height="875"></figure>
+      <h3>Sandra Keja Planken</h3>
+      <p class="sub">Fourth floor — Gallery 3</p>
+    </a>
+  </div>
+</div></section>
 
+<section class="reveal"><div class="wrap">
+  <p class="backline">
+    <a href="maison-dartiste-2026.html">The full programme</a>
+    <a href="makers.html">Every maker</a>
+    <a href="visit.html">Plan a visit</a>
+  </p>
+</div></section>
 </main>
 
 <footer class="site-footer">
