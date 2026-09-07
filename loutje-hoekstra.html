@@ -23,7 +23,58 @@
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=1857ce84">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "affiliation": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "description": "Loutje Hoekstra (1994) is an Amsterdam-based artist with a background in\n  biology. Her practice unfolds through painting, performance and illustration, revolving\n  around the human body in its continuous search for belonging.", "jobTitle": "Artist", "name": "Loutje Hoekstra", "sameAs": ["https://www.instagram.com/loutje_hoekstra"], "url": "https://madartfoundation.com/loutje-hoekstra.html"}</script>
-</head>
+<style>
+/* Maison d'Artiste — het programma.
+   Hergebruikt de bestaande opmaak: geen nieuwe kleuren, geen nieuwe letters.
+   Dawn Blue blijft voor links en knoppen, nooit voor koppen of datums. */
+.attrib{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 22px}
+.praktisch{margin:0;padding:22px 0 0;border-top:var(--rule)}
+.praktisch > div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:12px 0;
+  border-bottom:var(--hair)}
+.praktisch dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  font-weight:700}
+.praktisch dd{margin:0;font-size:14px;line-height:1.6}
+.dagen{display:flex;gap:0;border-top:var(--rule);border-bottom:var(--rule);margin:34px 0 8px}
+.dag{flex:1 1 0;padding:16px 12px;background:none;border:0;border-right:var(--hair);
+  font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;min-height:54px;
+  transition:background .18s ease}
+.dag:last-child{border-right:0}
+.dag:hover{background:var(--linen)}
+.dag[aria-pressed="true"]{background:var(--dawn);color:var(--chalk)}
+.dagblok[hidden]{display:none}
+.prog{list-style:none;margin:0;padding:0}
+.prog .item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px 0;
+  border-bottom:var(--hair)}
+.prog .item:first-child{border-top:var(--hair)}
+.wanneer{display:block}
+.wanneer .tijd{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.wanneer .waar{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--grey);margin-top:5px;line-height:1.5}
+.wat h3{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 5px}
+.wat .wie{font-size:13px;font-style:italic;color:var(--grey);margin:0 0 9px}
+.wat .tekst{font-size:14px;line-height:1.7;margin:0 0 10px;max-width:62ch}
+.wat .klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 10px}
+.wat .status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0}
+.wat .vrij{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey)}
+.wat .merk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey-light);
+  border:1px solid var(--concrete);padding:4px 8px}
+@media(max-width:760px){
+  .prog .item{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .wanneer{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .wanneer .waar{margin-top:0}
+  .praktisch > div{grid-template-columns:1fr;gap:3px}
+  .dag{font-size:13px;padding:14px 6px}
+}
+.wat .noot{font-size:12.5px;line-height:1.65;color:var(--grey);margin:0 0 10px;
+  padding-left:12px;border-left:2px solid var(--concrete);max-width:60ch}
+.talk-titel{font-size:20px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.talk-wanneer{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 16px}
+.talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 18px}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -34,6 +85,7 @@
     <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
     <nav class="mainnav" id="mainnav">
       <a href="exhibitions.html">Exhibitions</a>
+      <a href="maison-dartiste-2026.html">Programme</a>
       <a href="makers.html">Makers</a>
       <a href="shop.html">Works</a>
       <a href="visit.html">Visit</a>
@@ -46,7 +98,7 @@
 <main id="main">
 
 <section class="maker-head"><div class="wrap">
-  <p class="index"><span class="no">Season 02 — GROUND</span><span>Gallery 4 — walls</span><span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
+  <p class="index"><span class="no">Season 02 — GROUND</span><span>Fourth floor — Gallery 4 · on the walls</span><span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
   <div class="head-split">
     <div>
       <h1 class="maker-name">Loutje Hoekstra</h1>
@@ -59,6 +111,19 @@
 <a href="https://www.instagram.com/loutje_hoekstra">Instagram</a><a href="https://wa.me/31613320686?text=Hi%20Loutje%2C%20I%27m%20interested%20in%20your%20work%20in%20MADART%20FOUNDATION%20Season%2002%20GROUND.">Message Loutje</a>        <a href="enquire.html">Enquire about a work</a>
       </p>
     </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>Artist Talk</span>
+    <span class="of"><a href="maison-dartiste-2026.html#vr-workshop">The full programme &#8594;</a></span></h2>
+  <div class="prose">
+    <h3 class="talk-titel">Music experience and line art workshop</h3>
+    <p class="talk-wanneer">Friday 18 September 2026 · 13:00 – 15:00 &middot; Seventh floor — the Rietveld dome</p>
+<p>A musical experience and a workshop all around the subject of circles — circling sounds in a circular space, circling motions towards swirling line drawings that embrace fluidity and motion.</p><p>Musician Sami Abou Louh opens the session with a live set crafted for the Rietveldkoepel, a circular space high above the city with sweeping views over Amsterdam. Participants are invited to listen and tune in, before Loutje Hoekstra, currently exhibiting at MADART Foundation but also known for her line drawings, leads a hands-on introduction to drawing as motion, flow and rhythm rather than structure.</p>    <p class="talk-klein">
+ &middot; 15 places    </p>
+    <p>
+<a class="btn-outline" href="maison-dartiste-2026.html#vr-workshop">See it in the programme</a>    </p>
   </div>
 </div></section>
 
@@ -192,7 +257,7 @@
         <img class="face" src="p-portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-aad-kruiswijk-m15-mdf.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Aad Kruiswijk</h3>
-      <p class="sub">Gallery 2 — floor</p>
+      <p class="sub">Fourth floor — Gallery 2 · on the floor</p>
       <p class="cnt">8 works</p>
     </a>
     <a class="slide portrait" href="andreea-pirlica.html">
@@ -200,7 +265,7 @@
         <img class="face" src="p-portrait-andreea-pirlica.jpg" alt="Andreea Pirlica" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-andreea-pirlica-healing-rooms.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Andreea Pirlica</h3>
-      <p class="sub">Second floor</p>
+      <p class="sub">Second floor — Running presentation</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="anne-van-borselen.html">
@@ -208,7 +273,7 @@
         <img class="face" src="p-portrait-anne-van-borselen.jpg" alt="Anne van Borselen" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-anne-van-borselen-arena.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Anne van Borselen</h3>
-      <p class="sub">Gallery 1</p>
+      <p class="sub">Fourth floor — Gallery 1</p>
       <p class="cnt">13 works</p>
     </a>
     <a class="slide portrait" href="arno-hoogland.html">
@@ -216,7 +281,7 @@
         <img class="face" src="p-portrait-arno-hoogland.jpg" alt="Arno Hoogland" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-arno-hoogland-deus-ex-machina.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Arno Hoogland</h3>
-      <p class="sub">Gallery Lounge</p>
+      <p class="sub">Fourth floor — Gallery Lounge</p>
       <p class="cnt">10 works</p>
     </a>
     <a class="slide portrait" href="billie-jo-krul.html">
@@ -224,7 +289,7 @@
         <img class="face" src="p-portrait-echo-billie-jo-krul.jpg" alt="Billie-Jo Krul" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-here-comes-the-sun-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Billie-Jo Krul</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="coen-beeksma.html">
@@ -232,7 +297,7 @@
         <img class="face" src="p-portrait-echo-coen-beeksma.jpg" alt="Coen Beeksma" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-2-1-bench-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Coen Beeksma</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="cynthia-kevin-kars-boom.html">
@@ -240,7 +305,7 @@
         <img class="face" src="p-portrait-echo-cynthia-kevin-kars-boom.jpg" alt="Cynthia &amp; Kevin Kars-Boom" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-formscape-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Cynthia &amp; Kevin Kars-Boom</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="eric-sloot.html">
@@ -248,7 +313,7 @@
         <img class="face" src="p-portrait-eric-sloot.jpg" alt="Eric Sloot" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-eric-sloot-els-secretaire.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Eric Sloot</h3>
-      <p class="sub">The Drawing Room / The Dining Room</p>
+      <p class="sub">Sixth floor — The Drawing Room / The Dining Room</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="erwin-woldring.html">
@@ -256,7 +321,7 @@
         <img class="face" src="p-portrait-echo-erwin-woldring.jpg" alt="Erwin Woldring" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-bracelet-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Erwin Woldring</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">2 works</p>
     </a>
     <a class="slide portrait" href="frank-penders.html">
@@ -264,7 +329,7 @@
         <img class="face" src="p-portrait-echo-frank-penders.jpg" alt="Frank Penders" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-billet-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Frank Penders</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">2 works</p>
     </a>
     <a class="slide portrait" href="frederik-wasseur.html">
@@ -272,7 +337,7 @@
         <img class="face" src="p-portrait-echo-frederik-wasseur.jpg" alt="Frederik Wasseur" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-spectral-form-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Frederik Wasseur</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="herma-de-wit.html">
@@ -280,7 +345,7 @@
         <img class="face" src="p-portrait-herma-de-wit.jpg" alt="Herma de Wit" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-herma-de-wit-abstract-04.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Herma de Wit</h3>
-      <p class="sub">Staircases — ground, fourth and fifth floor</p>
+      <p class="sub">Ground floor / Fourth floor / Fifth floor — Staircases</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="inge-becka.html">
@@ -288,7 +353,7 @@
         <img class="face" src="p-portrait-inge-becka.jpg" alt="Inge Bečka" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-inge-becka-build-your-own-silver.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Inge Bečka</h3>
-      <p class="sub">Ceramics, throughout the house</p>
+      <p class="sub">Sixth floor — The Drawing Room / The Dining Room / The Conservatory / The Parlour · throughout the rooms</p>
       <p class="cnt">18 works</p>
     </a>
     <a class="slide portrait" href="jan-willem-van-elten.html">
@@ -296,7 +361,7 @@
         <img class="face" src="p-portrait-echo-jan-willem-van-elten.jpg" alt="Jan Willem van Elten" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-rest-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Jan Willem van Elten</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="jeroen-van-veluw.html">
@@ -304,7 +369,7 @@
         <img class="face" src="p-portrait-echo-jeroen-van-veluw.jpg" alt="Jeroen van Veluw" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-col-krukje-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Jeroen van Veluw</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">2 works</p>
     </a>
     <a class="slide portrait" href="jim-bob-ruijgrok.html">
@@ -312,7 +377,7 @@
         <img class="face" src="p-portrait-jim-bob-ruijgrok.jpg" alt="Jim Bob Ruijgrok" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-jim-bob-ruijgrok-eiken-latten-bank.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Jim Bob Ruijgrok</h3>
-      <p class="sub">The Parlour</p>
+      <p class="sub">Sixth floor — The Parlour</p>
       <p class="cnt">4 works</p>
     </a>
     <a class="slide portrait" href="joost-de-munnik-ruud-van-den-eijnden.html">
@@ -320,7 +385,7 @@
         <img class="face" src="p-portrait-joost-de-munnik-ruud-van-den-eijnden.jpg" alt="Joost de Munnik &amp; Ruud van den Eijnden" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-joost-de-munnik-ruud-van-den-eijnden-entree-meubel.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Joost de Munnik &amp; Ruud van den Eijnden</h3>
-      <p class="sub">The Conservatory</p>
+      <p class="sub">Sixth floor — The Conservatory</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="lilia-luganskaia-kuilder.html">
@@ -328,7 +393,7 @@
         <img class="face" src="p-portrait-lilia-luganskaia-kuilder.jpg" alt="Lilia Luganskaia-Kuilder" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-lilia-luganskaia-kuilder-ikebana-table.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Lilia Luganskaia-Kuilder</h3>
-      <p class="sub">Sixth floor — dedicated space</p>
+      <p class="sub">Sixth floor — Lilia Luganskaia-Kuilder</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="maaike-rabbinge.html">
@@ -336,7 +401,7 @@
         <img class="face" src="p-portrait-echo-maaike-rabbinge.jpg" alt="Maaike Rabbinge" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-conduit-chair-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Maaike Rabbinge</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="marc-th-van-der-voorn.html">
@@ -344,7 +409,7 @@
         <img class="face" src="p-portrait-echo-marc-th-van-der-voorn.jpg" alt="Marc Th. van der Voorn" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-candleswitch-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Marc Th. van der Voorn</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="marnix-van-strydonck.html">
@@ -352,7 +417,7 @@
         <img class="face" src="p-portrait-marnix-van-strydonck.jpg" alt="Marnix Van Strydonck" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-marnix-van-strydonck-bertrand.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Marnix Van Strydonck</h3>
-      <p class="sub">The Dining Room / The Parlour</p>
+      <p class="sub">Sixth floor — The Dining Room / The Parlour</p>
       <p class="cnt">4 works</p>
     </a>
     <a class="slide portrait" href="maurice-albert-jan.html">
@@ -360,7 +425,7 @@
         <img class="face" src="p-portrait-maurice-albert-jan.jpg" alt="Maurice Albert Jan" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-maurice-albert-jan-bench.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Maurice Albert Jan</h3>
-      <p class="sub">The Drawing Room / Dining Room / Parlour</p>
+      <p class="sub">Sixth floor — The Drawing Room / The Dining Room / The Parlour</p>
       <p class="cnt">4 works</p>
     </a>
     <a class="slide portrait" href="nicolette-de-waart.html">
@@ -368,7 +433,7 @@
         <img class="face" src="p-portrait-nicolette-de-waart.jpg" alt="Nicolette de Waart" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-nicolette-de-waart-berry-lamp-regular.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Nicolette de Waart</h3>
-      <p class="sub">The Drawing Room</p>
+      <p class="sub">Sixth floor — The Drawing Room</p>
       <p class="cnt">3 works</p>
     </a>
     <a class="slide portrait" href="ritsert-mans.html">
@@ -376,7 +441,7 @@
         <img class="face" src="p-portrait-echo-ritsert-mans.jpg" alt="Ritsert Mans" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-drop-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Ritsert Mans</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">2 works</p>
     </a>
     <a class="slide portrait" href="rogier-bosschaart.html">
@@ -384,7 +449,7 @@
         <img class="face" src="p-portrait-rogier-bosschaart.jpg" alt="Rogier Bosschaart" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-rogier-bosschaart-bubbels-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Rogier Bosschaart</h3>
-      <p class="sub">Gallery 2 — walls</p>
+      <p class="sub">Fourth floor — Gallery 2 · on the walls</p>
       <p class="cnt">5 works</p>
     </a>
     <a class="slide portrait" href="sandra-keja-planken.html">
@@ -392,7 +457,7 @@
         <img class="face" src="p-portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-sandra-keja-planken-nani-bloom-wall-hanging.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Sandra Keja Planken</h3>
-      <p class="sub">Gallery 3</p>
+      <p class="sub">Fourth floor — Gallery 3</p>
       <p class="cnt">8 works</p>
     </a>
     <a class="slide portrait" href="sophie-wantia.html">
@@ -400,7 +465,7 @@
         <img class="face" src="p-portrait-echo-sophie-wantia.jpg" alt="Sophie Wantia" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-alu-weave-01-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Sophie Wantia</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
     <a class="slide portrait" href="zowa-rindt.html">
@@ -408,7 +473,7 @@
         <img class="face" src="p-portrait-echo-zowa-rindt.jpg" alt="Zowa Rindt" width="480" height="600" loading="lazy" decoding="async">
 <img class="work" src="h-echo-sway-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Zowa Rindt</h3>
-      <p class="sub">Gallery 4 — floor · ECHO</p>
+      <p class="sub">Fourth floor — Gallery 4 · on the floor</p>
       <p class="cnt">1 work</p>
     </a>
   </div>
