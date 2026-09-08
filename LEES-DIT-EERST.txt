@@ -1,0 +1,87 @@
+LEVERING — de bekerroute, nu naar de bestaande pagina's
+MADART FOUNDATION · 8 september 2026
+
+4 bestanden voor de root. De map qr-voor-de-drukker gaat naar Kimberly.
+
+LET OP DE HOOFDLETTERS: MAP.html en PROG.html. Klein geuploadaad betekent dat
+elke beker een 404 geeft.
+
+--------------------------------------------------------------------------
+WAT ER IS VERANDERD, EN WAAROM DAT BETER IS
+--------------------------------------------------------------------------
+
+Ik had twee nieuwe pagina's gebouwd: een eigen plattegrondkiezer en een eigen
+kort programma. Dat was verkeerd begrepen, en het was ook slechter.
+
+Een tweede programma naast maison-dartiste-2026.html betekent twee plekken
+onderhouden. Vroeg of laat loopt de kopie uit de pas met het origineel, en dan
+staat er op tienduizend bekers een verkeerde tijd.
+
+Nu zijn MAP en PROG DOORVERWIJZINGEN, elk een halve kilobyte:
+
+  MADARTFOUNDATION.COM/MAP   ->  building.html?c=1
+  MADARTFOUNDATION.COM/PROG  ->  maison-dartiste-2026.html?c=1
+
+building.html is de verdiepingkiezer met de doorsnede van het gebouw; van
+daaruit is het een tik naar plan-2, plan-4, plan-6 of plan-7. Omdat de bekers
+over drie verdiepingen rondgaan kan de kaartcode niet rechtstreeks naar een
+verdieping wijzen.
+
+EEN SEIZOENSWISSEL IS NU EEN REGEL.
+In data/site.yaml staat onder campaign:
+
+    map_target:  building.html
+    prog_target: maison-dartiste-2026.html
+
+Bij SEASON 03 wordt prog_target het adres van INLINE. Bouwen, uploaden, klaar.
+Geen beker hoeft weg, geen tweede programma bijwerken.
+
+--------------------------------------------------------------------------
+HET AANMELDSCHERM STAAT NU OP DE ECHTE PAGINA'S
+--------------------------------------------------------------------------
+
+En het verschijnt ALLEEN als er ?c= in het adres staat — dus alleen bij
+binnenkomst via een beker.
+
+Wie building.html of het programma gewoon opent, uit een zoekresultaat of via
+het menu, ziet niets. Het scherm wordt dan uit de pagina verwijderd voordat
+het ooit in beeld komt.
+
+Dat is bewust. Google zet mobiele pagina's met een schermvullend tussenscherm
+lager in de resultaten, en dit zijn juist de twee pagina's waar we deze week
+aan hebben gewerkt: de programmapagina draagt de 27 evenementen die Google
+inmiddels als geldig leest.
+
+GETEST, ZES GEVALLEN:
+  building, gewoon bezoek       scherm weggehaald
+  building, via een beker       scherm zichtbaar
+  programma, gewoon bezoek      scherm weggehaald
+  programma, via een beker      scherm zichtbaar
+  beker, al eerder gezien       scherm weggehaald
+  na wegklikken                 scherm weg en onthouden
+
+--------------------------------------------------------------------------
+WAT ER MET DE VORIGE VERSIE IS GEBEURD
+--------------------------------------------------------------------------
+De twee gebouwde pagina's zijn verwijderd, inclusief de terugvalstanden die ik
+er net in had gezet. Die zijn niet meer nodig: het programma dat de beker toont
+IS de programmapagina, en die wordt sowieso bijgehouden.
+
+De QR-codes zijn ONGEWIJZIGD. Dezelfde twee adressen, dezelfde bestanden.
+Als Kimberly ze al heeft doorgestuurd, hoeft er niets opnieuw.
+
+--------------------------------------------------------------------------
+TE CONTROLEREN NA UPLOAD
+--------------------------------------------------------------------------
+  1. madartfoundation.com/MAP  ->  komt uit op building.html met het scherm.
+  2. madartfoundation.com/PROG ->  komt uit op het programma met het scherm.
+  3. Vul een adres in. Kijk of hij in Formspark binnenkomt met source "cup".
+  4. Open building.html RECHTSTREEKS. Er hoort GEEN scherm te verschijnen.
+  5. Herlaad /MAP. Het scherm hoort niet terug te komen.
+
+--------------------------------------------------------------------------
+NOG STEEDS OPEN
+--------------------------------------------------------------------------
+Geen mailplatform. De adressen komen binnen en blijven staan; er kan niets naar
+verstuurd worden. Het scherm belooft "we write when there is something to see".
+Na dit weekend heb je honderden adressen die op die belofte wachten.
