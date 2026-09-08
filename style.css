@@ -815,7 +815,12 @@ svg.elev{overflow:visible}
   .bld{display:flex;flex-direction:column}
   .bld-draw{order:1}
   .bld-detail{grid-column:auto;order:2}
-  .bld-reg{order:3;border-top:var(--rule);padding-top:22px}
+  /* Het register van acht verdiepingen staat op een telefoon niet meer onder
+     het paneel. De tekening is daar de kiezer, precies zoals onderaan de
+     homepage; een tweede lijst eronder herhaalt wat je net hebt aangeraakt en
+     duwt de voettekst duizend pixels naar beneden. Op een laptop blijft hij
+     staan: daar is het de kolom naast de tekening en kost hij geen ruimte. */
+  .bld > .bld-reg{display:none}
   .lvl-inner{grid-template-columns:1fr;gap:0}
   .lvl-hero{margin-bottom:16px}
   .tapnote{color:var(--dawn)}
