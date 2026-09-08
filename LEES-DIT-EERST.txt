@@ -1,82 +1,54 @@
-LEVERING — feedback van Kimberly en Ksenia verwerkt
+LEVERING — de besloten avonden zijn weg
 MADART FOUNDATION · 8 september 2026
 
-7 bestanden, allemaal in de root.
+4 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
+DAARNAAST MOET JE TWEE BESTANDEN VERWIJDEREN — zie onderaan.
 
 --------------------------------------------------------------------------
-1. KIMBERLY HAD EEN ECHTE FOUT GEVONDEN
+WAT ER IS VERWIJDERD
 --------------------------------------------------------------------------
-De wegklikknop van het aanmeldscherm zei "Straight to the map". Dat scherm
-staat op ZES pagina's: building, de vier plattegronden, en de programmapagina.
-Op vijf daarvan klopte die tekst niet, en op de programmapagina was hij
-ronduit verwarrend — je klikt "naar de kaart" weg en komt op het programma.
+De kaart "Private evenings" is uit de eventlijst gehaald. Die stond op de
+homepage en op events.html.
 
-Ik had één tekst geschreven voor twee bestemmingen. Nu staat er:
+En alles wat ernaartoe leidde, want een pagina weghalen zonder de wegwijzers
+levert kapotte links op:
 
-    No thanks, take me through
+  events.html   de knop "Request a place at a private evening"
+  visit.html    dezelfde knop, naast "Full programme and opening hours"
+  events.html   de zin "From 18:00 the floors are open by invitation only"
+  index.html    de kaart in de eventlijst
 
-En de schermtekst zei ook "The map is below either way". Dat is nu
-"Either way, the page is right behind this one."
+Die laatste zin verwees naar iets dat niet meer bestaat. Wat er donderdagavond
+wel is, staat op de programmapagina bij de Opening Night.
 
---------------------------------------------------------------------------
-2. KSENIA: VERMAAT IS GEEN CONSUMENTENMERK
---------------------------------------------------------------------------
-Klopt, en het staat ook zo niet in het gebouw. Op de programmapagina heet het
-nu overal NIO House café — bij de lunch op alle drie de dagen, en in het blok
-over wie wat verkoopt.
+De site gaat van 220 naar 218 pagina's, en de sitemap van 208 naar 207
+adressen.
 
-VERMAAT BLIJFT WEL STAAN OP ANBI.HTML, en dat is bewust. Daar gaat het niet om
-wat de bezoeker ziet maar om wie factureert, en dat is Vermaat. Er staat nu:
-"sold by the café on the first floor, operated by Vermaat, and invoiced by
-them". Beide namen, op de plek waar een fondsbeoordelaar kijkt.
+Nagelopen op drie termen — rsvp, "Private evening" en "invitation only" —
+en geen van drieën komt nog ergens voor, ook niet in de broncode.
 
 --------------------------------------------------------------------------
-3. HET BLOK OVER DE GELDSTROMEN — JOUW VERSIE, MET TWEE AANPASSINGEN
+WAT JIJ MOET VERWIJDEREN
 --------------------------------------------------------------------------
-Kimberly vond "Everything else is free" aan het eind raar staan, en "at market
-rate" onnodig. Allebei terecht: die zin kwam na twee alinea's over geld, en
-las daardoor als een geruststelling achteraf.
+Uploaden verwijdert niets. Deze twee moeten weg uit de hoofdmap van de
+repository, net als bij de eerdere opruimingen:
 
-Jouw alternatief keert dat om, en dat is beter. Het staat er nu, in drie
-regels in plaats van één blok:
+  rsvp.html
+  rsvp-thanks.html
 
-    FREE AND OPEN
-    The festival is public and free. Walk in, stay as long as you like.
-    No ticket, no registration. Two things in the programme are paid for.
+Zolang ze er staan blijven ze bereikbaar voor wie het adres nog heeft, en
+staan ze in de zoekresultaten van Google.
 
-    OPENING NIGHT
-    Thursday evening, hosted by MADART Foundation as the evening opening of
-    its own exhibition. The ticket pays for putting the evening on. The
-    Foundation buys that production from Curated by MADART, its commercial
-    sister organisation, and pays the same price anyone else would.
-
-    LUNCH
-    Cooked and served by the NIO House café. You pay them directly. None of
-    it reaches the Foundation.
-
-TWEE DINGEN HEB IK VERANDERD AAN JOUW TEKST.
-
-"Your contribution goes to the cost of putting the evening on" is geworden
-"The ticket pays for putting the evening on". Reden: een bijdrage is in
-fiscale zin iets anders dan een kaartje. De Foundation vraagt een ANBI-status
-aan, en daar is een gift aftrekbaar en een toegangskaartje niet. Het woord
-"contribution" naast de naam van een ANBI kan gelezen worden als donatie, en
-dat is precies de verwarring die je niet wilt op de pagina waar geld wordt
-gevraagd.
-
-En "at market rate" is niet geschrapt maar vertaald: "pays the same price
-anyone else would". Kimberly heeft gelijk dat de vakterm hier niet hoort —
-maar de zaak erachter wel. Het ecosysteemdocument eist marktconformiteit, en
-dat is precies wat een beoordelaar natrekt. Jouw formulering zegt hetzelfde in
-gewone woorden, en dat is beter dan allebei.
-
-Op anbi.html staat de vakterm nog wel. Daar hoort hij.
+BEDENK OF ER NOG IETS NAAR VERWIJST BUITEN DE SITE. Een eerdere nieuwsbrief,
+een Instagram-bio, een mail aan genodigden. Dat kan ik niet zien. Wie zo'n
+oude link volgt komt straks op de 404-pagina, en die verwijst netjes terug
+naar de site — maar het is beter als je weet waar die links staan.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. Scan /PROG. De wegklikknop zegt "No thanks, take me through".
-  2. Scan /MAP. Dezelfde knop, en die klopt daar nu ook.
-  3. maison-dartiste-2026.html: drie regels boven het programma, en het woord
-     Vermaat komt er niet meer in voor.
-  4. anbi.html: daar staat Vermaat wel, als exploitant en facturerende partij.
+  1. madartfoundation.com/rsvp.html geeft een 404.
+  2. events.html: de kaart "Private evenings" staat er niet meer, en de zin
+     over 18:00 ook niet.
+  3. visit.html: onder de tekst staat nog één knop, niet twee.
+  4. De homepage toont twee eventkaarten in plaats van drie.
