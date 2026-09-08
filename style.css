@@ -808,7 +808,14 @@ svg.elev{overflow:visible}
   .reg.levels .row .c{grid-column:1}
   .reg.levels .row{grid-template-columns:26px 1fr;align-items:baseline}
   .reg.levels .row .t em{display:inline;margin-left:8px}
-  .bld-detail{grid-column:auto}
+  /* Op een telefoon staat het antwoord direct onder de tekening, zoals
+     onderaan de homepage. Het stond eerder onder het register van acht
+     verdiepingen, ruim dertienhonderd pixels lager, en dan is een tik een
+     sprong naar iets wat je niet meer in verband brengt met wat je aanraakte. */
+  .bld{display:flex;flex-direction:column}
+  .bld-draw{order:1}
+  .bld-detail{grid-column:auto;order:2}
+  .bld-reg{order:3;border-top:var(--rule);padding-top:22px}
   .lvl-inner{grid-template-columns:1fr;gap:0}
   .lvl-hero{margin-bottom:16px}
   .tapnote{color:var(--dawn)}

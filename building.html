@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=b9a806d7">
+<link rel="stylesheet" href="style.css?v=73e5a849">
 <style>
 /* Reparatie van 4 september, bewust hier en niet in style.css: een wijziging
    daar verandert de vingerafdruk ?v= op alle 215 pagina's en dwingt een
@@ -791,7 +791,12 @@ function wire(node, L){
        tekening. Springen naar de sectie bracht je terug naar de bovenkant en
        liet het antwoord buiten beeld; spring naar het antwoord zelf. */
     if(narrow()){ ev.preventDefault(); show(L);
-      document.querySelector(".bld-detail").scrollIntoView({behavior:"smooth",block:"start"});
+      /* Het paneel staat nu direct onder de tekening, dus een sprong is niet
+         meer nodig: de tekening blijft in beeld terwijl het antwoord verschijnt.
+         Alleen bijsturen als het paneel toch buiten beeld valt. */
+      var d = document.querySelector(".bld-detail");
+      if(d.getBoundingClientRect().top > window.innerHeight - 80)
+        d.scrollIntoView({behavior:"smooth", block:"nearest"});
       return; }
     if(L.href){ ev.preventDefault(); window.location.href = L.href; }
     else ev.preventDefault();
