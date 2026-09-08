@@ -814,3 +814,14 @@ svg.elev{overflow:visible}
   .tapnote{color:var(--dawn)}
 }
 @media(min-width:761px){ .tapnote{display:none} }
+
+/* Het festivalblok op de homepage. Staat boven de tellers zolang het festival
+   loopt; het verdwijnt vanzelf op 20 september. Geen banner met een uitroep-
+   teken maar dezelfde stem als de rest van de pagina. */
+.nubezig{border-top:var(--rule);border-bottom:var(--rule);padding:34px 0;background:var(--linen)}
+.nubezig .wanneer{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--dawn);
+  font-weight:700;margin:0 0 10px}
+.nubezig h2{font-size:clamp(22px,3.4vw,32px);line-height:1.15;font-weight:700;margin:0 0 10px;
+  max-width:20ch;text-wrap:balance}
+.nubezig .regel{font-size:15px;line-height:1.6;color:var(--grey);margin:0 0 20px;max-width:46ch}
+@media(max-width:760px){ .nubezig{padding:26px 0} }
