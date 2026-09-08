@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=b9a806d7">
+<link rel="stylesheet" href="style.css?v=73e5a849">
 <style>
 /* Vinden is het doel. De plattegrond toont waar, de lijst is de ingang als je
    een naam zoekt. Alles wat over de maker gaat staat op de makerspagina. */
@@ -862,5 +862,84 @@ PROGRAMME.route.forEach(function(id){
   var h=(location.hash||"").replace("#room-","");
   if(h && document.querySelector('.zaal[data-z="'+h+'"]')) licht([h], null);
 })();</script>
+
+<style>
+/* Het aanmeldscherm op de bekerroute. Verschijnt alleen met ?c= in het adres. */
+.sluier{position:fixed;inset:0;background:var(--chalk);z-index:999;display:flex;
+  align-items:center;justify-content:center;padding:24px}
+.sluier-in{max-width:420px;width:100%}
+.sluier .index{padding-top:0}
+.sluier h2{font-size:clamp(22px,5vw,28px);line-height:1.12;letter-spacing:-.02em;
+  color:var(--ink);font-weight:700;margin:0 0 12px;text-transform:none}
+.sluier p{font-size:15px;line-height:1.6;margin:0 0 22px}
+.sluier label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--grey);font-weight:700;margin:0 0 7px}
+.sluier input{width:100%;font:inherit;font-size:16px;padding:13px 12px;
+  border:1px solid var(--concrete);background:#fff;color:var(--ink);border-radius:0}
+.sluier input:focus{outline:2px solid var(--dawn);outline-offset:1px}
+.sluier .btn{width:100%;margin:18px 0 0}
+.sluier .fout{border-left:2px solid var(--dawn);background:var(--linen);
+  padding:11px 14px;font-size:13px;margin:16px 0 0}
+.door{display:block;width:100%;margin:16px 0 0;background:none;border:0;font:inherit;
+  font-size:13px;color:var(--grey);text-decoration:underline;cursor:pointer;padding:12px}
+</style>
+<div class="sluier" id="sluier" hidden>
+  <div class="sluier-in">
+    <p class="index" style="padding-top:0"><span>MADART Foundation</span></p>
+    <h2>A few times a season.</h2>
+    <p>Leave your email and we write when there is something to see — a new maker, an opening, a season that starts. Not more than that. The map is below either way.</p>
+    <form id="sf" novalidate>
+      <label for="se">Email</label>
+      <input id="se" type="email" autocomplete="email" inputmode="email" required>
+      <div id="sfout" class="fout" hidden></div>
+      <button type="submit" class="btn" id="sknop">Send it</button>
+    </form>
+    <button type="button" class="door" id="door">Straight to the map</button>
+  </div>
+</div>
+<script>
+(function(){
+  var SLEUTEL="madart-signup", DAGEN=30;
+  var sluier=document.getElementById("sluier");
+  if(!sluier) return;
+  /* Alleen wie via een beker binnenkomt. Zonder ?c= blijft de pagina wat hij
+     is: een gewone pagina van de site, zonder tussenscherm. Dat is bewust —
+     Google zet mobiele pagina's met een schermvullend scherm lager, en deze
+     twee komen ook uit zoekresultaten. */
+  var merk=new URLSearchParams(location.search).get("c");
+  if(!merk){ sluier.remove(); return; }
+  /* Wie het al heeft gezien, ziet het niet nog eens. */
+  var gezien=null;
+  try{ gezien=localStorage.getItem(SLEUTEL); }catch(e){}
+  if(gezien && (Date.now()-parseInt(gezien,10)) < DAGEN*864e5){ sluier.remove(); return; }
+
+  function sluit(){
+    try{ localStorage.setItem(SLEUTEL, String(Date.now())); }catch(e){}
+    sluier.remove(); document.body.style.overflow="";
+  }
+  sluier.hidden=false; document.body.style.overflow="hidden";
+  document.getElementById("door").addEventListener("click", sluit);
+
+  var ADRES="https://submit-form.com/H03i3xmfj";
+  var bron=merk;
+  document.getElementById("sf").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var veld=document.getElementById("se"), fout=document.getElementById("sfout"),
+        knop=document.getElementById("sknop"), w=veld.value.trim();
+    fout.hidden=true;
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(w)){
+      fout.textContent="That email address does not look right."; fout.hidden=false; return; }
+    if(!ADRES){ sluit(); return; }
+    knop.disabled=true; knop.textContent="Sending\u2026";
+    fetch(ADRES,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},
+      body:JSON.stringify({email:w, consent:"newsletter", source:"cup", batch:bron,
+        page:location.pathname})})
+      .then(function(r){ if(!r.ok) throw 0; sluit(); })
+      .catch(function(){ knop.disabled=false; knop.textContent="Send it";
+        fout.textContent="Something went wrong. Try again, or just carry on.";
+        fout.hidden=false; });
+  });
+})();
+</script>
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
 </html>
