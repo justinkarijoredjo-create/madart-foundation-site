@@ -23,7 +23,58 @@
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=b9a806d7">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "affiliation": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "description": "Designs flexible connections that shift with whatever residual aluminium is at hand. The most domestic object in ECHO: material that once carried current through a street pole now holds a flame.", "jobTitle": "Artist", "name": "Marc Th. van der Voorn", "sameAs": ["https://www.instagram.com/marc.th.vandervoorn"], "url": "https://madartfoundation.com/marc-th-van-der-voorn.html"}</script>
-</head>
+<style>
+/* Maison d'Artiste — het programma.
+   Hergebruikt de bestaande opmaak: geen nieuwe kleuren, geen nieuwe letters.
+   Dawn Blue blijft voor links en knoppen, nooit voor koppen of datums. */
+.attrib{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 22px}
+.praktisch{margin:0;padding:22px 0 0;border-top:var(--rule)}
+.praktisch > div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:12px 0;
+  border-bottom:var(--hair)}
+.praktisch dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  font-weight:700}
+.praktisch dd{margin:0;font-size:14px;line-height:1.6}
+.dagen{display:flex;gap:0;border-top:var(--rule);border-bottom:var(--rule);margin:34px 0 8px}
+.dag{flex:1 1 0;padding:16px 12px;background:none;border:0;border-right:var(--hair);
+  font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;min-height:54px;
+  transition:background .18s ease}
+.dag:last-child{border-right:0}
+.dag:hover{background:var(--linen)}
+.dag[aria-pressed="true"]{background:var(--dawn);color:var(--chalk)}
+.dagblok[hidden]{display:none}
+.prog{list-style:none;margin:0;padding:0}
+.prog .item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px 0;
+  border-bottom:var(--hair)}
+.prog .item:first-child{border-top:var(--hair)}
+.wanneer{display:block}
+.wanneer .tijd{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.wanneer .waar{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--grey);margin-top:5px;line-height:1.5}
+.wat h3{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 5px}
+.wat .wie{font-size:13px;font-style:italic;color:var(--grey);margin:0 0 9px}
+.wat .tekst{font-size:14px;line-height:1.7;margin:0 0 10px;max-width:62ch}
+.wat .klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 10px}
+.wat .status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0}
+.wat .vrij{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey)}
+.wat .merk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey-light);
+  border:1px solid var(--concrete);padding:4px 8px}
+@media(max-width:760px){
+  .prog .item{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .wanneer{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .wanneer .waar{margin-top:0}
+  .praktisch > div{grid-template-columns:1fr;gap:3px}
+  .dag{font-size:13px;padding:14px 6px}
+}
+.wat .noot{font-size:12.5px;line-height:1.65;color:var(--grey);margin:0 0 10px;
+  padding-left:12px;border-left:2px solid var(--concrete);max-width:60ch}
+.talk-titel{font-size:20px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.talk-wanneer{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 16px}
+.talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 18px}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -47,20 +98,31 @@
 <main id="main">
 
 <section class="maker-head"><div class="wrap">
-  <p class="index"><span class="no">Season 02 — GROUND</span><span>Fourth floor — Gallery 4 · on the floor</span><span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
+  <p class="index"><span class="no">Season 02 — GROUND</span><span>Fourth floor — Gallery 4 · on the floor</span>
+    <span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
   <div class="head-split">
-    <div>
-      <h1 class="maker-name">Marc Th. van der Voorn</h1>
-    </div>
+    <div><h1 class="maker-name">Marc Th. van der Voorn</h1></div>
     <div class="head-intro">
       <p class="lede">Designs flexible connections that shift with whatever residual aluminium is at hand. The most domestic object in ECHO: material that once carried current through a street pole now holds a flame.</p>
       <p class="head-links">
-<a href="https://www.instagram.com/marc.th.vandervoorn">Instagram</a>        <a href="enquire.html">Enquire about a work</a>
+<a href="https://www.instagram.com/marc.th.vandervoorn" target="_blank" rel="noopener">Instagram</a>        <a href="enquire.html">Enquire about a work</a>
       </p>
     </div>
   </div>
 </div></section>
 
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>In the programme</span>
+    <span class="of"><a href="maison-dartiste-2026.html">The full programme &#8594;</a></span></h2>
+  <div class="prose" style="">
+    <h3 class="talk-titel">Material as the deciding factor</h3>
+    <p class="talk-wanneer">Friday 18 September 2026 · 16:00 – 17:00 &middot; Second floor</p>
+<p>How does an idea grow into a successful design? Marc Th. van der Voorn takes you through his process: from the first sketch and the choice of material to form, detailing and production.</p><p>Using his own work, he shows how material is not only a practical choice but can be the factor that decides whether a design succeeds.</p>    <p class="talk-klein">In Dutch</p>
+    <p>
+<a class="btn" href="https://www.eventbrite.nl/e/maison-dartiste-2026-tickets-2000085446411">Book</a>
+    </p>
+  </div>
+</div></section>
 
 <figure class="maker-hero">
   <img src="portrait-echo-marc-th-van-der-voorn.jpg" alt="Marc Th. van der Voorn" width="1200" height="1500" fetchpriority="high" decoding="async">

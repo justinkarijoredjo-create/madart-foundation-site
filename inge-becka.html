@@ -23,7 +23,58 @@
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=b9a806d7">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "affiliation": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "description": "Porcelain pushed past its own restraint \u2014 folded, curled and stacked into forms staged to look spontaneous while every gesture is controlled. Made between the Beemster and Jingdezhen, China.", "jobTitle": "Artist", "name": "Inge Be\u010dka", "sameAs": ["https://www.instagram.com/ingebecka.artdesign"], "url": "https://madartfoundation.com/inge-becka.html"}</script>
-</head>
+<style>
+/* Maison d'Artiste — het programma.
+   Hergebruikt de bestaande opmaak: geen nieuwe kleuren, geen nieuwe letters.
+   Dawn Blue blijft voor links en knoppen, nooit voor koppen of datums. */
+.attrib{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 22px}
+.praktisch{margin:0;padding:22px 0 0;border-top:var(--rule)}
+.praktisch > div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:12px 0;
+  border-bottom:var(--hair)}
+.praktisch dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  font-weight:700}
+.praktisch dd{margin:0;font-size:14px;line-height:1.6}
+.dagen{display:flex;gap:0;border-top:var(--rule);border-bottom:var(--rule);margin:34px 0 8px}
+.dag{flex:1 1 0;padding:16px 12px;background:none;border:0;border-right:var(--hair);
+  font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;min-height:54px;
+  transition:background .18s ease}
+.dag:last-child{border-right:0}
+.dag:hover{background:var(--linen)}
+.dag[aria-pressed="true"]{background:var(--dawn);color:var(--chalk)}
+.dagblok[hidden]{display:none}
+.prog{list-style:none;margin:0;padding:0}
+.prog .item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px 0;
+  border-bottom:var(--hair)}
+.prog .item:first-child{border-top:var(--hair)}
+.wanneer{display:block}
+.wanneer .tijd{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.wanneer .waar{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--grey);margin-top:5px;line-height:1.5}
+.wat h3{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 5px}
+.wat .wie{font-size:13px;font-style:italic;color:var(--grey);margin:0 0 9px}
+.wat .tekst{font-size:14px;line-height:1.7;margin:0 0 10px;max-width:62ch}
+.wat .klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 10px}
+.wat .status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0}
+.wat .vrij{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey)}
+.wat .merk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey-light);
+  border:1px solid var(--concrete);padding:4px 8px}
+@media(max-width:760px){
+  .prog .item{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .wanneer{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .wanneer .waar{margin-top:0}
+  .praktisch > div{grid-template-columns:1fr;gap:3px}
+  .dag{font-size:13px;padding:14px 6px}
+}
+.wat .noot{font-size:12.5px;line-height:1.65;color:var(--grey);margin:0 0 10px;
+  padding-left:12px;border-left:2px solid var(--concrete);max-width:60ch}
+.talk-titel{font-size:20px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.talk-wanneer{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 16px}
+.talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 18px}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -47,20 +98,37 @@
 <main id="main">
 
 <section class="maker-head"><div class="wrap">
-  <p class="index"><span class="no">Maison d&#39;Artiste — GLUE</span><span>Sixth floor — The Drawing Room / The Dining Room / The Conservatory / The Parlour · throughout the rooms</span><span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
+  <p class="index"><span class="no">Maison d&#39;Artiste</span><span>Sixth floor — The Drawing Room / The Dining Room / The Conservatory / The Parlour · throughout the rooms</span>
+    <span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
   <div class="head-split">
-    <div>
-      <h1 class="maker-name">Inge Bečka</h1>
-    </div>
+    <div><h1 class="maker-name">Inge Bečka</h1></div>
     <div class="head-intro">
       <p class="lede">Porcelain pushed past its own restraint — folded, curled and stacked into forms staged to look spontaneous while every gesture is controlled. Made between the Beemster and Jingdezhen, China.</p>
       <p class="head-links">
-<a href="https://ingebecka.com">Website</a><a href="https://www.instagram.com/ingebecka.artdesign">Instagram</a><a href="https://wa.me/31643075250?text=Hi%20Inge%2C%20I%27m%20interested%20in%20your%20work%20in%20Maison%20d%27Artiste%2C%20MADART%20FOUNDATION.">Message Inge</a>        <a href="enquire.html">Enquire about a work</a>
+<a href="https://www.instagram.com/ingebecka.artdesign" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/31643075250?text=Hi%20Inge%2C%20I%27m%20interested%20in%20your%20work%20in%20Maison%20d%27Artiste%2C%20MADART%20FOUNDATION." target="_blank" rel="noopener">Message Inge</a>        <a href="enquire.html">Enquire about a work</a>
       </p>
     </div>
   </div>
 </div></section>
 
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>In the programme</span>
+    <span class="of"><a href="maison-dartiste-2026.html">The full programme &#8594;</a></span></h2>
+  <div class="prose" style="">
+    <h3 class="talk-titel">Artist talk</h3>
+    <p class="talk-wanneer">Thursday 17 September 2026 · 13:00 – 13:15 &middot; Sixth floor</p>
+<p>Fifteen minutes with the maker about her work, and about her artist residency in China.</p>    <p>
+<a class="btn" href="https://www.eventbrite.nl/e/maison-dartiste-2026-tickets-2000085446411">Book</a>
+    </p>
+  </div>
+  <div class="prose" style="margin-top:34px">
+    <h3 class="talk-titel">Artist talk</h3>
+    <p class="talk-wanneer">Saturday 19 September 2026 · 13:00 – 13:15 &middot; Sixth floor</p>
+<p>Fifteen minutes with the maker about her work, and about her artist residency in China.</p>    <p>
+<a class="btn" href="https://www.eventbrite.nl/e/maison-dartiste-2026-tickets-2000085446411">Book</a>
+    </p>
+  </div>
+</div></section>
 
 <figure class="maker-hero">
   <img src="portrait-inge-becka.jpg" alt="Inge Bečka" width="1200" height="1500" fetchpriority="high" decoding="async">
