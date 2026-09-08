@@ -1,87 +1,82 @@
-LEVERING — de bekerroute, nu naar de bestaande pagina's
+LEVERING — feedback van Kimberly en Ksenia verwerkt
 MADART FOUNDATION · 8 september 2026
 
-4 bestanden voor de root. De map qr-voor-de-drukker gaat naar Kimberly.
-
-LET OP DE HOOFDLETTERS: MAP.html en PROG.html. Klein geuploadaad betekent dat
-elke beker een 404 geeft.
+7 bestanden, allemaal in de root.
 
 --------------------------------------------------------------------------
-WAT ER IS VERANDERD, EN WAAROM DAT BETER IS
+1. KIMBERLY HAD EEN ECHTE FOUT GEVONDEN
 --------------------------------------------------------------------------
+De wegklikknop van het aanmeldscherm zei "Straight to the map". Dat scherm
+staat op ZES pagina's: building, de vier plattegronden, en de programmapagina.
+Op vijf daarvan klopte die tekst niet, en op de programmapagina was hij
+ronduit verwarrend — je klikt "naar de kaart" weg en komt op het programma.
 
-Ik had twee nieuwe pagina's gebouwd: een eigen plattegrondkiezer en een eigen
-kort programma. Dat was verkeerd begrepen, en het was ook slechter.
+Ik had één tekst geschreven voor twee bestemmingen. Nu staat er:
 
-Een tweede programma naast maison-dartiste-2026.html betekent twee plekken
-onderhouden. Vroeg of laat loopt de kopie uit de pas met het origineel, en dan
-staat er op tienduizend bekers een verkeerde tijd.
+    No thanks, take me through
 
-Nu zijn MAP en PROG DOORVERWIJZINGEN, elk een halve kilobyte:
-
-  MADARTFOUNDATION.COM/MAP   ->  building.html?c=1
-  MADARTFOUNDATION.COM/PROG  ->  maison-dartiste-2026.html?c=1
-
-building.html is de verdiepingkiezer met de doorsnede van het gebouw; van
-daaruit is het een tik naar plan-2, plan-4, plan-6 of plan-7. Omdat de bekers
-over drie verdiepingen rondgaan kan de kaartcode niet rechtstreeks naar een
-verdieping wijzen.
-
-EEN SEIZOENSWISSEL IS NU EEN REGEL.
-In data/site.yaml staat onder campaign:
-
-    map_target:  building.html
-    prog_target: maison-dartiste-2026.html
-
-Bij SEASON 03 wordt prog_target het adres van INLINE. Bouwen, uploaden, klaar.
-Geen beker hoeft weg, geen tweede programma bijwerken.
+En de schermtekst zei ook "The map is below either way". Dat is nu
+"Either way, the page is right behind this one."
 
 --------------------------------------------------------------------------
-HET AANMELDSCHERM STAAT NU OP DE ECHTE PAGINA'S
+2. KSENIA: VERMAAT IS GEEN CONSUMENTENMERK
 --------------------------------------------------------------------------
+Klopt, en het staat ook zo niet in het gebouw. Op de programmapagina heet het
+nu overal NIO House café — bij de lunch op alle drie de dagen, en in het blok
+over wie wat verkoopt.
 
-En het verschijnt ALLEEN als er ?c= in het adres staat — dus alleen bij
-binnenkomst via een beker.
-
-Wie building.html of het programma gewoon opent, uit een zoekresultaat of via
-het menu, ziet niets. Het scherm wordt dan uit de pagina verwijderd voordat
-het ooit in beeld komt.
-
-Dat is bewust. Google zet mobiele pagina's met een schermvullend tussenscherm
-lager in de resultaten, en dit zijn juist de twee pagina's waar we deze week
-aan hebben gewerkt: de programmapagina draagt de 27 evenementen die Google
-inmiddels als geldig leest.
-
-GETEST, ZES GEVALLEN:
-  building, gewoon bezoek       scherm weggehaald
-  building, via een beker       scherm zichtbaar
-  programma, gewoon bezoek      scherm weggehaald
-  programma, via een beker      scherm zichtbaar
-  beker, al eerder gezien       scherm weggehaald
-  na wegklikken                 scherm weg en onthouden
+VERMAAT BLIJFT WEL STAAN OP ANBI.HTML, en dat is bewust. Daar gaat het niet om
+wat de bezoeker ziet maar om wie factureert, en dat is Vermaat. Er staat nu:
+"sold by the café on the first floor, operated by Vermaat, and invoiced by
+them". Beide namen, op de plek waar een fondsbeoordelaar kijkt.
 
 --------------------------------------------------------------------------
-WAT ER MET DE VORIGE VERSIE IS GEBEURD
+3. HET BLOK OVER DE GELDSTROMEN — JOUW VERSIE, MET TWEE AANPASSINGEN
 --------------------------------------------------------------------------
-De twee gebouwde pagina's zijn verwijderd, inclusief de terugvalstanden die ik
-er net in had gezet. Die zijn niet meer nodig: het programma dat de beker toont
-IS de programmapagina, en die wordt sowieso bijgehouden.
+Kimberly vond "Everything else is free" aan het eind raar staan, en "at market
+rate" onnodig. Allebei terecht: die zin kwam na twee alinea's over geld, en
+las daardoor als een geruststelling achteraf.
 
-De QR-codes zijn ONGEWIJZIGD. Dezelfde twee adressen, dezelfde bestanden.
-Als Kimberly ze al heeft doorgestuurd, hoeft er niets opnieuw.
+Jouw alternatief keert dat om, en dat is beter. Het staat er nu, in drie
+regels in plaats van één blok:
+
+    FREE AND OPEN
+    The festival is public and free. Walk in, stay as long as you like.
+    No ticket, no registration. Two things in the programme are paid for.
+
+    OPENING NIGHT
+    Thursday evening, hosted by MADART Foundation as the evening opening of
+    its own exhibition. The ticket pays for putting the evening on. The
+    Foundation buys that production from Curated by MADART, its commercial
+    sister organisation, and pays the same price anyone else would.
+
+    LUNCH
+    Cooked and served by the NIO House café. You pay them directly. None of
+    it reaches the Foundation.
+
+TWEE DINGEN HEB IK VERANDERD AAN JOUW TEKST.
+
+"Your contribution goes to the cost of putting the evening on" is geworden
+"The ticket pays for putting the evening on". Reden: een bijdrage is in
+fiscale zin iets anders dan een kaartje. De Foundation vraagt een ANBI-status
+aan, en daar is een gift aftrekbaar en een toegangskaartje niet. Het woord
+"contribution" naast de naam van een ANBI kan gelezen worden als donatie, en
+dat is precies de verwarring die je niet wilt op de pagina waar geld wordt
+gevraagd.
+
+En "at market rate" is niet geschrapt maar vertaald: "pays the same price
+anyone else would". Kimberly heeft gelijk dat de vakterm hier niet hoort —
+maar de zaak erachter wel. Het ecosysteemdocument eist marktconformiteit, en
+dat is precies wat een beoordelaar natrekt. Jouw formulering zegt hetzelfde in
+gewone woorden, en dat is beter dan allebei.
+
+Op anbi.html staat de vakterm nog wel. Daar hoort hij.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. madartfoundation.com/MAP  ->  komt uit op building.html met het scherm.
-  2. madartfoundation.com/PROG ->  komt uit op het programma met het scherm.
-  3. Vul een adres in. Kijk of hij in Formspark binnenkomt met source "cup".
-  4. Open building.html RECHTSTREEKS. Er hoort GEEN scherm te verschijnen.
-  5. Herlaad /MAP. Het scherm hoort niet terug te komen.
-
---------------------------------------------------------------------------
-NOG STEEDS OPEN
---------------------------------------------------------------------------
-Geen mailplatform. De adressen komen binnen en blijven staan; er kan niets naar
-verstuurd worden. Het scherm belooft "we write when there is something to see".
-Na dit weekend heb je honderden adressen die op die belofte wachten.
+  1. Scan /PROG. De wegklikknop zegt "No thanks, take me through".
+  2. Scan /MAP. Dezelfde knop, en die klopt daar nu ook.
+  3. maison-dartiste-2026.html: drie regels boven het programma, en het woord
+     Vermaat komt er niet meer in voor.
+  4. anbi.html: daar staat Vermaat wel, als exploitant en facturerende partij.
