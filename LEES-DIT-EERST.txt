@@ -1,54 +1,105 @@
-LEVERING — de besloten avonden zijn weg
-MADART FOUNDATION · 8 september 2026
+LEVERING — de programmapagina, korter en met drie verkooppunten
+MADART FOUNDATION · 9 september 2026 · acht dagen voor GLUE
 
-4 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
-DAARNAAST MOET JE TWEE BESTANDEN VERWIJDEREN — zie onderaan.
-
---------------------------------------------------------------------------
-WAT ER IS VERWIJDERD
---------------------------------------------------------------------------
-De kaart "Private evenings" is uit de eventlijst gehaald. Die stond op de
-homepage en op events.html.
-
-En alles wat ernaartoe leidde, want een pagina weghalen zonder de wegwijzers
-levert kapotte links op:
-
-  events.html   de knop "Request a place at a private evening"
-  visit.html    dezelfde knop, naast "Full programme and opening hours"
-  events.html   de zin "From 18:00 the floors are open by invitation only"
-  index.html    de kaart in de eventlijst
-
-Die laatste zin verwees naar iets dat niet meer bestaat. Wat er donderdagavond
-wel is, staat op de programmapagina bij de Opening Night.
-
-De site gaat van 220 naar 218 pagina's, en de sitemap van 208 naar 207
-adressen.
-
-Nagelopen op drie termen — rsvp, "Private evening" en "invitation only" —
-en geen van drieën komt nog ergens voor, ook niet in de broncode.
+13 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
 
 --------------------------------------------------------------------------
-WAT JIJ MOET VERWIJDEREN
+GEMETEN OP EEN SCHERM VAN 390 PIXELS
 --------------------------------------------------------------------------
-Uploaden verwijdert niets. Deze twee moeten weg uit de hoofdmap van de
-repository, net als bij de eerdere opruimingen:
+                          was        nu
+  paginahoogte         7.208 px   3.718 px
+  schermen                 8,5        4,4
+  per onderdeel          488 px     197 px
+  eerste programmaregel 1.911 px   1.048 px
 
-  rsvp.html
-  rsvp-thanks.html
+Meer dan gehalveerd. Waar je eerst 2,3 schermen moest scrollen voordat je iets
+van het programma zag, is dat nu 1,2.
 
-Zolang ze er staan blijven ze bereikbaar voor wie het adres nog heeft, en
-staan ze in de zoekresultaten van Google.
+--------------------------------------------------------------------------
+1. DE TITEL IS DE KNOP
+--------------------------------------------------------------------------
+Tik op een onderdeel en de omschrijving klapt uit. Geen aparte "More"-regel,
+want die kost bij 25 onderdelen een halve schermlengte. Het plusje rechts laat
+zien dat er meer is.
 
-BEDENK OF ER NOG IETS NAAR VERWIJST BUITEN DE SITE. Een eerdere nieuwsbrief,
-een Instagram-bio, een mail aan genodigden. Dat kan ik niet zien. Wie zo'n
-oude link volgt komt straks op de 404-pagina, en die verwijst netjes terug
-naar de site — maar het is beter als je weet waar die links staan.
+Altijd zichtbaar: tijd, verdieping, titel, wie het geeft, en de knop. Dat is
+wat je nodig hebt om te kiezen.
+
+--------------------------------------------------------------------------
+2. DRIE PLEKKEN OM EEN KAARTJE TE KOPEN
+--------------------------------------------------------------------------
+HET TICKETBLOK bovenaan. "Three things are paid for. Everything else is free."
+Klap het uit en er staan drie regels, elk met een prijs als knop die
+rechtstreeks naar afrekenen gaat:
+
+  Opening Night   Thursday 18:00              € 10
+  Lunch           All three days, 10:30–17:00 € 19.50
+  Morning yoga    Saturday 10:00              € 20
+
+De titel links is ook aanklikbaar en springt naar het onderdeel in het
+programma, voor wie eerst wil lezen wat het is.
+
+DIT BLOK KOST 52 PIXELS ingeklapt. Gemeten.
+
+DE DAGBALK loopt mee bij het scrollen en heeft rechts een knop "Tickets".
+Waar je ook bent in het programma, een kaartje is één tik weg.
+
+DE KNOP BIJ ELK ONDERDEEL zegt nu wat hij doet en wat het kost:
+"Tickets — € 10", "Reserve lunch", "Tickets — € 20", "Book".
+
+--------------------------------------------------------------------------
+3. DE YOGA IS BETAALD
+--------------------------------------------------------------------------
+€ 20, zaterdag 10:00, vijftien plaatsen. Stond als gratis in de gegevens.
+
+Nu: het bedrag staat achter de naam van Arben Sinani, op de knop, in het
+ticketblok, en in de machineleesbare data die Google leest. Vier plekken, één
+bedrag.
+
+LET OP — DE YOGA HEEFT GEEN EIGEN VERKOOPLINK.
+Hij wijst naar de algemene Eventbrite-pagina, waar de bezoeker het onderdeel
+zelf moet opzoeken. Bij de lunch en de Opening Night wijst de knop rechtstreeks
+naar de afrekenpagina van dat ene onderdeel, en dat scheelt twee handelingen.
+Maak je ook voor de yoga een eigen link, dan zet ik hem er in vijf minuten in.
+
+--------------------------------------------------------------------------
+4. EEN VALKUIL DIE IK ONDERWEG AFVING
+--------------------------------------------------------------------------
+Het ticketblok verwijst naar onderdelen die op een andere dag staan. De yoga
+staat op zaterdag; als donderdag actief is, is dat blok verborgen.
+
+Zonder ingreep sprong je naar iets onzichtbaars en gebeurde er niets. Nu
+wisselt de pagina eerst naar de juiste dag, springt naar het onderdeel, en
+klapt de omschrijving open.
+
+Getest met een gesimuleerde klok op 17 september: klik op "Morning yoga" in het
+ticketblok -> dag wisselt naar zaterdag -> gescrold naar za-yoga ->
+omschrijving uitgeklapt.
+
+--------------------------------------------------------------------------
+5. VERDER INGEKORT
+--------------------------------------------------------------------------
+Het praktische blok van acht regels terug naar drie: Where, When, Entry. De
+uitleg over de geldstromen zit nu in het ticketblok, bij de bedragen waar hij
+over gaat.
+
+De dagkop onder de tabbladen is weg; die herhaalde het tabblad dat al actief is.
+Het lede is van 50 naar 22 woorden.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. madartfoundation.com/rsvp.html geeft een 404.
-  2. events.html: de kaart "Private evenings" staat er niet meer, en de zin
-     over 18:00 ook niet.
-  3. visit.html: onder de tekst staat nog één knop, niet twee.
-  4. De homepage toont twee eventkaarten in plaats van drie.
+  1. Open op je telefoon. Het programma begint binnen anderhalf scherm.
+  2. Tik op een titel: de omschrijving klapt uit.
+  3. Scroll: de dagknoppen en "Tickets" blijven bovenaan staan.
+  4. Klap het ticketblok uit en tik op € 20 bij de yoga. Je hoort op de
+     Eventbrite-afrekenpagina uit te komen.
+  5. Tik in het ticketblok op de tekst "Morning yoga". De pagina hoort naar
+     zaterdag te wisselen en het onderdeel open te klappen.
+
+--------------------------------------------------------------------------
+NOG STEEDS OPEN
+--------------------------------------------------------------------------
+Nicola Cherubini, zaterdag 15:00. Het enige onderdeel zonder titel en zonder
+omschrijving. In deze opzet valt dat extra op: het is het enige dat niet
+uitklapt, want er is niets om te tonen.

@@ -75,6 +75,63 @@
   margin:0 0 16px}
 .talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
   margin:0 0 18px}
+</style>
+<style>
+/* Inklapbare onderdelen. Wat je nodig hebt om te kiezen staat er altijd; de
+   omschrijving verschijnt pas als je erop tikt. Op een telefoon is dat het
+   verschil tussen scrollen en overzien. */
+.uitleg{border-top:var(--rule);border-bottom:var(--hair);margin:0 0 8px}
+.uitleg summary{padding:15px 0;font-size:13px;color:var(--grey);cursor:pointer;
+  list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+.uitleg summary::-webkit-details-marker{display:none}
+.uitleg summary::before{content:"+";font-weight:700;color:var(--dawn);width:12px}
+.uitleg[open] summary::before{content:"\2212"}
+.uitleg p{font-size:13.5px;line-height:1.65;color:var(--grey);margin:0 0 12px;max-width:62ch}
+
+/* De titel is de knop. Geen aparte "More"-regel, want die kost bij 25
+   onderdelen een halve schermlengte. */
+.meer summary{list-style:none;cursor:pointer;display:block;position:relative;
+  padding-right:26px}
+.meer summary::-webkit-details-marker{display:none}
+.meer summary::after{content:"\002B";position:absolute;right:0;top:2px;
+  font-size:15px;line-height:1;color:var(--dawn)}
+.meer[open] summary::after{content:"\2212"}
+.meer summary h3{margin:0 0 4px}
+.meer summary .wie{display:block;font-size:13px;font-style:italic;color:var(--grey)}
+.meer summary:hover h3{color:var(--dawn)}
+.meer[open] summary{margin-bottom:10px}
+.meer .tekst:last-of-type{margin-bottom:4px}
+
+/* De dagkeuze blijft meelopen: bij drie dagen wil je kunnen wisselen zonder
+   terug naar boven te scrollen. */
+.dagen{position:sticky;top:0;z-index:20;background:var(--chalk)}
+
+.prog .item{padding:18px 0}
+@media(max-width:760px){
+  .prog .item{padding:16px 0;gap:6px}
+  .wat h3{font-size:17px}
+  .wanneer .tijd{font-size:14px}
+  .wat .status{margin-top:10px}
+}
+</style>
+<style>
+/* Het ticketblok: drie betaalde onderdelen, elk met een rechtstreekse
+   doorklik naar afrekenen. */
+.kaartjes{list-style:none;margin:4px 0 16px;padding:0}
+.kaartjes li{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px 0;border-bottom:var(--hair)}
+.kaartjes li:first-child{border-top:var(--hair)}
+.kaartje-wat{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kaartje-titel{font-size:15px;font-weight:700;line-height:1.25;color:var(--ink);
+  text-decoration:none}
+.kaartje-titel:hover{color:var(--dawn)}
+.kaartje-wanneer{font-size:12px;color:var(--grey)}
+.kaartjes .btn{flex:0 0 auto;padding:11px 18px;font-size:13px;white-space:nowrap;
+  min-height:44px}
+/* De ingang die meeloopt met de dagbalk. */
+.kaartjes-knop{margin-left:auto;display:inline-flex;align-items:center;
+  text-decoration:none;color:var(--dawn);font-weight:700}
+.kaartjes-knop:hover{background:var(--dawn);color:var(--chalk)}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -120,7 +177,7 @@
     <p class="talk-wanneer">Thursday 17 September 2026 · 14:00 – 14:45 &middot; Sixth floor</p>
 <p>Maaike Rabbinge studied psychology in Utrecht and political science in Amsterdam, became a circular designer, and now runs the collective ECHO. Loutje Hoekstra never went to an academy and taught herself everything she knows. Sandra Keja Planken spent a career as an interior architect before she began making autonomous work.</p><p>Three makers who arrived here by three different routes, and not one of them the route the system recognises. Dutch funds date a career from a first presentation inside the established circuit. Galleries want a signature they can place. Both measure a path that none of these three walked — and neither has anything to do with the quality of the work.</p>    <p class="talk-klein">30 places</p>
     <p>
-<a class="btn" href="https://www.eventbrite.nl/e/maison-dartiste-2026-tickets-2000085446411">Book &mdash; 30 places</a>
+<a class="btn" href="https://www.eventbrite.com/checkout-external?eid=2000085446411">Book &mdash; 30 places</a>
     </p>
   </div>
 </div></section>
