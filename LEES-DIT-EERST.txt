@@ -1,64 +1,80 @@
-LEVERING — twee correcties op de programmapagina
-MADART FOUNDATION · 9 september 2026 · acht dagen voor GLUE
+LEVERING — de makerspagina, beeld eerst
+MADART FOUNDATION · 10 september 2026 · zeven dagen voor GLUE
 
-9 bestanden, allemaal in de root. Geen sitemap nodig.
-
-Het zijn er negen omdat de opmaak van het programma wordt meegeladen op elke
-pagina die een programmaonderdeel toont — de acht makerspagina's met een talk
-of workshop, plus de Table Talk-pagina.
+1 bestand: makers.html.
 
 --------------------------------------------------------------------------
-1. DE DAGBALK TOONT ALLEEN DE DRIE DATA
+WAT DE ROMMELIGHEID VEROORZAAKTE
 --------------------------------------------------------------------------
-De blauwe knop "Tickets" is weg. De drie dagknoppen vullen nu de balk:
-gemeten op 390 pixels zijn ze elk 117 breed en vullen ze samen precies de
-350 pixels van de balk.
+Niet de indeling — die was al per expo. Het waren drie dingen tegelijk, en
+het eerste was een echte fout.
 
-De balk blijft meelopen bij het scrollen, zodat je van dag kunt wisselen
-zonder terug naar boven.
+DE PLATTEGRONDLINK STOND ALS EIGEN VAKJE IN HET RASTER.
+"Level 4 · Gallery 2 →" was een zelfstandig element náást de portretkaart, niet
+eronder. Elke maker vulde daardoor TWEE cellen van het raster: een portret,
+dan een losse tekstregel, dan het volgende portret.
 
---------------------------------------------------------------------------
-2. HET TICKETBLOK GAAT NU RECHTSTREEKS NAAR AFREKENEN
---------------------------------------------------------------------------
-De titel wees naar het programmaonderdeel in de lijst. Dat was een omweg: wie
-op een betaald onderdeel klikt wil een kaartje, niet een omschrijving.
+Op een telefoon met twee kolommen betekende dat: links een gezicht, rechts
+een regeltje tekst. Negentien keer. Dat is wat je zag.
 
-De HELE REGEL is nu een doorklik naar de afrekenpagina — de titel, de tijd en
-de prijs. Drie doelen, geen tussenstap:
+Gemeten: 38 rasteritems voor 19 makers.
 
-  Opening Night   Thursday 18:00               € 10
-      -> eventbrite.com/checkout-external?eid=2000330882517
-  Lunch           All three days, 10:30–17:00  € 19.50
-      -> madart.weticket.io/glue-lunch-nio-house/shop
-  Morning yoga    Saturday 10:00               € 20
-      -> eventbrite.com/checkout-external?eid=2000085446411
+DRIE REGELS TEKST ONDER ELK PORTRET.
+Naam, verdieping, aantal werken. Dertig keer drie regels onder dertig
+portretten werkt "image first" tegen.
 
-Nagemeten: drie doorklikken in het blok, en geen enkel anker meer dat naar de
-programmalijst wijst.
+TWEE BLOKKEN ZONDER BEELD.
+Collectives en Studios stonden als kale opsommingen onderaan, terwijl alle zes
+gewoon een portret hebben. Het einde van de pagina oogde daardoor anders dan
+het begin.
 
 --------------------------------------------------------------------------
-WAT IK HEB LATEN STAAN
+WAT ER NU STAAT
 --------------------------------------------------------------------------
-De dagwissel bij een anker blijft in de pagina. Die was gebouwd voor het
-ticketblok, maar hij is ook nodig voor de verwijzingen vanaf de makerspagina's:
-wie vanaf de pagina van Loutje Hoekstra naar haar workshop springt, komt in het
-vrijdagblok terecht dat verborgen kan zijn.
+Vier blokken, alle vier hetzelfde raster, alle vier alleen beeld en naam:
+
+  01  Season 02 — GROUND                  19 makers
+  02  Maison d'Artiste — GLUE Amsterdam   11 makers
+  —   Collectives                          2
+  —   Studios and brands shown alongside   4
+
+Zesendertig kaarten in plaats van dertig plus twee lijstjes. Onder elk portret
+staat alleen de naam. De verdieping en het aantal werken staan op de
+makerspagina zelf, één tik verder — daar horen ze.
+
+Het omslaan naar een werkfoto bij hover blijft, ook bij de collectieven en de
+merkpartners.
+
+De toelichting boven de twee onderste blokken blijft staan. Daar staat het
+onderscheid dat ertoe doet: partners zijn niet gecureerd, krijgen geen fee en
+geen productiebudget, en worden niet aan The Dimensions getoetst.
+
+--------------------------------------------------------------------------
+GEMETEN, VOOR EN NA
+--------------------------------------------------------------------------
+                         was        nu
+  telefoon (390px)   13,9 schermen   7,7
+  laptop (1280px)    10,0 schermen   5,9
+  kaarthoogte           306 px      250 px
+  rasteritems per 19     38          19
+
+Bijna gehalveerd, met zes kaarten MEER erop.
+
+Twee kolommen op een telefoon houd ik aan. Drie zou de portretten op 97 pixels
+brengen, en een gezicht van 97 pixels is geen beeld meer maar een postzegel —
+dat werkt tegen het uitgangspunt.
+
+--------------------------------------------------------------------------
+GECONTROLEERD
+--------------------------------------------------------------------------
+Alle 36 makers, collectieven en partners zijn nog vanaf deze pagina
+bereikbaar. Geen enkele link kwijtgeraakt. 8.327 links op de site, nul kapot.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. De dagbalk toont alleen Thu 17, Fri 18, Sat 19.
-  2. Klap het ticketblok uit en tik op de tekst "Morning yoga". Je hoort
-     rechtstreeks op Eventbrite uit te komen, niet in het programma.
-  3. Tik op "Lunch": weticket.
-  4. Scroll: de dagbalk blijft bovenaan.
-
---------------------------------------------------------------------------
-NOG STEEDS OPEN
---------------------------------------------------------------------------
-De yoga wijst naar de algemene Eventbrite-pagina, waar de bezoeker het
-onderdeel zelf moet opzoeken. Bij de lunch en de Opening Night gaat de knop
-naar de afrekenpagina van dat ene onderdeel. Een eigen link voor de yoga
-scheelt twee handelingen.
-
-En Nicola Cherubini, zaterdag 15:00: nog steeds zonder titel en omschrijving.
+  1. Open op je telefoon: twee kolommen portretten, alleen namen eronder,
+     geen losse tekstregels meer tussen de gezichten.
+  2. Scroll naar beneden: Collectives en Studios zien er nu hetzelfde uit
+     als de twee expo-blokken.
+  3. Ga met de muis over een portret: de werkfoto verschijnt.
