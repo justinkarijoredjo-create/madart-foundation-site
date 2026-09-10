@@ -121,17 +121,18 @@
 .kaartjes li{display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:12px 0;border-bottom:var(--hair)}
 .kaartjes li:first-child{border-top:var(--hair)}
-.kaartje-wat{display:flex;flex-direction:column;gap:2px;min-width:0}
-.kaartje-titel{font-size:15px;font-weight:700;line-height:1.25;color:var(--ink);
-  text-decoration:none}
-.kaartje-titel:hover{color:var(--dawn)}
-.kaartje-wanneer{font-size:12px;color:var(--grey)}
+/* De hele regel gaat naar afrekenen, niet alleen de knop. Wie hier klikt wil
+   een kaartje. */
+.kaartje-wat{display:flex;flex-direction:column;gap:2px;min-width:0;
+  text-decoration:none;flex:1 1 auto;padding:4px 0}
+.kaartje-titel{display:block;font-size:15px;font-weight:700;line-height:1.25;color:var(--ink)}
+.kaartje-wat:hover .kaartje-titel{color:var(--dawn)}
+.kaartje-wanneer{display:block;font-size:12px;color:var(--grey)}
 .kaartjes .btn{flex:0 0 auto;padding:11px 18px;font-size:13px;white-space:nowrap;
   min-height:44px}
-/* De ingang die meeloopt met de dagbalk. */
-.kaartjes-knop{margin-left:auto;display:inline-flex;align-items:center;
-  text-decoration:none;color:var(--dawn);font-weight:700}
-.kaartjes-knop:hover{background:var(--dawn);color:var(--chalk)}
+/* Alleen de drie dagen, gecentreerd. */
+.dagen{justify-content:center}
+.dagen .dag{flex:0 1 33.33%}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

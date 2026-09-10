@@ -1,105 +1,64 @@
-LEVERING — de programmapagina, korter en met drie verkooppunten
+LEVERING — twee correcties op de programmapagina
 MADART FOUNDATION · 9 september 2026 · acht dagen voor GLUE
 
-13 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
+9 bestanden, allemaal in de root. Geen sitemap nodig.
+
+Het zijn er negen omdat de opmaak van het programma wordt meegeladen op elke
+pagina die een programmaonderdeel toont — de acht makerspagina's met een talk
+of workshop, plus de Table Talk-pagina.
 
 --------------------------------------------------------------------------
-GEMETEN OP EEN SCHERM VAN 390 PIXELS
+1. DE DAGBALK TOONT ALLEEN DE DRIE DATA
 --------------------------------------------------------------------------
-                          was        nu
-  paginahoogte         7.208 px   3.718 px
-  schermen                 8,5        4,4
-  per onderdeel          488 px     197 px
-  eerste programmaregel 1.911 px   1.048 px
+De blauwe knop "Tickets" is weg. De drie dagknoppen vullen nu de balk:
+gemeten op 390 pixels zijn ze elk 117 breed en vullen ze samen precies de
+350 pixels van de balk.
 
-Meer dan gehalveerd. Waar je eerst 2,3 schermen moest scrollen voordat je iets
-van het programma zag, is dat nu 1,2.
+De balk blijft meelopen bij het scrollen, zodat je van dag kunt wisselen
+zonder terug naar boven.
 
 --------------------------------------------------------------------------
-1. DE TITEL IS DE KNOP
+2. HET TICKETBLOK GAAT NU RECHTSTREEKS NAAR AFREKENEN
 --------------------------------------------------------------------------
-Tik op een onderdeel en de omschrijving klapt uit. Geen aparte "More"-regel,
-want die kost bij 25 onderdelen een halve schermlengte. Het plusje rechts laat
-zien dat er meer is.
+De titel wees naar het programmaonderdeel in de lijst. Dat was een omweg: wie
+op een betaald onderdeel klikt wil een kaartje, niet een omschrijving.
 
-Altijd zichtbaar: tijd, verdieping, titel, wie het geeft, en de knop. Dat is
-wat je nodig hebt om te kiezen.
+De HELE REGEL is nu een doorklik naar de afrekenpagina — de titel, de tijd en
+de prijs. Drie doelen, geen tussenstap:
 
---------------------------------------------------------------------------
-2. DRIE PLEKKEN OM EEN KAARTJE TE KOPEN
---------------------------------------------------------------------------
-HET TICKETBLOK bovenaan. "Three things are paid for. Everything else is free."
-Klap het uit en er staan drie regels, elk met een prijs als knop die
-rechtstreeks naar afrekenen gaat:
+  Opening Night   Thursday 18:00               € 10
+      -> eventbrite.com/checkout-external?eid=2000330882517
+  Lunch           All three days, 10:30–17:00  € 19.50
+      -> madart.weticket.io/glue-lunch-nio-house/shop
+  Morning yoga    Saturday 10:00               € 20
+      -> eventbrite.com/checkout-external?eid=2000085446411
 
-  Opening Night   Thursday 18:00              € 10
-  Lunch           All three days, 10:30–17:00 € 19.50
-  Morning yoga    Saturday 10:00              € 20
-
-De titel links is ook aanklikbaar en springt naar het onderdeel in het
-programma, voor wie eerst wil lezen wat het is.
-
-DIT BLOK KOST 52 PIXELS ingeklapt. Gemeten.
-
-DE DAGBALK loopt mee bij het scrollen en heeft rechts een knop "Tickets".
-Waar je ook bent in het programma, een kaartje is één tik weg.
-
-DE KNOP BIJ ELK ONDERDEEL zegt nu wat hij doet en wat het kost:
-"Tickets — € 10", "Reserve lunch", "Tickets — € 20", "Book".
+Nagemeten: drie doorklikken in het blok, en geen enkel anker meer dat naar de
+programmalijst wijst.
 
 --------------------------------------------------------------------------
-3. DE YOGA IS BETAALD
+WAT IK HEB LATEN STAAN
 --------------------------------------------------------------------------
-€ 20, zaterdag 10:00, vijftien plaatsen. Stond als gratis in de gegevens.
-
-Nu: het bedrag staat achter de naam van Arben Sinani, op de knop, in het
-ticketblok, en in de machineleesbare data die Google leest. Vier plekken, één
-bedrag.
-
-LET OP — DE YOGA HEEFT GEEN EIGEN VERKOOPLINK.
-Hij wijst naar de algemene Eventbrite-pagina, waar de bezoeker het onderdeel
-zelf moet opzoeken. Bij de lunch en de Opening Night wijst de knop rechtstreeks
-naar de afrekenpagina van dat ene onderdeel, en dat scheelt twee handelingen.
-Maak je ook voor de yoga een eigen link, dan zet ik hem er in vijf minuten in.
-
---------------------------------------------------------------------------
-4. EEN VALKUIL DIE IK ONDERWEG AFVING
---------------------------------------------------------------------------
-Het ticketblok verwijst naar onderdelen die op een andere dag staan. De yoga
-staat op zaterdag; als donderdag actief is, is dat blok verborgen.
-
-Zonder ingreep sprong je naar iets onzichtbaars en gebeurde er niets. Nu
-wisselt de pagina eerst naar de juiste dag, springt naar het onderdeel, en
-klapt de omschrijving open.
-
-Getest met een gesimuleerde klok op 17 september: klik op "Morning yoga" in het
-ticketblok -> dag wisselt naar zaterdag -> gescrold naar za-yoga ->
-omschrijving uitgeklapt.
-
---------------------------------------------------------------------------
-5. VERDER INGEKORT
---------------------------------------------------------------------------
-Het praktische blok van acht regels terug naar drie: Where, When, Entry. De
-uitleg over de geldstromen zit nu in het ticketblok, bij de bedragen waar hij
-over gaat.
-
-De dagkop onder de tabbladen is weg; die herhaalde het tabblad dat al actief is.
-Het lede is van 50 naar 22 woorden.
+De dagwissel bij een anker blijft in de pagina. Die was gebouwd voor het
+ticketblok, maar hij is ook nodig voor de verwijzingen vanaf de makerspagina's:
+wie vanaf de pagina van Loutje Hoekstra naar haar workshop springt, komt in het
+vrijdagblok terecht dat verborgen kan zijn.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. Open op je telefoon. Het programma begint binnen anderhalf scherm.
-  2. Tik op een titel: de omschrijving klapt uit.
-  3. Scroll: de dagknoppen en "Tickets" blijven bovenaan staan.
-  4. Klap het ticketblok uit en tik op € 20 bij de yoga. Je hoort op de
-     Eventbrite-afrekenpagina uit te komen.
-  5. Tik in het ticketblok op de tekst "Morning yoga". De pagina hoort naar
-     zaterdag te wisselen en het onderdeel open te klappen.
+  1. De dagbalk toont alleen Thu 17, Fri 18, Sat 19.
+  2. Klap het ticketblok uit en tik op de tekst "Morning yoga". Je hoort
+     rechtstreeks op Eventbrite uit te komen, niet in het programma.
+  3. Tik op "Lunch": weticket.
+  4. Scroll: de dagbalk blijft bovenaan.
 
 --------------------------------------------------------------------------
 NOG STEEDS OPEN
 --------------------------------------------------------------------------
-Nicola Cherubini, zaterdag 15:00. Het enige onderdeel zonder titel en zonder
-omschrijving. In deze opzet valt dat extra op: het is het enige dat niet
-uitklapt, want er is niets om te tonen.
+De yoga wijst naar de algemene Eventbrite-pagina, waar de bezoeker het
+onderdeel zelf moet opzoeken. Bij de lunch en de Opening Night gaat de knop
+naar de afrekenpagina van dat ene onderdeel. Een eigen link voor de yoga
+scheelt twee handelingen.
+
+En Nicola Cherubini, zaterdag 15:00: nog steeds zonder titel en omschrijving.
