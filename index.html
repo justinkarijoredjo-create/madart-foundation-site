@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
-<link rel="stylesheet" href="style.css?v=0e8743d6">
+<link rel="stylesheet" href="style.css?v=8a2148ed">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017 PB", "streetAddress": "Leidsestraat 32-34"}, "description": "MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.", "email": "contact@madartfoundation.com", "identifier": [{"@type": "PropertyValue", "name": "KvK", "value": "99713853"}, {"@type": "PropertyValue", "name": "RSIN", "value": "869102308"}], "legalName": "Stichting The Bloys", "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017 PB", "streetAddress": "Leidsestraat 32-34"}, "name": "NIO House Amsterdam"}, "name": "MADART Foundation", "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "closes": "18:00", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "10:00"}, "sameAs": ["https://www.instagram.com/madartfoundation"], "url": "https://madartfoundation.com", "vatID": null}</script>
 </head>
 <body class="home">
@@ -52,11 +52,11 @@
 
 <div class="hero full" data-carousel>
   <div class="frames">
-    <img src="hero-ground-01.jpg" alt="Gallery 4: paintings by Loutje Hoekstra above work by the thirteen makers of ECHO on the gallery floor" width="2400" height="1601" fetchpriority="high" decoding="async" class="frame on">
-    <img src="hero-ground-02.jpg" alt="Gallery 2: faceted volumes from Aad Kruiswijk&#39;s MineralisM series on the floor, dot paintings by Rogier Bosschaart on the wall" width="2400" height="1601" loading="lazy" decoding="async" class="frame">
-    <img src="hero-ground-03.jpg" alt="Gallery 3: a woven work by Sandra Keja Planken" width="2400" height="1601" loading="lazy" decoding="async" class="frame">
-  </div>
-  <div class="hero-foot">
+    <a class="frame on kaal" href="maison-dartiste-2026.html"
+       data-kaal="1" aria-label="GLUE Amsterdam design route, 17 to 19 September 2026">
+      <img src="c-event-glue-2026.jpg" alt="GLUE Amsterdam design route, 17 to 19 September 2026" width="1600" height="900"
+fetchpriority="high"           decoding="async"></a>    <img src="hero-ground-01.jpg" alt="Gallery 4: paintings by Loutje Hoekstra above work by the thirteen makers of ECHO on the gallery floor" width="2400" height="1601" loading="lazy" decoding="async" class="frame">    <img src="hero-ground-02.jpg" alt="Gallery 2: faceted volumes from Aad Kruiswijk&#39;s MineralisM series on the floor, dot paintings by Rogier Bosschaart on the wall" width="2400" height="1601" loading="lazy" decoding="async" class="frame">    <img src="hero-ground-03.jpg" alt="Gallery 3: a woven work by Sandra Keja Planken" width="2400" height="1601" loading="lazy" decoding="async" class="frame">  </div>
+  <div class="hero-foot kaal">
     <div class="wrap">
       <p class="code">SEASON 02 · NOW SHOWING</p>
       <h1 class="display">GROUND</h1>
@@ -67,6 +67,7 @@
       <button role="tab" aria-label="View 1" aria-selected="true"></button>
       <button role="tab" aria-label="View 2"></button>
       <button role="tab" aria-label="View 3"></button>
+      <button role="tab" aria-label="View 4"></button>
     </div>
   </div>
   <div class="scrollcue" aria-hidden="true"><span></span></div>
@@ -592,14 +593,19 @@
   var carousel = document.querySelector('[data-carousel]');
   if (carousel) {
     var frames = carousel.querySelector('.frames'),
-        imgs = [].slice.call(frames.querySelectorAll('img')),
+        imgs = [].slice.call(frames.querySelectorAll('.frame')),
         dots = [].slice.call(carousel.querySelectorAll('.dots button'));
     if (imgs.length > 1) {
       frames.classList.add('js');
       var i = 0, timer = null;
+      /* Een beeld dat op zichzelf staat krijgt geen seizoenstekst eroverheen.
+         De voettekst verdwijnt dan mee, inclusief de stipjes, zodat het beeld
+         onbedekt blijft. */
+      var voet = carousel.querySelector('.hero-foot');
       var show = function(n){
         i = (n + imgs.length) % imgs.length;
         imgs.forEach(function(im,k){ im.classList.toggle('on', k===i); });
+        if (voet) voet.classList.toggle('kaal', imgs[i].dataset.kaal === '1');
         dots.forEach(function(d,k){
           if (k===i) d.setAttribute('aria-selected','true'); else d.removeAttribute('aria-selected');
         });
