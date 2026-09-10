@@ -836,4 +836,11 @@ svg.elev{overflow:visible}
 .nubezig h2{font-size:clamp(22px,3.4vw,32px);line-height:1.15;font-weight:700;margin:0 0 10px;
   max-width:20ch;text-wrap:balance}
 .nubezig .regel{font-size:15px;line-height:1.6;color:var(--grey);margin:0 0 20px;max-width:46ch}
-@media(max-width:760px){ .nubezig{padding:26px 0} }
+.nubezig .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+@media(max-width:760px){
+  .nubezig{padding:26px 0}
+  /* Op een telefoon onder elkaar en over de volle breedte: twee knoppen naast
+     elkaar worden daar elk te smal om te raken. */
+  .nubezig .knoppen{flex-direction:column;gap:8px}
+  .nubezig .knoppen .btn,.nubezig .knoppen .btn-outline{width:100%;text-align:center}
+}
