@@ -1,80 +1,64 @@
-LEVERING — de makerspagina, beeld eerst
+LEVERING — de Before Noon Club is betaald
 MADART FOUNDATION · 10 september 2026 · zeven dagen voor GLUE
 
-1 bestand: makers.html.
+1 bestand: maison-dartiste-2026.html.
 
 --------------------------------------------------------------------------
-WAT DE ROMMELIGHEID VEROORZAAKTE
+DRIE PRIJZEN, NIET EEN
 --------------------------------------------------------------------------
-Niet de indeling — die was al per expo. Het waren drie dingen tegelijk, en
-het eerste was een echte fout.
+  Pre-Sale Ticket      € 12,00 + € 1,00 servicekosten
+  General Admission    € 15,00 + € 1,00
+  Door Ticket          € 18,00 + € 1,00   vanaf 19 sept 08:00
 
-DE PLATTEGRONDLINK STOND ALS EIGEN VAKJE IN HET RASTER.
-"Level 4 · Gallery 2 →" was een zelfstandig element náást de portretkaart, niet
-eronder. Elke maker vulde daardoor TWEE cellen van het raster: een portret,
-dan een losse tekstregel, dan het volgende portret.
+Dat is een trap die tijdens het weekend verschuift. Op vier plekken verwerkt:
 
-Op een telefoon met twee kolommen betekende dat: links een gezicht, rechts
-een regeltje tekst. Negentien keer. Dat is wat je zag.
+DE KNOP zegt "Tickets — from € 12". Niet "€ 12" kaal, want dat bedrag geldt
+alleen in de voorverkoop en zou zaterdagochtend niet meer kloppen.
 
-Gemeten: 38 rasteritems voor 19 makers.
+DE OMSCHRIJVING noemt alle drie de trappen plus de servicekosten:
+  "Pre-sale € 12, general admission € 15, at the door € 18. One euro booking
+   fee per ticket. Sold by Before Noon Club."
 
-DRIE REGELS TEKST ONDER ELK PORTRET.
-Naam, verdieping, aantal werken. Dertig keer drie regels onder dertig
-portretten werkt "image first" tegen.
+De servicekosten staan erbij omdat een bezoeker anders bij het afrekenen een
+ander bedrag ziet dan op de site. Een euro is klein, maar het verschil tussen
+verwacht en werkelijk is dat niet.
 
-TWEE BLOKKEN ZONDER BEELD.
-Collectives en Studios stonden als kale opsommingen onderaan, terwijl alle zes
-gewoon een portret hebben. Het einde van de pagina oogde daardoor anders dan
-het begin.
+HET TICKETBLOK BOVENAAN heeft nu vier regels:
+  Opening Night      Thursday 18:00              € 10
+  Lunch              All three days              € 19.50
+  Morning yoga       Saturday 10:00              € 20
+  Before Noon Club   Saturday 11:00–14:00        from € 12
 
---------------------------------------------------------------------------
-WAT ER NU STAAT
---------------------------------------------------------------------------
-Vier blokken, alle vier hetzelfde raster, alle vier alleen beeld en naam:
+Elke regel gaat rechtstreeks naar de eigen afrekenpagina.
 
-  01  Season 02 — GROUND                  19 makers
-  02  Maison d'Artiste — GLUE Amsterdam   11 makers
-  —   Collectives                          2
-  —   Studios and brands shown alongside   4
-
-Zesendertig kaarten in plaats van dertig plus twee lijstjes. Onder elk portret
-staat alleen de naam. De verdieping en het aantal werken staan op de
-makerspagina zelf, één tik verder — daar horen ze.
-
-Het omslaan naar een werkfoto bij hover blijft, ook bij de collectieven en de
-merkpartners.
-
-De toelichting boven de twee onderste blokken blijft staan. Daar staat het
-onderscheid dat ertoe doet: partners zijn niet gecureerd, krijgen geen fee en
-geen productiebudget, en worden niet aan The Dimensions getoetst.
+DE MACHINELEESBARE DATA draagt een prijsbereik in plaats van een prijs:
+lowPrice 12, highPrice 18. Google toont dan "vanaf € 12" en niet een bedrag
+dat maar voor een deel van de kaartjes geldt.
 
 --------------------------------------------------------------------------
-GEMETEN, VOOR EN NA
+DE KOP TELT ZICHZELF
 --------------------------------------------------------------------------
-                         was        nu
-  telefoon (390px)   13,9 schermen   7,7
-  laptop (1280px)    10,0 schermen   5,9
-  kaarthoogte           306 px      250 px
-  rasteritems per 19     38          19
+Er stond "Three things are paid for". Dat klopte tot vandaag.
 
-Bijna gehalveerd, met zes kaarten MEER erop.
-
-Twee kolommen op een telefoon houd ik aan. Drie zou de portretten op 97 pixels
-brengen, en een gezicht van 97 pixels is geen beeld meer maar een postzegel —
-dat werkt tegen het uitgangspunt.
+Die zin telt nu het aantal betaalde onderdelen en schrijft het getal voluit.
+Nu staat er "Four things are paid for". Komt er een vijfde bij, dan verandert
+de kop mee — dat is precies het soort zin dat anders stilletjes gaat liegen.
 
 --------------------------------------------------------------------------
-GECONTROLEERD
+VIER TICKETAANBIEDERS
 --------------------------------------------------------------------------
-Alle 36 makers, collectieven en partners zijn nog vanaf deze pagina
-bereikbaar. Geen enkele link kwijtgeraakt. 8.327 links op de site, nul kapot.
+  Eventbrite   het algemene programma, de Opening Night, de yoga
+  weticket     de lunch
+  weeztix      de Before Noon Club
+
+Voor een bezoeker onzichtbaar: elke knop gaat naar de juiste plek. Maar na
+afloop staan je deelnemersgegevens op drie systemen, en dat is het cijfer dat
+je voor de subsidieaanvraag nodig hebt.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. Open op je telefoon: twee kolommen portretten, alleen namen eronder,
-     geen losse tekstregels meer tussen de gezichten.
-  2. Scroll naar beneden: Collectives en Studios zien er nu hetzelfde uit
-     als de twee expo-blokken.
-  3. Ga met de muis over een portret: de werkfoto verschijnt.
+  1. Klap het ticketblok uit: vier regels, kop zegt "Four things are paid for".
+  2. Tik op "Before Noon Club": weeztix.shop/v9ve6956.
+  3. Zaterdag 11:00: de knop zegt "Tickets — from € 12", en de omschrijving
+     noemt de drie trappen.
