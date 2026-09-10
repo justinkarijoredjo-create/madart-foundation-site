@@ -1,0 +1,125 @@
+MADART FOUNDATION — NIEUWSBRIEF 01
+GLUE Amsterdam 2026 · Maison d'Artiste · 17–19 september
+
+
+WAT ZIT ER IN DEZE MAP
+──────────────────────────────────────────────
+MADART_Nieuwsbrief_01_VERZENDKLAAR.html
+    Dit bestand upload je in Laposta.
+    De zeven foto's staan erin als verwijzing naar
+    madartfoundation.com/images/nieuwsbrief/
+
+MADART_Nieuwsbrief_01_PREVIEW.html
+    Alleen om te bekijken. Dubbelklik en hij opent in je
+    browser met alle beelden erin. NIET uploaden in Laposta —
+    de foto's zitten hier ingebakken en Gmail gooit die eruit.
+
+images/nieuwsbrief/   (7 JPG's)
+    Sleep deze hele map naar de root van je GitHub-repo.
+    De mappenstructuur klopt al met het HTML-bestand.
+
+
+STAP 1 — FOTO'S ONLINE
+──────────────────────────────────────────────
+Sleep de map "images" naar de root van je repo en commit.
+Heb je al een map "images"? Dan alleen de submap
+"nieuwsbrief" erin zetten.
+
+Controleer daarna één URL in je browser:
+https://madartfoundation.com/images/nieuwsbrief/madart-nb-01-koepel.jpg
+
+Laadt die, dan laden alle zeven.
+
+Liever via de mediabibliotheek van Laposta? Upload de zeven
+JPG's daar en vervang in het HTML-bestand de zeven regels
+src="https://madartfoundation.com/images/nieuwsbrief/..."
+door de URL's die Laposta teruggeeft.
+
+
+STAP 2 — IMPORTEREN IN LAPOSTA
+──────────────────────────────────────────────
+Campagnes → nieuwe campagne → sjabloon: importeren van een
+kant-en-klare nieuwsbrief → vanaf je eigen computer →
+upload MADART_Nieuwsbrief_01_VERZENDKLAAR.html
+
+BELANGRIJK: in stap 3 biedt Laposta aan om je CSS inline te
+plaatsen. NIET DOEN. Alle opmaak staat al inline; het enige
+in de style-tag zijn de media queries voor telefoons.
+
+De afmeldlink, de wijzigingslink en de webversielink zitten er
+al in als lp-tags. Laposta herkent ze automatisch.
+
+
+STAP 3 — ONDERWERP EN AFZENDER
+──────────────────────────────────────────────
+Onderwerp:
+The dome opens, 17–19 September
+
+Preheader:
+Eight floors, thirty makers, three days. Free entry.
+
+Afzendernaam:   MADART Foundation
+Afzendadres:    contact@madartfoundation.com
+                (of justin@madartfoundation.com — gebruik het
+                adres dat in Laposta geverifieerd is)
+Antwoordadres:  contact@madartfoundation.com
+
+
+STAP 4 — LIJST
+──────────────────────────────────────────────
+Kies de bijgewerkte lijst(en). Verstuur je naar meerdere
+lijsten tegelijk, controleer dan dat Laposta ontdubbelt op
+e-mailadres.
+
+
+STAP 5 — TESTMAIL
+──────────────────────────────────────────────
+Stuur naar drie adressen: Gmail in de browser, Outlook, en je
+eigen telefoon.
+
+Controleer:
+  □ laden alle zeven foto's
+  □ breekt de mail niet op mobiel
+  □ Outlook toont Courier New in plaats van Chivo Mono —
+    dat is normaal en bedoeld
+
+
+STAP 6 — LINKS CONTROLEREN
+──────────────────────────────────────────────
+  □ See the programme
+      madartfoundation.com/maison-dartiste-2026.html
+  □ Meet all thirty
+      madartfoundation.com/makers.html
+  □ Arno Hoogland          /arno-hoogland.html
+  □ Aad Kruiswijk          /aad-kruiswijk.html
+  □ Rogier Bosschaart      /rogier-bosschaart.html
+  □ Sandra Keja Planken    /sandra-keja-planken.html
+  □ ECHO                   /echo.html
+  □ Loutje Hoekstra        /loutje-hoekstra.html
+  □ Tickets (Opening Night)
+      eventbrite.com/checkout-external?eid=2000330882517
+      moet meteen General Admission € 10 tonen
+  □ Reserve a table (lunch)
+      madart.weticket.io/glue-lunch-nio-house/shop
+  □ Read the press release
+      madartfoundation.com/press.html
+  □ Opening hours and directions
+      madartfoundation.com/visit.html
+
+
+STAP 7 — VERSTUREN
+──────────────────────────────────────────────
+Direct versturen. Met de opening op donderdag weegt vandaag
+zwaarder dan het perfecte tijdstip.
+
+Kijk een dag later naar de kliks per link. Dat bepaalt welk
+blok bovenaan komt in mail 2 van woensdag 16 september.
+
+
+OPBOUW VAN DE MAIL
+──────────────────────────────────────────────
+1. Koepel — wat het is, wanneer, gratis   → programma
+2. Vier beelden — dertig makers           → makers
+3. Opening Night — € 10                   → Eventbrite
+4. Lunch — € 19,50                        → weticket
+5. Persbericht en praktisch
