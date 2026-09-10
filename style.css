@@ -848,3 +848,7 @@ svg.elev{overflow:visible}
 /* Eventkaarten zijn 3:2, geen portret. Het omslagpatroon van de makersraster
    dwingt 4:5 af; hier telt de eigen verhouding van de foto. */
 .slide.land figure.swap img{aspect-ratio:3/2}
+
+/* De plattegronden als gewone links, niet alleen in het script. */
+.planlijst{font-size:13px;color:var(--grey);margin:14px 0 0;line-height:2}
+.planlijst a{color:var(--dawn);white-space:nowrap;padding:4px 0}
