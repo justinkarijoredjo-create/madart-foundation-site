@@ -844,3 +844,7 @@ svg.elev{overflow:visible}
   .nubezig .knoppen{flex-direction:column;gap:8px}
   .nubezig .knoppen .btn,.nubezig .knoppen .btn-outline{width:100%;text-align:center}
 }
+
+/* Eventkaarten zijn 3:2, geen portret. Het omslagpatroon van de makersraster
+   dwingt 4:5 af; hier telt de eigen verhouding van de foto. */
+.slide.land figure.swap img{aspect-ratio:3/2}
