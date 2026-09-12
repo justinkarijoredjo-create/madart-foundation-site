@@ -1,64 +1,71 @@
-LEVERING — de Before Noon Club is betaald
+LEVERING — de nieuwe yogatekst
 MADART FOUNDATION · 10 september 2026 · zeven dagen voor GLUE
 
-1 bestand: maison-dartiste-2026.html.
+2 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
 
 --------------------------------------------------------------------------
-DRIE PRIJZEN, NIET EEN
+WAAR DE OUDE TEKST STOND
 --------------------------------------------------------------------------
-  Pre-Sale Ticket      € 12,00 + € 1,00 servicekosten
-  General Admission    € 15,00 + € 1,00
-  Door Ticket          € 18,00 + € 1,00   vanaf 19 sept 08:00
+Je vroeg je af waar hij overal voor is gebruikt. Nagezocht: op EEN plek in de
+gegevens, die doorwerkte op EEN pagina, maar daar op TWEE plaatsen —
+de zichtbare tekst en de machineleesbare data die Google leest.
 
-Dat is een trap die tijdens het weekend verschuift. Op vier plekken verwerkt:
+Oude tekst: "Ninety minutes under the glass roof, with sound built for the
+room. Saturday only."
 
-DE KNOP zegt "Tickets — from € 12". Niet "€ 12" kaal, want dat bedrag geldt
-alleen in de voorverkoop en zou zaterdagochtend niet meer kloppen.
-
-DE OMSCHRIJVING noemt alle drie de trappen plus de servicekosten:
-  "Pre-sale € 12, general admission € 15, at the door € 18. One euro booking
-   fee per ticket. Sold by Before Noon Club."
-
-De servicekosten staan erbij omdat een bezoeker anders bij het afrekenen een
-ander bedrag ziet dan op de site. Een euro is klein, maar het verschil tussen
-verwacht en werkelijk is dat niet.
-
-HET TICKETBLOK BOVENAAN heeft nu vier regels:
-  Opening Night      Thursday 18:00              € 10
-  Lunch              All three days              € 19.50
-  Morning yoga       Saturday 10:00              € 20
-  Before Noon Club   Saturday 11:00–14:00        from € 12
-
-Elke regel gaat rechtstreeks naar de eigen afrekenpagina.
-
-DE MACHINELEESBARE DATA draagt een prijsbereik in plaats van een prijs:
-lowPrice 12, highPrice 18. Google toont dan "vanaf € 12" en niet een bedrag
-dat maar voor een deel van de kaartjes geldt.
+Nagemeten na de vervanging: die zin komt nergens meer voor, ook niet in de
+broncode.
 
 --------------------------------------------------------------------------
-DE KOP TELT ZICHZELF
+WAT ER NU STAAT
 --------------------------------------------------------------------------
-Er stond "Three things are paid for". Dat klopte tot vandaag.
+  An invitation to move, then rest.
 
-Die zin telt nu het aantal betaalde onderdelen en schrijft het getal voluit.
-Nu staat er "Four things are paid for". Komt er een vijfde bij, dan verandert
-de kop mee — dat is precies het soort zin dat anders stilletjes gaat liegen.
+  Join us for 90 minutes of playful, energizing yoga with Arben Sinani,
+  followed by a 20-minute sound healing to settle everything back down.
+
+  Come as you are. Bring your own mat. Leave a little lighter than you
+  arrived.
+
+Woordelijk overgenomen, in drie alinea's. Ze klappen uit als je op de titel
+tikt, net als bij de andere onderdelen.
 
 --------------------------------------------------------------------------
-VIER TICKETAANBIEDERS
+EEN GEVOLG DAT IK MOEST OPLOSSEN
 --------------------------------------------------------------------------
-  Eventbrite   het algemene programma, de Opening Night, de yoga
-  weticket     de lunch
-  weeztix      de Before Noon Club
+De machineleesbare omschrijving nam tot nu toe alleen de EERSTE alinea.
 
-Voor een bezoeker onzichtbaar: elke knop gaat naar de juiste plek. Maar na
-afloop staan je deelnemersgegevens op drie systemen, en dat is het cijfer dat
-je voor de subsidieaanvraag nodig hebt.
+Bij de oude tekst viel dat niet op: die was één zin van 84 tekens. Jouw nieuwe
+tekst opent met "An invitation to move, then rest." — 33 tekens. Dat was alles
+wat Google te zien zou krijgen van een onderdeel van EUR 20.
+
+De omschrijving plakt nu de alinea's aan elkaar tot de limiet van 240 tekens.
+De yoga gaat daarmee van 33 naar 213 tekens.
+
+Dat raakt niet alleen de yoga: elk programmaonderdeel met meer dan één alinea
+krijgt nu een volledige omschrijving mee. De Table Talk bijvoorbeeld.
+
+--------------------------------------------------------------------------
+WAT ER NIET IS VERANDERD
+--------------------------------------------------------------------------
+Tijd, plek, prijs en plaatsen: 10:00 – 11:30, zevende verdieping onder de
+Rietveldkoepel, EUR 20, vijftien plaatsen. De regel met Arben Sinani en
+Devoonsounds staat nog boven de omschrijving.
+
+Twee dingen die in de tekst zitten en nergens anders stonden: dat het
+90 minuten yoga is PLUS 20 minuten sound healing, en dat je je eigen mat
+meeneemt. Dat laatste is precies het soort ding waar iemand zaterdagochtend
+om 09:45 achter komt.
+
+--------------------------------------------------------------------------
+NA HET UPLOADEN
+--------------------------------------------------------------------------
+Klik in Search Console op Request indexing voor maison-dartiste-2026.html.
+De machineleesbare data is gewijzigd voor meerdere onderdelen.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. Klap het ticketblok uit: vier regels, kop zegt "Four things are paid for".
-  2. Tik op "Before Noon Club": weeztix.shop/v9ve6956.
-  3. Zaterdag 11:00: de knop zegt "Tickets — from € 12", en de omschrijving
-     noemt de drie trappen.
+  1. Zaterdag 10:00: tik op "Morning yoga". Drie alinea's klappen uit.
+  2. De oude zin over "Ninety minutes under the glass roof" komt nergens
+     meer voor.
