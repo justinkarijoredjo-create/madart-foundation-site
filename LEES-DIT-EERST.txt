@@ -1,71 +1,60 @@
-LEVERING — de nieuwe yogatekst
+LEVERING — het persadres gecorrigeerd
 MADART FOUNDATION · 10 september 2026 · zeven dagen voor GLUE
 
-2 bestanden. deel-00 bevat sitemap.xml en gaat eerst.
+2 bestanden: contact.html en press.html.
 
 --------------------------------------------------------------------------
-WAAR DE OUDE TEKST STOND
+DE CORRECTIE
 --------------------------------------------------------------------------
-Je vroeg je af waar hij overal voor is gebruikt. Nagezocht: op EEN plek in de
-gegevens, die doorwerkte op EEN pagina, maar daar op TWEE plaatsen —
-de zichtbare tekst en de machineleesbare data die Google leest.
+  was  pers@madartfoundation.com
+  nu   press@madartfoundation.com
 
-Oude tekst: "Ninety minutes under the glass roof, with sound built for the
-room. Saturday only."
+Vier plekken in de gegevens, twee pagina's:
+  press.html    de inleiding, en de regel over de beeldbank
+  contact.html  "of press@madartfoundation.com for press"
 
-Nagemeten na de vervanging: die zin komt nergens meer voor, ook niet in de
-broncode.
+Nagemeten: "pers@" komt nergens meer voor, ook niet in de broncode.
 
---------------------------------------------------------------------------
-WAT ER NU STAAT
---------------------------------------------------------------------------
-  An invitation to move, then rest.
-
-  Join us for 90 minutes of playful, energizing yoga with Arben Sinani,
-  followed by a 20-minute sound healing to settle everything back down.
-
-  Come as you are. Bring your own mat. Leave a little lighter than you
-  arrived.
-
-Woordelijk overgenomen, in drie alinea's. Ze klappen uit als je op de titel
-tikt, net als bij de andere onderdelen.
+DIT WAS EEN FOUT DIE TELDE. Op de perspagina staat dat je binnen dezelfde dag
+antwoord krijgt, tot en met 19 september. Een journalist die naar het oude
+adres mailde kreeg een bounce, of erger: niets.
 
 --------------------------------------------------------------------------
-EEN GEVOLG DAT IK MOEST OPLOSSEN
+IETS DAT IK ONDERWEG VOND EN MEENAM
 --------------------------------------------------------------------------
-De machineleesbare omschrijving nam tot nu toe alleen de EERSTE alinea.
+HET ADRES WAS NERGENS AANKLIKBAAR.
 
-Bij de oude tekst viel dat niet op: die was één zin van 84 tekens. Jouw nieuwe
-tekst opent met "An invitation to move, then rest." — 33 tekens. Dat was alles
-wat Google te zien zou krijgen van een onderdeel van EUR 20.
+Het stond als gewone tekst in een alinea. Op een telefoon betekent dat
+overtypen — en juist de perspagina wordt op een telefoon geopend door iemand
+die haast heeft.
 
-De omschrijving plakt nu de alinea's aan elkaar tot de limiet van 240 tekens.
-De yoga gaat daarmee van 33 naar 213 tekens.
+contact@ was wél aanklikbaar, op de doneerpagina en de Friend-pagina. Alleen
+het persadres niet.
 
-Dat raakt niet alleen de yoga: elk programmaonderdeel met meer dan één alinea
-krijgt nu een volledige omschrijving mee. De Table Talk bijvoorbeeld.
+Nu worden e-mailadressen in lopende tekst automatisch een mailto-link, overal
+op de site. Nagemeten: beide vindplaatsen op de perspagina zijn nu aan te
+tikken, en er staat geen adres meer in platte tekst.
 
---------------------------------------------------------------------------
-WAT ER NIET IS VERANDERD
---------------------------------------------------------------------------
-Tijd, plek, prijs en plaatsen: 10:00 – 11:30, zevende verdieping onder de
-Rietveldkoepel, EUR 20, vijftien plaatsen. De regel met Arben Sinani en
-Devoonsounds staat nog boven de omschrijving.
-
-Twee dingen die in de tekst zitten en nergens anders stonden: dat het
-90 minuten yoga is PLUS 20 minuten sound healing, en dat je je eigen mat
-meeneemt. Dat laatste is precies het soort ding waar iemand zaterdagochtend
-om 09:45 achter komt.
+Wat ik NIET heb aangeraakt: de adressen in de machineleesbare data en de
+knoppen met een voorgevulde onderwerpregel op support-us.html en friend.html.
+Die waren al goed.
 
 --------------------------------------------------------------------------
-NA HET UPLOADEN
+WAT JE ZELF MOET CONTROLEREN
 --------------------------------------------------------------------------
-Klik in Search Console op Request indexing voor maison-dartiste-2026.html.
-De machineleesbare data is gewijzigd voor meerdere onderdelen.
+BESTAAT PRESS@MADARTFOUNDATION.COM AL IN GOOGLE WORKSPACE?
+
+Als het adres nog moet worden aangemaakt, staat er vanaf nu een adres op de
+site waar niets binnenkomt. Dat is erger dan het oude.
+
+En: ZET EEN DOORSTUURREGEL VAN PERS@ NAAR PRESS@. Het oude adres staat
+mogelijk in verstuurde persberichten, in je handtekening, of in het
+mediabestand van GLUE. Wie daarop mailt moet nog steeds aankomen.
 
 --------------------------------------------------------------------------
 TE CONTROLEREN NA UPLOAD
 --------------------------------------------------------------------------
-  1. Zaterdag 10:00: tik op "Morning yoga". Drie alinea's klappen uit.
-  2. De oude zin over "Ninety minutes under the glass roof" komt nergens
-     meer voor.
+  1. press.html: het adres staat er twee keer en is beide keren aanklikbaar.
+  2. contact.html: idem.
+  3. Tik erop op je telefoon: je mailprogramma hoort te openen met
+     press@madartfoundation.com ingevuld.
