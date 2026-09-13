@@ -271,30 +271,46 @@
   <div class="portrait-grid">
     <a class="pcard" href="buro-berger.html">
       <figure class="swap">
-        <img class="face" src="t-BJ002-01.jpg" alt="Buro Berger" width="480" height="600" loading="lazy" decoding="async">
-<img class="work" src="h-BJ002-02.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+        <img class="face" src="buro-berger-mark.jpg" alt="Buro Berger" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-BJ002-02.jpg" alt="" width="480" height="600" data-works="t-BJ002-01.jpg|h-BJ002-02.jpg|t-BJ002-03.jpg|t-CA003-1.jpg|t-CA003-3.jpg|t-CA003-2.jpg|t-CA003-5.jpg|t-CA003-4.jpg|t-SP001-3.jpg|t-SP001-2.jpg|t-SP001-1.jpg|t-LA001-2.jpg|t-LA001-1_B.jpg|t-PL002-1.jpg|t-VA002-1.jpg|t-VA002-1.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Buro Berger</h3>
     </a>
     <a class="pcard" href="devoonsounds.html">
       <figure class="swap">
-        <img class="face" src="p-portrait-devoonsounds.jpg" alt="Devoonsounds" width="480" height="600" loading="lazy" decoding="async">
-<img class="work" src="h-devoonsounds-devoon-drop.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+        <img class="face" src="devoonsounds-logo.png" alt="Devoonsounds" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-devoonsounds-devoon-drop.jpg" alt="" width="480" height="600" data-works="h-devoonsounds-devoon-drop.jpg|t-devoonsounds-original-1.jpg|t-devoonsounds-original-2.jpg|t-devoonsounds-original-3.jpg|t-devoonsounds-original-4.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Devoonsounds</h3>
     </a>
     <a class="pcard" href="dot-objects.html">
       <figure class="swap">
-        <img class="face" src="t-dot-objects-grid-shelving-unit-rust.jpg" alt="Dot Objects" width="480" height="600" loading="lazy" decoding="async">
-<img class="work" src="h-dot-objects-grid-shelving-unit-stainless-steel.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+        <img class="face" src="dot-objects-logo.jpg" alt="Dot Objects" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-dot-objects-grid-shelving-unit-stainless-steel.jpg" alt="" width="480" height="600" data-works="t-dot-objects-grid-shelving-unit-rust.jpg|h-dot-objects-grid-shelving-unit-stainless-steel.jpg|t-dot-objects-low-grid-table-burgundy.jpg|t-dot-objects-low-grid-table-stainless-steel.jpg|t-dot-objects-stainless-steel-candle-holder-medium.jpg|t-dot-objects-stainless-steel-candle-holder-small.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Dot Objects</h3>
     </a>
     <a class="pcard" href="ignore.html">
       <figure class="swap">
-        <img class="face" src="p-portrait-ignore-gerard-de-hoop.jpg" alt="Ignore" width="480" height="600" loading="lazy" decoding="async">
-<img class="work" src="h-ignore-modulate-lounge-chair.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+        <img class="face" src="ignore-logo.png" alt="Ignore" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-ignore-modulate-lounge-chair.jpg" alt="" width="480" height="600" data-works="h-ignore-modulate-lounge-chair.jpg|t-ignore-shift-dining-chair.jpg|t-ignore-conference-table.jpg|t-ignore-dine-dining-table.jpg|t-ignore-serve-bistro-table.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
       <h3>Ignore</h3>
     </a>
   </div>
 </div></section>
+<script>
+/* Het werk dat onder het logo vandaan komt is per bezoek een ander. De src in
+   de HTML is een geldige keuze op zichzelf, zodat de kaart ook zonder
+   JavaScript een werk toont; dit wisselt hem alleen om. */
+(function(){
+  var l=document.querySelectorAll('.pcard figure.swap img.work[data-works]');
+  for(var i=0;i<l.length;i++){
+    var o=l[i].getAttribute('data-works').split('|');
+    if(o.length>1) l[i].src=o[Math.floor(Math.random()*o.length)];
+  }
+})();
+</script>
 </main>
 
 <footer class="site-footer">
