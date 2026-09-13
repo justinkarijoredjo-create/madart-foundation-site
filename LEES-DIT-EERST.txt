@@ -1,60 +1,107 @@
-LEVERING — het persadres gecorrigeerd
-MADART FOUNDATION · 10 september 2026 · zeven dagen voor GLUE
+LEVERING — kopbeeld weg op de twee merkpagina's
+madartfoundation.com · 13 september 2026 · vier dagen voor GLUE
 
-2 bestanden: contact.html en press.html.
+TWEE BESTANDEN. Geen mappen nodig.
 
---------------------------------------------------------------------------
-DE CORRECTIE
---------------------------------------------------------------------------
-  was  pers@madartfoundation.com
-  nu   press@madartfoundation.com
+      buro-berger.html    47.119 -> 46.825 bytes
+      ignore.html         39.940 -> 39.656 bytes
 
-Vier plekken in de gegevens, twee pagina's:
-  press.html    de inleiding, en de regel over de beeldbank
-  contact.html  "of press@madartfoundation.com for press"
-
-Nagemeten: "pers@" komt nergens meer voor, ook niet in de broncode.
-
-DIT WAS EEN FOUT DIE TELDE. Op de perspagina staat dat je binnen dezelfde dag
-antwoord krijgt, tot en met 19 september. Een journalist die naar het oude
-adres mailde kreeg een bounce, of erger: niets.
+Beide in de wortel van de repository.
 
 --------------------------------------------------------------------------
-IETS DAT IK ONDERWEG VOND EN MEENAM
+EERST DIT — je feedback beschrijft een oudere versie
 --------------------------------------------------------------------------
-HET ADRES WAS NERGENS AANKLIKBAAR.
+Je schreef over "het portret van Gerard de Hoop" bovenaan Ignore en over
+een kop "04 Designers". Dat was de stand van vanochtend.
 
-Het stond als gewone tekst in een alinea. Op een telefoon betekent dat
-overtypen — en juist de perspagina wordt op een telefoon geopend door iemand
-die haast heeft.
+De repository staat verder: ik heb hem zojuist gecontroleerd en 234 van de
+236 tekstbestanden zijn identiek aan mijn bouw, en alle 593 beelden ook.
+Je upload van de tien bestanden is dus aangekomen. Daarmee staat er al:
 
-contact@ was wél aanklikbaar, op de doneerpagina en de Friend-pagina. Alleen
-het persadres niet.
+  - Ignore opent met het ign_re-logo, niet met Gerard de Hoop
+  - "01 Work" is weg; de volgorde is 01 Practice, 02 In the house,
+    03 Designers — er is geen "04 Designers" meer
+  - Het ontwerpersblok loopt over de volle kolombreedte
+  - Dot Objects opent met het portret van Wiktoria
+  - De vier merkkaartjes op makers.html tonen de logo's
 
-Nu worden e-mailadressen in lopende tekst automatisch een mailto-link, overal
-op de site. Nagemeten: beide vindplaatsen op de perspagina zijn nu aan te
-tikken, en er staat geen adres meer in platte tekst.
+Zie je dat nog niet, dan kijk je naar een gecachte pagina: GitHub Pages
+loopt een paar minuten achter op de repository. Ververs hard
+(Ctrl+Shift+R, of Cmd+Shift+R) en kijk opnieuw.
 
-Wat ik NIET heb aangeraakt: de adressen in de machineleesbare data en de
-knoppen met een voorgevulde onderwerpregel op support-us.html en friend.html.
-Die waren al goed.
-
---------------------------------------------------------------------------
-WAT JE ZELF MOET CONTROLEREN
---------------------------------------------------------------------------
-BESTAAT PRESS@MADARTFOUNDATION.COM AL IN GOOGLE WORKSPACE?
-
-Als het adres nog moet worden aangemaakt, staat er vanaf nu een adres op de
-site waar niets binnenkomt. Dat is erger dan het oude.
-
-En: ZET EEN DOORSTUURREGEL VAN PERS@ NAAR PRESS@. Het oude adres staat
-mogelijk in verstuurde persberichten, in je handtekening, of in het
-mediabestand van GLUE. Wie daarop mailt moet nog steeds aankomen.
+Drie van je vier punten waren dus al uitgevoerd. Dit pakket voert het
+vierde uit.
 
 --------------------------------------------------------------------------
-TE CONTROLEREN NA UPLOAD
+WAT ER WIJZIGT
 --------------------------------------------------------------------------
-  1. press.html: het adres staat er twee keer en is beide keren aanklikbaar.
-  2. contact.html: idem.
-  3. Tik erop op je telefoon: je mailprogramma hoort te openen met
-     press@madartfoundation.com ingevuld.
+Buro Berger en Ignore hebben geen kopbeeld meer. Na de naam, de bio en de
+links gaat de pagina rechtstreeks naar 01 Practice.
+
+Gemeten: het aantal interne links zakte van 8.342 naar 8.340. Precies twee
+eraf, precies de twee kopbeelden. Verder niets geraakt.
+
+Dot Objects en Devoonsounds houden hun portret bovenaan. De logo's blijven
+op de merkkaartjes van makers.html staan; daar verandert niets.
+
+--------------------------------------------------------------------------
+EEN AANNAME DIE IK HEB GEDAAN — corrigeer me als het mis is
+--------------------------------------------------------------------------
+Over Buro Berger schreef je letterlijk: "Logo kan weg op de merk pagina."
+Over Ignore schreef je dat de eerste afbeelding weg mag, maar je beschreef
+daarbij het portret van Gerard de Hoop, niet het logo dat er inmiddels
+staat.
+
+Ik heb aangenomen dat je bedoelt: geen beeld bovenaan op een merkpagina,
+punt — bij Ignore net zo goed als bij Buro Berger. De twee pagina's zijn
+elkaars spiegel, dus een logo op de een en niets op de ander zou vreemd
+staan.
+
+Wil je het ign_re-logo tóch bovenaan Ignore houden, dan zet ik het in een
+minuut terug. Het bestand staat al in de repository.
+
+--------------------------------------------------------------------------
+WAT ER IS GEMETEN
+--------------------------------------------------------------------------
+  python3 build.py --check   ->  built 232 pages, urls.lock gehaald
+  linkcontrole               ->  8.340 interne links, 0 kapot
+  JSON-LD                    ->  206 blokken, alle 206 geldig
+  tekstdiff tegen repo       ->  234 van 236 identiek, 2 gewijzigd
+  beelddiff tegen repo       ->  593 beelden aangeroepen, 593 identiek.
+                                 Geen nieuw beeld nodig.
+  style.css                  ->  byte-identiek aan live
+
+--------------------------------------------------------------------------
+WAT JIJ ZELF MOET DOEN — uploaden verwijdert niets
+--------------------------------------------------------------------------
+NIEUW OP DE LIJST:
+
+      buro-berger-logo.jpg
+
+Dat is de banner. Die heb je vanochtend geupload als kopbeeld van
+buro-berger.html; na deze levering roept geen enkele pagina hem nog aan.
+Gecontroleerd: nul treffers in alle 232 gebouwde pagina's.
+
+STOND ER AL OP:
+
+      t-c-event-glue-2026.jpg
+      w-c-event-glue-2026.jpg
+      h-c-event-glue-2026.jpg
+
+c-event-glue-2026.jpg zonder voorvoegsel staat er ook nog; die heb ik NIET
+op de lijst gezet, want ik heb niet gecontroleerd of een pagina hem
+gebruikt.
+
+--------------------------------------------------------------------------
+WAT OPEN BLIJFT
+--------------------------------------------------------------------------
+NICOLA CHERUBINI, zaterdag 15:00. Alleen het woord "Talk", zonder titel en
+zonder omschrijving. Het enige programmaonderdeel dat niet uitklapt.
+Blokkerend voor 17 september.
+
+DE GLUE-HUBPAGINA linkt niet naar madartfoundation.com.
+
+LAPOSTA nog niet aangesloten op Formspark lDWonyUTP.
+
+BERTJAN POT (378x534) en BORIS DE BEIJER (490x694) staan nog op lage
+resolutie in een vak van 1200 breed.
