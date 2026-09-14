@@ -1,178 +1,161 @@
-LEVERING + RAPPORTAGE — Aleksandra Sliwinska / WE ARE MAK STUDIO
-madartfoundation.com · 13 september 2026 · vier dagen voor GLUE
+LEVERING + RAPPORTAGE — 10-4 Studio, OFFSITE, en een fout van mij
+madartfoundation.com · 14 september 2026 · drie dagen voor GLUE
 
-53 bestanden, vijf mappen.
+56 bestanden, vijf mappen.
 
   deel-00-DIT-EERST    1   sitemap.xml
-  deel-01-BEELDEN      7   portret + werkbeelden
-  deel-02-NIEUW        3   haar makerpagina + twee werkpagina's
-  deel-03-MAKERS      37   bestaande makerpagina's, alleen de carrousel
+  deel-01-BEELDEN      8   portret 10-4 + werkbeelden Flux en Twirl Stool S
+  deel-02-NIEUW        4   twee makerpagina's + twee werkpagina's
+  deel-03-MAKERS      38   bestaande makerpagina's, alleen de carrousel
   deel-04-SITE         5   index · makers · works · echo · season-02-ground
 
-Alles in de wortel van de repository. style.css wijzigt niet.
+Alles in de wortel. style.css wijzigt niet.
 
 ==========================================================================
-WIJZIGING 1 — LATCH BENCH / LATCH STOOL: NIET UITGEVOERD
+EERST: JE HAD GELIJK OVER ECHO.HTML, EN HET WAS MIJN FOUT
 ==========================================================================
-Ik heb de bestanden geopend in plaats van alleen de bestandsnamen gelezen.
+Het collectiefblok op echo.html las een eigen ledenlijst uit makers.yaml.
+Die lijst stond nog op dertien. Toen ik Aleksandra toevoegde heb ik hem niet
+bijgewerkt, en vandaag bij 10-4 Studio en OFFSITE weer niet.
 
-  echo-latch-bench-work.jpg   TOONT EEN KRUK
-  echo-latch-stool-work.jpg   TOONT EEN BANK
+Gevolg: alle drie kregen wel een eigen pagina, stonden wel in works.html en
+wel in de carrousel onderaan — maar niet in het blok "The collective", waar
+de kop hardnekkig "13 makers" bleef zeggen. Precies wat jij zag.
 
-Dat klopt met de maten: bank 106 × 60 × 46 cm, kruk 36 × 40 × 45 cm. Op de
-krukfoto ligt het boek "Eenvoud Ontwerp" ernaast voor schaal.
+GEREPAREERD, EN ZO DAT HET NIET WEER KAN. Die ledenlijst wordt nu afgeleid
+uit echo_members.yaml in plaats van apart bijgehouden. Eén lijst is de
+waarheid. De kop zegt nu "16 makers" en alle zestien staan in het blok.
 
-Verwisseld zijn dus de BESTANDSNAMEN, niet de verwijzingen. De generator
-kruist ze al: echo-latch-bench.html roept w-echo-latch-stool-work.jpg aan,
-en dat bestand bevat de bank. De bankpagina toont een bank, de krukpagina
-een kruk. De og:image-tags volgen dezelfde kruising en zijn ook goed. Ook
-de thumbnails op works.html en de ECHO-pagina kloppen.
-
-Wie alleen de page source leest ziet een mismatch en concludeert dat de
-foto's verwisseld zijn. De conclusie is omgekeerd. Voer je de instructie
-letterlijk uit, dan staat er woensdag een kruk op de bankpagina.
-
-ADVIES: laat het tot na GLUE. Voor een bezoeker is er niets mis. Wil je het
-intern opschonen, dan hernoemen we zes beeldbestanden en draaien we de
-verwijzingen terug — werk zonder zichtbare winst, vier dagen voor de
-opening.
+DAARBIJ KWAM NOG IETS BOVEN. Joris Wintgens heeft geen portret, en dat
+leverde in zijn kaartje src="" op — een leeg beeldadres. De browser toont
+dan een gebroken-beeldpictogram, en dat is erger dan geen beeld. Dat stond
+op echo.html én op makers.html. Een maker zonder portret toont nu zijn werk.
+Gecontroleerd over alle 239 pagina's: nul lege beeldadressen.
 
 ==========================================================================
-WIJZIGING 2 — WE ARE MAK STUDIO: UITGEVOERD
+WAT ER VERDER IN ZIT
 ==========================================================================
-Ze staat als Aleksandra Sliwinska in het register, met WE ARE MAK STUDIO
-als studionaam. Dat is precies de ECHO-conventie: Zowa Rindt met studio
-ZOWA, Maaike Rabbinge met Eenvoud Ontwerp.
+  GROUND-ECHO-24  Flux             € 90,–    echo-flux.html
+  GROUND-ECHO-25  Twirl Stool S    € 320,–   echo-twirl-stool-s.html
 
-  slug            aleksandra-sliwinska
-  pagina          aleksandra-sliwinska.html
-  plek            Fourth floor — Gallery 4 · on the floor
-  verkoopcontact  Maaike Rabbinge, +31622308015, zoals alle ECHO-makers
-  Instagram       https://www.instagram.com/wearemakstudio
+  milou-bergs-edwin-van-capelleveen.html   10-4 Studio, Eindhoven
+  joris-wintgens.html                      OFFSITE
 
-WERKEN
-  GROUND-ECHO-22  Bobber lamp      € 780,–   available
-                  echo-bobber-lamp.html
-                  Aluminium (Nedal), edition 1/10 · 65 × 19 cm · 2026
-  GROUND-ECHO-23  Melt lamp 001    € 520,–   available
-                  echo-melt-lamp-001.html
-                  Aluminium (Nedal), series of 10 unique pieces ·
-                  34 × 12.5 cm · 2026
+Slugs volgen het patroon van Joost de Munnik & Ruud van den Eijnden. Codes
+24 en 25 waren vrij. Beide werk-URL's zijn exact die uit je briefing.
 
-Beide URL's zijn exact die uit je briefing. De codes 22 en 23 waren vrij;
-1 tot en met 21 zijn in gebruik.
-
-BEELDEN
-Alleen verkleind, niet bewerkt. Geen kleur, geen uitsnede, geen filter.
-  portrait-echo-aleksandra-sliwinska.jpg     900 × 1350
-  p-portrait-echo-aleksandra-sliwinska.jpg   480 × 720
-  w- / t- / h- varianten op 1100, 700 en 480 pixels breed
-
-De twee basisbeelden echo-bobber-lamp-work.jpg en echo-melt-lamp-001-work.jpg
-STONDEN AL IN DE REPOSITORY, en al correct op 1800 pixels hoge zijde. Die
-heb ik overgenomen in plaats van vervangen; ze gaan dus niet mee.
+De twee basiswerkbeelden STONDEN AL IN DE REPOSITORY en waren al goed
+gemaat; die heb ik overgenomen in plaats van vervangen. De w-, t- en
+h-varianten zijn eruit gerekend. Alleen verkleind, niet bewerkt.
 
 ==========================================================================
-WAT IK ONDERWEG TEGENKWAM
+ER STONDEN ALWEER TWEE MINISTUBS — MET DEZELFDE VERBODEN CLAIM
 ==========================================================================
+echo-flux.html en echo-twirl-stool-s.html bestonden al: 1.683 en 1.694
+bytes, geen header, geen footer, geen carrousel. In allebei stond weer:
 
-A · ER STONDEN AL TWEE PAGINA'S OP DIE ADRESSEN, MET EEN VERBODEN CLAIM
-    echo-bobber-lamp.html en echo-melt-lamp-001.html bestonden al, 1.610 en
-    1.624 bytes, gebouwd op een los "worklook"-sjabloon: geen header, geen
-    footer, geen carrousel, style.css zonder vingerafdruk.
+    "… works independently, without gallery representation."
 
-    In de voettekst van allebei stond:
-        "WE ARE MAK STUDIO works independently, without gallery
-         representation."
+Dat is de derde keer dat die zin via het Curatorial-project binnenkomt. Na
+deze levering staat hij er weer niet op — gecontroleerd over alle 239
+pagina's. Ook "€ 90,– incl. btw" is Nederlands op een Engelse pagina.
 
-    Die zin mag niet op de site. Hij is voor meerdere makers aantoonbaar
-    onjuist en is eerder al overal geschrapt. De nieuwe pagina's dragen in
-    plaats daarvan de vaste ECHO-regel: verkoop loopt via Maaike Rabbinge,
-    MADART Foundation neemt geen commissie. Gecontroleerd: de claim komt op
-    geen van de 235 gebouwde pagina's meer voor.
-
-    Ze schreven ook "€ 780 incl. btw" — Nederlands op een Engelse pagina.
-    De site schrijft "€ 780,–".
-
-B · "THIRTEEN MAKERS" STOND OP VIJF PLEKKEN HARDGECODEERD
-    Vier in de gegevens, één in build.py zelf. Met haar erbij zijn het er
-    veertien. De vier tekstplekken zijn aangepast; de vijfde, de zin
-    "ECHO shows thirteen makers in Gallery 4" op makers.html, telt nu zelf
-    hoeveel leden ECHO heeft. Dat loopt dus nooit meer uit de pas.
-
-C · HET REGISTER GAAT VAN 30 NAAR 31 MAKERS
-    Dat getal wordt berekend, dus daar hoefde niets aan te gebeuren. Het is
-    wel de reden dat 37 bestaande makerpagina's in deze levering zitten: de
-    makers-carrousel onderaan elke pagina heeft er een naam bij. Inhoudelijk
-    verandert er op die 37 pagina's verder niets.
+Het zou schelen als die ministubs daar niet meer gemaakt worden. Ze
+overschrijven telkens een goede pagina met een slechte.
 
 ==========================================================================
-VRAAGT JOUW BESLUIT — kijk hier even naar
+DRIE BESLUITEN DIE IK ZELF HEB GENOMEN
 ==========================================================================
+1 · FLUX: € 90,– ZICHTBAAR, STATUSPIL OP "ON REQUEST"
+    De status "estimate" bestaat niet; het systeem kent available, sold en
+    on request. Het veld price_note staat wel in de gegevens maar wordt door
+    geen sjabloon getoond — dood veld. De bezoeker ziet nu € 90,– met
+    daarnaast "on request": een richtprijs die je bevestigt bij aanvraag.
+    Dat leek me eerlijker dan € 90,– als "available", want dat is een harde
+    toezegging die jullie zelf onder voorbehoud stelden.
 
-I · HET PORTRET TOONT TWEE MENSEN
-    Je vraagt haar op te nemen als individuele ontwerper, maar DSC01428 is
-    een duoportret op een bank en de praktijktekst spreekt over "a Polish-
-    Dutch design duo". Op haar pagina staat dus één naam boven een foto van
-    twee personen. Dat kan prima als studioportret, maar het valt op naast
-    de andere ECHO-makers, die allemaal alleen op hun portret staan.
-    Heb je een portret van haar alleen, dan wissel ik het in een minuut.
+2 · FLUX STAAT IN CENTIMETERS
+    Je briefing zegt 45 × 45 × 30 mm; de site rekent in centimeters. Er staat
+    nu 4,5 × 4,5 × 3 cm. Zelfde maat.
 
-II · DE KORTE BIO HEB IK GESCHREVEN
-     Je briefing levert de praktijktekst en de positie binnen GROUND, maar
-     geen korte bio. Elke andere ECHO-maker heeft er een; die tekst draagt
-     het kaartje op makers.html. Ik heb er een geschreven, strak afgeleid
-     van jouw twee teksten:
-
-        "Works with raw material and purity of form, letting the qualities
-         of the material carry the object rather than hiding them. For ECHO
-         she turns Nedal aluminium residue into two lamps: one gathers tubes
-         into a volume, the other tears a single pipe open. Both let light
-         pass through a material that carried none."
-
-     Dit is het enige stuk tekst op haar pagina's dat niet van jou komt.
-     Keur het goed of stuur een eigen versie.
-
-III · DE EDITIE STAAT IN DE MATERIAALREGEL
-      Er is geen apart editieveld in het systeem. Twee bronzen werken elders
-      lossen het zo op: "bronze, edition 1/4 + 2 AP · 27 × 38 × 34 cm ·
-      2024". Ik heb dat patroon gevolgd. Wil je de editie liever weglaten of
-      ergens anders, zeg het.
-
-IV · HET PERSOONLIJKE INSTAGRAM IS NIET GEBRUIKT
-     @holaolavg_ staat in je briefing, maar het systeem kent per maker één
-     Instagram-veld. Ik heb het studioaccount genomen, @wearemakstudio, want
-     dat is waar het werk staat. Een tweede account toevoegen kan, maar dat
-     is een sjabloonwijziging over alle makerpagina's.
+3 · DE OMSCHRIJVING VAN FLUX STAAT BIJ DE MAKER
+    Geen enkel werk draagt eigen tekst. De tekst over de afgesneden
+    lantaarnpaal staat nu als PRACTICE bij 10-4 Studio.
 
 ==========================================================================
-NOG TE DOEN — buiten deze levering
+TWEE PAGINA'S ZIJN DUNNER DAN DE REST
 ==========================================================================
-TWEE QR-LABELS. Het gedrukte ECHO-labelvel kent GROUND-ECHO-22 en -23 niet.
-Er moeten twee labels bij voor:
-      https://madartfoundation.com/echo-bobber-lamp.html
-      https://madartfoundation.com/echo-melt-lamp-001.html
-Die moet ik met pyzbar verifiëren tegen exact deze URL's voordat ze naar de
-drukker gaan. Zeg het en ik zet het klaar.
+Elk van de veertien bestaande ECHO-makers heeft drie tekstblokken: bio,
+PRACTICE en POSITION. Je briefing levert voor deze twee alleen een lede.
+
+  10-4 Studio     01 Work · 02 Practice          POSITION ontbreekt
+  OFFSITE         01 Work                        PRACTICE én POSITION ontbreken
+
+Ik heb niets verzonnen; de regel is weglaten, niet vullen. Stuur per maker
+een practice van ongeveer honderd woorden en een position van tachtig, dan
+zet ik ze er in een kleine levering bij.
+
+==========================================================================
+HET PORTRET VAN JORIS WINTGENS ZIT ER NIET IN
+==========================================================================
+Wat je stuurde is een schermafbeelding van Instagram, 1.214 × 1.520, met de
+interface er nog omheen, en het is beeld dat iemand anders publiceerde. De
+vijftien andere ECHO-makers hebben een echte foto van 900 pixels breed.
+
+Zijn kaartjes tonen nu zijn kruk in plaats van een gezicht. Dat werkt, maar
+hij is de enige. Hij valt ook buiten de makers-carrousel onderaan de andere
+pagina's: die toont alleen makers mét portret.
+
+Bijsnijden doe ik niet. Vraag een portret op, of geef uitdrukkelijk
+toestemming om deze schermafbeelding te gebruiken zoals hij is.
+
+Het portret van 10-4 Studio zit er wél in, maar is LIGGEND (900 × 600)
+terwijl alle andere staand zijn. Op de kaartjes snijdt de browser hem bij.
+Kijk of Milou en Edwin dan nog goed in beeld staan.
+
+==========================================================================
+DE TELLERS WORDEN ZESTIEN, NIET ZEVENTIEN
+==========================================================================
+Je briefing vraagt 17 ECHO-makers, 23 bij GROUND, 34 totaal. Het worden
+16, 22 en 33.
+
+Het verschil is één vraag: telt 10-4 Studio als één vermelding of als twee
+personen? De site telt overal per vermelding. Cynthia & Kevin Kars-Boom is
+één, Joost de Munnik & Ruud van den Eijnden is één, Aleksandra met haar duo
+is één. Wil je zeventien, dan moeten Milou en Edwin twee aparte pagina's
+krijgen, en dan wijkt het af van elke andere duo op de site.
+
+De tellers zijn berekend. Op één plek na: de zin over Gallery 4 in de
+seizoenstekst staat uitgeschreven in site.yaml en is nu "sixteen makers of
+ECHO".
+
+==========================================================================
+DE LATCH-WIJZIGING VOER IK NOG STEEDS NIET UIT
+==========================================================================
+Vandaag opnieuw gecontroleerd:
+  echo-latch-bench-work.jpg  BEVAT EEN KRUK
+  echo-latch-stool-work.jpg  BEVAT EEN BANK
+De bestandsnamen zijn verwisseld, de verwijzingen compenseren dat, en de
+pagina's tonen dus het juiste object. De og:image-tags ook. Draai je het om,
+dan staat er woensdag een kruk op de bankpagina.
 
 ==========================================================================
 WAT ER IS GEMETEN
 ==========================================================================
-  python3 build.py --check   ->  built 235 pages (was 232: +3 nieuw)
-                                 urls.lock gehaald, geen bestaande URL
-                                 gewijzigd — alle gedrukte QR-codes blijven
-                                 geldig
-  linkcontrole               ->  8.754 interne links, 0 kapot
-  JSON-LD                    ->  alle blokken geldig
-  tekstdiff tegen repo       ->  193 identiek, 45 gewijzigd, 1 nieuw
-  beelddiff tegen repo       ->  595 identiek, 7 nieuw
-  verboden claim             ->  "works independently" komt op geen van de
-                                 235 pagina's voor
+  python3 build.py --check   ->  built 239 pages (was 235: +4 nieuw)
+                                 urls.lock gehaald, geen bestaande URL gewijzigd
+  linkcontrole               ->  9.165 interne links, 0 kapot
+  lege beeldadressen         ->  0 op 239 pagina's
+  collectiefblok echo.html   ->  16 van 16 leden aanwezig
+  tekstdiff tegen repo       ->  195 identiek, 46 gewijzigd, 2 nieuw
+  beelddiff tegen repo       ->  604 identiek, 8 nieuw
+  verboden claim             ->  komt op geen van de 239 pagina's voor
   style.css                  ->  byte-identiek aan live
 
 ==========================================================================
-NA HET UPLOADEN
+NOG TE DOEN
 ==========================================================================
-Zeg het als alle vijf de mappen erop staan, dan draai ik beide diffs
-opnieuw. Open haar pagina met ?v=1 achter het adres, anders toont je
-browser zijn eigen kopie.
+TWEE QR-LABELS voor GROUND-ECHO-24 en -25:
+      https://madartfoundation.com/echo-flux.html
+      https://madartfoundation.com/echo-twirl-stool-s.html
+Zeg het en ik genereer ze, met pyzbar geverifieerd tegen precies deze URL's.
