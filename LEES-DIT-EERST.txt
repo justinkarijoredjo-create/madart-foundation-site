@@ -1,179 +1,178 @@
-LEVERING + RAPPORTAGE — Natalia Wyspianska
+LEVERING + RAPPORTAGE — Aleksandra Sliwinska / WE ARE MAK STUDIO
 madartfoundation.com · 13 september 2026 · vier dagen voor GLUE
 
-21 bestanden, drie mappen. Geen nieuwe beelden.
+53 bestanden, vijf mappen.
 
-  deel-00-DIT-EERST    1    sitemap.xml
-  deel-01-NATALIA     13    haar makerpagina + 12 werkpagina's
-  deel-02-SITE         7    building · index · plan-2/4/6/7 · works
+  deel-00-DIT-EERST    1   sitemap.xml
+  deel-01-BEELDEN      7   portret + werkbeelden
+  deel-02-NIEUW        3   haar makerpagina + twee werkpagina's
+  deel-03-MAKERS      37   bestaande makerpagina's, alleen de carrousel
+  deel-04-SITE         5   index · makers · works · echo · season-02-ground
 
 Alles in de wortel van de repository. style.css wijzigt niet.
 
 ==========================================================================
-EERST DIT — wat er al stond en wat niet
+WIJZIGING 1 — LATCH BENCH / LATCH STOOL: NIET UITGEVOERD
 ==========================================================================
-Ik heb niet blind herbouwd. Eerst gemeten wat er al is.
+Ik heb de bestanden geopend in plaats van alleen de bestandsnamen gelezen.
 
-AL VOLLEDIG IN ORDE, NIETS AAN GEDAAN:
-  - Alle 13 pagina's bestaan met exact de twaalf URL's die in de gedrukte
-    QR-codes zitten. Slug voor slug vergeleken. Er is niets hernoemd, dus
-    het labelvel hoeft NIET opnieuw gegenereerd of geverifieerd te worden.
-  - Ze staat in makers.html, in de makers-carrousel op alle makerpagina's,
-    in works.html met twaalf werken, in de sitemap, in plan-6 en in het
-    programma van de zesde verdieping.
-  - Prijsnotatie "€ 890,–" identiek aan Inge.
-  - Statuspil "available" op alle twaalf.
-  - De vaste alinea "100% of the sale proceeds go to the maker…" staat er.
-  - Instagram https://www.instagram.com/_natelier_/ klopt.
-  - "Coleman" komt in geen enkel bestand voor. Gecontroleerd op data,
-    sjablonen en alle 232 gebouwde pagina's.
-  - "between the nature" is al gecorrigeerd naar "between nature".
+  echo-latch-bench-work.jpg   TOONT EEN KRUK
+  echo-latch-stool-work.jpg   TOONT EEN BANK
 
-HAAR KAMER IS WÉL TOEGEWEZEN — je briefing zegt van niet.
-  rooms: The Drawing Room / The Dining Room / The Conservatory / The Parlour
-  spot:  throughout the rooms
-  Dat is letterlijk identiek aan Inge. De eyebrow luidt nu:
-  "Sixth floor — The Drawing Room / The Dining Room / The Conservatory /
-   The Parlour · throughout the rooms"
-  Er staat dus niet alleen "Sixth floor". Controleer of deze toewijzing
-  klopt met wat je in gedachten had; als ze een eigen kamer krijgt in
-  plaats van alle vier, geef het door.
+Dat klopt met de maten: bank 106 × 60 × 46 cm, kruk 36 × 40 × 45 cm. Op de
+krukfoto ligt het boek "Eenvoud Ontwerp" ernaast voor schaal.
+
+Verwisseld zijn dus de BESTANDSNAMEN, niet de verwijzingen. De generator
+kruist ze al: echo-latch-bench.html roept w-echo-latch-stool-work.jpg aan,
+en dat bestand bevat de bank. De bankpagina toont een bank, de krukpagina
+een kruk. De og:image-tags volgen dezelfde kruising en zijn ook goed. Ook
+de thumbnails op works.html en de ECHO-pagina kloppen.
+
+Wie alleen de page source leest ziet een mismatch en concludeert dat de
+foto's verwisseld zijn. De conclusie is omgekeerd. Voer je de instructie
+letterlijk uit, dan staat er woensdag een kruk op de bankpagina.
+
+ADVIES: laat het tot na GLUE. Voor een bezoeker is er niets mis. Wil je het
+intern opschonen, dan hernoemen we zes beeldbestanden en draaien we de
+verwijzingen terug — werk zonder zichtbare winst, vier dagen voor de
+opening.
 
 ==========================================================================
-PUNT 1 — HERBOUWD VANAF HET LIVE TEMPLATE
+WIJZIGING 2 — WE ARE MAK STUDIO: UITGEVOERD
 ==========================================================================
-Bevestigd: de pagina's die nú live staan komen NIET uit de generator.
+Ze staat als Aleksandra Sliwinska in het register, met WE ARE MAK STUDIO
+als studionaam. Dat is precies de ECHO-conventie: Zowa Rindt met studio
+ZOWA, Maaike Rabbinge met Eenvoud Ontwerp.
 
-  natalia-wyspianska.html          live 10.848 bytes  ->  nieuw 40.025
-  elke werkpagina                  live  ~5.350 bytes ->  nieuw  ~8.330
+  slug            aleksandra-sliwinska
+  pagina          aleksandra-sliwinska.html
+  plek            Fourth floor — Gallery 4 · on the floor
+  verkoopcontact  Maaike Rabbinge, +31622308015, zoals alle ECHO-makers
+  Instagram       https://www.instagram.com/wearemakstudio
 
-De live versies missen de eyebrow, de genummerde secties, de
-makers-carrousel, de nieuwsbrief en de volledige footer. Ze verwijzen ook
-naar style.css?v=279ea9a8, terwijl de rest van de site op ?v=a23b9715
-zit — een teken dat ze tegen een oudere CSS-stand zijn gemaakt.
+WERKEN
+  GROUND-ECHO-22  Bobber lamp      € 780,–   available
+                  echo-bobber-lamp.html
+                  Aluminium (Nedal), edition 1/10 · 65 × 19 cm · 2026
+  GROUND-ECHO-23  Melt lamp 001    € 520,–   available
+                  echo-melt-lamp-001.html
+                  Aluminium (Nedal), series of 10 unique pieces ·
+                  34 × 12.5 cm · 2026
 
-De nieuwe pagina's komen uit hetzelfde sjabloon als inge-becka.html. Niet
-nagebouwd: hetzelfde bestand.
+Beide URL's zijn exact die uit je briefing. De codes 22 en 23 waren vrij;
+1 tot en met 21 zijn in gebruik.
 
-==========================================================================
-PUNT 3 — AUDIT TEGEN INGE: VIER VERSCHILLEN GEVONDEN, ALLE VIER GEREPAREERD
-==========================================================================
+BEELDEN
+Alleen verkleind, niet bewerkt. Geen kleur, geen uitsnede, geen filter.
+  portrait-echo-aleksandra-sliwinska.jpg     900 × 1350
+  p-portrait-echo-aleksandra-sliwinska.jpg   480 × 720
+  w- / t- / h- varianten op 1100, 700 en 480 pixels breed
 
-1 · HET JAARTAL 2026 ONTBRAK IN ALLE TWAALF METAREGELS
-    generator : "Stoneware · 25 × 26 × 19 cm (w × d × h)"
-    Inge      : "hand-built · porcelain · 36 × 32 × 14 cm · 2024"
-    De PDF en de oude live pagina's hadden het jaartal wél. De generator
-    liep dus achter op de correctieronde. Nu overal "· 2026", ook in de
-    artMedium van de JSON-LD.
-
-2 · DE BEELDMATEN WAREN CENTIMETERS IN PLAATS VAN PIXELS
-    Dit was de ernstigste. In de gegevens stond bij width/height de maat
-    van het object, niet van het bestand. Op de pagina werd dat:
-        <img width="25" height="19">     terwijl het beeld 1200×1600 is
-    De browser reserveert daardoor een vak met de verkeerde verhouding en
-    de pagina springt zodra het beeld laadt. Bij Aqua no 2 was het vak
-    zelfs liggend (33×17) voor een staand beeld van 1390×1600.
-    Alle twaalf staan nu op de echte pixelmaten, uitgelezen uit de
-    bestanden. Inge had dit al goed (1800×1200).
-
-3 · DE WHATSAPP-LINK WAS NIET PER WERK
-    Alle twaalf werken deelden één algemeen bericht:
-        "Hi Natalia, I'm interested in your work in Maison d'Artiste…"
-    Inge's link noemt het werk en de code. Nu ook bij Natalia:
-        "Hi Natalia, I'm interested in 'Aqua no 1' (MAISONDARTISTE-NW-01)
-         — MADART FOUNDATION, Maison d'Artiste."
-    Twaalf verschillende berichten, patroon letterlijk van Inge.
-
-4 · KUNSTRAI 2025 ONTBRAK IN IN BRIEF
-    Uit de correctieronde, stond niet in de generator. Nu de eerste regel,
-    boven Milan Design Week 2023, zoals opgedragen.
+De twee basisbeelden echo-bobber-lamp-work.jpg en echo-melt-lamp-001-work.jpg
+STONDEN AL IN DE REPOSITORY, en al correct op 1800 pixels hoge zijde. Die
+heb ik overgenomen in plaats van vervangen; ze gaan dus niet mee.
 
 ==========================================================================
-BUITEN DE OPDRACHT GEVONDEN — twee kapotte dingen
+WAT IK ONDERWEG TEGENKWAM
 ==========================================================================
 
-A · EEN KAPOTTE LINK OP ZES PAGINA'S, AL VOOR GLUE
-    In building.yaml stond "href: Ignore.html" met een hoofdletter I.
-    Het bestand heet ignore.html. GitHub Pages let op hoofdletters, dus
-    dat is een 404. De link staat in de verdiepingsgegevens en komt
-    daardoor terecht op:
-        index.html · building.html · plan-2 · plan-4 · plan-6 · plan-7
-    Dat zijn precies de pagina's waarmee bezoekers de weg zoeken.
-    Gerepareerd.
+A · ER STONDEN AL TWEE PAGINA'S OP DIE ADRESSEN, MET EEN VERBODEN CLAIM
+    echo-bobber-lamp.html en echo-melt-lamp-001.html bestonden al, 1.610 en
+    1.624 bytes, gebouwd op een los "worklook"-sjabloon: geen header, geen
+    footer, geen carrousel, style.css zonder vingerafdruk.
 
-    WAAROM MIJN EIGEN CONTROLE DIT NOOIT ZAG: mijn linkcontrole keek naar
-    href="…" als HTML-attribuut. Deze link zit in een JSON-blok als
-    "href": "Ignore.html". Die vorm viel buiten het patroon. Ik heb de
-    controle uitgebreid; hij dekt nu ook JSON. Dat is mijn fout geweest,
-    niet die van de site.
+    In de voettekst van allebei stond:
+        "WE ARE MAK STUDIO works independently, without gallery
+         representation."
 
-B · NATALIA STOND ZONDER LINK IN HET GEBOUW
-    In building.yaml stond bij haar naam de opmerking "No page of her own
-    yet, so no link. Do not invent one." Die opmerking is achterhaald —
-    ze heeft een pagina. Haar naam stond daardoor als enige van de twaalf
-    op de zesde verdieping zonder link, op building.html en de
-    plattegronden. Gerepareerd: haar naam linkt nu naar haar pagina.
+    Die zin mag niet op de site. Hij is voor meerdere makers aantoonbaar
+    onjuist en is eerder al overal geschrapt. De nieuwe pagina's dragen in
+    plaats daarvan de vaste ECHO-regel: verkoop loopt via Maaike Rabbinge,
+    MADART Foundation neemt geen commissie. Gecontroleerd: de claim komt op
+    geen van de 235 gebouwde pagina's meer voor.
 
-==========================================================================
-VRAAGT JOUW BESLUIT — niet gerepareerd
-==========================================================================
+    Ze schreven ook "€ 780 incl. btw" — Nederlands op een Engelse pagina.
+    De site schrijft "€ 780,–".
 
-I · valueAddedTaxIncluded EN productionDate IN DE JSON-LD
-    Je briefing vraagt erom. Inge heeft ze niet, en Inge is het
-    referentiedossier. Die twee eisen spreken elkaar tegen.
-    Toevoegen kan, maar het is een sjabloonwijziging die ALLE werkpagina's
-    raakt — 127 werken, dus ruim 127 bestanden opnieuw uploaden. Vier
-    dagen voor de opening zou ik dat niet nu doen. Zeg het en ik zet het
-    klaar voor na het festival.
+B · "THIRTEEN MAKERS" STOND OP VIJF PLEKKEN HARDGECODEERD
+    Vier in de gegevens, één in build.py zelf. Met haar erbij zijn het er
+    veertien. De vier tekstplekken zijn aangepast; de vijfde, de zin
+    "ECHO shows thirteen makers in Gallery 4" op makers.html, telt nu zelf
+    hoeveel leden ECHO heeft. Dat loopt dus nooit meer uit de pas.
 
-II · "All prices include VAT." STAAT NERGENS OP DE SITE
-    Niet op haar makerpagina, niet op haar werkpagina's, niet op
-    enquire.html — en ook niet bij Inge. In de gegevens staat bij elk werk
-    van Natalia wel een veld price_note: "Price includes VAT.", maar dat
-    veld wordt door geen enkel sjabloon getoond. Het is dood.
-    De btw-mededeling is dus een site-brede keuze, geen gat bij Natalia.
-    Wil je hem tonen, dan is dat opnieuw een sjabloonwijziging over alle
-    werkpagina's.
-
-III · HAAR PORTRET
-    De repository heeft 1067 × 1600, mijn werkkopie had 900 × 1350. De
-    repository-versie is groter en komt overeen met "web 1600px" uit je
-    briefing, dus die heb ik overgenomen. Er gaat geen beeld mee in deze
-    levering; alle 593 aangeroepen beelden zijn byte-identiek aan wat er
-    al staat.
+C · HET REGISTER GAAT VAN 30 NAAR 31 MAKERS
+    Dat getal wordt berekend, dus daar hoefde niets aan te gebeuren. Het is
+    wel de reden dat 37 bestaande makerpagina's in deze levering zitten: de
+    makers-carrousel onderaan elke pagina heeft er een naam bij. Inhoudelijk
+    verandert er op die 37 pagina's verder niets.
 
 ==========================================================================
-PDF TEGENOVER DE LIVE PAGINA'S
+VRAAGT JOUW BESLUIT — kijk hier even naar
 ==========================================================================
-Je hebt de PDF-catalogus en het labelvel niet meegestuurd, alleen de
-beschrijving ervan. Ik kon dus niet bestand-tegen-bestand vergelijken.
-Wat ik wel heb gedaan: de generator naast de beschrijving in je briefing
-gelegd. Daaruit kwamen de vier verschillen hierboven — en alle vier wezen
-dezelfde kant op: de PDF was bij, de generator liep achter. Na deze
-levering tonen ze dezelfde gegevens.
 
-Wil je een echte vergelijking, stuur dan de PDF en het labelvel; dan haal
-ik de tekst eruit en leg ik hem regel voor regel naast de HTML.
+I · HET PORTRET TOONT TWEE MENSEN
+    Je vraagt haar op te nemen als individuele ontwerper, maar DSC01428 is
+    een duoportret op een bank en de praktijktekst spreekt over "a Polish-
+    Dutch design duo". Op haar pagina staat dus één naam boven een foto van
+    twee personen. Dat kan prima als studioportret, maar het valt op naast
+    de andere ECHO-makers, die allemaal alleen op hun portret staan.
+    Heb je een portret van haar alleen, dan wissel ik het in een minuut.
+
+II · DE KORTE BIO HEB IK GESCHREVEN
+     Je briefing levert de praktijktekst en de positie binnen GROUND, maar
+     geen korte bio. Elke andere ECHO-maker heeft er een; die tekst draagt
+     het kaartje op makers.html. Ik heb er een geschreven, strak afgeleid
+     van jouw twee teksten:
+
+        "Works with raw material and purity of form, letting the qualities
+         of the material carry the object rather than hiding them. For ECHO
+         she turns Nedal aluminium residue into two lamps: one gathers tubes
+         into a volume, the other tears a single pipe open. Both let light
+         pass through a material that carried none."
+
+     Dit is het enige stuk tekst op haar pagina's dat niet van jou komt.
+     Keur het goed of stuur een eigen versie.
+
+III · DE EDITIE STAAT IN DE MATERIAALREGEL
+      Er is geen apart editieveld in het systeem. Twee bronzen werken elders
+      lossen het zo op: "bronze, edition 1/4 + 2 AP · 27 × 38 × 34 cm ·
+      2024". Ik heb dat patroon gevolgd. Wil je de editie liever weglaten of
+      ergens anders, zeg het.
+
+IV · HET PERSOONLIJKE INSTAGRAM IS NIET GEBRUIKT
+     @holaolavg_ staat in je briefing, maar het systeem kent per maker één
+     Instagram-veld. Ik heb het studioaccount genomen, @wearemakstudio, want
+     dat is waar het werk staat. Een tweede account toevoegen kan, maar dat
+     is een sjabloonwijziging over alle makerpagina's.
+
+==========================================================================
+NOG TE DOEN — buiten deze levering
+==========================================================================
+TWEE QR-LABELS. Het gedrukte ECHO-labelvel kent GROUND-ECHO-22 en -23 niet.
+Er moeten twee labels bij voor:
+      https://madartfoundation.com/echo-bobber-lamp.html
+      https://madartfoundation.com/echo-melt-lamp-001.html
+Die moet ik met pyzbar verifiëren tegen exact deze URL's voordat ze naar de
+drukker gaan. Zeg het en ik zet het klaar.
 
 ==========================================================================
 WAT ER IS GEMETEN
 ==========================================================================
-  python3 build.py --check   ->  built 232 pages, urls.lock gehaald
-                                 (geen enkele URL gewijzigd — de QR-codes
-                                  blijven geldig)
-  linkcontrole               ->  8.484 interne links, 0 kapot
-                                 (nu inclusief links in JSON-blokken)
-  JSON-LD                    ->  206 blokken, alle 206 geldig
-  tekstdiff tegen repo       ->  215 van 236 identiek, 21 gewijzigd
-  beelddiff tegen repo       ->  593 aangeroepen, 593 identiek
-  slugcontrole               ->  12 van 12 werk-URL's exact gelijk aan de
-                                 URL's in de gedrukte QR-codes
+  python3 build.py --check   ->  built 235 pages (was 232: +3 nieuw)
+                                 urls.lock gehaald, geen bestaande URL
+                                 gewijzigd — alle gedrukte QR-codes blijven
+                                 geldig
+  linkcontrole               ->  8.754 interne links, 0 kapot
+  JSON-LD                    ->  alle blokken geldig
+  tekstdiff tegen repo       ->  193 identiek, 45 gewijzigd, 1 nieuw
+  beelddiff tegen repo       ->  595 identiek, 7 nieuw
+  verboden claim             ->  "works independently" komt op geen van de
+                                 235 pagina's voor
   style.css                  ->  byte-identiek aan live
 
 ==========================================================================
 NA HET UPLOADEN
 ==========================================================================
-Zeg het als de drie mappen erop staan, dan draai ik beide diffs opnieuw.
-
-Open haar pagina daarna met ?v=1 achter het adres, anders toont je browser
-de oude versie uit zijn cache.
+Zeg het als alle vijf de mappen erop staan, dan draai ik beide diffs
+opnieuw. Open haar pagina met ?v=1 achter het adres, anders toont je
+browser zijn eigen kopie.
