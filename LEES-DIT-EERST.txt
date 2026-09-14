@@ -1,161 +1,120 @@
-LEVERING + RAPPORTAGE — 10-4 Studio, OFFSITE, en een fout van mij
+LEVERING — teksten 10-4 Studio en OFFSITE, Sleep Revolution verkocht
 madartfoundation.com · 14 september 2026 · drie dagen voor GLUE
 
-56 bestanden, vijf mappen.
+ZES BESTANDEN. Geen mappen nodig, geen nieuwe beelden.
 
-  deel-00-DIT-EERST    1   sitemap.xml
-  deel-01-BEELDEN      8   portret 10-4 + werkbeelden Flux en Twirl Stool S
-  deel-02-NIEUW        4   twee makerpagina's + twee werkpagina's
-  deel-03-MAKERS      38   bestaande makerpagina's, alleen de carrousel
-  deel-04-SITE         5   index · makers · works · echo · season-02-ground
+  echo.html
+  joris-wintgens.html
+  milou-bergs-edwin-van-capelleveen.html
+  loutje-hoekstra.html
+  loutje-hoekstra-sleep-revolution.html
+  works.html
 
 Alles in de wortel. style.css wijzigt niet.
 
-==========================================================================
-EERST: JE HAD GELIJK OVER ECHO.HTML, EN HET WAS MIJN FOUT
-==========================================================================
-Het collectiefblok op echo.html las een eigen ledenlijst uit makers.yaml.
-Die lijst stond nog op dertien. Toen ik Aleksandra toevoegde heb ik hem niet
-bijgewerkt, en vandaag bij 10-4 Studio en OFFSITE weer niet.
+--------------------------------------------------------------------------
+1 · DE TEKSTEN — GESCHREVEN DOOR MIJ, LEES ZE VOORDAT ZE LIVE GAAN
+--------------------------------------------------------------------------
+Beide makers hebben nu dezelfde drie secties als de veertien anderen:
+01 Work · 02 Practice · 03 Why this maker, and where.
 
-Gevolg: alle drie kregen wel een eigen pagina, stonden wel in works.html en
-wel in de carrousel onderaan — maar niet in het blok "The collective", waar
-de kop hardnekkig "13 makers" bleef zeggen. Precies wat jij zag.
+Alles is gebouwd op wat jij hebt aangeleverd. Waar ik verder ben gegaan dan
+jouw woorden, staat het hieronder gemarkeerd. Dit is curatoriële tekst van
+mijn hand; de regel is dat die alleen wordt gebruikt als de maker niets
+aanlevert. Krijg je later hun eigen tekst, dan vervangen we deze.
 
-GEREPAREERD, EN ZO DAT HET NIET WEER KAN. Die ledenlijst wordt nu afgeleid
-uit echo_members.yaml in plaats van apart bijgehouden. Eén lijst is de
-waarheid. De kop zegt nu "16 makers" en alle zestien staan in het blok.
+10-4 STUDIO — PRACTICE
+  "10-4 Studio was founded by Milou Bergs and Edwin van Capelleveen and
+   works from Eindhoven. They design products and custom interior elements
+   that balance thoughtful usability with an unexpected formal language.
 
-DAARBIJ KWAM NOG IETS BOVEN. Joris Wintgens heeft geen portret, en dat
-leverde in zijn kaartje src="" op — een leeg beeldadres. De browser toont
-dan een gebroken-beeldpictogram, en dat is erger dan geen beeld. Dat stond
-op echo.html én op makers.html. Een maker zonder portret toont nu zijn werk.
-Gecontroleerd over alle 239 pagina's: nul lege beeldadressen.
+   The objects are rarely decorative and never only functional: a door
+   handle, a closet pull, a coat hook. Things that are handled every day and
+   still hold a shape you have to look at twice."
 
-==========================================================================
-WAT ER VERDER IN ZIT
-==========================================================================
-  GROUND-ECHO-24  Flux             € 90,–    echo-flux.html
-  GROUND-ECHO-25  Twirl Stool S    € 320,–   echo-twirl-stool-s.html
+  Eerste alinea is jouw lede, woordelijk. Tweede alinea is van mij, gebouwd
+  op de drie toepassingen die jij noemde en op "unexpected formal language".
 
-  milou-bergs-edwin-van-capelleveen.html   10-4 Studio, Eindhoven
-  joris-wintgens.html                      OFFSITE
+10-4 STUDIO — POSITION
+  "Every tapered lamppost starts as a straight aluminium tube. Once the
+   lamppost is finished, the clamped end is cut off and discarded. Flux is
+   made from that offcut. Sliced into thin cross-sections, it reveals a
+   pattern the machine left behind — a fingerprint of the process. No two
+   are alike."
 
-Slugs volgen het patroon van Joost de Munnik & Ruud van den Eijnden. Codes
-24 en 25 waren vrij. Beide werk-URL's zijn exact die uit je briefing.
+  Dit is jouw Flux-omschrijving, alleen ingekort. Stond eerst onder PRACTICE
+  omdat er nog geen POSITION was; nu staat hij waar hij hoort.
 
-De twee basiswerkbeelden STONDEN AL IN DE REPOSITORY en waren al goed
-gemaat; die heb ik overgenomen in plaats van vervangen. De w-, t- en
-h-varianten zijn eruit gerekend. Alleen verkleind, niet bewerkt.
+OFFSITE — PRACTICE
+  "OFFSITE designs furniture and objects from industrial waste. Offcuts,
+   rejected batches, surplus stock, leftover formats: the material comes
+   first, and the design follows from what is already there.
 
-==========================================================================
-ER STONDEN ALWEER TWEE MINISTUBS — MET DEZELFDE VERBODEN CLAIM
-==========================================================================
-echo-flux.html en echo-twirl-stool-s.html bestonden al: 1.683 en 1.694
-bytes, geen header, geen footer, geen carrousel. In allebei stond weer:
+   That order is the whole method. A batch decides a dimension, a leftover
+   format decides a proportion. Form follows constraint, not the other way
+   round, and a series never runs longer than the material allows."
 
-    "… works independently, without gallery representation."
+  Eerste alinea is jouw lede. Tweede alinea is van mij; "form follows
+  constraint" is jouw zin, de rest is uitwerking.
 
-Dat is de derde keer dat die zin via het Curatorial-project binnenkomt. Na
-deze levering staat hij er weer niet op — gecontroleerd over alle 239
-pagina's. Ook "€ 90,– incl. btw" is Nederlands op een Engelse pagina.
+OFFSITE — POSITION
+  "Twirl Stool S is a single piece: waxed Nedal aluminium, oak and stainless
+   steel, brought together at the scale of one stool and no further. In a
+   collective built on one stream of residual material, it is the work that
+   shows what a constraint looks like once you sit on it."
 
-Het zou schelen als die ministubs daar niet meer gemaakt worden. Ze
-overschrijven telkens een goede pagina met een slechte.
+  Van mij, op basis van de materiaalopgave en het feit dat het een unicum is.
 
-==========================================================================
-DRIE BESLUITEN DIE IK ZELF HEB GENOMEN
-==========================================================================
-1 · FLUX: € 90,– ZICHTBAAR, STATUSPIL OP "ON REQUEST"
-    De status "estimate" bestaat niet; het systeem kent available, sold en
-    on request. Het veld price_note staat wel in de gegevens maar wordt door
-    geen sjabloon getoond — dood veld. De bezoeker ziet nu € 90,– met
-    daarnaast "on request": een richtprijs die je bevestigt bij aanvraag.
-    Dat leek me eerlijker dan € 90,– als "available", want dat is een harde
-    toezegging die jullie zelf onder voorbehoud stelden.
+--------------------------------------------------------------------------
+2 · SAMEN ÉÉN VERMELDING — ER VERANDERT NIETS
+--------------------------------------------------------------------------
+Milou Bergs en Edwin van Capelleveen blijven één vermelding, zoals Cynthia &
+Kevin Kars-Boom en Joost de Munnik & Ruud van den Eijnden. De tellers staan
+dus goed en hoefden niet aangeraakt:
 
-2 · FLUX STAAT IN CENTIMETERS
-    Je briefing zegt 45 × 45 × 30 mm; de site rekent in centimeters. Er staat
-    nu 4,5 × 4,5 × 3 cm. Zelfde maat.
+  ECHO                  16 makers
+  Season 02 GROUND      22 makers
+  register              33 makers
 
-3 · DE OMSCHRIJVING VAN FLUX STAAT BIJ DE MAKER
-    Geen enkel werk draagt eigen tekst. De tekst over de afgesneden
-    lantaarnpaal staat nu als PRACTICE bij 10-4 Studio.
+De briefing vroeg 17, 23 en 34. Die getallen komen er niet, en dat is de
+reden.
 
-==========================================================================
-TWEE PAGINA'S ZIJN DUNNER DAN DE REST
-==========================================================================
-Elk van de veertien bestaande ECHO-makers heeft drie tekstblokken: bio,
-PRACTICE en POSITION. Je briefing levert voor deze twee alleen een lede.
+--------------------------------------------------------------------------
+3 · DE TWEE QR-CODES ZIJN GOED
+--------------------------------------------------------------------------
+Gedecodeerd met pyzbar, op twee manieren: uit de ingebedde beelden in de PDF
+en uit de pagina zelf op 400 dpi, links- en rechterhelft apart.
 
-  10-4 Studio     01 Work · 02 Practice          POSITION ontbreekt
-  OFFSITE         01 Work                        PRACTICE én POSITION ontbreken
+  links,  GROUND-ECHO-24, Flux           -> /echo-flux.html
+  rechts, GROUND-ECHO-25, Twirl Stool S  -> /echo-twirl-stool-s.html
 
-Ik heb niets verzonnen; de regel is weglaten, niet vullen. Stuur per maker
-een practice van ongeveer honderd woorden en een position van tachtig, dan
-zet ik ze er in een kleine levering bij.
+Allebei bestaan ze en allebei staan ze live. Deze kunnen naar de drukker.
 
-==========================================================================
-HET PORTRET VAN JORIS WINTGENS ZIT ER NIET IN
-==========================================================================
-Wat je stuurde is een schermafbeelding van Instagram, 1.214 × 1.520, met de
-interface er nog omheen, en het is beeld dat iemand anders publiceerde. De
-vijftien andere ECHO-makers hebben een echte foto van 900 pixels breed.
+EEN OPMERKING OVER DE NAMEN OP DE LABELS. Het linkerlabel zegt "10-4 STUDIO"
+(de studionaam), het rechter zegt "JORIS WINTGENS" (de persoonsnaam). Op de
+vorige twee labels stond "WE ARE MAK STUDIO", terwijl de site daar
+"Aleksandra Sliwinska" toont. De site voert overal de persoon als maker en
+de studio als ondertitel. Op de labels wisselt dat. Niet fout, wel
+inconsequent als ze straks naast elkaar in Gallery 4 hangen.
 
-Zijn kaartjes tonen nu zijn kruk in plaats van een gezicht. Dat werkt, maar
-hij is de enige. Hij valt ook buiten de makers-carrousel onderaan de andere
-pagina's: die toont alleen makers mét portret.
+--------------------------------------------------------------------------
+4 · SLEEP REVOLUTION IS VERKOCHT
+--------------------------------------------------------------------------
+GROUND-LH-07, Loutje Hoekstra. De statuspil staat nu op "sold".
 
-Bijsnijden doe ik niet. Vraag een portret op, of geef uitdrukkelijk
-toestemming om deze schermafbeelding te gebruiken zoals hij is.
+De pagina blijft bestaan en de prijs van € 3.400,– blijft zichtbaar — dat is
+hoe The Kiss en Vaas Stier II er ook bij staan. Dat is bewust: de gedrukte
+QR-code in de galerie moet blijven werken, ook nadat het werk weg is.
 
-Het portret van 10-4 Studio zit er wél in, maar is LIGGEND (900 × 600)
-terwijl alle andere staand zijn. Op de kaartjes snijdt de browser hem bij.
-Kijk of Milou en Edwin dan nog goed in beeld staan.
+Het werk verdwijnt wel uit de lijst van beschikbare werken. Daarom zitten
+loutje-hoekstra.html en works.html in deze levering.
 
-==========================================================================
-DE TELLERS WORDEN ZESTIEN, NIET ZEVENTIEN
-==========================================================================
-Je briefing vraagt 17 ECHO-makers, 23 bij GROUND, 34 totaal. Het worden
-16, 22 en 33.
-
-Het verschil is één vraag: telt 10-4 Studio als één vermelding of als twee
-personen? De site telt overal per vermelding. Cynthia & Kevin Kars-Boom is
-één, Joost de Munnik & Ruud van den Eijnden is één, Aleksandra met haar duo
-is één. Wil je zeventien, dan moeten Milou en Edwin twee aparte pagina's
-krijgen, en dan wijkt het af van elke andere duo op de site.
-
-De tellers zijn berekend. Op één plek na: de zin over Gallery 4 in de
-seizoenstekst staat uitgeschreven in site.yaml en is nu "sixteen makers of
-ECHO".
-
-==========================================================================
-DE LATCH-WIJZIGING VOER IK NOG STEEDS NIET UIT
-==========================================================================
-Vandaag opnieuw gecontroleerd:
-  echo-latch-bench-work.jpg  BEVAT EEN KRUK
-  echo-latch-stool-work.jpg  BEVAT EEN BANK
-De bestandsnamen zijn verwisseld, de verwijzingen compenseren dat, en de
-pagina's tonen dus het juiste object. De og:image-tags ook. Draai je het om,
-dan staat er woensdag een kruk op de bankpagina.
-
-==========================================================================
+--------------------------------------------------------------------------
 WAT ER IS GEMETEN
-==========================================================================
-  python3 build.py --check   ->  built 239 pages (was 235: +4 nieuw)
-                                 urls.lock gehaald, geen bestaande URL gewijzigd
-  linkcontrole               ->  9.165 interne links, 0 kapot
-  lege beeldadressen         ->  0 op 239 pagina's
-  collectiefblok echo.html   ->  16 van 16 leden aanwezig
-  tekstdiff tegen repo       ->  195 identiek, 46 gewijzigd, 2 nieuw
-  beelddiff tegen repo       ->  604 identiek, 8 nieuw
-  verboden claim             ->  komt op geen van de 239 pagina's voor
+--------------------------------------------------------------------------
+  python3 build.py --check   ->  built 239 pages, urls.lock gehaald
+  linkcontrole               ->  9.281 interne links, 0 kapot
+  tekstdiff tegen repo       ->  237 identiek, 6 gewijzigd
+  beelddiff tegen repo       ->  614 van 614 identiek, geen nieuw beeld
+  QR-codes                   ->  2 van 2 gedecodeerd, beide correct
   style.css                  ->  byte-identiek aan live
-
-==========================================================================
-NOG TE DOEN
-==========================================================================
-TWEE QR-LABELS voor GROUND-ECHO-24 en -25:
-      https://madartfoundation.com/echo-flux.html
-      https://madartfoundation.com/echo-twirl-stool-s.html
-Zeg het en ik genereer ze, met pyzbar geverifieerd tegen precies deze URL's.
