@@ -1,107 +1,179 @@
-LEVERING — kopbeeld weg op de twee merkpagina's
+LEVERING + RAPPORTAGE — Natalia Wyspianska
 madartfoundation.com · 13 september 2026 · vier dagen voor GLUE
 
-TWEE BESTANDEN. Geen mappen nodig.
+21 bestanden, drie mappen. Geen nieuwe beelden.
 
-      buro-berger.html    47.119 -> 46.825 bytes
-      ignore.html         39.940 -> 39.656 bytes
+  deel-00-DIT-EERST    1    sitemap.xml
+  deel-01-NATALIA     13    haar makerpagina + 12 werkpagina's
+  deel-02-SITE         7    building · index · plan-2/4/6/7 · works
 
-Beide in de wortel van de repository.
+Alles in de wortel van de repository. style.css wijzigt niet.
 
---------------------------------------------------------------------------
-EERST DIT — je feedback beschrijft een oudere versie
---------------------------------------------------------------------------
-Je schreef over "het portret van Gerard de Hoop" bovenaan Ignore en over
-een kop "04 Designers". Dat was de stand van vanochtend.
+==========================================================================
+EERST DIT — wat er al stond en wat niet
+==========================================================================
+Ik heb niet blind herbouwd. Eerst gemeten wat er al is.
 
-De repository staat verder: ik heb hem zojuist gecontroleerd en 234 van de
-236 tekstbestanden zijn identiek aan mijn bouw, en alle 593 beelden ook.
-Je upload van de tien bestanden is dus aangekomen. Daarmee staat er al:
+AL VOLLEDIG IN ORDE, NIETS AAN GEDAAN:
+  - Alle 13 pagina's bestaan met exact de twaalf URL's die in de gedrukte
+    QR-codes zitten. Slug voor slug vergeleken. Er is niets hernoemd, dus
+    het labelvel hoeft NIET opnieuw gegenereerd of geverifieerd te worden.
+  - Ze staat in makers.html, in de makers-carrousel op alle makerpagina's,
+    in works.html met twaalf werken, in de sitemap, in plan-6 en in het
+    programma van de zesde verdieping.
+  - Prijsnotatie "€ 890,–" identiek aan Inge.
+  - Statuspil "available" op alle twaalf.
+  - De vaste alinea "100% of the sale proceeds go to the maker…" staat er.
+  - Instagram https://www.instagram.com/_natelier_/ klopt.
+  - "Coleman" komt in geen enkel bestand voor. Gecontroleerd op data,
+    sjablonen en alle 232 gebouwde pagina's.
+  - "between the nature" is al gecorrigeerd naar "between nature".
 
-  - Ignore opent met het ign_re-logo, niet met Gerard de Hoop
-  - "01 Work" is weg; de volgorde is 01 Practice, 02 In the house,
-    03 Designers — er is geen "04 Designers" meer
-  - Het ontwerpersblok loopt over de volle kolombreedte
-  - Dot Objects opent met het portret van Wiktoria
-  - De vier merkkaartjes op makers.html tonen de logo's
+HAAR KAMER IS WÉL TOEGEWEZEN — je briefing zegt van niet.
+  rooms: The Drawing Room / The Dining Room / The Conservatory / The Parlour
+  spot:  throughout the rooms
+  Dat is letterlijk identiek aan Inge. De eyebrow luidt nu:
+  "Sixth floor — The Drawing Room / The Dining Room / The Conservatory /
+   The Parlour · throughout the rooms"
+  Er staat dus niet alleen "Sixth floor". Controleer of deze toewijzing
+  klopt met wat je in gedachten had; als ze een eigen kamer krijgt in
+  plaats van alle vier, geef het door.
 
-Zie je dat nog niet, dan kijk je naar een gecachte pagina: GitHub Pages
-loopt een paar minuten achter op de repository. Ververs hard
-(Ctrl+Shift+R, of Cmd+Shift+R) en kijk opnieuw.
+==========================================================================
+PUNT 1 — HERBOUWD VANAF HET LIVE TEMPLATE
+==========================================================================
+Bevestigd: de pagina's die nú live staan komen NIET uit de generator.
 
-Drie van je vier punten waren dus al uitgevoerd. Dit pakket voert het
-vierde uit.
+  natalia-wyspianska.html          live 10.848 bytes  ->  nieuw 40.025
+  elke werkpagina                  live  ~5.350 bytes ->  nieuw  ~8.330
 
---------------------------------------------------------------------------
-WAT ER WIJZIGT
---------------------------------------------------------------------------
-Buro Berger en Ignore hebben geen kopbeeld meer. Na de naam, de bio en de
-links gaat de pagina rechtstreeks naar 01 Practice.
+De live versies missen de eyebrow, de genummerde secties, de
+makers-carrousel, de nieuwsbrief en de volledige footer. Ze verwijzen ook
+naar style.css?v=279ea9a8, terwijl de rest van de site op ?v=a23b9715
+zit — een teken dat ze tegen een oudere CSS-stand zijn gemaakt.
 
-Gemeten: het aantal interne links zakte van 8.342 naar 8.340. Precies twee
-eraf, precies de twee kopbeelden. Verder niets geraakt.
+De nieuwe pagina's komen uit hetzelfde sjabloon als inge-becka.html. Niet
+nagebouwd: hetzelfde bestand.
 
-Dot Objects en Devoonsounds houden hun portret bovenaan. De logo's blijven
-op de merkkaartjes van makers.html staan; daar verandert niets.
+==========================================================================
+PUNT 3 — AUDIT TEGEN INGE: VIER VERSCHILLEN GEVONDEN, ALLE VIER GEREPAREERD
+==========================================================================
 
---------------------------------------------------------------------------
-EEN AANNAME DIE IK HEB GEDAAN — corrigeer me als het mis is
---------------------------------------------------------------------------
-Over Buro Berger schreef je letterlijk: "Logo kan weg op de merk pagina."
-Over Ignore schreef je dat de eerste afbeelding weg mag, maar je beschreef
-daarbij het portret van Gerard de Hoop, niet het logo dat er inmiddels
-staat.
+1 · HET JAARTAL 2026 ONTBRAK IN ALLE TWAALF METAREGELS
+    generator : "Stoneware · 25 × 26 × 19 cm (w × d × h)"
+    Inge      : "hand-built · porcelain · 36 × 32 × 14 cm · 2024"
+    De PDF en de oude live pagina's hadden het jaartal wél. De generator
+    liep dus achter op de correctieronde. Nu overal "· 2026", ook in de
+    artMedium van de JSON-LD.
 
-Ik heb aangenomen dat je bedoelt: geen beeld bovenaan op een merkpagina,
-punt — bij Ignore net zo goed als bij Buro Berger. De twee pagina's zijn
-elkaars spiegel, dus een logo op de een en niets op de ander zou vreemd
-staan.
+2 · DE BEELDMATEN WAREN CENTIMETERS IN PLAATS VAN PIXELS
+    Dit was de ernstigste. In de gegevens stond bij width/height de maat
+    van het object, niet van het bestand. Op de pagina werd dat:
+        <img width="25" height="19">     terwijl het beeld 1200×1600 is
+    De browser reserveert daardoor een vak met de verkeerde verhouding en
+    de pagina springt zodra het beeld laadt. Bij Aqua no 2 was het vak
+    zelfs liggend (33×17) voor een staand beeld van 1390×1600.
+    Alle twaalf staan nu op de echte pixelmaten, uitgelezen uit de
+    bestanden. Inge had dit al goed (1800×1200).
 
-Wil je het ign_re-logo tóch bovenaan Ignore houden, dan zet ik het in een
-minuut terug. Het bestand staat al in de repository.
+3 · DE WHATSAPP-LINK WAS NIET PER WERK
+    Alle twaalf werken deelden één algemeen bericht:
+        "Hi Natalia, I'm interested in your work in Maison d'Artiste…"
+    Inge's link noemt het werk en de code. Nu ook bij Natalia:
+        "Hi Natalia, I'm interested in 'Aqua no 1' (MAISONDARTISTE-NW-01)
+         — MADART FOUNDATION, Maison d'Artiste."
+    Twaalf verschillende berichten, patroon letterlijk van Inge.
 
---------------------------------------------------------------------------
+4 · KUNSTRAI 2025 ONTBRAK IN IN BRIEF
+    Uit de correctieronde, stond niet in de generator. Nu de eerste regel,
+    boven Milan Design Week 2023, zoals opgedragen.
+
+==========================================================================
+BUITEN DE OPDRACHT GEVONDEN — twee kapotte dingen
+==========================================================================
+
+A · EEN KAPOTTE LINK OP ZES PAGINA'S, AL VOOR GLUE
+    In building.yaml stond "href: Ignore.html" met een hoofdletter I.
+    Het bestand heet ignore.html. GitHub Pages let op hoofdletters, dus
+    dat is een 404. De link staat in de verdiepingsgegevens en komt
+    daardoor terecht op:
+        index.html · building.html · plan-2 · plan-4 · plan-6 · plan-7
+    Dat zijn precies de pagina's waarmee bezoekers de weg zoeken.
+    Gerepareerd.
+
+    WAAROM MIJN EIGEN CONTROLE DIT NOOIT ZAG: mijn linkcontrole keek naar
+    href="…" als HTML-attribuut. Deze link zit in een JSON-blok als
+    "href": "Ignore.html". Die vorm viel buiten het patroon. Ik heb de
+    controle uitgebreid; hij dekt nu ook JSON. Dat is mijn fout geweest,
+    niet die van de site.
+
+B · NATALIA STOND ZONDER LINK IN HET GEBOUW
+    In building.yaml stond bij haar naam de opmerking "No page of her own
+    yet, so no link. Do not invent one." Die opmerking is achterhaald —
+    ze heeft een pagina. Haar naam stond daardoor als enige van de twaalf
+    op de zesde verdieping zonder link, op building.html en de
+    plattegronden. Gerepareerd: haar naam linkt nu naar haar pagina.
+
+==========================================================================
+VRAAGT JOUW BESLUIT — niet gerepareerd
+==========================================================================
+
+I · valueAddedTaxIncluded EN productionDate IN DE JSON-LD
+    Je briefing vraagt erom. Inge heeft ze niet, en Inge is het
+    referentiedossier. Die twee eisen spreken elkaar tegen.
+    Toevoegen kan, maar het is een sjabloonwijziging die ALLE werkpagina's
+    raakt — 127 werken, dus ruim 127 bestanden opnieuw uploaden. Vier
+    dagen voor de opening zou ik dat niet nu doen. Zeg het en ik zet het
+    klaar voor na het festival.
+
+II · "All prices include VAT." STAAT NERGENS OP DE SITE
+    Niet op haar makerpagina, niet op haar werkpagina's, niet op
+    enquire.html — en ook niet bij Inge. In de gegevens staat bij elk werk
+    van Natalia wel een veld price_note: "Price includes VAT.", maar dat
+    veld wordt door geen enkel sjabloon getoond. Het is dood.
+    De btw-mededeling is dus een site-brede keuze, geen gat bij Natalia.
+    Wil je hem tonen, dan is dat opnieuw een sjabloonwijziging over alle
+    werkpagina's.
+
+III · HAAR PORTRET
+    De repository heeft 1067 × 1600, mijn werkkopie had 900 × 1350. De
+    repository-versie is groter en komt overeen met "web 1600px" uit je
+    briefing, dus die heb ik overgenomen. Er gaat geen beeld mee in deze
+    levering; alle 593 aangeroepen beelden zijn byte-identiek aan wat er
+    al staat.
+
+==========================================================================
+PDF TEGENOVER DE LIVE PAGINA'S
+==========================================================================
+Je hebt de PDF-catalogus en het labelvel niet meegestuurd, alleen de
+beschrijving ervan. Ik kon dus niet bestand-tegen-bestand vergelijken.
+Wat ik wel heb gedaan: de generator naast de beschrijving in je briefing
+gelegd. Daaruit kwamen de vier verschillen hierboven — en alle vier wezen
+dezelfde kant op: de PDF was bij, de generator liep achter. Na deze
+levering tonen ze dezelfde gegevens.
+
+Wil je een echte vergelijking, stuur dan de PDF en het labelvel; dan haal
+ik de tekst eruit en leg ik hem regel voor regel naast de HTML.
+
+==========================================================================
 WAT ER IS GEMETEN
---------------------------------------------------------------------------
+==========================================================================
   python3 build.py --check   ->  built 232 pages, urls.lock gehaald
-  linkcontrole               ->  8.340 interne links, 0 kapot
+                                 (geen enkele URL gewijzigd — de QR-codes
+                                  blijven geldig)
+  linkcontrole               ->  8.484 interne links, 0 kapot
+                                 (nu inclusief links in JSON-blokken)
   JSON-LD                    ->  206 blokken, alle 206 geldig
-  tekstdiff tegen repo       ->  234 van 236 identiek, 2 gewijzigd
-  beelddiff tegen repo       ->  593 beelden aangeroepen, 593 identiek.
-                                 Geen nieuw beeld nodig.
+  tekstdiff tegen repo       ->  215 van 236 identiek, 21 gewijzigd
+  beelddiff tegen repo       ->  593 aangeroepen, 593 identiek
+  slugcontrole               ->  12 van 12 werk-URL's exact gelijk aan de
+                                 URL's in de gedrukte QR-codes
   style.css                  ->  byte-identiek aan live
 
---------------------------------------------------------------------------
-WAT JIJ ZELF MOET DOEN — uploaden verwijdert niets
---------------------------------------------------------------------------
-NIEUW OP DE LIJST:
+==========================================================================
+NA HET UPLOADEN
+==========================================================================
+Zeg het als de drie mappen erop staan, dan draai ik beide diffs opnieuw.
 
-      buro-berger-logo.jpg
-
-Dat is de banner. Die heb je vanochtend geupload als kopbeeld van
-buro-berger.html; na deze levering roept geen enkele pagina hem nog aan.
-Gecontroleerd: nul treffers in alle 232 gebouwde pagina's.
-
-STOND ER AL OP:
-
-      t-c-event-glue-2026.jpg
-      w-c-event-glue-2026.jpg
-      h-c-event-glue-2026.jpg
-
-c-event-glue-2026.jpg zonder voorvoegsel staat er ook nog; die heb ik NIET
-op de lijst gezet, want ik heb niet gecontroleerd of een pagina hem
-gebruikt.
-
---------------------------------------------------------------------------
-WAT OPEN BLIJFT
---------------------------------------------------------------------------
-NICOLA CHERUBINI, zaterdag 15:00. Alleen het woord "Talk", zonder titel en
-zonder omschrijving. Het enige programmaonderdeel dat niet uitklapt.
-Blokkerend voor 17 september.
-
-DE GLUE-HUBPAGINA linkt niet naar madartfoundation.com.
-
-LAPOSTA nog niet aangesloten op Formspark lDWonyUTP.
-
-BERTJAN POT (378x534) en BORIS DE BEIJER (490x694) staan nog op lage
-resolutie in een vak van 1200 breed.
+Open haar pagina daarna met ?v=1 achter het adres, anders toont je browser
+de oude versie uit zijn cache.
