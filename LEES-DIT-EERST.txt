@@ -1,120 +1,58 @@
-LEVERING — teksten 10-4 Studio en OFFSITE, Sleep Revolution verkocht
-madartfoundation.com · 14 september 2026 · drie dagen voor GLUE
+LEVERING — Opening Night: muziek bevestigd, escape-fout weg
+madartfoundation.com · 15 september 2026 · GLUE opent morgen
 
-ZES BESTANDEN. Geen mappen nodig, geen nieuwe beelden.
+TWEE BESTANDEN.
 
-  echo.html
-  joris-wintgens.html
-  milou-bergs-edwin-van-capelleveen.html
-  loutje-hoekstra.html
-  loutje-hoekstra-sleep-revolution.html
-  works.html
+  maison-dartiste-2026.html   80.488 -> 80.611 bytes
+  sitemap.xml                 alleen de datum
 
-Alles in de wortel. style.css wijzigt niet.
+Allebei in de wortel van de repository. style.css wijzigt niet.
 
 --------------------------------------------------------------------------
-1 · DE TEKSTEN — GESCHREVEN DOOR MIJ, LEES ZE VOORDAT ZE LIVE GAAN
+WAT ER IS VERANDERD, EN WAAR
 --------------------------------------------------------------------------
-Beide makers hebben nu dezelfde drie secties als de veertien anderen:
-01 Work · 02 Practice · 03 Why this maker, and where.
+Beide teksten stonden in data/programme.yaml, regel 131 en 135, in het blok
+do-opening. Daar zijn ze aangepast; de HTML is opnieuw gebouwd. Had je alleen
+het HTML-bestand bewerkt, dan was het weg geweest bij de volgende bouw.
 
-Alles is gebouwd op wat jij hebt aangeleverd. Waar ik verder ben gegaan dan
-jouw woorden, staat het hieronder gemarkeerd. Dit is curatoriële tekst van
-mijn hand; de regel is dat die alleen wordt gebruikt als de maker niets
-aanlevert. Krijg je later hun eigen tekst, dan vervangen we deze.
+1 · MUZIEK
+    was : "… Bon Vivant. Music to be announced."
+    is  : "… Bon Vivant. Music on three floors at once: Devoonsounds under
+           the dome on seven, Arthur Chapelle on solo guitar on six, and
+           DJ ELLE-MAR on the gallery floor on four."
+    Woordelijk zoals aangeleverd.
 
-10-4 STUDIO — PRACTICE
-  "10-4 Studio was founded by Milou Bergs and Edwin van Capelleveen and
-   works from Eindhoven. They design products and custom interior elements
-   that balance thoughtful usability with an unexpected formal language.
+2 · DE ESCAPE-FOUT
+    In de YAML stond "Foundation&rsquo;s". De generator escapet de &, dus op
+    de pagina kwam "Foundation&amp;rsquo;s" te staan en las de bezoeker
+    letterlijk "Foundation&rsquo;s".
 
-   The objects are rarely decorative and never only functional: a door
-   handle, a closet pull, a coat hook. Things that are handled every day and
-   still hold a shape you have to look at twice."
+    Er staat nu het echte leesteken: "Foundation’s own exhibition". Dat gaat
+    ongeschonden door de generator heen.
 
-  Eerste alinea is jouw lede, woordelijk. Tweede alinea is van mij, gebouwd
-  op de drie toepassingen die jij noemde en op "unexpected formal language".
-
-10-4 STUDIO — POSITION
-  "Every tapered lamppost starts as a straight aluminium tube. Once the
-   lamppost is finished, the clamped end is cut off and discarded. Flux is
-   made from that offcut. Sliced into thin cross-sections, it reveals a
-   pattern the machine left behind — a fingerprint of the process. No two
-   are alike."
-
-  Dit is jouw Flux-omschrijving, alleen ingekort. Stond eerst onder PRACTICE
-  omdat er nog geen POSITION was; nu staat hij waar hij hoort.
-
-OFFSITE — PRACTICE
-  "OFFSITE designs furniture and objects from industrial waste. Offcuts,
-   rejected batches, surplus stock, leftover formats: the material comes
-   first, and the design follows from what is already there.
-
-   That order is the whole method. A batch decides a dimension, a leftover
-   format decides a proportion. Form follows constraint, not the other way
-   round, and a series never runs longer than the material allows."
-
-  Eerste alinea is jouw lede. Tweede alinea is van mij; "form follows
-  constraint" is jouw zin, de rest is uitwerking.
-
-OFFSITE — POSITION
-  "Twirl Stool S is a single piece: waxed Nedal aluminium, oak and stainless
-   steel, brought together at the scale of one stool and no further. In a
-   collective built on one stream of residual material, it is the work that
-   shows what a constraint looks like once you sit on it."
-
-  Van mij, op basis van de materiaalopgave en het feit dat het een unicum is.
+    Gecontroleerd: "amp;rsquo" komt op geen van de 240 pagina's meer voor, en
+    er staat geen enkele andere HTML-entiteit in de datafiles.
 
 --------------------------------------------------------------------------
-2 · SAMEN ÉÉN VERMELDING — ER VERANDERT NIETS
+NIETS ANDERS AANGERAAKT
 --------------------------------------------------------------------------
-Milou Bergs en Edwin van Capelleveen blijven één vermelding, zoals Cynthia &
-Kevin Kars-Boom en Joost de Munnik & Ruud van den Eijnden. De tellers staan
-dus goed en hoefden niet aangeraakt:
+Geen bestandsnaam gewijzigd, .worklook ongemoeid, urls.lock gehaald zonder
+wijziging. De diff tegen de repository geeft precies twee bestanden: de
+pagina zelf en de sitemap, en die laatste verschilt alleen in de datum.
 
-  ECHO                  16 makers
-  Season 02 GROUND      22 makers
-  register              33 makers
-
-De briefing vroeg 17, 23 en 34. Die getallen komen er niet, en dat is de
-reden.
+  linkcontrole   ->  9.301 interne links, 0 kapot
+  tekstdiff      ->  242 van 244 identiek
+  beelddiff      ->  617 van 617 identiek, geen nieuw beeld
 
 --------------------------------------------------------------------------
-3 · DE TWEE QR-CODES ZIJN GOED
+BLIJFT STAAN, ZOALS AFGESPROKEN
 --------------------------------------------------------------------------
-Gedecodeerd met pyzbar, op twee manieren: uit de ingebedde beelden in de PDF
-en uit de pagina zelf op 400 dpi, links- en rechterhelft apart.
-
-  links,  GROUND-ECHO-24, Flux           -> /echo-flux.html
-  rechts, GROUND-ECHO-25, Twirl Stool S  -> /echo-twirl-stool-s.html
-
-Allebei bestaan ze en allebei staan ze live. Deze kunnen naar de drukker.
-
-EEN OPMERKING OVER DE NAMEN OP DE LABELS. Het linkerlabel zegt "10-4 STUDIO"
-(de studionaam), het rechter zegt "JORIS WINTGENS" (de persoonsnaam). Op de
-vorige twee labels stond "WE ARE MAK STUDIO", terwijl de site daar
-"Aleksandra Sliwinska" toont. De site voert overal de persoon als maker en
-de studio als ondertitel. Op de labels wisselt dat. Niet fout, wel
-inconsequent als ze straks naast elkaar in Gallery 4 hangen.
+"With all thirty makers present" in hetzelfde blok, en dezelfde zin in
+site.yaml regel 296. Het register telt er 33. Zeg het als je er alsnog
+"thirty-three" van wilt maken; dat is één regel en raakt twee bestanden.
 
 --------------------------------------------------------------------------
-4 · SLEEP REVOLUTION IS VERKOCHT
+NA HET UPLOADEN
 --------------------------------------------------------------------------
-GROUND-LH-07, Loutje Hoekstra. De statuspil staat nu op "sold".
-
-De pagina blijft bestaan en de prijs van € 3.400,– blijft zichtbaar — dat is
-hoe The Kiss en Vaas Stier II er ook bij staan. Dat is bewust: de gedrukte
-QR-code in de galerie moet blijven werken, ook nadat het werk weg is.
-
-Het werk verdwijnt wel uit de lijst van beschikbare werken. Daarom zitten
-loutje-hoekstra.html en works.html in deze levering.
-
---------------------------------------------------------------------------
-WAT ER IS GEMETEN
---------------------------------------------------------------------------
-  python3 build.py --check   ->  built 239 pages, urls.lock gehaald
-  linkcontrole               ->  9.281 interne links, 0 kapot
-  tekstdiff tegen repo       ->  237 identiek, 6 gewijzigd
-  beelddiff tegen repo       ->  614 van 614 identiek, geen nieuw beeld
-  QR-codes                   ->  2 van 2 gedecodeerd, beide correct
-  style.css                  ->  byte-identiek aan live
+Zeg het, dan haal ik de raw-versie op en controleer ik of beide zinnen er
+woordelijk in staan.
