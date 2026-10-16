@@ -1,35 +1,37 @@
-# GLINA³ — Season 03 INLINE — Gallery 4
-MAKER="GLINA³"; MAKER_H="GLINA&sup3;"; SLUG="glina3"
-LOC="Fourth floor — Gallery 4"; GALLERY="Gallery 4"
-SEASON="Season 03 — INLINE"
+# MADART makerset data — ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES, Season 03 INLINE (Gallery Lounge)
+MAKER="ICONIC DESIGN OBJECTS \u00d7 STUDIOSOPHIEHOSPES"
+COVER=["ICONIC DESIGN OBJECTS","\u00d7 STUDIOSOPHIEHOSPES"]
+SLUG="iconic-design-objects-studiosophiehospes"
+INIT="IDSH"
+CONTACT_FIRST="Lisa"; CONTACT_FULL="Lisa Wals"
+WA_NUM="31612102158"
+LOC="Fourth floor \u2014 Gallery Lounge"; GALLERY="Gallery Lounge"
+SEASON="Season 03 \u2014 INLINE"
 BASE="https://madartfoundation.com/"
-WA_NUM="31657694723"
-IG="glina__3"
-WORKS=[dict(n=1,key="conditions-of-presence",title="Conditions of Presence",
-  subtitle="An interactive column for body, time and place",
-  medium="Aluminium extrusion, LED matrices, 3D-printed polymer and ceramic components, camera, proximity sensor, custom electronics, Python code and computational moving image",
-  dims="Approx. 170 × 35 × 35 cm", year="2026",
-  edition="Edition of 2 + 1 AP",
-  extra="Edition of 2 + 1 AP · Approx. 60 kg · Live silhouette / no recording",
-  price="€ 3.815,–", price_num=3815,
-  img="/home/claude/gl/src/img-000.jpg",
-  text=["Conditions of Presence is an interactive column composed of aluminium extrusion, LED matrices, sensors, a camera, custom electronics and computational moving image.",
-   "The work brings together movement registered at radically different scales: archival experiments in computer animation, microscopic recordings of living systems and planetary imagery. A fourth layer belongs to the present encounter itself, exposing the computational system through which the visitor enters the work.",
-   "As someone approaches, distance and presence begin to affect the image. The viewer is no longer positioned outside the work but becomes one of the conditions through which it exists.",
-   "The installation treats the digital image not as immaterial content confined to a screen, but as part of a physical infrastructure of bodies, sensors, processors, electricity, code and matter.",
-   "Conditions of Presence asks how presence is produced when human perception becomes entangled with the systems that sense, process and represent it."])]
+RENDER="/mnt/user-data/uploads/Ultra_high-resolution_3D_rende_Nano_Banana_Pro_45869.jpg"
+LINKS=[("Instagram \u2014 @iconicdesignobjects","https://www.instagram.com/iconicdesignobjects"),
+       ("Instagram \u2014 @studiosophiehospes","https://www.instagram.com/studiosophiehospes"),
+       ("Website \u2014 iconicdesignobjects.com","https://www.iconicdesignobjects.com"),
+       ("Website \u2014 studiosophiehospes.com","https://www.studiosophiehospes.com")]
+WORKS=[dict(n=1,key="ghost",title="Ghost",medium="Polished chrome & black",
+    dims="18 \u00d7 14 \u00d7 25 cm (w \u00d7 d \u00d7 h)",year=None,
+    extra="Edition of 50, numbered & signed",
+    price="\u20ac 250,\u2013",price_num=250,vat=None,
+    text=["A ghost is what remains when the object is gone.",
+          "Ghost of Adolescence is about the years between childhood and adulthood, when you still look at the world with wonder and hold your dreams a little too tightly. Developed as collaboration between ICONIC DESIGN OBJECTS & STUDIOSOPHIEHOSPES, the figure stays in that in-between and refuses to grow out of it. Silver on the outside, black at the core, both finished to a high gloss."])]
 for w in WORKS:
-    w["code"]=f"INLINE-GL3-{w['n']:02d}"
+    w["code"]=f"INLINE-{INIT}-{w['n']:02d}"
     w["page"]=f"{SLUG}-{w['key']}"
     w["url"]=BASE+w["page"]+".html"
-    w["meta"]=f"{w['medium']} · {w['dims']} · {w['year']}"
-BIO=["GLINA³ is an Amsterdam-based creative technology, design and research studio founded by industrial designers Aleksandra Chargeishvili and Timo Bega, graduates of the Master Industrial Design programme at the Royal Academy of Art, The Hague.",
-"Working across ceramic 3D printing, digital fabrication, computational design, electronics and research through making, the studio develops objects, interactive installations, surface systems and experimental production formats.",
-"GLINA³ investigates how technologies usually encountered through screens, interfaces and machines can become physical, spatial and bodily experiences. Computation is treated not as an invisible tool behind the work, but as a condition that actively shapes form, behaviour and perception.",
-"Our aim is to make emerging technologies more tactile, poetic and accessible. Through code, toolpaths, material behaviour, electronics, energy and human presence, GLINA³ explores how digital production can become part of everyday material culture."]
-EXHIB="First prototype (two blocks), Gray Space in the Middle, The Hague, July 2026"
-LEDE="An open aluminium column in which archival animation, living cells and planetary imagery share two LED screens — until someone steps close, and the image begins to include them."
-WHY=[
- "INLINE asks what it means to make something in a world that always exists somewhere else too. Most of that elsewhere reaches us through a screen, and a screen is built to make its machinery disappear. GLINA³ do the opposite. In Conditions of Presence the aluminium frame stays open, the wiring stays visible, and the sensors and printed parts sit where anyone can see them. The image is still there; it no longer pretends to come from nowhere.",
- "On the two LED screens, four kinds of movement take turns: early computer animation from the archive of Doris Chase, microscopic recordings of living cells, NASA imagery, and a fourth layer that shows the system itself at work. The first three are movement recorded elsewhere, at scales the body cannot reach. The fourth needs a visitor. A camera and a proximity sensor register who comes near, and the image answers to that distance. Nothing is stored; the silhouette exists only while someone stands there.",
- "Aleksandra Chargeishvili and Timo Bega trained as industrial designers, and the column carries that training: modular, free-standing, made to be taken apart and put back together. In Gallery 4 it stands free in the room. Walk up to it — the work is only complete when someone does."]
+    w["meta"]=" \u00b7 ".join(x for x in (w["medium"],w["dims"],w["year"]) if x)
+# Maker texts — verbatim as supplied (language points reported, not corrected)
+IDO=["I-DO is a design and production company with offices in Amsterdam and Shenzhen, founded in 2022 by collectors who wanted to make the objects they were looking for themselves. We design and produce characters, sculptures, art collectibles and installations, from the first sketch to the finished piece.",
+     "Our goal is to bring collectible art out of its niche and into everyday life, as something you own, experience and identify with. We build our own characters and the world around them, and we help artists and brands develop their IP into objects and experiences that people want to have. Everything we make is designed in Amsterdam and produced under our own supervision."]
+SSH=["STUDIOSOPHIEHOSPES (SSH) is a creative studio based in Sweden focussed on creating campaigns, product design and digital brand worlds that bring together visual culture, innovation and performance.",
+     "Combining design and emerging technology the studio explores the future of creativity across physical and digital spaces. Recent work includes projects for Nike, Ray-Ban and Mercer Labs (Museum of Art and Technology in New York)."]
+LEDE="A figure that stays between childhood and adulthood and refuses to grow out of it: polished chrome on the outside, black at the core, in a numbered edition of fifty."
+WHY=["INLINE asks what it means to make something in a world that always exists somewhere else too. A character is a clear case. Before Ghost was an object it was a sketch and a render, developed between an Amsterdam company that builds its own characters and the world around them, and a Swedish studio that works across physical and digital spaces. The object in the room is one appearance of the figure, not its origin.",
+     "The makers describe Ghost as a figure of the years between childhood and adulthood \u2014 the period when much of what we hold on to is still imagined. The finish carries that idea. Silver on the outside, black at the core, both polished to a high gloss: the surface returns the room and whoever leans in, while the core stays dark. An edition of fifty, numbered and signed, lets the same figure exist in many places at once without becoming any less particular.",
+     "I-DO began with collectors who wanted to make the objects they were looking for themselves, and that is the position they bring to the Gallery Lounge, the season\u2019s only duo. Ghost is shown at twenty-five centimetres, the scale of something kept close \u2014 made, in I-DO\u2019s own words, to be owned, experienced and identified with."]
+IN_BRIEF=["I-DO \u2014 offices in Amsterdam and Shenzhen, founded 2022.",
+          "STUDIOSOPHIEHOSPES \u2014 recent work includes projects for Nike, Ray-Ban and Mercer Labs (Museum of Art and Technology in New York)."]
