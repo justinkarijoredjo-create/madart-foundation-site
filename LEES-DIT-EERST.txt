@@ -1,55 +1,98 @@
-HERSTEL — elf kernpagina's terugzetten
+LEVERING — Het Metzgebouw, de opening en de openingstijden
 madartfoundation.com · 18 oktober 2026 · drie dagen voor de opening
 
-ELF BESTANDEN. Eén map, geen volgorde nodig. Alles in de wortel.
-
-  anbi.html          20.526 bytes   (stond op   9.412)
-  building.html      49.891         (stond op  onbekend, veel kleiner)
-  enquire.html       46.437
-  exhibitions.html   10.367
-  friend.html        12.320
-  makers.html        32.204         (stond op   5.679)
-  privacy.html       15.160         (stond op   6.890)
-  shop.html             501         (doorverwijzing naar works.html)
-  thanks.html         8.935
-  visit.html         14.680         (stond op   1.976)
-  works.html        196.572         (stond op   6.638)
+232 BESTANDEN, vijf mappen van maximaal 50. Alles in de wortel.
+style.css wijzigt niet.
 
 --------------------------------------------------------------------------
-WAAROM
+1 · HET METZGEBOUW
 --------------------------------------------------------------------------
-Na jouw upload waren 250 van de 261 bestanden identiek aan mijn bouw. Deze
-elf niet. Ze zijn vervangen door veel kleinere versies zonder verwijzing naar
-style.css en zonder de staart met het reveal- en openingstijdenscript. Het
-zijn dus geen pagina's uit de generator.
+"NIO House Amsterdam" heet nu overal "Het Metzgebouw". 34 vindplaatsen in
+acht bestanden, en op 232 van de 285 pagina's.
 
-works.html van 6,6 kB kan de 196 werken in het register niet tonen.
-makers.html van 5,7 kB kan de 38 makers niet tonen.
-
-Zes van de elf — anbi, building, friend, privacy, shop, visit — zaten niet
-in mijn levering van vanmiddag. Die heb ik niet aangeraakt.
-
---------------------------------------------------------------------------
-NA HET UPLOADEN
---------------------------------------------------------------------------
-Zeg het, dan vergelijk ik alle elf byte voor byte. Verwacht resultaat:
-261 van 261 identiek.
+WAT NIET IS VERVANGEN, EN WAAROM:
+NIO House is de organisatie die in het gebouw zit — eigen kantoren, eigen
+werkvloer, eigen café. Achttien vermeldingen gaan daarover en zijn blijven
+staan:
+    "NIO House's own offices"        (vijfde verdieping)
+    "NIO House's working floor"
+    "NIO House's café, open to anyone who walks in"
+    "used by NIO House for events"   (eerste verdieping)
+    de bezetting van verdieping 1, 3, 5 en 7
+Die hadden fout gestaan als Het Metzgebouw. Het gebouw is de locatie; NIO
+House is een huurder.
 
 --------------------------------------------------------------------------
-EN DAN DE AFSPRAAK
+2 · DE OPENING STAAT OP DE SITE
 --------------------------------------------------------------------------
-Dit kan morgen opnieuw gebeuren. Deze elf bestanden staan in het
-kennisoverdrachtsdocument van het Curatorial-project zelf, in §6.5, als werk
-voor het Digital Ecosystem-project. De lijst die daar staat is bijna
-letterlijk de lijst hierboven:
+Een blok op de homepage, boven alles:
 
-  makers.html · works.html · index.html · building.html · season-0X · 
-  sitemap.xml · enquire.html · de carrousel op alle andere makerpagina's
+    Wednesday 21 October 2026 · 18:00 – 21:00
+    Season 03 — INLINE opens
+    Het Metzgebouw, Leidsestraat 32-34, fourth floor. Entry is by
+    contribution to MADART Foundation. Doors at 17:45.
+    From 22 October the season is open daily, 10:00 – 18:00, free entry.
+    [Register for the opening →]  [The season →]
 
-Het Curatorial-project hoort ze te MELDEN, niet te schrijven. Zolang beide
-kanten dezelfde bestanden bouwen, wint telkens wie het laatst uploadt — en
-dat is niet te zien zonder byte-vergelijking.
+De knop gaat naar de Eventbrite-pagina. Het blok zit achter dezelfde
+datumgrens als het GLUE-blok vorige maand: na 21 oktober valt het vanzelf
+weg, zonder dat iemand eraan hoeft te denken.
 
-Voorstel in één regel: het Curatorial-project levert per maker zijn eigen
-pagina's en beelden plus een lijstje gegevens; alles wat de hele site raakt
-komt hier vandaan.
+De gegevens staan op één plek, onder `opening:` in site.yaml. Volgend
+seizoen is het één blok aanpassen.
+
+DRIE DINGEN UIT HET REFERENTIEDOCUMENT KLOPTEN NIET MEER. Eventbrite zegt:
+    tijd      18:00 – 21:00      (dossier zei 19:00 – 22:00)
+    toegang   via bijdrage       (dossier zei invite-only, circa 150 gasten)
+    tijden    bevestigd          (dossier zei "nog te bevestigen")
+Ik heb Eventbrite aangehouden; dat is wat de bezoeker leest.
+
+--------------------------------------------------------------------------
+3 · DE OPENINGSTIJDEN
+--------------------------------------------------------------------------
+De koptekst zei op elke pagina "Open daily 10:00–18:00". Dat klopt pas vanaf
+22 oktober; tot dan staat de vierde verdieping tussen twee seizoenen.
+
+Nu staat er "Opens 22 October", en vanaf die dag schakelt hij vanzelf om naar
+de gewone status. Dat geldt ook ZONDER JavaScript: de statische regel in de
+koptekst volgt dezelfde datum, want dat is wat een bezoeker ziet voordat het
+script draait en wat een zoekmachine leest.
+
+De seizoenstekst op season-03-inline.html noemt nu ook de publieksdagen:
+22 October 2026 – 17 January 2027, daily 10:00–18:00, free entry.
+
+--------------------------------------------------------------------------
+WAT ER IS GEMETEN
+--------------------------------------------------------------------------
+  python3 build.py --check   ->  built 285 pages
+  linkcontrole               ->  9.983 interne links, 0 kapot
+  JSON-LD                    ->  214 blokken, alle 214 geldig
+  "NIO House Amsterdam"      ->  0 van de 285 pagina's
+  "Open daily 10:00"         ->  0 van de 285 pagina's
+  diff tegen repo            ->  29 identiek, 232 gewijzigd, 0 nieuw
+  style.css                  ->  byte-identiek aan live
+
+--------------------------------------------------------------------------
+WAAROM HET ER 232 ZIJN
+--------------------------------------------------------------------------
+De naam van het gebouw staat in de voettekst van elke pagina. Dat is één
+wijziging die overal landt. Inhoudelijk verandert er op de meeste pagina's
+niets anders.
+
+--------------------------------------------------------------------------
+EEN VRAAG
+--------------------------------------------------------------------------
+Op de homepage staat nog SEASON 03 · NOW SHOWING, terwijl het seizoen pas
+woensdag opent. Het openingsblok staat er nu boven en zegt het goed, dus een
+bezoeker wordt niet misleid. Wil je dat "NOW SHOWING" tot woensdag iets
+anders zegt, dan is dat één regel.
+
+--------------------------------------------------------------------------
+NOG OPEN
+--------------------------------------------------------------------------
+DE GENERATOR staat nog nergens veilig. Hij bestaat alleen in mijn
+werkomgeving, en die wordt gewist.
+
+DE AFSPRAAK over wie welke bestanden schrijft.
+
+I-DO in de Gallery Lounge, en de video-CSS naar style.css.
