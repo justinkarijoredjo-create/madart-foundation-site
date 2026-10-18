@@ -1,6 +1,6 @@
-# MADART makerset data — ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES, Season 03 INLINE (Gallery Lounge)
-MAKER="ICONIC DESIGN OBJECTS \u00d7 STUDIOSOPHIEHOSPES"
-COVER=["ICONIC DESIGN OBJECTS","\u00d7 STUDIOSOPHIEHOSPES"]
+# MADART makerset data — I-DO × STUDIOSOPHIEHOSPES, Season 03 INLINE (Gallery Lounge)
+MAKER="I-DO \u00d7 STUDIOSOPHIEHOSPES"
+COVER=["I-DO \u00d7","STUDIOSOPHIEHOSPES"]
 SLUG="iconic-design-objects-studiosophiehospes"
 INIT="IDSH"
 CONTACT_FIRST="Lisa"; CONTACT_FULL="Lisa Wals"
@@ -18,7 +18,7 @@ WORKS=[dict(n=1,key="ghost",title="Ghost",medium="Polished chrome & black",
     extra="Edition of 50, numbered & signed",
     price="\u20ac 250,\u2013",price_num=250,vat=None,
     text=["A ghost is what remains when the object is gone.",
-          "Ghost of Adolescence is about the years between childhood and adulthood, when you still look at the world with wonder and hold your dreams a little too tightly. Developed as collaboration between ICONIC DESIGN OBJECTS & STUDIOSOPHIEHOSPES, the figure stays in that in-between and refuses to grow out of it. Silver on the outside, black at the core, both finished to a high gloss."])]
+          "Ghost of Adolescence is about the years between childhood and adulthood, when you still look at the world with wonder and hold your dreams a little too tightly. Developed as collaboration between I-DO & STUDIOSOPHIEHOSPES, the figure stays in that in-between and refuses to grow out of it. Silver on the outside, black at the core, both finished to a high gloss."])]
 for w in WORKS:
     w["code"]=f"INLINE-{INIT}-{w['n']:02d}"
     w["page"]=f"{SLUG}-{w['key']}"
@@ -37,7 +37,7 @@ IN_BRIEF=["I-DO \u2014 offices in Amsterdam and Shenzhen, founded 2022.",
           "STUDIOSOPHIEHOSPES \u2014 recent work includes projects for Nike, Ray-Ban and Mercer Labs (Museum of Art and Technology in New York)."]
 # Collaboration image (option 1) + maker portraits, Buro Berger pattern
 SILHOUETTE="/mnt/user-data/uploads/_ESRGAN_10409.jpg"
-PEOPLE=[dict(key="ido",name="ICONIC DESIGN OBJECTS (I-DO)",short="I-DO",src="/mnt/user-data/uploads/PHOTO-2026-10-18-17-19-30.jpg",
+PEOPLE=[dict(key="ido",name="I-DO",short="I-DO",src="/mnt/user-data/uploads/PHOTO-2026-10-18-17-19-30.jpg",
              text=IDO,links=[("@iconicdesignobjects","https://www.instagram.com/iconicdesignobjects"),("iconicdesignobjects.com","https://www.iconicdesignobjects.com")]),
-        dict(key="ssh",name="STUDIOSOPHIEHOSPES (SSH)",short="STUDIOSOPHIEHOSPES",src="/mnt/user-data/uploads/Scherm_afbeelding_2026-10-09_om_02_21_02.png",
+        dict(key="ssh",name="STUDIOSOPHIEHOSPES",short="STUDIOSOPHIEHOSPES",src="/mnt/user-data/uploads/Scherm_afbeelding_2026-10-09_om_02_21_02.png",
              text=SSH,links=[("@studiosophiehospes","https://www.instagram.com/studiosophiehospes"),("studiosophiehospes.com","https://www.studiosophiehospes.com")])]

@@ -1,4 +1,4 @@
-import data, json, html, urllib.parse
+import data, json, html, urllib.parse, re
 from PIL import Image
 SITE='/home/claude/site'; OUT='/home/claude/ido/site'; E=html.escape
 Q=lambda t: urllib.parse.quote(t,safe='')
@@ -8,7 +8,13 @@ MH=E(data.MAKER)
 src=open(f'{SITE}/glina3.html',encoding='utf-8').read()
 head_common=src[src.index('<meta name="twitter:card"'):src.index('<script type="application/ld+json">')]
 header=src[src.index('<body>'):src.index('<main id="main">')]
-rail=src[src.index('<section class="reveal wide">'):src.index('</main>')]
+_a=open('/home/claude/site4/anne-van-borselen.html',encoding='utf-8').read()
+_r=_a[_a.index('<section class="reveal wide">'):_a.index('</main>')]
+_t0=_r.index('<div class="track">')+len('<div class="track">'); _t1=_r.index('\n  </div>\n</div>',_t0)
+_sl=[x for x,h in re.findall(r'(    <a class="slide portrait" href="([^"]+)".*?</a>)',_r[_t0:_t1],re.S) if h!=data.SLUG+'.html']
+_o=open('/home/claude/site4/owen-mcateer.html',encoding='utf-8').read(); _i=_o.index('<a class="slide portrait" href="anne-van-borselen.html">')
+_sl.append('    '+_o[_i:_o.index('</a>',_i)+4]); _sl.sort(key=lambda x:re.search(r'<h3>(.*?)</h3>',x).group(1).lower())
+rail=_r[:_t0]+'\n'+'\n'.join(_sl)+_r[_t1:]
 footer=src[src.index('</main>'):]
 wsrc=open(f'{SITE}/glina3-conditions-of-presence.html',encoding='utf-8').read()
 wtail=wsrc[wsrc.index('</main>'):]
@@ -48,7 +54,7 @@ for w in data.WORKS:
       <div class="p">{w['price']} <span class="pill available">available</span></div>
     </a>''')
 ld={"@context":"https://schema.org","@type":"Organization","name":data.MAKER,"description":data.LEDE,
-    "member":[{"@type":"Organization","name":"ICONIC DESIGN OBJECTS","url":"https://www.iconicdesignobjects.com"},
+    "member":[{"@type":"Organization","name":"I-DO","url":"https://www.iconicdesignobjects.com"},
               {"@type":"Organization","name":"STUDIOSOPHIEHOSPES","url":"https://www.studiosophiehospes.com"}],
     "sameAs":[u for _,u in data.LINKS],"url":data.BASE+data.SLUG+".html"}
 pw,ph=Image.open(f'{OUT}/portrait-{data.SLUG}.jpg').size
@@ -148,7 +154,7 @@ for w in data.WORKS:
         "width":{"@type":"QuantitativeValue","value":18,"unitCode":"CMT"},
         "depth":{"@type":"QuantitativeValue","value":14,"unitCode":"CMT"},
         "offers":{"@type":"Offer","availability":"https://schema.org/InStock","price":w['price_num'],"priceCurrency":"EUR",
-          "priceSpecification":spec,"seller":{"@type":"Organization","name":"ICONIC DESIGN OBJECTS"},"url":w['url']},"url":w['url']}
+          "priceSpecification":spec,"seller":{"@type":"Organization","name":"I-DO"},"url":w['url']},"url":w['url']}
     desc=f"{w['title']} by {data.MAKER}. {w['price']}, and the maker keeps all of it. On view in Season 03 — INLINE at NIO House Amsterdam."
     body=''.join(f'<p class="desc2">{E(t)}</p>' for t in w['text'])
     pg=head(f"{w['title']} — {data.MAKER} — MADART FOUNDATION",desc,w['url'],data.BASE+p+".jpg",ld,WSTYLE)
