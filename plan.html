@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block head %}
+{% include "_planstyle.html" %}
+{% endblock %}
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">&mdash;</span><span>Plan</span>
+    <span class="of"><a href="building.html">The building &#8594;</a></span></p>
+  <h1>{{ plan.label }} &mdash; who is where.</h1>
+
+  {# De gevel is de verdiepingskiezer. Hij komt uit dezelfde tekencode als de
+     gebouwpagina en de homepage, dus alle drie lezen data/building.yaml. #}
+  <nav class="kiezer" aria-label="Levels">
+    <svg class="elev" id="svg" viewBox="0 0 482 596" role="img"
+         aria-label="The building. Choose a level."></svg>
+  </nav>
+
+  <div class="planwrap">
+    <div>{{ plan_svg|safe }}
+      {% if plan_overal %}<p class="overal">{{ plan_overal|join(' and ') }}
+        show{{ '' if plan_overal|length > 1 else 's' }} throughout the rooms, in and on the
+        furniture of the others.</p>{% endif %}
+    </div>
+    <div>
+      {# De lijst noemt de makers. Wie een naam zoekt kiest hem hier; de ruimte
+         waar die staat licht op in de plattegrond. Wie de plattegrond gebruikt
+         kiest een ruimte; dan lichten de namen daar op. Beide kanten op. #}
+      <ol class="namen" aria-label="Makers on this level">
+      {% for m in plan_people %}
+        <li data-rooms="{{ m.rooms|join(',') }}">
+          {% if m.page %}<a href="{{ m.href }}"{% if m.href and "http" in m.href %} target="_blank" rel="noopener"{% endif %}>
+            <span class="wie">{{ m.name }}</span>
+            <span class="waar">{{ m.where|join(' &middot; ')|safe }}</span>
+          </a>
+          {% else %}<span class="geenlink">
+            <span class="wie">{{ m.name }}</span>
+            <span class="waar">{{ m.where|join(' &middot; ')|safe }}</span>
+          </span>{% endif %}
+        </li>
+      {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+{# Het blad hoort bij de plattegrond, niet bij de lijst. Het wordt gevuld met
+   de namen van de zaal die je aanwijst, zodat de kaart in beeld blijft. #}
+<div class="blad" id="blad" role="dialog" aria-modal="false" aria-labelledby="bladnaam" hidden>
+  <div class="bladkop">
+    <h2 id="bladnaam"></h2>
+    <button class="bladdicht" type="button" aria-label="Close">&times;</button>
+  </div>
+  <div id="bladwie"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+{% include "_elevation.html" %}
+{% include "_planscript.html" %}
+</script>
+
+{% if camp %}{% include "_signup.html" %}{% endif %}
+
+{% endblock %}

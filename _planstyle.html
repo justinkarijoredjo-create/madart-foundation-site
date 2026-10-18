@@ -1,0 +1,77 @@
+<style>
+/* Vinden is het doel. De plattegrond toont waar, de lijst is de ingang als je
+   een naam zoekt. Alles wat over de maker gaat staat op de makerspagina. */
+.kiezer{padding:6px 0 18px;border-bottom:var(--rule);margin:18px 0 24px}
+.kiezer svg.elev{width:100%;max-width:330px;height:auto;display:block;margin:0 auto;overflow:visible}
+svg.elev .flr{cursor:pointer}
+svg.elev .flr .band{fill:transparent}
+svg.elev .flr.hier .band{fill:var(--dawn);opacity:.9}
+svg.elev .nivnaam{fill:var(--grey);font-size:8.5px;font-family:inherit;letter-spacing:.4px}
+svg.elev .flr.uit{opacity:.34;cursor:default}
+svg.elev .flr.hier .nivnaam,svg.elev .flr.hier .no{fill:var(--dawn);font-weight:700}
+svg.plan{width:100%;height:auto;display:block;overflow:visible}
+svg.plan .romp{fill:var(--linen)}
+svg.plan .omtrek{fill:none;stroke:var(--ink);stroke-width:85;stroke-linejoin:round;pointer-events:none}
+svg.plan .vlak{fill:transparent;stroke:var(--concrete);stroke-width:60;transition:fill .25s cubic-bezier(.2,.7,.3,1)}
+svg.plan .muur line{stroke:var(--ink);stroke-width:240;stroke-linecap:square}
+svg.plan .zaal{cursor:pointer;outline:none}
+svg.plan .tag .zaalregel{fill:var(--grey-light);text-anchor:middle;font-family:inherit;letter-spacing:55px;transition:fill .25s}
+svg.plan .tag .naam{fill:var(--grey);font-weight:500;text-anchor:middle;font-family:inherit;letter-spacing:8px;transition:fill .25s}
+svg.plan .zaal.aan .vlak{fill:var(--dawn)}
+svg.plan .zaal.aan .tag .naam,svg.plan .zaal.aan .tag .zaalregel{fill:var(--chalk)}
+svg.plan .zaal.aan .tag .naam{font-weight:700}
+svg.plan .kern rect{fill:var(--chalk);stroke:#2F5A3A;stroke-width:70}
+svg.plan .kern .pijl{fill:#2F5A3A} svg.plan .kern .tredes line{stroke:#2F5A3A;stroke-width:50}
+svg.plan .kernlabel text{fill:#2F5A3A;font-size:400px;text-anchor:middle;font-family:inherit;letter-spacing:70px;font-weight:700}
+svg.plan .herma .stip{fill:var(--dawn)}
+svg.plan .herma text{fill:var(--dawn);font-size:340px;font-family:inherit;letter-spacing:40px}
+svg.plan .herma.aan .stip{r:520}
+svg.plan .straat text{fill:var(--concrete);font-size:340px;text-anchor:middle;font-family:inherit;letter-spacing:110px}
+.overal{font-size:12px;color:var(--grey);line-height:1.6;margin:14px 0 0;max-width:52ch}
+.namen{list-style:none;margin:26px 0 0;padding:0;counter-reset:n}
+.namen li{border-bottom:var(--hair)}
+.namen li:first-child{border-top:var(--hair)}
+.namen a,.namen .geenlink{display:block;padding:13px 14px;margin:0 -14px;min-height:56px;
+  transition:background .18s ease}
+.namen .geenlink .wie{color:var(--grey)}
+.namen .wie{display:block;font-size:15px;font-weight:700;line-height:1.3}
+.namen .waar{display:block;font-size:11px;letter-spacing:.05em;color:var(--grey);
+  text-transform:uppercase;margin-top:3px}
+.namen li.aan a{background:var(--dawn)}
+.namen li.aan .wie,.namen li.aan .waar{color:var(--chalk)}
+.namen a:hover .wie{color:var(--dawn)}
+.namen li.aan a:hover .wie{color:var(--chalk)}
+@media(min-width:861px){
+  .planwrap{display:grid;grid-template-columns:1.5fr .5fr;gap:48px;align-items:start}
+  .leg{margin-top:0}
+}
+
+/* --------------------------------------------------------------------------
+   Het blad
+   Op een telefoon staat de lijst onder de plattegrond, en die begint pas rond
+   942 pixels terwijl het scherm er 844 hoog is. Wie op een zaal tikte moest
+   scrollen om de naam te lezen, en verloor daarbij de kaart uit beeld. Het
+   blad schuift daarom over de onderkant: de kaart blijft staan, de namen zijn
+   grote raakvlakken, en één tik verder ben je bij de maker.
+   -------------------------------------------------------------------------- */
+.blad{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--chalk);
+  border-top:2px solid var(--ink);box-shadow:0 -18px 40px rgba(30,29,28,.14);
+  transform:translateY(101%);transition:transform .26s cubic-bezier(.2,.7,.3,1);
+  padding:0 var(--gut) calc(14px + env(safe-area-inset-bottom));max-height:56vh;overflow-y:auto}
+.blad.op{transform:none}
+.bladkop{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 0 9px;position:sticky;top:0;background:var(--chalk)}
+.bladkop h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--grey);margin:0}
+.bladdicht{width:44px;height:44px;margin-right:-12px;background:none;border:0;
+  font:inherit;font-size:20px;line-height:1;color:var(--ink);cursor:pointer}
+.blad ol,.blad ul{list-style:none;margin:0;padding:0 0 6px}
+.blad a{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:17px 0;font-size:17px;font-weight:700;min-height:58px;border-bottom:var(--hair)}
+.blad li:last-child a{border-bottom:0}
+.blad a::after{content:"\2192";color:var(--dawn);font-weight:400}
+.blad a:hover,.blad a:focus{color:var(--dawn)}
+.blad .waar{display:block;font-size:11px;letter-spacing:.05em;color:var(--grey);
+  text-transform:uppercase;font-weight:400;margin-top:3px}
+@media(min-width:861px){ .blad{display:none} }
+</style>

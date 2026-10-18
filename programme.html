@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block head %}{% include "_programmestyle.html" %}
+<script type="application/ld+json">{{ editie.jsonld|safe }}</script>{% endblock %}
+{% block content %}
+
+<section><div class="wrap">
+  <p class="index"><span class="no">FESTIVAL</span><span>{{ editie.dates_label }}</span>
+    <span class="of">Within {{ editie.within }}</span></p>
+  <h1>{{ editie.title }}</h1>
+  <p class="attrib">{{ editie.attribution }}</p>
+  <p class="lede">Three days, eight floors, thirty makers. Talks, tours, a workshop, and sound
+    under Rietveld&rsquo;s glass dome. Free to walk in.</p>
+  <p class="lede">Talks, tours, sound, a wine bar and a table where three makers sit down to say how
+    they got here. Free to walk in, {{ editie.hours }}. A few things fill up: those are marked.</p>
+</div></section>
+
+{# Het praktische blok staat boven het programma: wie op de Leidsestraat staat
+   wil eerst weten of hij naar binnen kan, en pas daarna wat er te doen is. #}
+<section style="padding-top:0"><div class="wrap">
+  <dl class="praktisch">
+    <div><dt>Where</dt><dd>{{ editie.venue }} &mdash; the Metzgebouw, now
+      {{ site.venue.name }}</dd></div>
+    <div><dt>When</dt><dd>{{ editie.dates_label }}, {{ editie.hours }}</dd></div>
+    <div><dt>Entry</dt><dd>Free. Walk in on any of the three days. All eight levels are open.
+      <a href="building.html">See the building &#8594;</a></dd></div>
+  </dl>
+
+  {# Wie wil weten hoe het financieel zit, vindt het hier. Wie wil weten wat er
+     te doen is, hoeft er niet doorheen te scrollen. #}
+  {# Het ticketblok. Wie wil weten hoe het financieel zit vindt het hier, en
+     wie een kaartje wil kan hier meteen afrekenen — drie rechtstreekse
+     doorklikken, geen tussenstap via het programma. #}
+  <details class="uitleg" id="tickets">
+    <summary>{% set n = editie.betaald|length %}{{ {1:"One thing is",2:"Two things are",3:"Three things are",4:"Four things are",5:"Five things are"}.get(n, n ~ " things are") }} paid for. Everything else is free.</summary>
+    <ul class="kaartjes">
+      {% for b in editie.betaald %}
+      <li>
+        <a class="kaartje-wat" href="{{ b.url }}">
+          <span class="kaartje-titel">{{ b.title }}</span>
+          <span class="kaartje-wanneer">{{ b.when }}</span>
+        </a>
+        <a class="btn" href="{{ b.url }}">{{ b.prijs }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <p>The Opening Night is hosted by MADART Foundation as the evening opening of its own
+      exhibition. The ticket pays for putting the evening on; the Foundation buys that production
+      from Curated by MADART, its commercial sister organisation, and pays the same price anyone
+      else would. Lunch is cooked and served by the NIO House caf&eacute;, who invoice you directly.</p>
+  </details>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <nav class="dagen" aria-label="Days">
+    {% for dag in editie.days %}
+    <button class="dag" type="button" data-dag="{{ dag.id }}"
+            aria-pressed="false">{{ dag.short }}</button>
+    {% endfor %}
+  </nav>
+
+  {% for dag in editie.days %}
+  <section class="dagblok" data-dag="{{ dag.id }}" aria-label="{{ dag.label }}">
+    <ol class="prog">
+      {% for it in dag['items'] %}
+      <li id="{{ it.anchor }}" class="item">
+        <div class="wanneer">
+          <span class="tijd">{{ it.time }}</span>
+          {% if it.waar %}<span class="waar">{% if it.plan %}<a href="{{ it.plan }}">{{ it.waar }}</a>{% else %}{{ it.waar }}{% endif %}</span>{% endif %}
+        </div>
+        <div class="wat">
+          {% set heeft_meer = it.body or it.maker_page or it.note or it.language %}
+          {% if heeft_meer %}
+          <details class="meer">
+            <summary>
+              <h3>{{ it.title }}</h3>
+              {% if it.who %}<span class="wie">{{ it.who }}</span>{% endif %}
+            </summary>
+            {% if it.maker_page %}<p class="wie"><a href="{{ it.maker_page }}">{{ it.maker_name }} &#8594;</a></p>{% endif %}
+            {% if it.body %}<p class="tekst">{{ it.body }}</p>{% endif %}
+            {% if it.body2 %}<p class="tekst">{{ it.body2 }}</p>{% endif %}
+            {% if it.body3 %}<p class="tekst">{{ it.body3 }}</p>{% endif %}
+            {% if it.body4 %}<p class="tekst">{{ it.body4 }}</p>{% endif %}
+            {% if it.note %}<p class="noot">{{ it.note }}</p>{% endif %}
+            {% if it.language %}<p class="klein">{{ it.language }}</p>{% endif %}
+            {% if it.page %}<p class="klein"><a href="{{ it.page }}">Read more &#8594;</a></p>{% endif %}
+          </details>
+          {% else %}
+          <h3>{% if it.page %}<a href="{{ it.page }}">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</h3>
+          {% if it.who %}<p class="wie">{{ it.who }}</p>{% endif %}
+          {% endif %}
+          <p class="status">
+            {% if it.status == 'free' %}<span class="vrij">Free entry</span>
+            {% elif it.status == 'invitation' %}<span class="vrij">By invitation</span>
+            {% elif it.status == 'reserve' %}
+              {% if it.book_url %}<a class="btn-outline" href="{{ it.book_url }}">{{ it.book_label or 'Reserve' }}</a>
+              {% else %}<span class="vrij">Reserve &mdash; booking opens shortly</span>{% endif %}
+            {% else %}
+              {% if it.book_url %}<a class="btn" href="{{ it.book_url }}">{{ it.book_label or 'Book' }}{% if it.places %} &mdash; {{ it.places }} places{% endif %}</a>
+              {% else %}<span class="vrij">{{ it.book_label or 'Book' }} &middot; opens shortly</span>{% endif %}
+            {% endif %}
+            {% if it.label %}<span class="merk">{{ it.label }}</span>{% endif %}
+          </p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endfor %}
+</div></section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  /* Drie dagen, drie tabbladen. Bij het openen staat de dag van vandaag actief,
+     en buiten het festival de eerstvolgende dag. Wie via een anker binnenkomt
+     krijgt de dag waar dat onderdeel in staat. */
+  var knoppen = [].slice.call(document.querySelectorAll(".dag")),
+      blokken = [].slice.call(document.querySelectorAll(".dagblok"));
+  var DAGEN = {{ editie.days|map(attribute='id')|list|tojson }};
+  var DATUM = { "do": "2026-09-17", "vr": "2026-09-18", "za": "2026-09-19" };
+  function toon(id){
+    knoppen.forEach(function(k){ k.setAttribute("aria-pressed", k.dataset.dag===id ? "true":"false"); });
+    blokken.forEach(function(b){ b.hidden = b.dataset.dag !== id; });
+  }
+  knoppen.forEach(function(k){ k.addEventListener("click", function(){ toon(k.dataset.dag); }); });
+
+  var start = DAGEN[0];
+  var hash = (location.hash || "").replace("#","");
+  var viaAnker = hash && document.getElementById(hash);
+  if(viaAnker){
+    var blok = viaAnker.closest(".dagblok");
+    if(blok) start = blok.dataset.dag;
+  } else {
+    var vandaag = new Date().toISOString().slice(0,10);
+    for(var i=0;i<DAGEN.length;i++){
+      if(DATUM[DAGEN[i]] >= vandaag){ start = DAGEN[i]; break; }
+    }
+  }
+  toon(start);
+  if(viaAnker) viaAnker.scrollIntoView({behavior:"smooth", block:"center"});
+
+  /* Het ticketblok verwijst naar onderdelen die in een andere dag kunnen
+     staan. Zonder dit sprong je naar iets dat verborgen is en gebeurde er
+     niets zichtbaars. */
+  document.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+    if(!a) return;
+    var doel = document.getElementById(a.getAttribute("href").slice(1));
+    if(!doel) return;
+    var blok = doel.closest(".dagblok");
+    if(blok && blok.hidden){
+      ev.preventDefault();
+      toon(blok.dataset.dag);
+      doel.scrollIntoView({behavior:"smooth", block:"center"});
+      var d = doel.querySelector("details.meer");
+      if(d) d.open = true;
+    }
+  });
+})();
+</script>
+
+{% if camp %}{% include "_signup.html" %}{% endif %}
+
+{% endblock %}

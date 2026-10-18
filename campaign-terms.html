@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms of the draw &mdash; MADART FOUNDATION</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+{% include "_campaignstyle.html" %}
+</head>
+<body>
+<main class="wrap">
+  <p class="index"><span>MADART Foundation</span></p>
+
+  <h1>Terms of the draw</h1>
+
+  <p class="lede">Organised by Curated by MADART, the trading name of Maison d&rsquo;Artiste
+    Galleries &amp; Productions, under the Dutch Gedragscode Promotionele Kansspelen.</p>
+
+  {# Deze pagina en metz.html moeten elkaar woordelijk dekken op bedrag,
+     verdieping, duur, geldigheidsdatum en adres. #}
+  <div class="paneel"><h2>The prize</h2></div>
+  <dl class="praktisch" style="margin-top:14px">
+    <div><dt>What you win</dt><dd>&euro;{{ "{:,}".format(camp.prize_eur) }} of venue hire at
+      Leidsestraat 32&ndash;34, the Metzgebouw, Amsterdam.</dd></div>
+    <div><dt>What that buys</dt><dd>The fourth floor, one afternoon or evening, on a date you
+      choose.</dd></div>
+    <div><dt>Economic value</dt><dd>&euro;{{ "{:,}".format(camp.prize_eur) }}.</dd></div>
+    <div><dt>Number of prizes</dt><dd>One.</dd></div>
+    <div><dt>Not included</dt><dd>Production, catering, technical services and staffing. Arranged
+      and invoiced separately.</dd></div>
+    <div><dt>Valid until</dt><dd>{{ camp.valid_until }}.</dd></div>
+  </dl>
+
+  <div class="paneel"><h2>When</h2></div>
+  <dl class="praktisch" style="margin-top:14px">
+    <div><dt>Closes</dt><dd>{{ camp.closes }}.</dd></div>
+    <div><dt>Drawn</dt><dd>{{ camp.draw_date }}.</dd></div>
+  </dl>
+
+  <div class="paneel">
+    <h2>Who can take part</h2>
+    <p>Anyone of eighteen or over entering on behalf of an organisation, with an organisation name,
+      a role and a work email address. One entry per person. Staff of Curated by MADART and of
+      MADART Foundation, and their immediate family, are excluded.</p>
+  </div>
+
+  <div class="paneel">
+    <h2>How the winner is chosen</h2>
+    <p>At random, from all valid entries, by someone outside the campaign with no interest in its
+      outcome. The winner is emailed within five working days. No reply within fourteen days, and
+      we draw again.</p>
+  </div>
+
+  <div class="paneel">
+    <h2>Gambling tax</h2>
+    <p>Dutch gambling tax falls due on prizes over &euro;449. Curated by MADART pays it and files
+      the return. The winner receives the prize in full and owes nothing.</p>
+  </div>
+
+  <div class="paneel">
+    <h2>Your details</h2>
+    <p>Enter the draw and your business details go to Curated by MADART. Ask for news from MADART
+      Foundation and those details go to the Foundation. The two sets are held separately and are
+      never merged. Both are kept for two years unless you ask us to remove them sooner. See the
+      <a href="privacy.html">privacy statement</a>.</p>
+  </div>
+
+  <div class="paneel">
+    <h2>Complaints</h2>
+    <p>Write to {{ site.email }} with &ldquo;draw&rdquo; in the subject line. We reply within five
+      working days. If that does not settle it, the complaint can go to the Kansspelautoriteit, the
+      Dutch gambling authority.</p>
+  </div>
+
+  <div class="paneel">
+    <h2>The code</h2>
+    <p>This campaign follows the Gedragscode Promotionele Kansspelen. The prize stays below the
+      threshold for a small promotional game of chance, so no licence is required.</p>
+  </div>
+
+  <footer>
+    <p style="margin:0"><a href="{{ camp.slug }}.html">&#8592; Back to the form</a></p>
+  </footer>
+</main>
+</body>
+</html>

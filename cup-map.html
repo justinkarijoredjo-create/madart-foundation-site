@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The map &mdash; MADART FOUNDATION</title>
+<meta name="description" content="Find your way through the building: which maker is on which floor, and what is in each room.">
+{# Kortere versie van een bestaande pagina, voor wie een beker vasthoudt.
+   noindex plus canonical, zodat de uitgebreide versie de zoekresultaten
+   houdt en deze twee er niet mee concurreren. #}
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://madartfoundation.com/building.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+{% include "_campaignstyle.html" %}
+<style>
+/* De verdiepingkiezer. Grote raakvlakken: iemand houdt een beker vast. */
+.lagen{list-style:none;margin:26px 0 0;padding:0;border-top:var(--rule)}
+.lagen li{border-bottom:var(--hair)}
+.lagen a{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:baseline;
+  padding:18px 0;text-decoration:none;color:var(--ink);min-height:60px}
+.lagen a:hover{color:var(--dawn)}
+.laag-no{font-size:11px;letter-spacing:.08em;color:var(--grey);font-weight:700}
+.laag-naam{font-size:16px;line-height:1.35}
+.laag-bij{display:block;font-size:12px;color:var(--grey);margin-top:3px}
+.pijl{font-size:14px;color:var(--grey)}
+/* het aanmeldscherm */
+.sluier{position:fixed;inset:0;background:var(--chalk);z-index:99;display:flex;
+  align-items:center;justify-content:center;padding:24px}
+.sluier-in{max-width:420px;width:100%}
+.sluier h2{font-size:clamp(22px,5vw,28px);line-height:1.12;letter-spacing:-.02em;
+  text-transform:none;color:var(--ink);font-weight:700;margin:0 0 12px}
+.sluier p{font-size:15px;line-height:1.6;margin:0 0 22px}
+.door{display:block;width:100%;margin:16px 0 0;background:none;border:0;font:inherit;
+  font-size:13px;color:var(--grey);text-decoration:underline;cursor:pointer;padding:12px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="index"><span>MADART Foundation</span></p>
+  <h1>The map</h1>
+  <p class="lede">{{ camp.map_lede }}</p>
+
+  <ul class="lagen">
+    {% for l in camp.levels %}
+    <li><a href="{{ l.href }}">
+      <span class="laag-no">{{ l.no }}</span>
+      <span class="laag-naam">{{ l.name }}<span class="laag-bij">{{ l.note }}</span></span>
+      <span class="pijl">&#8594;</span>
+    </a></li>
+    {% endfor %}
+  </ul>
+
+  <p class="klein"><a href="PROG.html">The programme &#8594;</a> &middot;
+    <a href="index.html">MADART Foundation &#8594;</a></p>
+  <footer>
+    <p class="klein" style="margin:0">Leidsestraat 32&ndash;34, Amsterdam. Open daily 10:00&ndash;18:00.</p>
+  </footer>
+</main>
+
+{% include "_signup.html" %}
+</body>
+</html>

@@ -1,0 +1,331 @@
+site:
+  name: MADART FOUNDATION
+  url: https://madartfoundation.com
+  year: 2026
+  kvk: '99713853'
+  rsin: '869102308'
+  instagram: https://www.instagram.com/madartfoundation
+  email: contact@madartfoundation.com
+  press_email: press@madartfoundation.com
+  description: MADART Foundation curates makers the art world overlooked, and gives them a stage on landmark locations in Amsterdam. The maker keeps 100% of every sale.
+  newsletter_endpoint: https://submit-form.com/lDWonyUTP
+  analytics_snippet: <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  nav:
+  - label: Exhibitions
+    href: exhibitions.html
+  - label: Programme
+    href: maison-dartiste-2026.html
+  - label: Makers
+    href: makers.html
+  - label: Works
+    href: works.html
+  - label: Visit
+    href: visit.html
+  - label: Support
+    href: support-us.html
+  - label: About
+    href: mission.html
+  venue:
+    name: NIO House Amsterdam
+    street: Leidsestraat 32-34
+    postcode: 1017 PB Amsterdam
+    floor: Fourth floor
+    maps: https://maps.google.com/?q=Leidsestraat+32-34+Amsterdam
+  hours:
+    mon:
+    - 10
+    - 0
+    - 18
+    - 0
+    tue:
+    - 10
+    - 0
+    - 18
+    - 0
+    wed:
+    - 10
+    - 0
+    - 18
+    - 0
+    thu:
+    - 10
+    - 0
+    - 18
+    - 0
+    fri:
+    - 10
+    - 0
+    - 18
+    - 0
+    sat:
+    - 10
+    - 0
+    - 18
+    - 0
+    sun:
+    - 10
+    - 0
+    - 18
+    - 0
+seasons:
+- slug: seizoen-02-ground
+  curated_by_foundation: true
+  number: '02'
+  title: GROUND
+  status: past
+  start: 2026-07-03
+  end: 2026-09-30
+  dates_label: 3 July – 30 September 2026
+  location: NIO House Amsterdam, fourth floor
+  hero: hero-ground-01.jpg
+  card: c-exhibition-ground.jpg
+  hero_images:
+  - file: hero-ground-01.jpg
+    alt: 'Gallery 4: paintings by Loutje Hoekstra above work by the sixteen makers of ECHO on the gallery floor'
+  - file: hero-ground-02.jpg
+    alt: 'Gallery 2: faceted volumes from Aad Kruiswijk''s MineralisM series on the floor, dot paintings by Rogier Bosschaart on the wall'
+  - file: hero-ground-03.jpg
+    alt: 'Gallery 3: a woven work by Sandra Keja Planken'
+  standfirst: The common ground shared by maker, Foundation and visitor alike. Not a stage built on favour. A foundation built on conviction.
+  body:
+  - 'GROUND asks what a practice stands on. Not the finished position, but what lies underneath it: a material, a body, a discipline held long enough to become a floor.'
+  - 'The season puts that question twice in the same room. In Gallery 2, Rogier Bosschaart''s dot paintings hold the wall while Aad Kruiswijk''s robot-cut volumes hold the floor — accumulation against constraint,
+    both arriving at a form neither of them chose. Gallery 4 repeats the figure: Loutje Hoekstra''s body prints on the walls, and beneath them the sixteen makers of ECHO working a single stream of residual
+    aluminium. Two rooms stand alone. Anne van Borselen, born in 1937 and still casting, has Gallery 1. Sandra Keja Planken has Gallery 3, where weaving and passementerie are slowed down until the technique
+    becomes the subject.'
+  - Arno Hoogland holds the Gallery Lounge, where the floor begins. His panels are the only work here that faces forward rather than down; everything past them is excavation. Six makers and a collective,
+    one floor, and no agreement between them about what the ground is made of.
+  programme: ground
+- slug: seizoen-01-paradox
+  curated_by_foundation: false
+  number: '01'
+  title: PARADOX
+  status: past
+  start: 2026-04-01
+  end: 2026-07-01
+  dates_label: 1 April – 1 July 2026
+  location: NIO House Amsterdam
+  hero: null
+  card: c-exhibition-paradox.jpg
+  standfirst: Where opposites no longer hold.
+  body:
+  - 'Season 01 ran at NIO House Amsterdam from April to July 2026 under the title PARADOX: work that holds two things at once without resolving them.'
+  - PARADOX ran under a different model. Galleries took the floor for the season and presented the makers they represent. The Foundation did not exist yet, and the concept was another one.
+  - 'It is counted as a season because the floor was programmed for three months. It is not counted in the thirty makers, because those are the makers the Foundation curates itself, and that began with
+    Season 02. What PARADOX settled was the question of what this should become: supporting makers rather than representing galleries.'
+  - Documentation of this season is being assembled. Installation photography, the maker list and the wall texts will be published here.
+  programme: paradox
+- number: '03'
+  slug: seizoen-03-inline
+  curated_by_foundation: true
+  title: INLINE
+  programme: inline
+  status: current
+  location: NIO House Amsterdam, fourth floor
+  dates_label: 21 October 2026 – 17 January 2027
+  start: '2026-10-21'
+  end: '2027-01-17'
+  hero: null
+  card: c-exhibition-inline.jpg
+  standfirst: The line between online and offline no longer holds.
+  body:
+  - The line between online and offline no longer holds. What we see, make and experience
+    unfolds in a reality that is both at once — layered, shifting, and no longer separable.
+  - 'INLINE is the third season of MADART Foundation, bringing together six presentations
+    that each approach the same tension from their own material, medium and visual language:
+    what does it mean to make something in a world that always exists somewhere else too?'
+place:
+  image: place-nio-house.jpg
+  alt: NIO House Amsterdam at dusk, the 1891 Metz building reflected in the Keizersgracht
+  title: NIO House Amsterdam
+  body:
+  - A national monument on the corner of the Leidsestraat and the Keizersgracht. Built in 1891 for the New York Life Insurance Company — at 26 metres the tallest private building in the city, its facade
+    still carrying the letters NY and the eagle of its first owner.
+  - Metz & Co moved in during 1908 and furnished Amsterdam's interiors from here for over a century, bringing Rietveld, Bauhaus and Liberty of London to the city. In 1933 Gerrit Rietveld crowned the roof
+    with a glass dome, built as an exhibition room. Le Corbusier and Mies van der Rohe showed their furniture there for the first time in the Netherlands. It is still there.
+  - Metz & Co left in 2012. Abercrombie & Fitch occupied the building until the end of 2022, and in 2024 it reopened as NIO House Amsterdam, restored by MVRDV.
+  - The fourth floor is ours for the length of each season. It is not a rented hall dressed for an evening; it is a gallery floor that has meant something for three months before anyone walks in. That is
+    the difference a maker feels, and a visitor feels it too.
+team:
+- name: Justin Karijoredjo
+  role: Founder · Curatorial and Strategic Director
+  portrait: team-justin.jpg
+  portrait_small: p-team-justin.jpg
+  body: 'Architect of the MADART ecosystem. He devises the concept, makes the connections and sets the direction: which makers get a room, which partners get a seat at the table, and where the ecosystem
+    goes next. He has seen the commercial art world from the inside, and the curatorial choices come out of that experience rather than out of marketing.'
+- name: Kimberly Tanikromo
+  role: Managing Director · Operations and Partnerships
+  portrait: team-kimberly.jpg
+  portrait_small: p-team-kimberly.jpg
+  body: Responsible for production and execution, commercial acquisition and grant management. Her background in artist management turns intention into a working season. She holds full power of attorney
+    for Stichting The Bloys, the legal entity behind MADART Foundation.
+partners_upcoming:
+- name: Devoonsounds
+  note: Seventh floor, The Dome — GLUE Amsterdam 2026
+- name: Ignore
+  note: Talks programme, second floor — GLUE Amsterdam 2026
+maison:
+  slug: maison-dartiste
+  card: c-exhibition-maison.jpg
+  title: Maison d'Artiste
+  subtitle: A festival by MADART Foundation, within GLUE Amsterdam
+  dates_label: 17 – 19 September 2026
+  location: NIO House Amsterdam, sixth and seventh floor
+  hero: null
+  standfirst: Where GROUND lays bare the ground a maker's practice stands on, Maison d'Artiste stages what happens when that practice enters a room built for living — a table that is eaten at, a chair that
+    is sat in, a lamp that is switched on.
+  body:
+  - 'Before it was anything else, this building was a house of things made by hand and mind. From 1908 until 2012, Metz & Co furnished Amsterdam''s interiors here, on the conviction that everyday objects
+    deserve the same attention as art. In 1933 Gerrit Rietveld crowned it with a glass dome: a stage reserved for the design and fashion no one else dared to show. The building has waited, since, to be
+    that again.'
+  - 'The name is not borrowed lightly. In 1923 Theo van Doesburg and Cornelis van Eesteren designed a Maison d''Artiste: a house for an artist, built from stacked volumes, never constructed. MADART is a
+    contraction of the same two words, and the stacked blocks of the logo come from that drawing. Staging it here, under a dome by Rietveld — Van Doesburg''s fellow De Stijl designer — is the closest that
+    house has come to standing up.'
+  - Maison d'Artiste does not invent a function for the sixth and seventh floor. It restores one. The sixth floor is one continuous space of 217m², divided into six rooms; the seventh is 76m² beneath Rietveld's
+    dome. You can enter the route from either end.
+  - By day the house receives whoever finds it. By evening, as any house does, it closes its door to all but those it has chosen to let in.
+  rooms:
+  - name: The Drawing Room
+    text: 'A drawing room asks to be withdrawn into — the room a house reserves for after, when the table has been left and the evening turns toward its own reflection. Light does the work here: a mirror,
+      a lamp built from nothing but repeated points of glow, a chair shaped for staying rather than sitting down.'
+    makers:
+    - dot-objects
+    - eric-sloot
+    - nicolette-de-waart
+    - ignore
+    - maurice-albert-jan
+  - name: The Dining Room
+    text: Long before Maison d'Artiste, this building furnished the tables of Amsterdam's households — form made for use, use made into ritual. A table at its centre, chairs gathered around it, objects
+      made to be reached across rather than looked at from a distance. This is the room the house is built around.
+    makers:
+    - ignore
+    - marnix-van-strydonck
+    - eric-sloot
+    - maurice-albert-jan
+  - name: The Parlour
+    text: The parlour is the room a house keeps for its own — not for show, but for the hours in between. A cabinet for what is kept rather than used daily. A bench, a chair, a lamp that asks to be read
+      under. If the dining room is where the house receives, the parlour is where it exhales.
+    makers:
+    - jim-bob-ruijgrok
+    - maurice-albert-jan
+    - marnix-van-strydonck
+  - name: The Conservatory
+    text: A conservatory is a room built to let light do something — pass through glass, fall on a leaf, complicate a shadow. Here, glass and wood hold a bonsai mid-thought, and a small round table waits
+      for two. One floor above, glass takes a different shape entirely.
+    makers:
+    - joost-de-munnik-ruud-van-den-eijnden
+    - ignore
+  - name: The Dome — seventh floor
+    text: Rietveld's 1933 glass dome, given over now to sound rather than sight. Seventy-six square metres at the top of the house, where the route ends.
+    makers:
+    - devoonsounds
+  - name: Throughout the house
+    text: Ceramics and porcelain, presented on and among the furniture in every room, and three works in the staircases between the floors.
+    makers:
+    - andreea-pirlica
+    - inge-becka
+    - natalia-wyspianska
+    - herma-de-wit
+    - buro-berger
+    - lilia-luganskaia-kuilder
+  kind: festival
+giving:
+  anbi_granted: false
+  amounts:
+  - value: 25
+    label: € 25
+    note: Covers the printed wall text for one work
+    link: ''
+  - value: 50
+    label: € 50
+    note: A plinth, built and finished
+    link: ''
+  - value: 100
+    label: € 100
+    note: Lighting for one wall, for a whole season
+    link: ''
+    anchor: true
+  - value: 250
+    label: € 250
+    note: Photography of a maker's work, theirs to keep
+    link: ''
+  bank:
+    name: Stichting The Bloys
+    iban: NL68 KNAB 0501 4787 87
+    reference: Gift — your name
+  periodic:
+    form_url: https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/themaoverstijgend/programmas_en_formulieren/overeenkomst_periodieke_gift_in_geld
+friend:
+  standfirst: A yearly gift to MADART Foundation, and a way to stay close to the work. Three tiers, all of them gifts, all of them carrying only what a gift may carry.
+  frame: You get no admission, no discount and no priority — those live with Curated by MADART, where they belong. What you get is that every euro a maker earns here stays with the maker.
+  why: Dutch tax law is precise about this. A contribution counts as a deductible gift only when nothing of real value is given in return, or when what is given is merely symbolic. Free admission to an
+    event is explicitly not symbolic. That is why Friend of MADART Foundation carries no admission, no discount and no priority — and why the membership that does carry those things lives with Curated by
+    MADART instead, where it belongs.
+  tiers:
+  - name: Friend
+    amount: € 50 a year — around four euros a month
+    link: ''
+    benefits:
+    - The season letter, three or four times a year — what we chose, and why
+    - First word on a new season before it is announced publicly
+    - A written account of where the year's gifts went
+  - name: Supporting Friend
+    amount: € 250 a year
+    link: ''
+    benefits:
+    - Everything in Friend
+    - Your name in the annual report, if you want it there
+    - The curatorial notes behind each season's selection, in full
+  - name: Founding Friend
+    amount: € 1,000 a year
+    link: ''
+    contact_only: true
+    note: At this level we would rather speak first. Write to us and we will arrange a conversation about the year ahead before anything is signed.
+    benefits:
+    - Everything in Supporting Friend
+    - A yearly curatorial letter on the season ahead, written once and sent to every Founding Friend
+    - Named as a Founding Friend in the Foundation's published record
+programme_events:
+- name: Maison d'Artiste 2026
+  kind: FESTIVAL
+  dates: 17 – 19 September 2026
+  where: A festival by MADART Foundation · eight floors, free entry
+  href: maison-dartiste-2026.html
+  image: c-event-glue-2026.jpg
+  status: upcoming
+  note: Three days during GLUE Amsterdam. The whole building opens, from the gallery floor to the dome.
+- name: Maison d'Artiste 2026 — Opening Night
+  kind: OPENING
+  dates: 17 September 2026
+  where: Eight floors after hours, with all thirty makers present · € 10
+  href: https://www.eventbrite.com/checkout-external?eid=2000330882517
+  image: c-event-opening-night.jpg
+  hover: h-event-opening-night.jpg
+- name: Opening Night — Season 03, INLINE
+  kind: OPENING
+  dates: 2 October 2026
+  where: NIO House Amsterdam, fourth floor
+  href: season-03-inline.html
+  image: c-event-opening-inline.jpg
+  status: upcoming
+  note: Every season opens on the first Friday of the quarter.
+events:
+- slug: glue-2026
+  title: GLUE Amsterdam 2026
+  status: current
+  dates_label: 17 – 19 September 2026
+  start: 2026-09-17
+  end: 2026-09-19
+  location: NIO House Amsterdam, fourth, sixth and seventh floors
+  standfirst: Three days, eight floors, one route. GROUND stays open throughout; Maison d'Artiste opens the sixth and seventh floors alongside it.
+  note: The talks programme on the second floor is made possible by Ignore and Charles & More.
+  card: c-exhibition-glue.jpg
+campaign:
+  endpoint_foundation: https://submit-form.com/H03i3xmfj
+  signup_title: A few times a season.
+  signup_body: Leave your email and we write when there is something to see — a new maker, an opening, a season that starts. Not more than that. Either way, the page is right behind this one.
+  signup_button: Send it
+  signup_skip: No thanks, take me through
+  batch: '1'
+  map_target: building.html
+  prog_target: maison-dartiste-2026.html

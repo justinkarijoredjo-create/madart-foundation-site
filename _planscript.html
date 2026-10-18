@@ -1,0 +1,124 @@
+(function(){
+  var HEEFT={{ plan_links|tojson }}, NU="{{ plan.id }}";
+  LEVELS.forEach(function(L){
+    var g=document.querySelector('.flr[data-id="'+L.id+'"]'); if(!g) return;
+    var gm=geom[L.id];
+    if(L.name){
+      var t=document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("class","nivnaam"); t.setAttribute("x", XLAB+14);
+      t.setAttribute("y", gm.mid+3); t.textContent=L.name; g.appendChild(t);
+    }
+    var r=document.createElementNS("http://www.w3.org/2000/svg","rect");
+    r.setAttribute("x",0); r.setAttribute("y",gm.top);
+    r.setAttribute("width",482); r.setAttribute("height",gm.bot-gm.top);
+    r.setAttribute("fill","transparent"); g.appendChild(r);
+    if(L.id===NU) g.classList.add("hier");
+    else if(!HEEFT[L.id]) g.classList.add("uit");
+    else g.addEventListener("click",function(){ location.href="plan-"+L.id+".html"; });
+  });
+})();
+
+(function(){
+  /* Twee ingangen, één beeld. Kies een naam en zijn ruimte licht op; kies een
+     ruimte en de namen daar lichten op. Op een telefoon schuift er een blad
+     omhoog zodat de kaart in beeld blijft; op een laptop staat alles al naast
+     elkaar en is dat blad niet nodig. */
+  var zalen = [].slice.call(document.querySelectorAll(".zaal")),
+      rijen = [].slice.call(document.querySelectorAll(".namen li")),
+      blad  = document.getElementById("blad"),
+      bladnaam = document.getElementById("bladnaam"),
+      bladwie  = document.getElementById("bladwie"),
+      dicht = blad.querySelector(".bladdicht"),
+      plan  = document.querySelector("svg.plan");
+  var hover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var smal  = function(){ return window.matchMedia("(max-width:860px)").matches; };
+
+  function rijRuimtes(li){ return (li.dataset.rooms||"").split(",").filter(Boolean); }
+
+  function licht(ruimtes, actieveRij){
+    zalen.forEach(function(z){ z.classList.toggle("aan", ruimtes.indexOf(z.dataset.z)>=0); });
+    rijen.forEach(function(li){
+      var eigen = rijRuimtes(li);
+      var raak  = actieveRij ? li===actieveRij
+                : (ruimtes.length && eigen.some(function(r){ return ruimtes.indexOf(r)>=0; }));
+      li.classList.toggle("aan", !!raak);
+    });
+  }
+  function wis(){ licht([], null); }
+
+  function bladVul(kop, html){
+    bladnaam.textContent = kop;
+    bladwie.innerHTML = html;
+    blad.hidden = false;
+    void blad.offsetHeight;              /* opmaak afdwingen, dan pas schuiven */
+    blad.classList.add("op");
+  }
+  function bladDicht(){
+    blad.classList.remove("op");
+    setTimeout(function(){ if(!blad.classList.contains("op")) blad.hidden = true; }, 280);
+  }
+  function inBeeld(z){
+    if(!z) return;
+    var r = z.getBoundingClientRect(), h = window.innerHeight;
+    if(r.top < 60 || r.bottom > h*0.48) window.scrollBy({ top: r.top - h*0.15, behavior:"smooth" });
+  }
+
+  /* vanuit de plattegrond: wie staat hier? */
+  zalen.forEach(function(z){
+    var n = z.dataset.z;
+    function aan(){ licht([n], null); }
+    if(hover) z.addEventListener("mouseenter", function(){ if(!smal()) aan(); });
+    z.addEventListener("focus", aan);
+    z.addEventListener("click", function(ev){
+      ev.stopPropagation(); aan();
+      try{ history.replaceState(null,"","#room-"+n); }catch(e){}
+      if(smal()){
+        var namen = rijen.filter(function(li){ return rijRuimtes(li).indexOf(n)>=0; });
+        var kop = z.getAttribute("aria-label") || "";
+        /* Niet elke maker heeft een eigen pagina: Nicola Cherubini heeft nog
+           geen ticketlink en Natalia Wyspianska geen makerspagina. Die regels
+           zijn een span in plaats van een link. Zoeken op alleen "a" gaf daar
+           null en brak het hele blad. */
+        bladVul(kop, "<ul>" + namen.map(function(li){
+          var el = li.querySelector("a, .geenlink");
+          return el ? "<li>" + el.outerHTML + "</li>" : ""; }).join("") + "</ul>");
+        inBeeld(z);
+      }
+    });
+    z.addEventListener("keydown", function(ev){
+      if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); z.dispatchEvent(new MouseEvent("click")); }
+    });
+  });
+
+  /* vanuit de lijst: waar staat deze maker? */
+  rijen.forEach(function(li){
+    var a = li.querySelector("a") || li.querySelector(".geenlink"),
+        ruimtes = rijRuimtes(li);
+    if(hover){
+      li.addEventListener("mouseenter", function(){ if(!smal()) licht(ruimtes, li); });
+      li.addEventListener("mouseleave", function(){ if(!smal()) wis(); });
+    }
+    if(a.tagName==="A") a.addEventListener("focus", function(){ licht(ruimtes, li); });
+    /* Op een telefoon toont de eerste tik waar de maker staat; de knop in het
+       blad brengt je naar de pagina. Zo raak je de kaart niet kwijt. */
+    a.addEventListener("click", function(ev){
+      if(!smal()) return;
+      ev.preventDefault();
+      licht(ruimtes, li);
+      bladVul(li.querySelector(".waar").textContent,
+              "<ul><li>" + a.outerHTML + "</li></ul>");
+      inBeeld(document.querySelector('.zaal[data-z="'+ruimtes[0]+'"]'));
+    });
+  });
+
+  dicht.addEventListener("click", function(){ wis(); bladDicht(); });
+  document.addEventListener("keydown", function(ev){
+    if(ev.key==="Escape" && !blad.hidden){ wis(); bladDicht(); }
+  });
+  if(plan) plan.addEventListener("click", function(){ wis(); bladDicht(); });
+  if(hover) document.querySelector(".planwrap")
+    .addEventListener("mouseleave", function(){ if(!smal()) wis(); });
+
+  var h=(location.hash||"").replace("#room-","");
+  if(h && document.querySelector('.zaal[data-z="'+h+'"]')) licht([h], null);
+})();

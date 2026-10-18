@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The programme &mdash; MADART FOUNDATION</title>
+<meta name="description" content="What is on today, hour by hour, and on which floor.">
+{# Kortere versie van een bestaande pagina, voor wie een beker vasthoudt.
+   noindex plus canonical, zodat de uitgebreide versie de zoekresultaten
+   houdt en deze twee er niet mee concurreren. #}
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://madartfoundation.com/{{ camp.prog_full }}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+{% include "_campaignstyle.html" %}
+<style>
+/* Compact: iemand staat met een beker in zijn hand en wil weten wat er nu is. */
+.dag{margin:26px 0 0;border-top:var(--rule)}
+.dagkop{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);
+  padding:16px 0 4px;margin:0}
+.reeks{list-style:none;margin:0;padding:0}
+.reeks li{border-bottom:var(--hair);padding:14px 0}
+.regel{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline}
+.tijd{font-size:12px;letter-spacing:.04em;color:var(--grey);font-weight:700}
+.wat{font-size:15px;line-height:1.4}
+.waar{display:block;font-size:12px;color:var(--grey);margin-top:4px}
+.nu{border-left:2px solid var(--dawn);padding-left:12px;margin-left:-14px}
+.nu .tijd{color:var(--dawn)}
+.leeg{font-size:15px;color:var(--grey);padding:18px 0}
+.sluier{position:fixed;inset:0;background:var(--chalk);z-index:99;display:flex;
+  align-items:center;justify-content:center;padding:24px}
+.sluier-in{max-width:420px;width:100%}
+.sluier h2{font-size:clamp(22px,5vw,28px);line-height:1.12;letter-spacing:-.02em;
+  text-transform:none;color:var(--ink);font-weight:700;margin:0 0 12px}
+.sluier p{font-size:15px;line-height:1.6;margin:0 0 22px}
+.door{display:block;width:100%;margin:16px 0 0;background:none;border:0;font:inherit;
+  font-size:13px;color:var(--grey);text-decoration:underline;cursor:pointer;padding:12px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="index"><span>MADART Foundation</span></p>
+  <h1>{{ camp.prog_title }}</h1>
+  <p class="lede">{{ camp.prog_lede }}</p>
+
+  {% for dag in camp.days %}
+  <section class="dag" data-datum="{{ dag.date }}">
+    <p class="dagkop">{{ dag.label }}</p>
+    <ul class="reeks">
+      {% for i in dag.regels %}
+      <li data-begin="{{ i.start }}" data-eind="{{ i.end }}">
+        <div class="regel">
+          <span class="tijd">{{ i.time }}</span>
+          <span class="wat">{{ i.title }}<span class="waar">{{ i.waar }}</span></span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+
+  {# Wat er staat als het festival voorbij is. De beker gaat door, het
+     programma niet. #}
+  <section class="dag" id="tussen" hidden>
+    <p class="dagkop">On now</p>
+    <ul class="reeks">
+      <li><div class="regel">
+        <span class="tijd">Daily</span>
+        <span class="wat">{{ camp.terugval.seizoen }}<span class="waar">{{ camp.terugval.waar }} &middot; 10:00&ndash;18:00</span></span>
+      </div></li>
+      <li><div class="regel">
+        <span class="tijd">Until</span>
+        <span class="wat">{{ camp.terugval.wanneer }}<span class="waar">Free to walk in</span></span>
+      </div></li>
+      {% if camp.terugval.volgend %}
+      <li><div class="regel">
+        <span class="tijd">Next</span>
+        <span class="wat">{{ camp.terugval.volgend }}</span>
+      </div></li>
+      {% endif %}
+    </ul>
+    <p class="klein" style="margin-top:16px"><a href="{{ camp.terugval.href }}">This season &#8594;</a></p>
+  </section>
+
+  {# Laatste vangnet: is ook het seizoen voorbij en is de site sindsdien niet
+     opnieuw gebouwd, dan zegt de pagina alleen wat dan nog zeker waar is. #}
+  <section class="dag" id="altijd" hidden>
+    <p class="dagkop">The building</p>
+    <ul class="reeks">
+      <li><div class="regel">
+        <span class="tijd">Open</span>
+        <span class="wat">Daily, 10:00&ndash;18:00<span class="waar">Leidsestraat 32&ndash;34, Amsterdam</span></span>
+      </div></li>
+    </ul>
+    <p class="klein" style="margin-top:16px"><a href="exhibitions.html">What is showing &#8594;</a></p>
+  </section>
+
+  <p class="klein" id="volledig"><a href="{{ camp.prog_full }}">The full programme, with descriptions &#8594;</a>
+    &middot; <a href="MAP.html">The map &#8594;</a></p>
+  <footer>
+    <p class="klein" style="margin:0">Leidsestraat 32&ndash;34, Amsterdam. Free to walk in,
+      10:00&ndash;18:00.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  /* Vandaag bovenaan, en wat nu bezig is met een streep ernaast. Dat is de
+     enige vraag die iemand met een beker in zijn hand heeft. */
+  var nu=new Date(), vandaag=nu.toISOString().slice(0,10);
+  /* Voorbij de laatste festivaldag: het programma weg, het seizoen ervoor in
+     de plaats. De code op de beker blijft dan kloppen. */
+  var LAATSTE="{{ camp.terugval.laatste_dag }}";
+  if(LAATSTE && vandaag > LAATSTE){
+    [].forEach.call(document.querySelectorAll(".dag[data-datum]"), function(s){ s.remove(); });
+    var EINDE="{{ camp.terugval.seizoen_eind }}";
+    var h1=document.querySelector("h1"), le=document.querySelector(".lede");
+    document.getElementById("volledig").hidden=true;
+    if(EINDE && vandaag > EINDE){
+      document.getElementById("altijd").hidden=false;
+      if(h1) h1.textContent="The building";
+      if(le) le.textContent="Open daily. Check what is showing before you come up.";
+    } else {
+      document.getElementById("tussen").hidden=false;
+      if(h1) h1.textContent="What is on";
+      if(le) le.textContent="The festival is over. The season runs on.";
+    }
+    return;
+  }
+  var secties=[].slice.call(document.querySelectorAll(".dag"));
+  var vd=secties.filter(function(s){ return s.dataset.datum===vandaag; });
+  if(vd.length){
+    var hoofd=document.querySelector("main");
+    vd.forEach(function(s){ s.parentNode.insertBefore(s, secties[0]); });
+    vd[0].querySelector(".dagkop").textContent="Today \u00b7 "+vd[0].querySelector(".dagkop").textContent;
+    var m=nu.getHours()*60+nu.getMinutes();
+    [].forEach.call(vd[0].querySelectorAll("li"), function(li){
+      var b=li.dataset.begin.split(":"), e=li.dataset.eind.split(":");
+      var b1=+b[0]*60 + +b[1], e1=+e[0]*60 + +e[1];
+      if(m>=b1 && m<e1) li.classList.add("nu");
+    });
+  }
+})();
+</script>
+
+{% include "_signup.html" %}
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block title %}{{ page_title }}{% if not work.short_suffix %} — {{ site.name }}{% endif %}{% endblock %}
+{% block head %}{{ ld.artwork(site, work) }}{% endblock %}
+{% block bodyattr %} class="worklook"{% endblock %}
+{% block chrome %}
+<div class="top2">
+  <a href="index.html">{{ site.name }}</a>
+  {% if work.programme in ('maison', 'stairwells') %}<span class="live2">MAISON D'ARTISTE · LIVE</span>
+  {% elif season %}<span class="live2">SEASON {{ season.number }} · LIVE</span>{% endif %}
+</div>
+{% endblock %}
+{% block content %}
+{% if work.image %}
+<img class="work" src="{{ work.image_screen|default(work.image, true) }}" alt="{{ work.title }}, by {{ work.maker_name }}"
+     width="{{ work.width|default(1200) }}" height="{{ work.height|default(1500) }}"
+     fetchpriority="high" decoding="async">
+{% else %}
+<div class="work noimg"><span>Photograph<br>to follow</span></div>
+{% endif %}
+<div class="body2">
+  <p class="code2">{{ work.code }}</p>
+  <a class="maker2" href="{{ work.maker }}.html">{{ work.maker_name }} &#8594;</a>
+  <h1>{{ work.title }}</h1>
+  <p class="meta2">{{ work.materials }}</p>
+  {# De ontwerper is geen materiaal. Waar een studio het werk toont maar iemand
+     anders het ontwierp, hoort die naam apart te staan. #}
+  {# Waar de ontwerper zelf in het register staat, wijst de naam daarheen. Bij
+     Ignore is hij ontwerper; op zijn eigen pagina is hij autonoom maker. #}
+  {% if work.designer %}<p class="meta2">Designed by
+    {%- if work.designer_slug %} <a href="{{ work.designer_slug }}.html">{{ work.designer }}</a>
+    {%- else %} {{ work.designer }}{% endif %}</p>{% endif %}
+
+  <div class="priceRow2">
+    <span class="price2">{{ work.price_label }}</span>
+    <span class="pill {{ work.pill }}">{{ work.status }}</span>
+  </div>
+
+  <a class="btn" href="enquire.html?work={{ work.slug }}">Enquire about this work</a>
+  {% if work.whatsapp %}<a class="btn-outline" href="{{ work.whatsapp }}">Or message {{ work.maker_first }} on WhatsApp</a>{% endif %}
+  <a class="btn-outline" href="{{ work.maker }}.html">See all work by {{ work.maker_name }}</a>
+
+  <p class="foot2">
+    {# De honderd-procent-belofte hoort bij het programma van de Foundation:
+       makers die zij cureert, financiert en een zaal geeft. Een studio die
+       haar eigen werk toont valt daarbuiten — die krijgt geen fee en geen
+       productiebudget, en de Foundation belooft niets over haar marges. Wat
+       voor beide waar is, staat er nog wel: geen commissie, geen contract, en
+       je koopt rechtstreeks. #}
+    {% if work.is_partner %}
+    MADART Foundation takes no commission and is not a party to the sale. You buy from
+    {{ work.maker_name }} directly; we made the room.
+    {% else %}
+    100% of the sale price goes to the maker. MADART Foundation takes no commission and holds no
+    exclusive contract. You buy from {{ work.maker_name }}; we made the room.
+    {% endif %}
+    {% if work.sales_via %}<br>Enquiries for this work reach {{ work.sales_via }}, who coordinates
+    sales for the collective.{% endif %}
+  </p>
+
+  <div class="backline">
+    {% if maker.plan_link %}<a href="{{ maker.plan_link[0] }}">Find it on the plan &middot; {{ maker.plan_link[2] }}</a>
+    {% else %}<a href="building.html">Where am I in the building?</a>{% endif %}
+    <a href="works.html">All available works</a>
+    {% if work.programme in ('maison', 'stairwells') %}<a href="maison-dartiste.html">Maison d'Artiste</a>
+    {% elif season %}<a href="{{ season.slug }}.html">Season {{ season.number }} — {{ season.title }}</a>{% endif %}
+    <a href="visit.html">Plan a visit</a>
+    <a href="index.html">MADART Foundation</a>
+  </div>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}

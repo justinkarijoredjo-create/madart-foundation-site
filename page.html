@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">—</span><span>{{ page.label }}</span></p>
+  <h1>{{ page.heading }}</h1>
+  {% if page.lede %}<p class="lede">{{ page.lede|adressen }}</p>{% endif %}
+
+  {# De dekking. Elke regel verwijst naar het origineel; de omschrijving is
+     een parafrase, geen overgenomen tekst. rel="external" omdat het naar
+     buiten wijst, zonder nofollow — dit zijn echte redactionele bronnen. #}
+  {% if page.coverage %}
+  <h2 class="index" style="margin-top:44px"><span class="no">&mdash;</span><span>In the press</span>
+    <span class="of">{{ page.coverage|length }}</span></h2>
+  <ul class="dekking">
+    {% for c in page.coverage %}
+    <li>
+      <a href="{{ c.url }}" target="_blank" rel="external noopener">
+        <span class="dek-titel">{{ c.title }}</span>
+        <span class="dek-bron">{{ c.outlet }} &middot; {{ c.date }}{% if c.lang == 'NL' %} &middot; in Dutch{% endif %}</span>
+      </a>
+      {% if c.note %}<p class="dek-noot">{{ c.note }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% for b in page.blocks %}
+    {% if b.type == 'prose' %}
+      <div class="prose" style="margin-top:30px">
+        {% if b.heading %}<h2>{{ b.heading }}</h2>{% endif %}
+        {% for p in b.paragraphs %}<p>{{ p|adressen }}</p>{% endfor %}
+      </div>
+    {% elif b.type == 'cards' %}
+      <h2 class="index" style="margin-top:52px"><span class="no">—</span><span>{{ b.heading }}</span></h2>
+      <div class="grid g{{ b.columns|default(2) }}">
+        {% for c in b.entries %}
+        <div{% if c.portrait %} class="person"{% endif %}>
+          {% if c.portrait %}<figure><img src="{{ c.portrait }}" alt="{{ c.title }}" width="480" height="600" loading="lazy" decoding="async"></figure>{% endif %}
+          <h3 style="font-weight:700;font-size:15px">{{ c.title }}</h3>
+          {% if c.role %}<p class="small dim" style="margin:2px 0 8px">{{ c.role }}</p>{% endif %}
+          {% for p in c.paragraphs %}<p class="small" style="color:var(--ink)">{{ p|adressen }}</p>{% endfor %}
+          {% if c.link %}<p class="small"><a href="{{ c.link.href }}">{{ c.link.label }}</a></p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    {% elif b.type == 'rows' %}
+      <h2 class="index" style="margin-top:52px"><span class="no">—</span><span>{{ b.heading }}</span></h2>
+      <div class="reg">
+        {% for r in b.entries %}
+        <div class="row">
+          <span class="c">{{ "%02d"|format(loop.index) }}</span>
+          <span class="t">{{ r.title }}</span>
+          <span class="m" style="grid-column:span 2">{{ r.text }}</span>
+          <span class="p"></span>
+        </div>
+        {% endfor %}
+      </div>
+    {% elif b.type == 'statement' %}
+      <div class="prose" style="margin-top:44px;padding:26px 0;border-top:1px solid var(--concrete);border-bottom:1px solid var(--concrete)">
+        <p class="lede" style="margin:0">{{ b.text }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div></section>
+{% endblock %}

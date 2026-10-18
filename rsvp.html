@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block head %}<style>
+main{padding:64px 0 80px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--grey-meta);margin:0 0 14px}
+h1{font-size:36px;line-height:1.12;font-weight:700;margin:0 0 20px}
+.lede{font-size:16px;line-height:1.7;margin:0 0 22px}
+p{margin:0 0 14px}
+.schedule{margin:30px 0 0;font-size:13px}
+.schedule div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--linen-dust)}
+.schedule span:last-child{color:var(--grey-meta);text-align:right}
+.small{font-size:12px;color:var(--grey-code);line-height:1.6}
+form{background:var(--linen-dust);padding:30px}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-size:11px;letter-spacing:.14em;color:var(--grey-meta);margin-bottom:12px;padding:0}
+label{display:block;font-size:12px;color:var(--grey-meta);margin:0 0 5px}
+input[type=text],input[type=email],input[type=number],select,textarea{
+  width:100%;font-family:inherit;font-size:14px;padding:11px 12px;background:var(--chalk-light);
+  border:1px solid var(--concrete-memory);color:var(--archive-black);border-radius:0;
+}
+textarea{min-height:84px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--dawn-blue);outline-offset:1px;border-color:var(--dawn-blue)}
+.field{margin-bottom:18px}
+.choice{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;font-size:13px;color:var(--archive-black)}
+.choice input{margin-top:3px;accent-color:var(--dawn-blue)}
+.choice label{margin:0;font-size:13px;color:inherit}
+button{
+  font-family:inherit;font-size:13px;letter-spacing:.06em;padding:14px 26px;border:0;border-radius:0;
+  background:var(--archive-black);color:var(--chalk-light);cursor:pointer;width:100%;
+}
+button:hover{background:var(--dawn-blue)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;padding:0}
+.footer-grid h4{font-size:11px;letter-spacing:.14em;font-weight:500;margin:0 0 12px;color:var(--concrete-memory)}
+.footer-bottom{border-top:1px solid rgba(244,237,228,.18);margin-top:36px;padding:16px 0 0;font-size:11px;color:var(--concrete-memory)}
+@media(max-width:860px){
+  .cols{grid-template-columns:1fr;gap:44px}
+h1{font-size:27px}
+.footer-grid{grid-template-columns:1fr;gap:28px}
+}
+</style>{% endblock %}
+{% block content %}
+<section><div class="wrap">
+<div class="wrap"><div class="cols">
+
+  <div>
+    <p class="eyebrow">GLUE AMSTERDAM 2026 · 17–19 SEPTEMBER</p>
+    <h1>Private Evenings</h1>
+    <p class="lede">From six in the evening the fourth, sixth and seventh floors close to the public and open to a smaller room. Makers are present. Places are limited.</p>
+    <p>During the day the house is open to everyone: GROUND on the fourth floor and Maison d'Artiste on the sixth and seventh, one route through one building. The evenings are a different thing — fewer people, more time, and the chance to talk to the makers about work that is still on the wall behind them.</p>
+
+    <div class="schedule">
+      <div><span>Thursday 17 September</span><span>Public 10:00–18:00 · Talks from 15:00 · Private from 18:00</span></div>
+      <div><span>Friday 18 September</span><span>Public 10:00–18:00 · Talks from 15:00 · Private from 18:00</span></div>
+      <div><span>Saturday 19 September</span><span>Public 10:00–18:00 · Talks from 15:00 · Private from 18:00</span></div>
+    </div>
+    <p class="small" style="margin-top:18px">NIO House Amsterdam, Leidsestraat 32-34. Talks on the second floor, made possible by Ignore and Charles &amp; More. The Saturday talks programme is still being confirmed.</p>
+  </div>
+
+  <div>
+    <form action="{{ site.newsletter_endpoint }}" method="POST">
+      <input type="hidden" name="_redirect" value="https://madartfoundation.com/rsvp-thanks.html">
+      <input type="hidden" name="_append" value="false">
+      <input type="hidden" name="source" value="glue-2026-private-evening">
+      <div class="hp" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="_honeypot" tabindex="-1" autocomplete="off">
+      </div>
+
+      <fieldset>
+        <legend>REQUEST A PLACE</legend>
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="evening">Which evening</label>
+          <select id="evening" name="evening" required>
+            <option value="">Choose an evening</option>
+            <option>Thursday 17 September</option>
+            <option>Friday 18 September</option>
+            <option>Saturday 19 September</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="guests">People, including you</label>
+          <input type="number" id="guests" name="guests" min="1" max="4" value="1" required>
+        </div>
+
+        <div class="field">
+          <label for="context">Anything we should know (optional)</label>
+          <textarea id="context" name="context" placeholder="How you heard about us, or who invited you."></textarea>
+        </div>
+      </fieldset>
+
+      <div class="choice">
+        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+        <label for="newsletter">Send me news about exhibitions, openings and new work.</label>
+      </div>
+
+      <p class="small" style="margin:16px 0 20px">We use what you enter here to manage the guest list, and delete it six months after the event. See our <a href="privacy.html">privacy statement</a>.</p>
+
+      <button type="submit">Request a place</button>
+    </form>
+  </div>
+
+</div></div>
+</div></section>
+{% endblock %}

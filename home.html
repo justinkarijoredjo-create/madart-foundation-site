@@ -1,0 +1,569 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block head %}{{ ld.organisation(site) }}{% endblock %}
+{% block bodyattr %} class="home"{% endblock %}
+
+{% block content %}
+
+{# ---- the room before the room: one line, then it steps aside ---- #}
+<div class="curtain" id="curtain" role="presentation">
+  <p class="slogan">We curate the blind spots<br>of the art world.</p>
+</div>
+
+{# ---- full-bleed hero, no bars, nothing over it until you scroll ---- #}
+<div class="hero full" data-carousel>
+  <div class="frames">
+    {% for img in season.hero_images %}
+    <img src="{{ img.file }}" alt="{{ img.alt }}" width="2400" height="1601"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async" class="frame{% if loop.first %} on{% endif %}">
+    {% endfor %}
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <p class="code">SEASON {{ season.number }} · NOW SHOWING</p>
+      <h1 class="display">{{ season.title }}</h1>
+      <p class="meta">{{ season.location }} &nbsp;·&nbsp; {{ season.dates_label }}</p>
+      <a class="enter" href="{{ season.slug }}.html">Enter the season</a>
+    </div>
+    {% if season.hero_images|length > 1 %}
+    <div class="dots" role="tablist" aria-label="Installation views">
+      {% for img in season.hero_images %}
+      <button role="tab" aria-label="View {{ loop.index }}"{% if loop.first %} aria-selected="true"{% endif %}></button>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="scrollcue" aria-hidden="true"><span></span></div>
+</div>
+
+{# Tot en met 19 september staat het festival boven de tellers. Daarvoor stond
+   het op 2.919 pixels diepte op een telefoon, ruim drie schermen scrollen, en
+   dat is het moment waarop de site deze maand het meest wordt geopend. De
+   datumvoorwaarde zit in de bouw: op 20 september valt het blok vanzelf weg. #}
+{% if festival_nu %}
+<div class="nubezig">
+  <div class="wrap">
+    <p class="wanneer">{{ festival_nu.dates_label }}</p>
+    <h2>The whole building opens for GLUE Amsterdam</h2>
+    <p class="regel">Eight floors, thirty makers, free to walk in, {{ festival_nu.hours }}.</p>
+    {# Twee vragen die iemand voor het festival heeft: wat is er te doen, en
+       waar moet ik zijn. Het programma is de eerste knop, de plattegrond de
+       tweede — dezelfde volgorde als hoe je een gebouw binnenloopt. #}
+    <p class="knoppen">
+      <a class="btn" href="{{ festival_nu.slug }}.html">The programme, hour by hour &#8594;</a>
+      <a class="btn-outline" href="building.html">Find your way through the building &#8594;</a>
+    </p>
+  </div>
+</div>
+{% endif %}
+
+{# Een korte strook met de dekking. Op de perspagina staat de volledige
+   lijst, maar daar komt bijna niemand; hier komt iedereen. #}
+{% if dekking %}
+<section class="reveal"><div class="wrap">
+  <p class="index"><span class="no">&mdash;</span><span>Written about</span></p>
+  <ul class="dekking kort">
+    {% for c in dekking %}
+    <li><a href="{{ c.url }}" target="_blank" rel="external noopener">
+      <span class="dek-titel">{{ c.title }}</span>
+      <span class="dek-bron">{{ c.outlet }} &middot; {{ c.date }}</span></a></li>
+    {% endfor %}
+  </ul>
+  <p class="small" style="margin-top:16px"><a href="press.html">All coverage and press enquiries &#8594;</a></p>
+</div></section>
+{% endif %}
+
+<div class="scale reveal">
+  <a href="makers.html"><span class="n" data-count="{{ curated|length }}">{{ curated|length }}</span><span class="l">makers curated</span></a>
+  <a href="works.html"><span class="n" data-count="{{ works_shown|length }}">{{ works_shown|length }}</span><span class="l">works in the register</span></a>
+  <a href="exhibitions.html"><span class="n" data-count="{{ seasons|length }}">{{ seasons|length }}</span><span class="l">seasons programmed</span></a>
+  <a href="building.html"><span class="n" data-count="{{ building.levels|length }}">{{ building.levels|length }}</span><span class="l">levels in the house</span></a>
+  <a href="mission.html"><span class="n" data-count="100" data-suffix="%">100%</span><span class="l">of every sale to the maker</span></a>
+</div>
+
+<section class="statement reveal"><div class="wrap">
+  <div class="claim-block">
+    <h2 class="claim">We curate the makers the system overlooked, and give them a room in Amsterdam.</h2>
+    <p>We finance the exhibition. The maker keeps 100% of every sale. No exclusive contract, no fee to take part — a room, an audience, and a fair deal.</p>
+    <p>The system that overlooks these makers is not broken by accident. Funds finance what institutions already show. Galleries show what already sells. Somewhere between the two, a whole category of serious work falls through — not because it isn't good enough, but because it doesn't fit the boxes the system was built around.</p>
+    <p class="claim-link"><a href="mission.html">How we select, and what we test against &#8594;</a></p>
+  </div>
+</div></section>
+
+{# ---- makers: image first, dragged through by hand ---- #}
+<section class="reveal wide"><div class="wrap">
+  <h2 class="index"><span class="no">01</span><span>The makers</span><span class="of"><a href="makers.html">All {{ artists|length }} &#8594;</a></span></h2>
+</div>
+<div class="rail" data-rail data-loop role="group" aria-label="Makers, scrollable list" tabindex="0">
+  <div class="track">
+    {% for m in makers_solo[:12] %}
+    {% if m.pending %}
+    <div class="slide portrait soon">
+      <div class="soonbox"><span>{{ m.name }}</span></div>
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+      <p class="cnt">Work to follow</p>
+    </div>
+    {% else %}
+    <a class="slide portrait" href="{{ m.slug }}.html">
+      <figure class="swap">
+        <img class="face" src="{{ m.portrait_small|default(m.portrait, true) }}" alt="{{ m.name }}" width="480" height="600" loading="lazy" decoding="async">
+        {% if m.hover %}<img class="work" src="{{ m.hover_small|default(m.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
+      </figure>
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+      <p class="cnt">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</p>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous makers">&#8592;</button><button data-next aria-label="Next makers">&#8594;</button><span class="hint">Drag, scroll, or use the arrow keys</span><a class="railall" href="makers.html">All {{ artists|length }} makers &#8594;</a></div>
+</section>
+
+{# ---- exhibitions: same treatment, the image carries it ---- #}
+<section class="reveal wide"><div class="wrap">
+  <h2 class="index"><span class="no">02</span><span>Exhibitions</span><span class="of"><a href="exhibitions.html">All &#8594;</a></span></h2>
+</div>
+<div class="rail" data-rail data-loop role="group" aria-label="Exhibitions, scrollable list" tabindex="0">
+  <div class="track">
+    {% for e in exhibition_cards %}
+    <a class="slide land" href="{{ e.href }}">
+      <figure>
+        {% if e.image %}<img src="{{ e.image }}" alt="{{ e.title }}" width="1140" height="760" loading="lazy" decoding="async">
+        {% else %}<div class="noimg"><span>Documentation<br>in preparation</span></div>{% endif %}
+      </figure>
+      <p class="kind">{{ e.kind }}</p>
+      <h3>{{ e.title }}</h3>
+      <p class="sub">{{ e.dates }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous exhibitions">&#8592;</button><button data-next aria-label="Next exhibitions">&#8594;</button></div>
+</section>
+
+{# ---- what is coming ---- #}
+{% if programme_events %}
+<section class="reveal wide"><div class="wrap">
+  <h2 class="index"><span class="no">03</span><span>Events</span><span class="of">Openings and evenings</span></h2>
+</div>
+<div class="rail" data-rail role="group" aria-label="Events, scrollable list" tabindex="0">
+  <div class="track">
+    {% for e in programme_events %}
+    {# Een kaart die naar een extern ticketsysteem leidt, opent in een nieuw
+       tabblad: de bezoeker raakt de site dan niet kwijt aan een afrekenpagina. #}
+    <a class="slide land" href="{{ e.href }}"{% if e.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>
+      <figure{% if e.hover %} class="swap"{% endif %}>
+        {% if e.image %}<img src="{{ e.image }}" alt="{{ e.name }}" width="1140" height="760" loading="lazy" decoding="async">
+        {% else %}<div class="noimg"><span>{{ e.dates }}</span></div>{% endif %}
+        {% if e.hover %}<img class="work" src="{{ e.hover }}" alt="" width="1140" height="760" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
+      </figure>
+      <p class="kind">{{ e.kind }} · {{ e.dates }}</p>
+      <h3>{{ e.name }}</h3>
+      <p class="sub">{{ e.where }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous">&#8592;</button><button data-next aria-label="Next">&#8594;</button><a class="railall" href="maison-dartiste-2026.html">The full programme &#8594;</a></div>
+</section>
+{% endif %}
+
+{# ---- the place ---- #}
+<section class="reveal place" id="place">
+  <div class="wrap"><h2 class="index"><span class="no">04</span><span>The place</span><span class="of"><a href="building.html">The building &#8594;</a></span></h2></div>
+  <div class="wrap place-grid">
+  <figure class="place-elev">
+    <svg class="elev" id="svg" viewBox="0 0 482 596" role="group"
+         aria-label="Elevation of {{ site.venue.name }}, the former Metz building, eight levels"></svg>
+    <p class="elev-cta" id="place-cta" hidden><a class="btn" id="p-cta" href="#">Open the plan</a></p>
+    <p class="elev-hint"><span class="on-hover">Move over a level to see what is on it.</span><span class="on-touch">Tap a level to see what is on it.</span></p>
+  </figure>
+  <div class="place-text">
+    {# the default state: what this building is #}
+    <div id="place-story">
+      <h2>{{ site_place.title }}</h2>
+      <div class="prose">
+        {% for p in site_place.body %}<p>{{ p }}</p>{% endfor %}
+      </div>
+    </div>
+
+    {# the hover state: whichever level the cursor is resting on #}
+    <div id="place-level" hidden>
+      <p class="index lvl-eyebrow"><span class="no" id="p-no"></span><span id="p-kind"></span><span class="of" id="p-of"></span></p>
+      <h2 id="p-name"></h2>
+      <p class="lvl-perm" id="p-perm" hidden>{{ site.name|title }} &middot; Artspace &middot; the permanent floor</p>
+      <figure class="place-hero" id="p-hero" hidden></figure>
+      <p class="lede" id="p-blurb"></p>
+      <div id="p-people"></div>
+      <p class="place-back"><a href="#place" id="p-back">&#8593; Back to the elevation</a></p>
+    </div>
+  </div>
+  </div>
+</section>
+
+{# The team lives on team.html, where the texts are fuller and the board is
+   named as well. Keeping a second, shorter copy here made the longest block
+   on the page sit in the part of it people reach last. #}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- opening screen: the slogan, then out of the way ---- */
+  var curtain = document.getElementById('curtain');
+  if (curtain) {
+    var seen = false;
+    try { seen = sessionStorage.getItem('madart-seen') === '1'; } catch(e){}
+    if (seen || reduce) {
+      curtain.remove();
+    } else {
+      document.body.classList.add('curtained');
+      var lift = function(){
+        if (curtain.classList.contains('up')) return;
+        curtain.classList.add('up');
+        document.body.classList.remove('curtained');
+        try { sessionStorage.setItem('madart-seen','1'); } catch(e){}
+        setTimeout(function(){ curtain.remove(); }, 1200);
+      };
+      setTimeout(lift, 3600);
+      ['wheel','touchstart','keydown','click'].forEach(function(ev){
+        window.addEventListener(ev, lift, {once:true, passive:true});
+      });
+    }
+  }
+
+  /* ---- header and the counts appear once you leave the hero ---- */
+  var hero = document.querySelector('.hero.full');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){
+      document.body.classList.toggle('past-hero', en[0].intersectionRatio < 0.6);
+    }, {threshold:[0.6]}).observe(hero);
+  } else {
+    document.body.classList.add('past-hero');
+  }
+
+
+  /* ---- the counters climb to their number, once ---- */
+  if ('IntersectionObserver' in window) {
+    var counters = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        counters.unobserve(e.target);
+        var end = +e.target.dataset.count, suffix = e.target.dataset.suffix || '', t0 = null;
+        if (reduce) { e.target.textContent = end + suffix; return; }
+        // The real number sits in the HTML so that crawlers, screen readers and
+        // anyone without JavaScript read "100%", not "0%". Only once the animation
+        // actually starts does it drop to zero and climb back.
+        e.target.textContent = '0' + suffix;
+        requestAnimationFrame(function step(t){
+          if (!t0) t0 = t;
+          var k = Math.min((t - t0) / 900, 1);
+          e.target.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suffix;
+          if (k < 1) requestAnimationFrame(step);
+        });
+      });
+    }, {threshold:1});
+    document.querySelectorAll('.n[data-count]').forEach(function(el){ counters.observe(el); });
+  } else {
+    document.querySelectorAll('.n[data-count]').forEach(function(el){ el.textContent = el.dataset.count + (el.dataset.suffix || ''); });
+  }
+
+  /* ---- rails: drag with the mouse, flick on a phone, arrows on a desktop ---- */
+  document.querySelectorAll('[data-rail]').forEach(function(rail){
+    var down = false, startX = 0, startL = 0, moved = 0;
+
+    /* A rail you can only drag is a rail some people cannot use at all.
+       Focusable, with the arrow keys doing what the arrow buttons do. */
+    rail.setAttribute('tabindex', '0');
+    rail.setAttribute('role', 'region');
+    rail.addEventListener('keydown', function(e){
+      var card = rail.querySelector('.slide');
+      var w = card ? card.getBoundingClientRect().width + 18 : 320;
+      if (e.key === 'ArrowRight') { rail.scrollLeft += w; e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= w; e.preventDefault(); }
+      else if (e.key === 'Home') { rail.scrollLeft = 0; e.preventDefault(); }
+      else if (e.key === 'End') { rail.scrollLeft = rail.scrollWidth; e.preventDefault(); }
+    });
+
+    /* An endless rail: the run of slides is cloned before and after itself, and
+       the scroll position is wrapped by exactly one run whenever you cross a
+       boundary. Because there is a copy on both sides, it runs on for ever in
+       either direction and the wrap is invisible. */
+    var loop = rail.hasAttribute('data-loop'), runWidth = 0, track = rail.querySelector('.track');
+    if (loop) {
+      var originals = [].slice.call(track.children);
+      if (originals.length) {
+        var makeCopy = function(where){
+          var frag = document.createDocumentFragment();
+          originals.forEach(function(el){
+            var c = el.cloneNode(true);
+            c.setAttribute('aria-hidden','true');
+            if (c.tagName === 'A') c.setAttribute('tabindex','-1');
+            c.querySelectorAll('a,button').forEach(function(f){ f.setAttribute('tabindex','-1'); });
+            frag.appendChild(c);
+          });
+          if (where === 'before') track.insertBefore(frag, track.firstChild);
+          else track.appendChild(frag);
+        };
+        var measure = function(){
+          runWidth = originals.reduce(function(sum, el){
+            return sum + el.getBoundingClientRect().width + 18;
+          }, 0);
+        };
+        measure();
+        var copiesEachSide = Math.max(1, Math.ceil(rail.clientWidth / Math.max(runWidth, 1)));
+        for (var n = 0; n < copiesEachSide; n++) { makeCopy('before'); makeCopy('after'); }
+
+        // The wrap boundaries sit a full run either side of the resting point.
+        // Putting the lower boundary AT the resting point made every leftward
+        // move snap straight back, which froze the rail.
+        var settle = function(){
+          if (!runWidth) return;
+          var home = runWidth * copiesEachSide;
+          while (rail.scrollLeft >= home + runWidth) rail.scrollLeft -= runWidth;
+          while (rail.scrollLeft < home - runWidth) rail.scrollLeft += runWidth;
+        };
+        rail.addEventListener('scroll', settle, {passive:true});
+        var reset = function(){ measure(); rail.scrollLeft = runWidth * copiesEachSide; };
+        window.addEventListener('resize', reset);
+        // Measured before the images have their size, the run comes out too short
+        // and the rail fights itself. Measure again once everything has loaded.
+        window.addEventListener('load', reset);
+        reset();
+      }
+    }
+    rail.addEventListener('pointerdown', function(e){
+      down = true; moved = 0; startX = e.clientX; startL = rail.scrollLeft;
+      rail.classList.add('grabbing');
+    });
+    rail.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      rail.scrollLeft = startL - dx;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      rail.addEventListener(ev, function(){ down = false; rail.classList.remove('grabbing'); });
+    });
+    rail.addEventListener('click', function(e){ if (moved > 6) e.preventDefault(); }, true);
+
+    var nav = rail.nextElementSibling;
+    if (nav && nav.classList.contains('railnav')) {
+      // Smooth scrollBy silently does nothing on a rail that is far outside the
+      // viewport. Ask for the smooth version, then check: if nothing moved,
+      // set the position outright. The arrows work either way.
+      var step = function(dir){
+        var card = rail.querySelector('.slide');
+        var w = card ? card.getBoundingClientRect().width + 18 : 320;
+        var from = rail.scrollLeft, to = from + dir * w * 2;
+        rail.scrollBy({left: dir * w * 2, behavior: reduce ? 'auto' : 'smooth'});
+        setTimeout(function(){
+          if (Math.abs(rail.scrollLeft - from) < 2) rail.scrollLeft = to;
+        }, 320);
+      };
+      nav.querySelector('[data-prev]').addEventListener('click', function(){ step(-1); });
+      nav.querySelector('[data-next]').addEventListener('click', function(){ step(1); });
+      if (!loop) {
+        var ends = function(){
+          nav.querySelector('[data-prev]').disabled = rail.scrollLeft < 4;
+          nav.querySelector('[data-next]').disabled =
+            rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+        };
+        rail.addEventListener('scroll', ends, {passive:true}); ends();
+      }
+    }
+  });
+
+  /* ---- hero crossfade ---- */
+  var carousel = document.querySelector('[data-carousel]');
+  if (carousel) {
+    var frames = carousel.querySelector('.frames'),
+        imgs = [].slice.call(frames.querySelectorAll('img')),
+        dots = [].slice.call(carousel.querySelectorAll('.dots button'));
+    if (imgs.length > 1) {
+      frames.classList.add('js');
+      var i = 0, timer = null;
+      var show = function(n){
+        i = (n + imgs.length) % imgs.length;
+        imgs.forEach(function(im,k){ im.classList.toggle('on', k===i); });
+        dots.forEach(function(d,k){
+          if (k===i) d.setAttribute('aria-selected','true'); else d.removeAttribute('aria-selected');
+        });
+      };
+      var start = function(){ if (reduce) return; stop(); timer = setInterval(function(){ show(i+1); }, 6500); };
+      var stop = function(){ if (timer) clearInterval(timer); timer = null; };
+      dots.forEach(function(d,k){ d.addEventListener('click', function(){ show(k); start(); }); });
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+      show(0); start();
+    }
+  }
+})();
+
+/* ---------------------------------------------------------------------------
+   THE PLACE — the elevation stands in for the photograph, and the story gives
+   way to whichever level the cursor is resting on. Leave the drawing and the
+   story comes back. There is no register and no plan button here: reading a
+   level in full is what building.html is for.
+   ------------------------------------------------------------------------ */
+{% include "_elevation.html" %}
+
+(function(){
+  const story = document.getElementById("place-story"),
+        panel = document.getElementById("place-level"),
+        p = { no:"p-no", kind:"p-kind", of:"p-of", name:"p-name", hero:"p-hero",
+              perm:"p-perm", blurb:"p-blurb", people:"p-people",
+              cta:"p-cta", ctaWrap:"place-cta" };
+  for(const k in p) p[k] = document.getElementById(p[k]);
+  const byId = {}; LEVELS.forEach(function(L){ byId[L.id] = L; });
+  const narrow = function(){ return window.matchMedia("(max-width:760px)").matches; };
+
+  function show(L){
+    p.no.textContent   = "LEVEL " + L.label;
+    p.kind.textContent = (L.kind && L.kind !== L.name) ? L.kind : "";
+    p.of.textContent   = L.count || "";
+    p.perm.hidden      = !L.perm;
+    p.blurb.textContent = L.blurb;
+
+    p.hero.innerHTML = ""; p.hero.hidden = !L.hero;
+    if(L.hero){
+      const img = document.createElement("img");
+      img.alt = "Level " + L.label + " of NIO House Amsterdam";
+      img.loading = "eager"; img.decoding = "async"; img.src = L.hero;
+      p.hero.appendChild(img);
+    }
+
+    /* dezelfde plattegrond als op de gebouwpagina, uit hetzelfde veld */
+    if(L.href){ p.ctaWrap.hidden = false; p.cta.href = L.href;
+      p.cta.textContent = "Open the plan of level " + L.label; }
+    else p.ctaWrap.hidden = true;
+    p.name.textContent = "";
+    if(L.link){ const a = document.createElement("a"); a.href = L.link;
+      a.textContent = L.name; p.name.appendChild(a); }
+    else p.name.textContent = L.name;
+
+    p.people.innerHTML = "";
+    (L.groups || []).forEach(function(g){
+      if(!g.people || !g.people.length) return;
+      if(g.label){ const h = document.createElement("p"); h.className = "grp";
+        h.textContent = g.label; p.people.appendChild(h); }
+      const ul = document.createElement("ul");
+      ul.className = "people" + (g.one_column ? " one" : "");
+      g.people.forEach(function(pn){
+        const li = document.createElement("li");
+        const link = pn.external || pn.href;
+        let node;
+        if(link){ node = document.createElement("a"); node.href = link;
+          node.textContent = pn.name;
+          if(pn.external){ node.target = "_blank"; node.rel = "noopener"; } }
+        else { node = document.createElement("span"); node.className = "plain";
+          node.textContent = pn.name; }
+        li.appendChild(node);
+        if(pn.note){ const em = document.createElement("em");
+          em.textContent = "  \u00b7 " + pn.note; li.appendChild(em); }
+        ul.appendChild(li);
+      });
+      p.people.appendChild(ul);
+    });
+
+    story.hidden = false; panel.hidden = false;
+    story.setAttribute("hidden",""); panel.removeAttribute("hidden");
+    document.querySelectorAll(".flr").forEach(function(g){
+      g.classList.toggle("is-on", g.dataset.id === L.id); });
+    const gm = geom[L.id];
+    LITRECT.setAttribute("x",XL-4);   LITRECT.setAttribute("y",gm.top);
+    LITRECT.setAttribute("width",(XR+4)-(XL-4));
+    LITRECT.setAttribute("height",gm.bot-gm.top);
+  }
+  function rest(){
+    panel.setAttribute("hidden",""); story.removeAttribute("hidden");
+    document.querySelectorAll(".flr").forEach(function(g){ g.classList.remove("is-on"); });
+    LITRECT.setAttribute("width",0); LITRECT.setAttribute("height",0);
+  }
+
+  /* Een aanraakscherm heeft geen hover, maar Safari doet er wel alsof: het
+     stuurt hover-gebeurtenissen bij een tik. Daardoor viel het paneel weg op
+     het moment dat je een makersnaam wilde aanraken, en landde je tik op de
+     teruggekeerde tekst. Op een aanraakscherm binden we hover daarom niet. */
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  document.querySelectorAll(".flr").forEach(function(g){
+    const L = byId[g.dataset.id];
+    if(canHover){
+      g.addEventListener("mouseenter", function(){ if(!narrow()) show(L); });
+      g.addEventListener("focus", function(){ if(!narrow()) show(L); });
+    }
+    /* Een tik heeft geen hover om te verlaten. Op een telefoon toont de eerste
+       tik daarom de verdieping onder de tekening, net als op de gebouwpagina;
+       de knop daar opent de plattegrond. Op een laptop opent een klik meteen
+       de plattegrond, als die verdieping er een heeft. */
+    g.addEventListener("click", function(e){
+      e.preventDefault();
+      if(narrow()){ show(L);
+        document.querySelector(".place-text").scrollIntoView({behavior:"smooth",block:"start"});
+        return; }
+      if(L.href) window.location.href = L.href;
+    });
+    g.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault();
+        show(L); if(!narrow() && L.href) window.location.href = L.href; } });
+  });
+  /* Het paneel hoort bij het hele blok, niet bij de tekening. Hing het aan de
+     tekening, dan viel het weg zodra de cursor naar rechts bewoog en was een
+     makersnaam onbereikbaar. Nu blijft het staan tot je het blok verlaat. */
+  const block = document.getElementById("place");
+  if(canHover){
+    block.addEventListener("mouseleave", rest);
+    block.addEventListener("focusout", function(e){
+      if(!block.contains(e.relatedTarget)) rest(); });
+  }
+
+  /* De twee kolommen beginnen even hoog: de tekening krijgt de hoogte van het
+     verhaal ernaast, gemeten zodra de pagina staat. Daarna verandert die
+     hoogte niet meer, hoe lang de verdieping ook is. */
+  /* Eén hoogte voor het hele blok: de hoogste van het verhaal en van alle acht
+     de verdiepingen. Zo is de tekening even groot als de begintekst, en
+     verspringt er niets meer zodra je van verdieping wisselt. */
+  function fit(){
+    const grid = document.querySelector(".place-grid");
+    if(window.matchMedia("(max-width:860px)").matches){
+      grid.style.removeProperty("--elev-h"); return; }
+    let h = Math.round(story.getBoundingClientRect().height);
+    LEVELS.forEach(function(L){ show(L);
+      h = Math.max(h, Math.round(panel.getBoundingClientRect().height)); });
+    rest();
+    grid.style.setProperty("--elev-h", Math.min(660, Math.max(380, h + 46)) + "px");
+  }
+  /* De plattegrondknop staat op een laptop onder de tekening en op een
+     telefoon onder de informatie van de verdieping. Eén knop, twee plekken,
+     zodat er niets te synchroniseren valt. */
+  const ctaWrap = document.getElementById("place-cta"),
+        onderTekening = document.querySelector(".place-elev"),
+        onderTekst = document.getElementById("place-level");
+  const terug = document.querySelector(".place-back");
+  function plaatsKnop(){
+    const doel = narrow() ? onderTekst : onderTekening;
+    if(ctaWrap.parentElement === doel) return;
+    /* op een telefoon vóór de terugkoppeling, zodat die het laatste blijft */
+    if(doel === onderTekst) doel.insertBefore(ctaWrap, terug);
+    else doel.appendChild(ctaWrap);
+  }
+  plaatsKnop();
+
+  /* Terug naar de tekening, alleen zichtbaar op een aanraakscherm. */
+  document.getElementById("p-back").addEventListener("click", function(e){
+    e.preventDefault();
+    document.querySelector(".place-elev").scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  fit();
+  window.addEventListener("resize", function(){ fit(); plaatsKnop(); });
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block head %}{{ ld.person(site, maker, maker_works) }}{% if maker.designed_for %}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>Also in the house, as a designer</span></h2>
+  <div class="prose">
+    <p>The work above is autonomous. Elsewhere in the building the same hand turns up in another
+      role: {{ maker.designed_for[0].studio }} presents furniture {{ maker.name }} designed, on the
+      sixth floor.</p>
+    <ul class="plain">{% for w in maker.designed_for %}<li><a href="{{ w.href }}">{{ w.title }}</a>
+      &mdash; shown by <a href="{{ w.studio_href }}">{{ w.studio }}</a></li>{% endfor %}</ul>
+  </div>
+</div></section>
+{% endif %}
+
+{% if maker.talks %}{% include "_programmestyle.html" %}{% endif %}{% endblock %}
+{% block content %}
+
+<section class="maker-head"><div class="wrap">
+  <p class="index"><span class="no">{{ maker.season_label }}</span><span>{{ maker.plek }}</span>
+    <span class="of"><a href="makers.html">All makers &#8594;</a></span></p>
+  <div class="head-split">
+    <div><h1 class="maker-name">{{ maker.name }}</h1></div>
+    <div class="head-intro">
+      <p class="lede">{{ maker.bio }}</p>
+      <p class="head-links">
+        {% if maker.instagram %}<a href="{{ maker.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+        {% if maker.whatsapp %}<a href="{{ maker.whatsapp }}" target="_blank" rel="noopener">Message {{ maker.name.split(" ")[0] }}</a>{% endif %}
+        <a href="enquire.html">Enquire about a work</a>
+      </p>
+    </div>
+  </div>
+</div></section>
+
+{# ---- In the programme: elke maker met een onderdeel, en meer dan een als
+       hij er meer geeft ---- #}
+{% if maker.talks %}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>In the programme</span>
+    <span class="of"><a href="{{ maker.talks[0].programme }}">The full programme &#8594;</a></span></h2>
+  {% for t in maker.talks %}
+  <div class="prose" style="{{ 'margin-top:34px' if not loop.first }}">
+    <h3 class="talk-titel">{{ t.title }}</h3>
+    <p class="talk-wanneer">{{ t.when }} &middot; {{ t.waar }}</p>
+    {% if t.body %}<p>{{ t.body }}</p>{% endif %}
+    {% if t.body2 %}<p>{{ t.body2 }}</p>{% endif %}
+    {% if t.language or t.places %}
+    <p class="talk-klein">{% if t.language %}{{ t.language }}{% endif %}{% if t.places %}{% if t.language %} &middot; {% endif %}{{ t.places }} places{% endif %}</p>
+    {% endif %}
+    <p>
+      {% if t.book_url %}<a class="btn" href="{{ t.book_url }}">Book{% if t.places %} &mdash; {{ t.places }} places{% endif %}</a>
+      {% else %}<a class="btn-outline" href="{{ t.programme }}#{{ t.anchor }}">See it in the programme</a>{% endif %}
+    </p>
+  </div>
+  {% endfor %}
+</div></section>
+{% endif %}
+
+{# ---- image first: the portrait runs the full width of the screen ---- #}
+{% if maker.portrait %}
+<figure class="maker-hero"{% if maker.hero_logo %} style="background:var(--chalk)"{% endif %}>
+  <img src="{{ maker.portrait }}" alt="{{ maker.name }}" width="1200" height="1500" fetchpriority="high" decoding="async"
+       {%- if maker.hero_logo %} style="height:auto;max-height:min(34vh,260px);object-fit:contain;padding:clamp(20px,4vw,52px) var(--gut)"
+       {%- elif maker.portrait_pos %} style="object-position:{{ maker.portrait_pos }}"{% endif %}>
+  {% if maker.portrait_caption %}<figcaption class="wrap">{{ maker.portrait_caption }}</figcaption>{% endif %}
+</figure>
+{% endif %}
+
+{# ---- the work, large ---- #}
+{# The counter lives here because Work is the first numbered section — and it is
+   optional too: a collective has no works of its own, so ECHO and SPoT opened
+   at 02 with nothing at 01. #}
+{% set sec = namespace(n=0) %}
+{# Een merk met een ontwerpersblok toont zijn werken daar al, per ontwerper.
+   Een eigen Work-sectie zou ze een tweede keer laten zien. Gecontroleerd:
+   bij Buro Berger (16) en Ignore (5) is elk werk aan een ontwerper toegewezen,
+   dus er verdwijnt niets. #}
+{% if maker_works and not maker.designers %}{% set sec.n = sec.n + 1 %}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>Work</span><span class="of">{{ maker_works|length }} recorded</span></h2>
+  <div class="grid {{ 'g2' if maker_works|length < 4 else 'g3' }} worklist">
+    {% for w in maker_works %}
+    <a class="card" href="{{ w.slug }}.html">
+      <figure>
+        {% if w.image %}<img src="{{ w.thumb|default(w.image, true) }}" alt="{{ w.title }} by {{ maker.name }}" width="{{ w.width|default(700) }}" height="{{ w.height|default(875) }}" loading="lazy" decoding="async">
+        {% else %}<div class="noimg"><span>Photograph<br>to follow</span></div>{% endif %}
+      </figure>
+      <span class="c">{{ w.code }}</span>
+      <span class="t">{{ w.title }}</span>
+      <div class="m">{{ w.materials }}</div>
+      <div class="p">{{ w.price_label }} <span class="pill {{ w.pill }}">{{ w.status }}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{# ---- the writing ---- #}
+{# Section numbers count the sections that actually render. They used to be typed
+   in as 02 / 03 / 04, which is right only when a maker has every block. A maker
+   with Practice and In brief but no Position showed 01, 02, 04 — a gap the reader
+   reads as a missing section. #}
+{% if maker.practice %}{% set sec.n = sec.n + 1 %}
+<section class="reveal editorial"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>Practice</span></h2>
+  <div class="ed-body">
+    {% for p in maker.practice %}<p{% if loop.first %} class="opening"{% endif %}>{{ p }}</p>{% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{% if maker.position %}{% set sec.n = sec.n + 1 %}
+<section class="reveal editorial"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>{{ "In the house" if maker.category == "partner" else "Why this maker, and where" }}</span></h2>
+  <div class="ed-body">
+    {% for p in maker.position %}<p{% if loop.first %} class="opening"{% endif %}>{{ p }}</p>{% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{% if maker.in_brief %}{% set sec.n = sec.n + 1 %}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>In brief</span></h2>
+  <div class="reg brief">
+    {% for row in maker.in_brief %}
+    <div class="row"><span class="c">{{ row.year }}</span><span class="t">{{ row.text }}</span></div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{% if maker.designers %}{% set sec.n = sec.n + 1 %}
+{# Een merk met meerdere ontwerpers krijgt ze in een eigen blok in plaats van
+   in aparte pagina's: dat zouden acht nieuwe adressen zijn, acht nieuwe
+   QR-risico's, en het verdunt het makersregister. Wie al een makerspagina
+   heeft wordt aangekruislinkt, niet gedupliceerd.
+   Alleen bestaande klassen, zodat style.css niet hoeft te wijzigen. #}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>Designers</span>
+    <span class="of">{{ maker.designers|length }}</span></h2>
+  {# Portret naast de tekst, werken daaronder over de volle breedte. Flex met
+     wrap in plaats van een raster met mediaquery: op een telefoon valt de tekst
+     vanzelf onder het portret, zonder dat style.css hoeft te wijzigen. #}
+  {% for dz in maker.designers %}
+  <div style="{{ 'margin-top:clamp(52px,7vw,92px);padding-top:clamp(34px,4vw,52px);border-top:var(--hair)' if not loop.first }}">
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,40px);align-items:flex-start">
+      {% if dz.portrait %}
+      <figure style="flex:0 1 300px;margin:0;background:var(--linen)">
+        <img src="{{ dz.portrait }}" alt="Designer {{ dz.name }}" width="1200" height="1698"
+             style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block"
+             loading="lazy" decoding="async">
+      </figure>
+      {% endif %}
+      <div class="ed-body" style="flex:1 1 340px">
+        <h3 class="talk-titel">{{ dz.name }}{% if dz.collection %} &mdash; {{ dz.collection }}{% endif %}</h3>
+        {% if dz.maker_page %}
+        <p class="talk-klein"><a href="{{ dz.maker_page }}">Also in the house &#8594;</a></p>
+        {% endif %}
+        {% if dz.collection_text %}<p>{{ dz.collection_text }}</p>{% endif %}
+        {% if dz.bio %}<p>{{ dz.bio }}</p>{% endif %}
+      </div>
+    </div>
+    {% if dz.works %}
+    <div class="grid g3 worklist" style="margin-top:clamp(24px,3vw,38px)">
+      {% for w in dz.works %}
+      <a class="card" href="{{ w.slug }}.html">
+        <figure>{% if w.thumb %}<img src="{{ w.thumb }}" alt="{{ w.title }}" width="700" height="467" loading="lazy" decoding="async">
+        {% else %}<div class="noimg"><span>Photograph<br>to follow</span></div>{% endif %}</figure>
+        <span class="c">{{ w.code }}</span>
+        <span class="t">{{ w.title }}</span>
+        <div class="m">{{ w.materials }}</div>
+        <div class="p">{{ w.price_label }} <span class="pill {{ w.pill }}">{{ w.status }}</span></div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div></section>
+{% endif %}
+
+{# ---- members, for a collective ---- #}
+{% if members %}{% set sec.n = sec.n + 1 %}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">{{ '%02d' % sec.n }}</span><span>The collective</span><span class="of">{{ members|length }} maker{{ '' if members|length == 1 else 's' }}</span></h2>
+  <div class="grid g4">
+    {% for m in members %}
+    {% set gezicht = m.portrait_small|default(m.portrait, true)|default(m.hover_small|default(m.hover, true), true) %}
+    <a class="member" href="{{ m.slug }}.html">
+      <figure class="swap">
+        {# Zonder portret viel hier src="" uit, en dat is erger dan geen beeld:
+           de browser toont een gebroken-beeldpictogram. Een maker zonder
+           portret laat zijn werk zien. #}
+        <img class="face" src="{{ gezicht }}" alt="{{ m.name }}" width="480" height="600" loading="lazy" decoding="async">
+        {% if m.hover and (m.hover_small|default(m.hover, true)) != gezicht %}<img class="work" src="{{ m.hover_small|default(m.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
+      </figure>
+      <h3>{{ m.name }}</h3>
+      {% if m.studio or m.role %}<p class="sub">{{ m.studio|default(m.role, true) }}</p>{% endif %}
+      <p class="bio">{{ m.bio }}</p>
+      {% if m.practice %}<p class="bio">{{ m.practice[0] }}</p>{% endif %}
+      <p class="small">{{ m.works|length }} work{{ "s" if m.works|length != 1 }} &#8594;</p>
+    </a>
+    {% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{# ---- sales route ---- #}
+<section class="reveal"><div class="wrap">
+  <div class="sales-note">
+    {% if maker.sales_contact %}
+    <p>{{ maker.sales_contact }}</p>
+    {% else %}
+    {# The default says only what the Foundation can speak for: its own terms, and
+       where an enquiry goes. It used to add "<name> works independently, without
+       gallery representation" — a claim about the maker's arrangements with third
+       parties, which the Foundation is not in a position to make and which was
+       demonstrably wrong for at least one maker. A maker with a different sales
+       route gets a sales_contact of their own. #}
+    {% if maker.category == "partner" %}
+    {% if maker.enquiry_note %}<p>{{ maker.enquiry_note|adressen }}</p>
+    {% else %}<p>MADART Foundation takes no commission and is not a party to the sale. Enquiries go directly
+      to {{ maker.name }}.</p>{% endif %}
+    {% else %}
+    <p>100% of the sale proceeds go to the maker. MADART Foundation takes no commission and holds no exclusive contract. Enquiries go directly to {{ maker.name }}.</p>
+    {% endif %}
+    {% endif %}
+  </div>
+</div></section>
+
+{# ---- keep the reader moving: the same endless rail as the home page ---- #}
+{% if nearby %}
+<section class="reveal wide"><div class="wrap">
+  <h2 class="index"><span class="no">—</span><span>More makers</span><span class="of">{{ all_makers_count }} in the register</span></h2>
+</div>
+<div class="rail" data-rail data-loop>
+  <div class="track">
+    {% for m in nearby %}
+    <a class="slide portrait" href="{{ m.slug }}.html">
+      <figure class="swap">
+        <img class="face" src="{{ m.portrait_small|default(m.portrait, true) }}" alt="{{ m.name }}" width="480" height="600" loading="lazy" decoding="async">
+        {% if m.hover %}<img class="work" src="{{ m.hover_small|default(m.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
+      </figure>
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+      <p class="cnt">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<div class="wrap railnav">
+  <button data-prev aria-label="Previous makers">&#8592;</button>
+  <button data-next aria-label="Next makers">&#8594;</button>
+  <span class="hint">Drag, scroll or use the arrows</span>
+  <a class="railall" href="makers.html">All {{ all_makers_count }} makers &#8594;</a>
+</div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('[data-rail]').forEach(function(rail){
+    var down = false, startX = 0, startL = 0, moved = 0;
+
+    /* One run of slides, cloned on both sides, with the scroll position wrapped
+       by exactly one run at either boundary. Endless in both directions. */
+    var loop = rail.hasAttribute('data-loop'), runWidth = 0, track = rail.querySelector('.track');
+    if (loop) {
+      var originals = [].slice.call(track.children);
+      if (originals.length) {
+        var makeCopy = function(where){
+          var frag = document.createDocumentFragment();
+          originals.forEach(function(el){
+            var c = el.cloneNode(true);
+            c.setAttribute('aria-hidden','true');
+            if (c.tagName === 'A') c.setAttribute('tabindex','-1');
+            c.querySelectorAll('a,button').forEach(function(f){ f.setAttribute('tabindex','-1'); });
+            frag.appendChild(c);
+          });
+          if (where === 'before') track.insertBefore(frag, track.firstChild);
+          else track.appendChild(frag);
+        };
+        var measure = function(){
+          runWidth = originals.reduce(function(sum, el){
+            return sum + el.getBoundingClientRect().width + 18;
+          }, 0);
+        };
+        measure();
+        var copies = Math.max(1, Math.ceil(rail.clientWidth / Math.max(runWidth, 1)));
+        for (var n = 0; n < copies; n++) { makeCopy('before'); makeCopy('after'); }
+        var settle = function(){
+          if (!runWidth) return;
+          var home = runWidth * copies;
+          while (rail.scrollLeft >= home + runWidth) rail.scrollLeft -= runWidth;
+          while (rail.scrollLeft <  home - runWidth) rail.scrollLeft += runWidth;
+        };
+        rail.addEventListener('scroll', settle, {passive:true});
+        var reset = function(){ measure(); rail.scrollLeft = runWidth * copies; };
+        window.addEventListener('resize', reset);
+        window.addEventListener('load', reset);
+        reset();
+      }
+    }
+
+    rail.setAttribute('tabindex', '0');
+    rail.setAttribute('role', 'region');
+    rail.addEventListener('keydown', function(e){
+      var card = rail.querySelector('.slide');
+      var w = card ? card.getBoundingClientRect().width + 18 : 320;
+      if (e.key === 'ArrowRight') { rail.scrollLeft += w; e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= w; e.preventDefault(); }
+    });
+
+    rail.addEventListener('pointerdown', function(e){
+      down = true; moved = 0; startX = e.clientX; startL = rail.scrollLeft;
+      rail.classList.add('grabbing');
+    });
+    rail.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - startX; moved = Math.max(moved, Math.abs(dx)); rail.scrollLeft = startL - dx;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      rail.addEventListener(ev, function(){ down = false; rail.classList.remove('grabbing'); });
+    });
+    rail.addEventListener('click', function(e){ if (moved > 6) e.preventDefault(); }, true);
+
+    var nav = rail.nextElementSibling;
+    if (nav && nav.classList.contains('railnav')) {
+      var step = function(dir){
+        var card = rail.querySelector('.slide');
+        var w = card ? card.getBoundingClientRect().width + 18 : 320;
+        var from = rail.scrollLeft, to = from + dir * w * 2;
+        rail.scrollBy({left: dir * w * 2, behavior: reduce ? 'auto' : 'smooth'});
+        setTimeout(function(){
+          if (Math.abs(rail.scrollLeft - from) < 2) rail.scrollLeft = to;
+        }, 320);
+      };
+      nav.querySelector('[data-prev]').addEventListener('click', function(){ step(-1); });
+      nav.querySelector('[data-next]').addEventListener('click', function(){ step(1); });
+    }
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,116 @@
+<style>
+/* Maison d'Artiste — het programma.
+   Hergebruikt de bestaande opmaak: geen nieuwe kleuren, geen nieuwe letters.
+   Dawn Blue blijft voor links en knoppen, nooit voor koppen of datums. */
+.attrib{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 22px}
+.praktisch{margin:0;padding:22px 0 0;border-top:var(--rule)}
+.praktisch > div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:12px 0;
+  border-bottom:var(--hair)}
+.praktisch dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);
+  font-weight:700}
+.praktisch dd{margin:0;font-size:14px;line-height:1.6}
+.dagen{display:flex;gap:0;border-top:var(--rule);border-bottom:var(--rule);margin:34px 0 8px}
+.dag{flex:1 1 0;padding:16px 12px;background:none;border:0;border-right:var(--hair);
+  font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;min-height:54px;
+  transition:background .18s ease}
+.dag:last-child{border-right:0}
+.dag:hover{background:var(--linen)}
+.dag[aria-pressed="true"]{background:var(--dawn);color:var(--chalk)}
+.dagblok[hidden]{display:none}
+.prog{list-style:none;margin:0;padding:0}
+.prog .item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px 0;
+  border-bottom:var(--hair)}
+.prog .item:first-child{border-top:var(--hair)}
+.wanneer{display:block}
+.wanneer .tijd{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.wanneer .waar{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--grey);margin-top:5px;line-height:1.5}
+.wat h3{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 5px}
+.wat .wie{font-size:13px;font-style:italic;color:var(--grey);margin:0 0 9px}
+.wat .tekst{font-size:14px;line-height:1.7;margin:0 0 10px;max-width:62ch}
+.wat .klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 10px}
+.wat .status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:14px 0 0}
+.wat .vrij{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--grey)}
+.wat .merk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--grey-light);
+  border:1px solid var(--concrete);padding:4px 8px}
+@media(max-width:760px){
+  .prog .item{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .wanneer{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .wanneer .waar{margin-top:0}
+  .praktisch > div{grid-template-columns:1fr;gap:3px}
+  .dag{font-size:13px;padding:14px 6px}
+}
+.wat .noot{font-size:12.5px;line-height:1.65;color:var(--grey);margin:0 0 10px;
+  padding-left:12px;border-left:2px solid var(--concrete);max-width:60ch}
+.talk-titel{font-size:20px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.talk-wanneer{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 16px}
+.talk-klein{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+  margin:0 0 18px}
+</style>
+<style>
+/* Inklapbare onderdelen. Wat je nodig hebt om te kiezen staat er altijd; de
+   omschrijving verschijnt pas als je erop tikt. Op een telefoon is dat het
+   verschil tussen scrollen en overzien. */
+.uitleg{border-top:var(--rule);border-bottom:var(--hair);margin:0 0 8px}
+.uitleg summary{padding:15px 0;font-size:13px;color:var(--grey);cursor:pointer;
+  list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+.uitleg summary::-webkit-details-marker{display:none}
+.uitleg summary::before{content:"+";font-weight:700;color:var(--dawn);width:12px}
+.uitleg[open] summary::before{content:"\2212"}
+.uitleg p{font-size:13.5px;line-height:1.65;color:var(--grey);margin:0 0 12px;max-width:62ch}
+
+/* De titel is de knop. Geen aparte "More"-regel, want die kost bij 25
+   onderdelen een halve schermlengte. */
+.meer summary{list-style:none;cursor:pointer;display:block;position:relative;
+  padding-right:26px}
+.meer summary::-webkit-details-marker{display:none}
+.meer summary::after{content:"\002B";position:absolute;right:0;top:2px;
+  font-size:15px;line-height:1;color:var(--dawn)}
+.meer[open] summary::after{content:"\2212"}
+.meer summary h3{margin:0 0 4px}
+.meer summary .wie{display:block;font-size:13px;font-style:italic;color:var(--grey)}
+.meer summary:hover h3{color:var(--dawn)}
+.meer[open] summary{margin-bottom:10px}
+.meer .tekst:last-of-type{margin-bottom:4px}
+
+/* De dagkeuze blijft meelopen: bij drie dagen wil je kunnen wisselen zonder
+   terug naar boven te scrollen. */
+.dagen{position:sticky;top:0;z-index:20;background:var(--chalk)}
+
+.prog .item{padding:18px 0}
+@media(max-width:760px){
+  .prog .item{padding:16px 0;gap:6px}
+  .wat h3{font-size:17px}
+  .wanneer .tijd{font-size:14px}
+  .wat .status{margin-top:10px}
+}
+</style>
+<style>
+/* Het ticketblok: drie betaalde onderdelen, elk met een rechtstreekse
+   doorklik naar afrekenen. */
+.kaartjes{list-style:none;margin:4px 0 16px;padding:0}
+.kaartjes li{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px 0;border-bottom:var(--hair)}
+.kaartjes li:first-child{border-top:var(--hair)}
+/* De hele regel gaat naar afrekenen, niet alleen de knop. Wie hier klikt wil
+   een kaartje. */
+.kaartje-wat{display:flex;flex-direction:column;gap:2px;min-width:0;
+  text-decoration:none;flex:1 1 auto;padding:4px 0}
+.kaartje-titel{display:block;font-size:15px;font-weight:700;line-height:1.25;color:var(--ink)}
+.kaartje-wat:hover .kaartje-titel{color:var(--dawn)}
+.kaartje-wanneer{display:block;font-size:12px;color:var(--grey)}
+.kaartjes .btn{flex:0 0 auto;padding:11px 18px;font-size:13px;white-space:nowrap;
+  min-height:44px}
+/* Alleen de drie dagen, gecentreerd. */
+.dagen{justify-content:center}
+.dagen .dag{flex:0 1 33.33%}
+</style>
+<style>
+/* De verdieping in de programmaregel is de weg naar de plattegrond. */
+.wanneer .waar a{color:var(--grey);text-decoration:underline;
+  text-decoration-color:var(--concrete);text-underline-offset:3px}
+.wanneer .waar a:hover{color:var(--dawn);text-decoration-color:var(--dawn)}
+</style>

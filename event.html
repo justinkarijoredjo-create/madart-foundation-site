@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block head %}{{ ld.exhibition(site, event_data) }}{% endblock %}
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">EVENT</span><span>{{ event.dates_label }}</span><span class="of">{{ event.location }}</span></p>
+  <h1>{{ event.title }}</h1>
+  <p class="lede">{{ event.standfirst }}</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="index"><span class="no">01</span><span>Programme</span></p>
+  {# Er is één pagina met tijden, en dat is de programmapagina. Deze pagina gaf
+     eigen aanvangstijden ("Talks from 15:00") die het programma tegenspraken —
+     donderdag begint om 13:00. Hier staat nu alleen de omkadering. #}
+  <p class="lede">Twenty-five items across the three days: talks, tours, a workshop, sound in the
+    dome, and a table where three makers sit down. Doors 10:00 to 18:00, free to walk in.</p>
+  <p style="margin-top:18px"><a class="btn" href="maison-dartiste-2026.html">The full programme, hour by hour &#8594;</a></p>
+  <p class="small" style="margin-top:14px">{{ event.note }}</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="index"><span class="no">02</span><span>Fourth floor — GROUND</span><span class="of">{{ ground_makers|length }} makers</span></p>
+  <div class="reg">
+    {% for m in ground_makers %}
+    <a class="row" href="{{ m.slug }}.html">
+      <span class="c">{{ "%02d"|format(loop.index) }}</span>
+      <span class="t">{{ m.name }}</span>
+      <span class="m">{{ m.plek }}</span>
+      <span class="s">{{ m.short_bio }}</span>
+      <span class="p">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="index"><span class="no">03</span><span>Sixth and seventh floors — Maison d'Artiste</span><span class="of">{{ glue_makers|length }} makers</span></p>
+  <div class="reg">
+    {% for m in glue_makers %}
+    {% if m.pending %}
+    <div class="row">
+      <span class="c">{{ "%02d"|format(loop.index) }}</span>
+      <span class="t">{{ m.name }}</span>
+      <span class="m">{{ m.plek }}</span>
+      <span class="s">{{ m.short_bio }}</span>
+      <span class="p dim">Work to follow</span>
+    </div>
+    {% else %}
+    <a class="row" href="{{ m.slug }}.html">
+      <span class="c">{{ "%02d"|format(loop.index) }}</span>
+      <span class="t">{{ m.name }}</span>
+      <span class="m">{{ m.plek }}</span>
+      <span class="s">{{ m.short_bio }}</span>
+      <span class="p">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <p class="small dim" style="margin-top:16px">One route, one building. The fourth floor is part of the same visit as the sixth and seventh, not a separate one.</p>
+</div></section>
+{% endblock %}

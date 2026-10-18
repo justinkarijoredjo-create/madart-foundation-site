@@ -1,0 +1,353 @@
+2026:
+  slug: maison-dartiste-2026
+  title: Maison d'Artiste 2026
+  kind: festival
+  attribution: A festival by MADART Foundation
+  dates_label: 17 – 19 September 2026
+  within: GLUE Amsterdam
+  venue: Leidsestraat 32–34
+  hours: 10:00 – 18:00
+  og_image: c-event-glue-2026.jpg
+  days:
+  - id: do
+    label: Thursday 17 September
+    short: Thu 17
+    items:
+    - anchor: do-lunch
+      time: 10:30 – 17:00
+      floor: 1
+      title: Lunch during GLUE
+      who: NIO House café · € 19.50
+      body: In between seminars, walks and talks, the NIO House café serves lunch on the first floor. A moment to sit down and refuel before heading back into the day.
+      status: reserve
+      body2: 'Tomato soup · three bruschetta, each with its own topping: cream cheese, smoked salmon and chives; pesto, mozzarella, tomato and basil; pesto, rocket, parma ham and parmesan · one drink of
+        your choice: wine, beer, 0.0, coffee or tea.'
+      note: Sold by the café. You pay them directly.
+      price_eur: 19.5
+      book_url: https://madart.weticket.io/glue-lunch-nio-house/shop
+      book_label: Reserve lunch
+    - anchor: do-talk-becka
+      time: 13:00 – 13:15
+      floor: 6
+      title: Artist talk
+      body: Fifteen minutes with the maker about her work, and about her artist residency in China.
+      status: book
+      label: The maker's own programme
+      who: Inge Bečka
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      maker: inge-becka
+      book_label: Book
+    - anchor: do-talk-pirlica
+      time: 13:30 – 14:00
+      floor: 2
+      room: the maker's presentation space
+      title: 'The hospital: care or cure?'
+      who: Andreea Pirlica
+      language: In English
+      body: Hospital rooms have the reputation of being notoriously ugly, uncomfortable, and unwelcoming. As clinical efficiency has taken over patient-centered care, the hospital has turned into a techno-utopia,
+        and care has turned into cure.
+      body2: Hospitals are designed to treat us, but are they designed to help us heal? Starting from my own experience as a patient, this lecture traces the history of the hospital room and brings together
+        architectural analysis and patient experiences to explore how spaces of care have become spaces of cure — and what gets lost in between.
+      maker: andreea-pirlica
+      status: book
+      places: 15
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: do-table-talk
+      time: 14:00 – 14:45
+      floor: 6
+      title: MADART Table Talk
+      who: Maaike Rabbinge, Loutje Hoekstra and Sandra Keja Planken, with Justin Karijoredjo
+      body: Maaike Rabbinge studied psychology in Utrecht and political science in Amsterdam, became a circular designer, and now runs the collective ECHO. Loutje Hoekstra never went to an academy and taught
+        herself everything she knows. Sandra Keja Planken spent a career as an interior architect before she began making autonomous work.
+      speakers:
+      - maaike-rabbinge
+      - loutje-hoekstra
+      - sandra-keja-planken
+      page: madart-table-talk.html
+      status: book
+      places: 30
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      body2: Three makers who arrived here by three different routes, and not one of them the route the system recognises. Dutch funds date a career from a first presentation inside the established circuit.
+        Galleries want a signature they can place. Both measure a path that none of these three walked — and neither has anything to do with the quality of the work.
+      note: Seated at a table by Ignore.
+      body3: That is what MADART Foundation exists for, and it is easier to hear it from them than from us. They sit down at Ignore’s table and talk about how they got here, and about what they made for
+        GROUND. Justin Karijoredjo leads the conversation.
+      body4: Forty-five minutes, standing room.
+      book_label: Book
+    - anchor: do-wine
+      time: 14:00 – 18:00
+      floor: 4
+      title: Wine bar
+      who: VINVIN Wines and Bon Vivant
+      body: Open through the afternoon on the gallery floor, between the work.
+      status: free
+    - anchor: do-talk-hofhuis
+      time: 15:00 – 16:00
+      floor: 2
+      title: Colour in design
+      who: Femke Hofhuis, Femm Amsterdam
+      status: book
+      speaker: Femke Hofhuis
+      language: In Dutch
+      body: Colour as a design tool. Designer Femke Hofhuis, founder of Femm Amsterdam, on the power of colour and of how a space is experienced. How does colour shape the way we feel, and the way we read
+        a room?
+      body2: And why are colour, light and art becoming more important in a world that keeps getting more digital? A talk about designing for the eye and for the feeling.
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: do-talk-otter
+      time: 16:00 – 17:00
+      floor: 2
+      title: Where neuroscience, behaviour, design and business meet
+      status: book
+      speaker: Martijn den Otter
+      who: Martijn den Otter, Neurofactor
+      language: In Dutch
+      body: Martijn den Otter is a neuroscientist, profiler and founder of Neurofactor. As a co-researcher he was involved in the Mauritshuis study of Girl with a Pearl Earring, which used EEG, eye-tracking
+        and fMRI to examine what art does inside the human brain.
+      body2: 'In his talk he brings those worlds together: what happens in the brain when we look at art, and how art, neurodesign and our surroundings shape the way we feel, think and function at work.
+        With a live demonstration of a measurement.'
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: do-devoonsound
+      time: 17:00 – 17:30
+      floor: 7
+      room: the Rietveld dome
+      title: Devoonsound session
+      body: Half an hour of sound written for the dome, at the end of the day.
+      status: book
+      places: 15
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      who: Devoonsounds
+      book_label: Book
+    - anchor: do-opening
+      time: 18:00 – 21:00
+      floor: null
+      title: Maison d'Artiste 2026 — Opening Night
+      status: book
+      who: With all thirty makers present
+      body: The building closes to the public at six, and opens again for the evening. Eight floors of the Metzgebouw after hours, the makers there to talk about their work, and a sound session under Rietveld's
+        glass dome as the light goes.
+      body2: 'Welcome drink included. Wine by VINVIN Wines and Bon Vivant. Music on three floors
+        at once: Devoonsounds under the dome on seven, Arthur Chapelle on solo guitar on six,
+        and DJ ELLE-MAR on the gallery floor on four.'
+      book_label: Tickets — € 10
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000330882517
+      room: The whole building
+      note: An evening opening of the Foundation’s own exhibition. Production is bought in from Curated by MADART at market rate.
+      price_eur: 10
+  - id: vr
+    label: Friday 18 September
+    short: Fri 18
+    items:
+    - anchor: vr-lunch
+      time: 10:30 – 17:00
+      floor: 1
+      title: Lunch during GLUE
+      who: NIO House café · € 19.50
+      body: In between seminars, walks and talks, the NIO House café serves lunch on the first floor. A moment to sit down and refuel before heading back into the day.
+      status: reserve
+      body2: 'Tomato soup · three bruschetta, each with its own topping: cream cheese, smoked salmon and chives; pesto, mozzarella, tomato and basil; pesto, rocket, parma ham and parmesan · one drink of
+        your choice: wine, beer, 0.0, coffee or tea.'
+      note: Sold by the café. You pay them directly.
+      price_eur: 19.5
+      book_url: https://madart.weticket.io/glue-lunch-nio-house/shop
+      book_label: Reserve lunch
+    - anchor: vr-tour-ochtend
+      time: 11:00 – 12:30
+      floor: null
+      room: The whole building
+      title: Tour of the whole building
+      who: Justin Karijoredjo and Sanne Kaal, with Maaike Rabbinge and Inge Bečka
+      body: From the gallery floor to the dome, with the makers speaking about their own work along the way. Maaike Rabbinge talks about ECHO, the room she initiated. It ends with a short sound session
+        under Rietveld's glass roof.
+      status: book
+      places: 30
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: vr-workshop
+      time: 13:00 – 15:00
+      floor: 7
+      room: the Rietveld dome
+      title: Music experience and line art workshop
+      who: Sami Abou Louh and Loutje Hoekstra
+      body: A musical experience and a workshop all around the subject of circles — circling sounds in a circular space, circling motions towards swirling line drawings that embrace fluidity and motion.
+      body2: Musician Sami Abou Louh opens the session with a live set crafted for the Rietveldkoepel, a circular space high above the city with sweeping views over Amsterdam. Participants are invited to
+        listen and tune in, before Loutje Hoekstra, currently exhibiting at MADART Foundation but also known for her line drawings, leads a hands-on introduction to drawing as motion, flow and rhythm rather
+        than structure.
+      maker: loutje-hoekstra
+      status: book
+      places: 15
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: vr-wine
+      time: 14:00 – 18:00
+      floor: 4
+      title: Wine bar
+      who: VINVIN Wines and Bon Vivant
+      status: free
+      body: Open through the afternoon on the gallery floor, between the work.
+    - anchor: vr-talk-eurlings
+      time: 15:00 – 16:00
+      floor: 2
+      title: Rietveld × linoleum × 3
+      who: Thomas Eurlings, Senior Designer at Forbo Flooring
+      status: book
+      speaker: Thomas Eurlings
+      label: Partner programme
+      language: In Dutch
+      body: Thomas Eurlings on three projects where Gerrit Rietveld's work and linoleum come together. From historical colour research and restoration to a new application of Furniture Linoleum on a classic
+        Rietveld design.
+      body2: Across the three projects, the range of linoleum as a design and interior material becomes visible.
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: vr-tour-middag
+      time: 15:15 – 16:00
+      floor: null
+      room: The whole building
+      title: Short tour of the building
+      who: Justin Karijoredjo and Jeroen Glas
+      body: A shorter walk through the building, from the gallery floor up, ending with a sound session in the dome.
+      status: book
+      places: 30
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: vr-talk-voorn
+      time: 16:00 – 17:00
+      floor: 2
+      title: Material as the deciding factor
+      body: 'How does an idea grow into a successful design? Marc Th. van der Voorn takes you through his process: from the first sketch and the choice of material to form, detailing and production.'
+      status: book
+      maker: marc-th-van-der-voorn
+      who: Marc Th. van der Voorn
+      language: In Dutch
+      body2: Using his own work, he shows how material is not only a practical choice but can be the factor that decides whether a design succeeds.
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: vr-devoonsound
+      time: 17:00 – 17:30
+      floor: 7
+      room: the Rietveld dome
+      title: Devoonsound session
+      status: book
+      places: 15
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      who: Devoonsounds
+      body: Half an hour of sound written for the dome, at the end of the day.
+      book_label: Book
+  - id: za
+    label: Saturday 19 September
+    short: Sat 19
+    items:
+    - anchor: za-yoga
+      time: 10:00 – 11:30
+      floor: 7
+      room: the Rietveld dome
+      title: Morning yoga
+      who: Arben Sinani, with sound by Devoonsounds · € 25
+      body: An invitation to move, then rest.
+      status: book
+      places: 15
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Tickets — € 25
+      price_eur: 25
+      body2: Join us for 90 minutes of playful, energizing yoga with Arben Sinani, followed by a 20-minute sound healing to settle everything back down.
+      body3: Come as you are. Bring your own mat. Leave a little lighter than you arrived.
+    - anchor: za-herma
+      time: 10:00 – 11:00
+      floor: null
+      room: The staircases
+      title: Walk and talk
+      body: Her work runs up the staircases of the building, from the ground floor to the fifth. She walks it with you and talks about how it got there.
+      maker: herma-de-wit
+      status: book
+      who: Herma de Wit
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: za-lunch
+      time: 10:30 – 17:00
+      floor: 1
+      title: Lunch during GLUE
+      who: NIO House café · € 19.50
+      status: reserve
+      body: In between seminars, walks and talks, the NIO House café serves lunch on the first floor. A moment to sit down and refuel before heading back into the day.
+      body2: 'Tomato soup · three bruschetta, each with its own topping: cream cheese, smoked salmon and chives; pesto, mozzarella, tomato and basil; pesto, rocket, parma ham and parmesan · one drink of
+        your choice: wine, beer, 0.0, coffee or tea.'
+      note: Sold by the café. You pay them directly.
+      price_eur: 19.5
+      book_url: https://madart.weticket.io/glue-lunch-nio-house/shop
+      book_label: Reserve lunch
+    - anchor: za-before-noon
+      time: 11:00 – 14:00
+      floor: 4
+      title: Before Noon Club
+      body: Weekends feel different before noon. Great music, spectacular coffee and a community full of good energy.
+      status: book
+      book_label: Tickets — from € 12
+      book_url: https://weeztix.shop/v9ve6956
+      label: Partner programme
+      body2: No alcohol, no late nights — just an unforgettable morning that might become the best part of your weekend.
+      price_eur: 12
+      price_high: 18
+      note: Pre-sale € 12, general admission € 15, at the door € 18. One euro booking fee per ticket. Sold by Before Noon Club.
+    - anchor: za-talk-becka
+      time: 13:00 – 13:15
+      floor: 6
+      title: Artist talk
+      status: book
+      label: The maker's own programme
+      body: Fifteen minutes with the maker about her work, and about her artist residency in China.
+      who: Inge Bečka
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      maker: inge-becka
+      book_label: Book
+    - anchor: za-wine
+      time: 14:00 – 18:00
+      floor: 4
+      title: Wine bar
+      who: VINVIN Wines and Bon Vivant
+      status: free
+      body: Open through the afternoon on the gallery floor, between the work.
+    - anchor: za-talk-cherubini
+      time: 15:00 – 16:00
+      floor: 2
+      title: Talk
+      who: Nicola Cherubini, Listone Giordano · Manager, Milan
+      status: book
+      speaker: Nicola Cherubini
+      label: Partner programme
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+    - anchor: za-slottour
+      time: 16:00 – 17:00
+      floor: null
+      room: The whole building, ending in the Rietveld dome
+      title: The last tour of the festival
+      who: Justin Karijoredjo, with a closing session by Devoonsounds
+      body: The final walk through the building, from the gallery floor up to the dome. It ends there with the last sound session of Maison d'Artiste 2026, under Rietveld's glass roof. Afterwards the wine
+        bar stays open until six.
+      status: book
+      places: 30
+      book_url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+      book_label: Book
+  betaald:
+  - title: Opening Night
+    when: Thursday 18:00
+    prijs: € 10
+    anchor: do-opening
+    url: https://www.eventbrite.com/checkout-external?eid=2000330882517
+  - title: Lunch
+    when: All three days, 10:30–17:00
+    prijs: € 19.50
+    anchor: do-lunch
+    url: https://madart.weticket.io/glue-lunch-nio-house/shop
+  - title: Morning yoga
+    when: Saturday 10:00
+    prijs: € 25
+    anchor: za-yoga
+    url: https://www.eventbrite.com/checkout-external?eid=2000085446411
+  - title: Before Noon Club
+    when: Saturday 11:00–14:00
+    prijs: from € 12
+    anchor: za-before-noon
+    url: https://weeztix.shop/v9ve6956

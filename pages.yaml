@@ -1,0 +1,219 @@
+missie:
+  og_image: c-exhibition-maison.jpg
+  meta: The median Dutch visual artist earns €16,000 a year. MADART Foundation curates the makers the system overlooked, and gives them a room in Amsterdam.
+  label: Mission
+  heading: The system looked away. We keep the record.
+  lede: The median Dutch visual artist earns €16,000 a year — the lowest of any creative category, and below the social minimum of €18,800. More than one in four artists lives structurally below subsistence
+    level. (CBS Monitor Kunstenaars, 2025)
+  blocks:
+  - type: prose
+    heading: The overlooked maker
+    paragraphs:
+    - The system did not overlook these makers because their work falls short. It overlooked them because it is too narrow to contain them. Four patterns come up again and again.
+  - type: rows
+    heading: Four patterns
+    entries:
+    - title: The autodidact
+      text: No recognised diploma, and so no official starting point for funds that require institutional credentials.
+    - title: The uncategorisable
+      text: Working between disciplines. The work falls just outside every recognisable box.
+    - title: The too-versatile maker
+      text: A practice too broad for the institutional expectation of a single, consistent signature.
+    - title: The experienced outsider
+      text: Decades of work, never institutional recognition. Quality has no expiry date.
+  - type: prose
+    heading: How we select
+    paragraphs:
+    - 'Selection tests three things, and all three have to hold. First the curatorial framework, The Dimensions: four conditions, each one necessary. A maker who meets three of the four is not curated.'
+    - 'Then two conditions that come from the mission rather than from the work. An independent market position: the maker is not tied to an exclusive representation or commission agreement that would limit
+      taking part, or limit selling directly to the public. This tests where a maker stands in the market, not the quality of the work.'
+    - 'And a route of its own. What we test is not the absence of a diploma but the absence of a straight line: a path that did not run through the usual gates, or that ran through them and arrived somewhere
+      the training did not intend. A career switch, a self-taught practice, no art school — or a formal education followed by years of work the institution never came back for. Training is not a disqualification;
+      an uninterrupted institutional route is what we do not go looking for. The four patterns above are what this looks like in practice. They are recognition points for scouting, not a checklist for admission.'
+  - type: rows
+    heading: The four conditions
+    entries:
+    - title: Future-oriented
+      text: Points forward in content, aesthetics or material. Not nostalgic — direction-giving.
+    - title: Joyful
+      text: Activates a positive, connecting response in the viewer.
+    - title: Optimistic
+      text: Forward-looking and human-centred. Critical is welcome. Cynical is not.
+    - title: Innovative
+      text: Objectively new in form, medium, technique or material.
+  - type: statement
+    text: 'MADART Foundation finances the maker''s exhibition: production, presentation, fee. 100% of the sale proceeds go to the maker. No exclusive contract. No fee to take part.'
+  - type: cards
+    heading: What MADART is not
+    columns: 3
+    entries:
+    - title: Not an event agency
+      paragraphs:
+      - An event agency delivers logistics. We deliver context — a room that has meant something for three months before anyone walks in.
+    - title: Not a gallery
+      paragraphs:
+      - No exclusive contracts and no commission inside our programme. Art here is an instrument for connection, not a revenue stream.
+    - title: Not an agency
+      paragraphs:
+      - An agency adapts to the brief. We set the curatorial line and invite the partner to the table.
+    - title: Not built on subsidy alone
+      paragraphs:
+      - The ecosystem is designed so that the commercial arm structurally finances the Foundation. That structure is being put in place; until it carries the programme, subsidies and gifts do.
+    - title: Not activism
+      paragraphs:
+      - We take no political or religious position. Selection is made on artistic and cultural grounds. Critical is welcome. Cynical is not.
+    - title: Not a development track
+      paragraphs:
+      - We do not train makers and we do not hold on to them. There is no age limit, no emerging bracket, no cohort and no graduation. Where our statutes speak of support and guidance, that support is the
+        exhibition itself — production, presentation, a fee and an audience. It is given once, in full, and it ends when the season ends. There is work that counts, and a room to show it in.
+  - type: prose
+    heading: How selection is recorded
+    paragraphs:
+    - 'We approach makers ourselves, through our own research and through the network. There is no open call at the moment. Every assessment is written down all the same: how we came across the maker, how
+      the work tests against the four conditions, the outcome, and — where we decline — a short reason. A maker who is declined receives that reason.'
+    - The full policy, including how we handle conflicts of interest, is published on our governance page.
+  title: Why we exist, and how makers are selected
+team:
+  og_image: p-team-justin.jpg
+  meta: 'Who runs MADART Foundation: the founder-curator, the managing director of Stichting The Bloys, and the independent board that oversees them.'
+  label: Team
+  heading: The people behind the ecosystem.
+  lede: MADART does not derive its value from a system, a location or a format. It sits with the people who build it, the connections they make, and the choices they are willing to defend.
+  blocks:
+  - type: cards
+    heading: Who does what
+    columns: 2
+    entries:
+    - title: Justin Karijoredjo
+      portrait: p-team-justin.jpg
+      role: Founder · Curatorial and Strategic Director
+      paragraphs:
+      - Architect of the MADART ecosystem. He devises the concept, makes the connections, and sets the direction. He sets the curatorial line and carries out the selection, tested against the written framework
+        and recorded for every submission. Governance and the full policy are published.
+      - He has seen the commercial art world from the inside, and the curatorial choices come out of that experience rather than out of marketing.
+    - title: Kimberly Tanikromo
+      portrait: p-team-kimberly.jpg
+      role: Managing Director · Operations and Partnerships
+      paragraphs:
+      - Responsible for production and execution, commercial acquisition, and grant management for the Foundation. Her background in artist management turns intention into a working season.
+      - She holds full power of attorney for Stichting The Bloys, the legal entity behind MADART Foundation.
+  - type: prose
+    heading: Board
+    paragraphs:
+    - 'Stichting The Bloys is governed by a board of three, in office since February 2026 and jointly authorised: Summer Disbray (chair), Herns Jomes Agyemang-Duah (secretary) and Pim van Strien (treasurer).
+      Board members receive no remuneration for their work as board members.'
+  title: The people behind it
+support-us:
+  label: Support us
+  heading: Buying a work is the most direct way to support a maker.
+  lede: 100% of a sale goes to the maker. If you would rather support the room itself — the production, the presentation and the fee that make a season possible — there are three ways.
+  blocks:
+  - type: cards
+    heading: Three ways
+    columns: 3
+    entries:
+    - title: Donate
+      paragraphs:
+      - Private donations pay for production, presentation and maker fees. Stichting The Bloys has applied for cultural ANBI status; until that is granted, donations are not tax deductible.
+      link:
+        href: contact.html
+        label: Talk to us about donating
+    - title: Become a cultural partner
+      paragraphs:
+      - Brands and organisations can support the Foundation directly as a cultural partner. This is separate from a commercial partnership with Curated by MADART, and is recorded as such.
+      link:
+        href: contact.html
+        label: Get in touch
+    - title: For funds and grant-makers
+      paragraphs:
+      - MADART Foundation operates through Stichting The Bloys. Our selection policy, governance and reporting are published in full.
+      link:
+        href: anbi.html
+        label: Governance and published information
+  - type: statement
+    text: The ecosystem is designed so that Curated by MADART, the commercial arm, structurally finances this Foundation. That structure is being put in place. Until it carries the programme, subsidies
+      and gifts do.
+pers:
+  og_image: place-nio-house.jpg
+  meta: Press enquiries, installation photography, portraits and curatorial statements for MADART Foundation at NIO House Amsterdam.
+  label: Press
+  heading: Press enquiries, images and interviews.
+  lede: For questions, images or interview requests, write to press@madartfoundation.com. Until 19 September we answer the same day.
+  blocks:
+  - type: prose
+    heading: Maison d'Artiste 2026 — the facts
+    paragraphs:
+    - 17 to 19 September 2026, 10:00 to 18:00, free entry. NIO House Amsterdam, Leidsestraat 32-34, the former Metz & Co building. Eight floors open, within GLUE Amsterdam Design Route. A festival by MADART
+      Foundation.
+    - 'Thirty makers: eleven on the sixth and seventh floors and in the staircases, nineteen two floors below in Season 02 GROUND, which stays open throughout. Talks on the second floor, tours through the
+      whole building, a workshop and sound sessions under Rietveld''s 1933 glass dome.'
+    - The makers pay no participation fee and the Foundation takes no commission on sales. In 1933 Gerrit Rietveld built that dome as an exhibition room; Le Corbusier and Mies van der Rohe showed their
+      furniture there for the first time in the Netherlands. The name comes from the Maison d'Artiste that Theo van Doesburg and Cornelis van Eesteren designed in 1923 and never built.
+  - type: prose
+    heading: Images
+    paragraphs:
+    - 'A press set is available on request: installation photography of the current season, portraits and work images per maker, and images of the building. Free to use in editorial publications with credit;
+      the credit line is supplied per file.'
+    - Write to press@madartfoundation.com and we send the link the same day.
+  - type: prose
+    heading: Interviews
+    paragraphs:
+    - Justin Karijoredjo speaks on curatorial direction and the ecosystem; Kimberly Tanikromo on production, partnerships and funding. On site in the Metzgebouw or by telephone.
+    - Wall texts and the season's curatorial statement are available on request.
+  title: Press — images, facts and interviews
+  coverage:
+  - outlet: Architectuur.nl
+    date: 1 September 2026
+    lang: NL
+    title: Rietveld-koepel Metzgebouw wordt weer podium
+    url: https://www.architectuur.nl/nieuws/rietveld-koepel-metzgebouw-wordt-weer-podium/
+    note: On the Metz building, the 1933 Rietveld dome, and why the name Maison d’Artiste is not a coincidence.
+  - outlet: Interieur & Design Vandaag
+    date: 1 September 2026
+    lang: NL
+    title: 'GLUE Amsterdam 2026: 22 makers in het Metzgebouw'
+    url: https://www.interieurendesignvandaag.nl/post/glue-amsterdam-madart-metzgebouw-koepel
+    note: 'The full account: no participation fee, no commission, and Arcam on Le Corbusier and Mies van der Rohe under the dome.'
+  - outlet: De Interieur Club
+    date: 3 September 2026
+    lang: NL
+    title: 'GLUE Amsterdam 2026: 8 tips voor de designroute'
+    url: https://www.deinterieurclub.com/post/glue-amsterdam-2026-tips
+    note: Names the seventh floor as the reason to come.
+  - outlet: designweb
+    date: 7 September 2026
+    lang: NL
+    title: Onze tips voor design op GLUE Amsterdam ’26
+    url: https://www.designweb.nl/blog/glue-amsterdam-2026-design-en-collectible-design-gids-en-must-sees/
+    note: 'Four makers showing here get a section of their own: Nicolette de Waart, Eric Sloot, Coen Beeksma and Jim Bob Ruijgrok.'
+  - outlet: Wonen360
+    date: 8 September 2026
+    lang: NL
+    title: Dé grootste hub van Glue Amsterdam 2026 in het voormalig Metz & Co-gebouw
+    url: https://www.wonen360.nl/article/9871608/de-grootste-hub-van-glue-amsterdam-2026-in-het-voormalig-metz-co-gebouw/
+    note: On Ignore, the talks with Charles & More, and the Thursday drinks.
+  - outlet: IN
+    date: September 2026
+    lang: NL
+    title: 'GLUE Amsterdam: dé designroute van de stad'
+    url: https://wijzijn-in.nl/activiteiten/glue/
+    note: IN brings its network to the building on 17 September.
+  - outlet: GLUE Amsterdam
+    date: '2026'
+    lang: EN
+    title: Exhibitor listing
+    url: https://www.glue.amsterdam/exhibitors?q=madart
+    note: The official route listing.
+contact:
+  og_image: place-nio-house.jpg
+  meta: Reach MADART Foundation at NIO House Amsterdam, Leidsestraat 32-34, fourth floor. Enquiries about work go straight to the maker.
+  label: Contact
+  heading: Get in touch.
+  lede: Write to contact@madartfoundation.com, or press@madartfoundation.com for press. You will find us on the fourth floor of NIO House Amsterdam, Leidsestraat 32-34.
+  blocks:
+  - type: prose
+    heading: Where to find us
+    paragraphs:
+    - NIO House Amsterdam, Leidsestraat 32-34, 1017 PB Amsterdam, fourth floor.
+    - For questions about a specific work, the fastest route is the maker themselves — every work page has a direct line.
+  title: Contact

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The fourth floor, for one evening &mdash; MADART FOUNDATION</title>
+{# Blind en noindex. De pagina wordt nergens vandaan gelinkt en is alleen
+   bereikbaar via de gedrukte codes in het gebouw. #}
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+{% include "_campaignstyle.html" %}
+</head>
+<body>
+<main class="wrap">
+  <p class="index"><span>MADART Foundation</span></p>
+
+  <h1>The fourth floor, for one evening.</h1>
+
+  <p class="lede">Thirty makers, eight levels, three days. On Saturday at six the work comes down
+    and this floor goes back to being a room in a building from 1891, with Rietveld&rsquo;s glass
+    dome three storeys above it. One evening on it can be yours.</p>
+
+  <p class="lede">MADART Foundation curates what hangs here. Curated by MADART hires out the room
+    and pays for the programme. Two senders, two lists, kept apart.</p>
+
+  {# Prijs, uitsluitingen en de datums staan in de hoofdtekst, op hoofdtekst-
+     grootte. De Gedragscode eist dat de economische waarde en de beperking
+     zichtbaar zijn vóór deelname. #}
+  <dl class="praktisch">
+    <div><dt>The prize</dt><dd>&euro;{{ "{:,}".format(camp.prize_eur) }} of venue hire &mdash; the
+      fourth floor of the Metzgebouw, one afternoon or evening, on a date you choose before
+      {{ camp.valid_until }}.</dd></div>
+    <div><dt>Not included</dt><dd>Production, catering, technical services and staffing. Arranged
+      and invoiced separately.</dd></div>
+    <div><dt>Closes</dt><dd>{{ camp.closes }}. Drawn {{ camp.draw_date }}.</dd></div>
+    <div><dt>Organised by</dt><dd>Curated by MADART, under the Dutch Gedragscode Promotionele
+      Kansspelen. Gambling tax is ours.</dd></div>
+  </dl>
+
+  <form id="f" novalidate>
+    <div class="paneel">
+      <h2>MADART Foundation</h2>
+      <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+    </div>
+
+    <label for="voornaam">First name</label>
+    <input id="voornaam" name="first_name" type="text" autocomplete="given-name" required>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" autocomplete="email" required>
+
+    <p class="vink">
+      <input id="nieuws" name="newsletter" type="checkbox" value="yes">
+      <label for="nieuws">Send me the MADART Foundation newsletter.</label>
+    </p>
+
+    {# De entiteitswissel staat vóór het eerste zakelijke veld. #}
+    <div class="paneel">
+      <h2>Curated by MADART</h2>
+      <p>The commercial side of the house. It books the rooms, so the Foundation can give them
+        away. For the draw we need to know who you are entering for.</p>
+    </div>
+
+    <p class="scheiding">What you filled in above goes to MADART Foundation. What you fill in below
+      goes to Curated by MADART. The two lists never meet.</p>
+
+    <label for="org">Organisation</label>
+    <input id="org" name="organisation" type="text" autocomplete="organization">
+
+    <label for="functie">Role</label>
+    <input id="functie" name="role" type="text" autocomplete="organization-title">
+
+    <label for="zakelijk">Work email</label>
+    <input id="zakelijk" name="work_email" type="email" autocomplete="email">
+
+    <label for="tel">Phone &mdash; optional</label>
+    <input id="tel" name="phone" type="tel" autocomplete="tel">
+
+    {# Twee toestemmingen, twee vinkjes. Deelname en marketing in een klik is
+       onder de AVG een gekoppelde toestemming. #}
+    <p class="vink">
+      <input id="win" name="draw" type="checkbox" value="yes">
+      <label for="win">Enter me in the draw for &euro;{{ "{:,}".format(camp.prize_eur) }} of venue hire.</label>
+    </p>
+    <p class="vink">
+      <input id="contact" name="contact" type="checkbox" value="yes">
+      <label for="contact">You may also contact me about events in this building.</label>
+    </p>
+
+    <div id="fout" class="fout" hidden></div>
+    <button type="submit" class="btn" id="knop">Send</button>
+  </form>
+
+  <div id="klaar" class="klaar" hidden>
+    <h2 id="klaarkop"></h2>
+    <p class="lede" id="klaartekst"></p>
+  </div>
+
+  <p class="klein">MADART Foundation is the public name of Stichting The Bloys, KvK {{ site.kvk }}.
+    Curated by MADART is the trading name of Maison d&rsquo;Artiste Galleries &amp; Productions.
+    Details are kept for two years unless you ask us to remove them sooner.
+    <a href="privacy.html">Privacy statement</a> &middot;
+    <a href="{{ camp.terms_page }}.html">Terms of the draw</a></p>
+
+  <footer>
+    <p class="klein" style="margin:0">The draw is organised by Curated by MADART under the Dutch
+      Gedragscode Promotionele Kansspelen. Gambling tax on the prize is paid by Curated by MADART.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  /* De codes blijven na zaterdag in het gebouw hangen. Daarna is dit geen
+     formulier meer maar een oude poster, en stuurt de pagina door naar de site. */
+  var SLUIT = new Date("{{ camp.closes_iso }}:00+02:00");
+  if(new Date() > SLUIT){ location.replace("{{ camp.after_close_url }}"); return; }
+
+  var STICHTING = "{{ camp.endpoint_foundation }}";
+  var COMMERCIEEL = "{{ camp.endpoint_commercial }}";
+  var f=document.getElementById("f"), knop=document.getElementById("knop"),
+      fout=document.getElementById("fout"), klaar=document.getElementById("klaar"),
+      klaarkop=document.getElementById("klaarkop"), klaartekst=document.getElementById("klaartekst");
+  var bron = new URLSearchParams(location.search).get("p") || "";
+  function zeg(t){ fout.textContent=t; fout.hidden=false; }
+  function post(a,d){ return fetch(a,{method:"POST",
+    headers:{"Accept":"application/json","Content-Type":"application/json"},
+    body:JSON.stringify(d)}); }
+
+  f.addEventListener("submit", function(ev){
+    ev.preventDefault(); fout.hidden=true;
+    var v=function(id){ return document.getElementById(id).value.trim(); };
+    var nieuws=document.getElementById("nieuws").checked,
+        win=document.getElementById("win").checked,
+        contact=document.getElementById("contact").checked;
+
+    if(!v("voornaam") || !v("email")) return zeg("We need a first name and an email.");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return zeg("That email address does not look right.");
+    if(!nieuws && !win && !contact) return zeg("Tick a box, so we know what you are asking for.");
+    if((win||contact) && (!v("org") || !v("functie") || !v("zakelijk")))
+      return zeg("For the draw we need your organisation, your role and a work email.");
+    if((win||contact) && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("zakelijk")))
+      return zeg("That work email address does not look right.");
+
+    knop.disabled=true; knop.textContent="Sending\u2026";
+    /* Twee bestemmingen, nooit samengevoegd tot een lijst. */
+    var taken=[];
+    if(nieuws && STICHTING) taken.push(post(STICHTING,{first_name:v("voornaam"),
+      email:v("email"), consent:"newsletter", source:"metz-qr", placement:bron}));
+    if((win||contact) && COMMERCIEEL) taken.push(post(COMMERCIEEL,{first_name:v("voornaam"),
+      email:v("email"), organisation:v("org"), role:v("functie"), work_email:v("zakelijk"),
+      phone:v("tel"), consent_draw: win?"yes":"no", consent_contact: contact?"yes":"no",
+      source:"metz-qr", placement:bron}));
+    if(!taken.length){ knop.disabled=false; knop.textContent="Send";
+      return zeg("The form is not live yet. Try again shortly."); }
+
+    Promise.all(taken).then(function(rs){
+      if(rs.some(function(r){ return !r.ok; })) throw new Error("bad");
+      f.hidden=true; klaar.hidden=false;
+      if(win){
+        klaarkop.textContent = "In.";
+        klaartekst.textContent = "We draw on 25 September and email the winner within five working "
+          + "days. Either way, you will hear from us about the building.";
+      } else {
+        klaarkop.textContent = "On the list.";
+        klaartekst.textContent = "A few times a season, never more.";
+      }
+      window.scrollTo({top:0,behavior:"smooth"});
+    }).catch(function(){
+      knop.disabled=false; knop.textContent="Send";
+      zeg("Something went wrong. Try again, or write to {{ site.email }}.");
+    });
+  });
+})();
+</script>
+</body>
+</html>

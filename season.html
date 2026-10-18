@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block head %}{{ ld.exhibition(site, event_data) }}{% endblock %}
+{% block content %}
+{% if season.hero %}
+<div class="hero">
+  <img src="{{ season.hero }}" alt="Installation view of Season {{ season.number }} — {{ season.title }}" width="2400" height="1601" fetchpriority="high" decoding="async">
+  <div class="overlay"><div class="wrap">
+    <p class="code">SEASON {{ season.number }}</p>
+    <h1 class="display">{{ season.title }}</h1>
+    <p class="meta">{{ season.location }} &nbsp;·&nbsp; {{ season.dates_label }}</p>
+  </div></div>
+</div>
+{% endif %}
+<section><div class="wrap">
+  <p class="index"><span class="no">SEASON {{ season.number }}</span><span>{{ season.dates_label }}</span><span class="of"><a href="building.html">{{ season.location }}</a></span></p>
+  {% if not season.hero %}<h1>Season {{ season.number }} — {{ season.title }}</h1>{% endif %}
+  <div class="prose">
+    <p class="lede">{{ season.standfirst }}</p>
+    {% for p in season.body %}<p>{{ p }}</p>{% endfor %}
+  </div>
+</div></section>
+
+{% if season_makers %}
+<section><div class="wrap">
+  <p class="index"><span class="no">02</span><span>The makers</span><span class="of">{{ season_makers|length }}</span></p>
+  <div class="reg">
+    {% for m in season_makers %}
+    <a class="row" href="{{ m.slug }}.html">
+      <span class="c">{{ "%02d"|format(loop.index) }}</span>
+      <span class="t">{{ m.name }}</span>
+      <span class="m">{{ m.plek }}</span>
+      <span class="s">{{ m.short_bio }}</span>
+      <span class="p">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{% if event %}
+<section><div class="wrap">
+  <p class="index"><span class="no">03</span><span>Alongside</span></p>
+  <div class="prose">
+    <h2>{{ event.title }} · {{ event.dates_label }}</h2>
+    <p>{{ event.standfirst }}</p>
+    <p><a href="visit.html">Full programme and opening hours</a></p>
+  </div>
+</div></section>
+{% endif %}
+{% endblock %}

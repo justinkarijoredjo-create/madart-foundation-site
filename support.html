@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">—</span><span>Support us</span></p>
+  <h1>Buying a work is the most direct way to support a maker.</h1>
+  <p class="lede">100% of a sale goes to the maker. If you would rather support the room itself — the production, the presentation and the fee that make a season possible — this page is for that.</p>
+</div></section>
+
+{# ---- one-off gift ---- #}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">01</span><span>Give once</span></h2>
+  <p class="lede" style="max-width:56ch">Every amount goes into the same place: what it costs to put a maker's work in a room and keep it there for three months.</p>
+
+  {% if giving.amounts|selectattr("link")|list %}
+  <div class="give-grid">
+    {% for a in giving.amounts if a.link %}
+    <a class="give{% if a.anchor %} anchor{% endif %}" href="{{ a.link }}">
+      <span class="amt">{{ a.label }}</span>
+      <span class="note">{{ a.note }}</span>
+      <span class="go">Give &#8594;</span>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="small dim" style="margin-top:16px">Payment runs through Mollie — iDEAL, card or bank transfer. Your details stay with Mollie and with us, nowhere else.</p>
+  {% else %}
+  {# Geen betaallinks: de pagina zegt daar niets over en wijst naar de bank
+     hieronder. Een instructie aan de bouwer hoort in de console, niet op de
+     pagina; build.py waarschuwt er nu voor. #}
+  {% endif %}
+
+  <p class="small dim" style="margin-top:20px">What each amount buys is an illustration of where the money goes, not a ring-fenced budget. Every gift supports the exhibition programme as a whole.</p>
+
+  <div class="prose" style="margin-top:30px">
+    <h3 style="font-size:15px;font-weight:700">A different amount, or by bank</h3>
+    {% if "[" not in giving.bank.iban %}
+    <p>Transfer to {{ giving.bank.name }}, {{ giving.bank.iban }}, quoting “{{ giving.bank.reference }}”. Send us a line at <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we will confirm your gift in writing — useful for your own records, and required if you ever want to claim it.</p>
+    {% else %}
+    {# Zolang het rekeningnummer ontbreekt vraagt de pagina erom. Een zichtbare
+       placeholder is dezelfde fout als een instructie aan de bouwer. #}
+    <p>Write to <a href="mailto:{{ site.email }}?subject=Gift%20by%20bank%20transfer">{{ site.email }}</a> and we will send you the bank details of {{ giving.bank.name }}. We confirm every gift in writing — useful for your own records, and required if you ever want to claim it.</p>
+    {% endif %}
+  </div>
+</div></section>
+
+{# ---- periodic gift ---- #}
+<section class="reveal"><div class="wrap">
+  <h2 class="index" id="periodic"><span class="no">02</span><span>Give every year</span><span class="of">The route we recommend</span></h2>
+  <div class="prose">
+    <p class="lede">A periodic gift is a commitment for five years, laid down in a written agreement between you and the Foundation. It is the most valuable form of support a small foundation can receive, because it lets us plan a season before we know what it will earn.</p>
+    <p>Under Dutch tax law a periodic gift to a cultural ANBI is not subject to the threshold that applies to ordinary gifts, and is deductible in full. For anyone who intends to give more than once, it is simply the better instrument — for you and for us.</p>
+    <p>Since 2014 no notary is involved. A private agreement with a legally valid digital signature is enough; if you have a tax partner, they co-sign. It takes minutes, and it is the one piece of paperwork worth doing.</p>
+    {% if giving.anbi_granted %}
+    <p><strong>Cultural ANBI status granted.</strong> Private donors may deduct 125% of a gift to a cultural ANBI, up to €1,250 in additional deduction; companies 150%, up to €2,500. To put a number on it: a periodic gift of €1,000 a year returns roughly €470 through your tax return, against roughly €225 for an ordinary one-off gift. Your own situation decides what applies — we are not tax advisers.</p>
+    {% else %}
+    <p><strong>Cultural ANBI status is applied for and not yet granted.</strong> Until it is, gifts to MADART Foundation are not tax deductible. We would rather say that plainly than let you find out afterwards. The agreement can be signed now and takes effect the moment the status is granted.</p>
+    {% endif %}
+    <p><a class="btn-outline" href="{{ giving.periodic.form_url }}">Download the agreement form</a> <a class="btn-outline" href="mailto:{{ site.email }}?subject=Periodic%20gift">Talk to us first</a></p>
+  </div>
+</div></section>
+
+{# ---- friend of the foundation ---- #}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">03</span><span>Friend of MADART Foundation</span></h2>
+  <div class="prose">
+    <p class="lede">A yearly gift, and a way to stay close to what the Foundation is doing.</p>
+    <p>Friend of MADART Foundation is a gift, not a ticket. What you receive in return is deliberately kept to what a gift may carry: a written account of the season, your name in the annual report if you want it there, and the first word on what is coming. No free admission, no discounts, no priority — those turn a gift into a purchase, and a purchase is neither deductible nor ours to sell here.</p>
+    <p><a href="friend.html">The three tiers, and what each one carries &#8594;</a></p>
+  </div>
+</div></section>
+
+{# ---- brands, funds ---- #}
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">04</span><span>Organisations</span></h2>
+  <div class="grid g3">
+    <div>
+      <h3 style="font-size:15px;font-weight:700">Cultural partner</h3>
+      <p class="small" style="color:var(--ink)">Brands and organisations can support the Foundation directly, as a gift without a return service. That is a different arrangement from a commercial partnership, and we keep the two apart on paper as well as in practice.</p>
+      <p class="small"><a href="contact.html">Talk to us about it</a></p>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:700">Commercial partnership</h3>
+      <p class="small" style="color:var(--ink)">Events, brand programmes and anything with a return service run through Curated by MADART, the commercial organisation that structurally finances this Foundation. Those arrangements do not belong on this domain.</p>
+      <p class="small"><a href="https://curatedbymadart.com">Curated by MADART &#8594;</a></p>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:700">Funds and grant-makers</h3>
+      <p class="small" style="color:var(--ink)">Our selection policy, governance, board composition and reporting are published in full, including how we handle the founder's interest in the commercial organisation.</p>
+      <p class="small"><a href="anbi.html">Governance and published information</a></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <div class="prose" style="padding-top:26px;border-top:1px solid var(--concrete)">
+    <p class="lede" style="margin:0">How we select, how the board is composed, how the founder-curator's interest is declared and how the money is accounted for is set out in full on our <a href="anbi.html">governance page</a>.</p>
+  </div>
+</div></section>
+{% endblock %}

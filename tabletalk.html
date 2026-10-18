@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block head %}{% include "_programmestyle.html" %}{% endblock %}
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">TALK</span><span>{{ editie.title }}</span>
+    <span class="of"><a href="{{ editie.slug }}.html">The full programme &#8594;</a></span></p>
+  <h1>{{ item.title }}</h1>
+  <p class="attrib">Thursday 17 September 2026 &middot; {{ item.time }} &middot; {{ item.waar }}</p>
+
+  {# De tekst komt uit data/programme.yaml, zodat deze pagina en het programma
+     niet uit elkaar kunnen lopen. #}
+  <div class="prose">
+    <p class="lede">{{ item.who }}</p>
+    <p>{{ item.body }}</p>
+    <p>{{ item.body2 }}</p>
+    <p>{{ item.body3 }}</p>
+    <p>{{ item.body4 }} {{ item.places }} places.</p>
+  </div>
+
+  <p class="status" style="margin-top:26px">
+    {% if item.book_url %}<a class="btn" href="{{ item.book_url }}">Book &mdash; {{ item.places }} places</a>
+    {% else %}<span class="vrij">Book &mdash; {{ item.places }} places &middot; opens shortly</span>{% endif %}
+  </p>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>The three makers</span></h2>
+  <div class="grid g3">
+    {% for slug in item.speakers %}
+    {% set m = makers[slug] %}
+    <a class="pcard" href="{{ slug }}.html">
+      {% if m.portrait_small %}
+      <figure><img src="{{ m.portrait_small }}" alt="{{ m.name }}" loading="lazy" decoding="async"
+        width="700" height="875"></figure>
+      {% endif %}
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <p class="backline">
+    <a href="{{ editie.slug }}.html">The full programme</a>
+    <a href="makers.html">Every maker</a>
+    <a href="visit.html">Plan a visit</a>
+  </p>
+</div></section>
+{% endblock %}

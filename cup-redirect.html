@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{# Een gedrukt adres dat nooit wijzigt, en een doel dat per seizoen verschuift.
+   noindex: dit is een doorgeefluik, geen pagina. #}
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{{ site.url }}/{{ target }}">
+<meta http-equiv="refresh" content="0; url={{ target }}?c={{ merk }}">
+<title>{{ site.name }}</title>
+</head>
+<body>
+<p style="font-family:ui-monospace,monospace;font-size:14px;padding:24px">
+  <a href="{{ target }}?c={{ merk }}">Continue &#8594;</a></p>
+<script>location.replace("{{ target }}?c={{ merk }}");</script>
+</body>
+</html>

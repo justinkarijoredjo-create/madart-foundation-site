@@ -1,0 +1,115 @@
+{% macro organisation(site) %}
+<script type="application/ld+json">{{ {
+  "@context":"https://schema.org","@type":"NGO","name":"MADART Foundation",
+  "legalName":"Stichting The Bloys","url":site.url,
+  "email":site.email,"sameAs":[site.instagram],
+  "subjectOf":[
+    {"@type":"NewsArticle","headline":"Rietveld-koepel Metzgebouw wordt weer podium",
+     "url":"https://www.architectuur.nl/nieuws/rietveld-koepel-metzgebouw-wordt-weer-podium/",
+     "datePublished":"2026-09-01","inLanguage":"nl",
+     "publisher":{"@type":"Organization","name":"Architectuur.nl"}},
+    {"@type":"NewsArticle","headline":"GLUE Amsterdam 2026: 22 makers in het Metzgebouw",
+     "url":"https://www.interieurendesignvandaag.nl/post/glue-amsterdam-madart-metzgebouw-koepel",
+     "datePublished":"2026-09-01","inLanguage":"nl",
+     "publisher":{"@type":"Organization","name":"Interieur & Design Vandaag"}},
+    {"@type":"NewsArticle","headline":"GLUE Amsterdam 2026: 8 tips voor de designroute",
+     "url":"https://www.deinterieurclub.com/post/glue-amsterdam-2026-tips",
+     "datePublished":"2026-09-03","inLanguage":"nl",
+     "publisher":{"@type":"Organization","name":"De Interieur Club"}},
+    {"@type":"NewsArticle","headline":"Onze tips voor design op GLUE Amsterdam \u201926",
+     "url":"https://www.designweb.nl/blog/glue-amsterdam-2026-design-en-collectible-design-gids-en-must-sees/",
+     "datePublished":"2026-09-07","inLanguage":"nl",
+     "publisher":{"@type":"Organization","name":"designweb"}},
+    {"@type":"NewsArticle","headline":"D\u00e9 grootste hub van Glue Amsterdam 2026 in het voormalig Metz & Co-gebouw",
+     "url":"https://www.wonen360.nl/article/9871608/de-grootste-hub-van-glue-amsterdam-2026-in-het-voormalig-metz-co-gebouw/",
+     "datePublished":"2026-09-08","inLanguage":"nl",
+     "publisher":{"@type":"Organization","name":"Wonen360"}}
+  ],
+  "identifier":[{"@type":"PropertyValue","name":"KvK","value":site.kvk},
+                {"@type":"PropertyValue","name":"RSIN","value":site.rsin}],
+  "vatID":None,
+  "description":site.description,
+  "address":{"@type":"PostalAddress","streetAddress":site.venue.street,
+    "addressLocality":"Amsterdam","postalCode":site.venue.postcode.split(" ")[:2]|join(" "),
+    "addressCountry":"NL"},
+  "openingHoursSpecification":{"@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens":"10:00","closes":"18:00"},
+  "location":{"@type":"Place","name":site.venue.name,
+    "address":{"@type":"PostalAddress","streetAddress":site.venue.street,
+      "addressLocality":"Amsterdam","postalCode":site.venue.postcode.split(" ")[:2]|join(" "),
+      "addressCountry":"NL"}}
+}|tojson|safe }}</script>
+{% endmacro %}
+
+{% macro artwork(site, work, maker) %}
+<script type="application/ld+json">{{ {
+  "@context":"https://schema.org","@type":"VisualArtwork",
+  "name":work.title,"identifier":work.code,
+  "url":site.url ~ "/" ~ work.slug ~ ".html",
+  "image":site.url ~ "/" ~ work.image,
+  "artMedium":work.materials,
+  "creator":{"@type":"Person","name":work.maker_name,
+    "url":site.url ~ "/" ~ work.maker ~ ".html"},
+  "offers":({"@type":"Offer",
+    "priceCurrency":"EUR",
+    "price":work.price_eur,
+    "availability": "https://schema.org/InStock" if work.status == "available" else "https://schema.org/PreOrder",
+    "url":site.url ~ "/" ~ work.slug ~ ".html",
+    "seller":{"@type":"Person","name":work.maker_name}}
+    if work.price_eur else
+    {"@type":"Offer",
+    "priceCurrency":"EUR",
+    "availability":"https://schema.org/InStock",
+    "priceSpecification":{"@type":"PriceSpecification","priceCurrency":"EUR","valueAddedTaxIncluded":true},
+    "url":site.url ~ "/" ~ work.slug ~ ".html",
+    "seller":{"@type":"Person","name":work.maker_name}})
+}|tojson|safe }}</script>
+{% endmacro %}
+
+{% macro person(site, maker, works) %}
+<script type="application/ld+json">{{ {
+  "@context":"https://schema.org",
+  "@type": "Organization" if maker.category in ("collective", "partner") else "Person",
+  "name":maker.name,"description":maker.bio,
+  "url":site.url ~ "/" ~ maker.slug ~ ".html",
+  "sameAs":[maker.instagram] if maker.instagram else [],
+  "jobTitle": None if maker.category in ("collective", "partner") else "Artist",
+  "affiliation":{"@type":"NGO","name":"MADART Foundation","url":site.url}
+}|tojson|safe }}</script>
+{% endmacro %}
+
+{% macro exhibition(site, e) %}
+<script type="application/ld+json">{{ {
+  "@context":"https://schema.org","@type":"ExhibitionEvent",
+  "name":e.name,
+  "description":e.description,
+  "startDate":e.start,
+  "endDate":e.end,
+  "eventStatus":"https://schema.org/EventScheduled",
+  "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+  "url":site.url ~ "/" ~ e.slug ~ ".html",
+  "image":(site.url ~ "/" ~ e.image) if e.image else None,
+  "isAccessibleForFree":true,
+  "location":{"@type":"Place","name":site.venue.name,
+    "address":{"@type":"PostalAddress","streetAddress":site.venue.street,
+      "addressLocality":"Amsterdam","postalCode":site.venue.postcode.split(" ")[:2]|join(" "),
+      "addressCountry":"NL"}},
+  "organizer":{"@type":"NGO","name":"MADART Foundation","url":site.url}
+}|tojson|safe }}</script>
+{% endmacro %}
+
+{% macro place(site) %}
+<script type="application/ld+json">{{ {
+  "@context":"https://schema.org","@type":"Place",
+  "name":site.venue.name,
+  "url":site.url ~ "/visit.html",
+  "address":{"@type":"PostalAddress","streetAddress":site.venue.street,
+    "addressLocality":"Amsterdam","postalCode":site.venue.postcode.split(" ")[:2]|join(" "),
+    "addressCountry":"NL"},
+  "openingHours":"Mo-Su " ~ site.hours_static.split(" ")[2],
+  "isAccessibleForFree":true,
+  "containedInPlace":{"@type":"Place","name":"Amsterdam"},
+  "publicAccess":true
+}|tojson|safe }}</script>
+{% endmacro %}

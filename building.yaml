@@ -1,0 +1,226 @@
+# =============================================================================
+# THE BUILDING — NIO House Amsterdam, the former Metz & Co building
+#
+# Two lists, deliberately kept apart.
+#
+#   levels     belongs to the building. Which floors exist, how they are
+#              numbered and named on the lift panel, at what height the floor
+#              sits, and what the floor is when nothing is programmed on it.
+#              This changes when the building changes, which is almost never.
+#
+#   programme  belongs to the event. What is on a level right now. Empty this
+#              out after GLUE and every level falls back to its own
+#              description, so the page cannot go stale.
+#
+# The heights are not estimates. They are the level marks on the architect's
+# Keizersgracht elevation, in millimetres above street datum:
+#   0 · 4620 · 8400 · 12420 · 16320 · 20260 · 23120 · 26745 · 29220
+# Nine marks, eight levels. templates/building.html draws from these numbers,
+# so the drawing cannot drift away from the survey it came from.
+#
+# Every href below must be a page this site actually builds. build.py checks
+# that on every run and refuses to finish if one is wrong.
+# =============================================================================
+
+levels:                       # top of the building first, as the drawing reads
+  - id: "7"
+    label: "7"
+    from: 26745
+    to: 29220
+    kind: The Dome
+    count: 76 m²
+    hero: hero-level-7.jpg
+    idle: Beneath the glass Gerrit Rietveld raised over the building in 1933.
+
+  - id: "6"
+    label: "6"
+    from: 23120
+    to: 26745
+    kind: Blue Sky Lounge          # as the lift panel names it
+    count: 217 m²
+    hero: hero-level-6.jpg
+    idle: One continuous space of 217 m², used by NIO House for events.
+
+  - id: "5"
+    label: "5"
+    from: 20260
+    to: 23120
+    kind: Offices
+    count: NIO House
+    hero:                          # no photograph, by choice
+    idle: >-
+      NIO House's own offices. The staircase passes the landing; the floor
+      itself is not open.
+
+  - id: "4"
+    label: "4"
+    permanent: true                # the Foundation's own floor
+    from: 16320
+    to: 20260
+    kind: Artspace
+    count: Foundation
+    hero: hero-level-4.jpg
+    idle: >-
+      The Foundation's exhibition floor: five galleries and a lounge. A new
+      season opens on the first Friday of each quarter.
+
+  - id: "3"
+    label: "3"
+    house: true                    # nothing of ours, drawn quieter
+    from: 12420
+    to: 16320
+    kind: Lab
+    count: NIO House
+    hero: hero-level-3.jpg
+    idle: NIO House's working floor — desks and rooms for members.
+
+  - id: "2"
+    label: "2"
+    from: 8400
+    to: 12420
+    kind: Studio
+    count: NIO House
+    hero: hero-level-2.jpg
+    idle: NIO House's gathering floor, used for talks and public programme.
+
+  - id: "1"
+    label: "1"
+    from: 4620
+    to: 8400
+    kind: NIO Café
+    count: NIO House
+    hero: hero-level-1.jpg
+    idle: NIO House's café, open to anyone who walks in.
+
+  - id: "0"
+    label: "0"
+    from: 0
+    to: 4620
+    kind: Gallery
+    count: Entrance
+    hero: hero-level-0.jpg
+    idle: The way in, from the corner of the Keizersgracht and the Leidsestraat.
+
+
+programme:
+  title: GLUE Amsterdam 2026
+  route: ["0", "2", "4", "5", "6", "7"]   # the dashed line; empty draws nothing
+
+  levels:
+
+    "7":
+      name: The Dome
+      count: 1 maker
+      hero: hero-level-7.jpg
+      link: maison-dartiste.html
+      plan: plan-7.html
+      blurb: >-
+        Not objects to look at, but sound to stand inside. Once a day the room
+        is given over entirely to listening.
+      groups:
+        - people:
+            - name: Devoonsounds
+              href: devoonsounds.html
+
+    "6":
+      name: Maison d'Artiste
+      count: 12 on this floor
+      hero: hero-level-6.jpg
+      link: maison-dartiste.html
+      plan: plan-6.html
+      blurb: One continuous space read as four rooms, entered from either end.
+      groups:
+        - people:
+            - {name: Marnix Van Strydonck, href: marnix-van-strydonck.html}
+            - {name: Dot Objects,          href: dot-objects.html}
+            - {name: Inge Bečka,           href: inge-becka.html}
+            - {name: Maurice Albert Jan,   href: maurice-albert-jan.html}
+            - {name: Jim Bob Ruijgrok,     href: jim-bob-ruijgrok.html}
+            - {name: Nicolette de Waart,   href: nicolette-de-waart.html}
+            - {name: Buro Berger,          href: buro-berger.html}
+            - {name: Lilia Luganskaia-Kuilder, href: lilia-luganskaia-kuilder.html}
+            - {name: Eric Sloot,           href: eric-sloot.html}
+            - {name: Ignore,               href: ignore.html}
+            - {name: Natalia Wyspianska, href: natalia-wyspianska.html}
+            - {name: Joost de Munnik & Ruud van den Eijnden,
+               href: joost-de-munnik-ruud-van-den-eijnden.html,
+               note: presented by SPoT}
+
+    "5":
+      name: On the landing
+      count: 1 maker
+      blurb: >-
+        NIO House's own floor, closed to visitors — but the staircase runs
+        through it.
+      groups:
+        - label: On the landing
+          people:
+            - {name: Herma de Wit, href: herma-de-wit.html}
+
+    "4":
+      name: Season 02 — GROUND
+      count: 19 makers
+      hero: hero-level-4.jpg
+      link: season-02-ground.html
+      plan: plan-4.html
+      blurb: >-
+        The Foundation's running season, open throughout GLUE — not a separate
+        visit but part of the same route.
+      groups:
+        - people:
+            - {name: Arno Hoogland,      href: arno-hoogland.html}
+            - {name: Anne van Borselen,  href: anne-van-borselen.html}
+            - {name: Rogier Bosschaart,  href: rogier-bosschaart.html}
+            - {name: Aad Kruiswijk,      href: aad-kruiswijk.html}
+            - {name: Sandra Keja Planken, href: sandra-keja-planken.html}
+            - {name: Loutje Hoekstra,    href: loutje-hoekstra.html}
+            - {name: ECHO, href: echo.html, note: 13 makers}
+        # Herma's bronzes stand in the stairwell, not in the season.
+        - label: In the stairwell
+          people:
+            - {name: Herma de Wit, href: herma-de-wit.html}
+
+    "2":
+      name: Talks
+      count: 5 talks
+      hero: hero-level-2.jpg
+      link: events.html
+      plan: plan-2.html
+      blurb: >-
+        Short talks on design, colour, material and the brain, every afternoon
+        from 15:00.
+      groups:
+        - label: Talks
+          one_column: true          # a programme reads as a list, not a grid
+          people:
+            - name: Martijn den Otter
+              external: https://www.eventbrite.nl/e/talk-martijn-den-otter-tickets-1998071132544?aff=oddtdtcreator
+            - name: Femke Hofhuis
+              note: Femm Amsterdam
+              external: https://www.eventbrite.nl/e/talk-femke-van-femm-amsterdam-tickets-1997966661067?aff=oddtdtcreator
+            - name: Thomas Eurlings
+              note: Forbo
+              external: https://www.eventbrite.com/e/talk-thomas-eurlings-van-forbo-tickets-1999486088716?aff=oddtdtcreator&keep_tld=true
+            - name: Marc Th. van der Voorn
+              external: https://www.eventbrite.com/e/talk-ontwerper-marc-th-van-der-voorn-tickets-1999697735758?aff=oddtdtcreator&keep_tld=true
+            # No ticket link yet. Add `external:` when it exists.
+            - {name: Nicola Cherubini, note: Listone Giordano}
+        - label: Running presentation
+          people:
+            - {name: Andreea Pirlica, href: andreea-pirlica.html}
+
+    "1":
+      name: Lunch
+      count: Café
+      hero: hero-level-1.jpg
+      blurb: The café serves a set lunch menu throughout GLUE, or à la carte.
+
+    "0":
+      name: Entrance
+      count: 1 maker
+      hero: hero-level-0.jpg
+      blurb: Where the route begins, under the clock on the corner.
+      groups:
+        - label: In the stairwell
+          people:
+            - {name: Herma de Wit, href: herma-de-wit.html}

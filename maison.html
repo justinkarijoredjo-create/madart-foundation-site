@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block head %}{{ ld.exhibition(site, event_data) }}{% endblock %}
+
+{% block content %}
+<section><div class="wrap">
+  <p class="index"><span class="no">EXHIBITION</span><span>{{ maison.dates_label }}</span><span class="of"><a href="building.html">{{ maison.location }}</a></span></p>
+  <h1>{{ maison.title }}</h1>
+  <p class="edition">{{ maison.subtitle }}</p>
+  <div class="prose">
+    <p class="lede">{{ maison.standfirst }}</p>
+    {% for p in maison.body %}<p>{{ p }}</p>{% endfor %}
+    <p><a href="{{ season.slug }}.html">Season {{ season.number }} — {{ season.title }}, one floor below</a> · <a href="events.html">The full GLUE programme</a> · <a href="building.html">The building, level by level</a></p>
+  </div>
+</div></section>
+
+{% for room in maison.rooms %}
+<section class="reveal wide"><div class="wrap">
+  <h2 class="index"><span class="no">{{ "%02d"|format(loop.index) }}</span><span>{{ room.name }}</span><span class="of">{{ room.makers|length }} maker{{ "s" if room.makers|length != 1 }}</span></h2>
+  <p class="lede" style="max-width:62ch;margin-bottom:28px">{{ room.text }}</p>
+</div>
+<div class="rail" data-rail>
+  <div class="track">
+    {% for m in room.people %}
+    {% if m.pending %}
+    <div class="slide portrait soon">
+      <div class="soonbox"><span>{{ m.name }}</span></div>
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+      <p class="cnt">Work to follow</p>
+    </div>
+    {% else %}
+    <a class="slide portrait" href="{{ m.slug }}.html">
+      <figure class="swap">
+        <img class="face" src="{{ m.portrait_small|default(m.portrait, true) }}" alt="{{ m.name }}" width="480" height="600" loading="lazy" decoding="async">
+        {% if m.hover %}<img class="work" src="{{ m.hover_small|default(m.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
+      </figure>
+      <h3>{{ m.name }}</h3>
+      <p class="sub">{{ m.plek }}</p>
+      <p class="cnt">{{ m.works|length }} work{{ "s" if m.works|length != 1 }}</p>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<div class="wrap railnav"><button data-prev aria-label="Previous">&#8592;</button><button data-next aria-label="Next">&#8594;</button></div>
+</section>
+{% endfor %}
+
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">—</span><span>How the two relate</span></h2>
+  <div class="prose">
+    <p>GROUND and Maison d'Artiste are not one exhibition split across two floors, nor two unrelated events sharing a building. They are two chapters of the same argument, staged within a single route.</p>
+    <p>Each remains legible on its own: GROUND does not need Maison d'Artiste to make sense, and Maison d'Artiste does not need GROUND. During GLUE they are presented as one walk through the building — from the fourth floor, through the sixth, to the seventh. From ground, to house, to dome.</p>
+    <p><a href="visit.html">Opening hours and directions</a></p>
+  </div>
+</div></section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('[data-rail]').forEach(function(rail){
+    var down = false, startX = 0, startL = 0, moved = 0;
+
+    /* A rail you can only drag is a rail some people cannot use at all.
+       Focusable, with the arrow keys doing what the arrow buttons do. */
+    rail.setAttribute('tabindex', '0');
+    rail.setAttribute('role', 'region');
+    rail.addEventListener('keydown', function(e){
+      var card = rail.querySelector('.slide');
+      var w = card ? card.getBoundingClientRect().width + 18 : 320;
+      if (e.key === 'ArrowRight') { rail.scrollLeft += w; e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { rail.scrollLeft -= w; e.preventDefault(); }
+      else if (e.key === 'Home') { rail.scrollLeft = 0; e.preventDefault(); }
+      else if (e.key === 'End') { rail.scrollLeft = rail.scrollWidth; e.preventDefault(); }
+    });
+    rail.addEventListener('pointerdown', function(e){
+      down = true; moved = 0; startX = e.clientX; startL = rail.scrollLeft; rail.classList.add('grabbing');
+    });
+    rail.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - startX; moved = Math.max(moved, Math.abs(dx)); rail.scrollLeft = startL - dx;
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      rail.addEventListener(ev, function(){ down = false; rail.classList.remove('grabbing'); });
+    });
+    rail.addEventListener('click', function(e){ if (moved > 6) e.preventDefault(); }, true);
+
+    var nav = rail.nextElementSibling;
+    if (nav && nav.classList.contains('railnav')) {
+      // Smooth scrollBy silently does nothing on a rail that is far outside the
+      // viewport. Ask for the smooth version, then check: if nothing moved,
+      // set the position outright. The arrows work either way.
+      var step = function(dir){
+        var card = rail.querySelector('.slide');
+        var w = card ? card.getBoundingClientRect().width + 18 : 320;
+        var from = rail.scrollLeft, to = from + dir * w * 2;
+        rail.scrollBy({left: dir * w * 2, behavior: reduce ? 'auto' : 'smooth'});
+        setTimeout(function(){
+          if (Math.abs(rail.scrollLeft - from) < 2) rail.scrollLeft = to;
+        }, 320);
+      };
+      nav.querySelector('[data-prev]').addEventListener('click', function(){ step(-1); });
+      nav.querySelector('[data-next]').addEventListener('click', function(){ step(1); });
+      var ends = function(){
+        nav.querySelector('[data-prev]').disabled = rail.scrollLeft < 4;
+        nav.querySelector('[data-next]').disabled =
+          rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+      };
+      rail.addEventListener('scroll', ends, {passive:true}); ends();
+    }
+  });
+})();
+</script>
+{% endblock %}
