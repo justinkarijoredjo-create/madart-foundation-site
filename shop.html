@@ -1,14 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=works.html">
-<link rel="canonical" href="https://madartfoundation.com/works.html">
-<meta name="robots" content="noindex, follow">
-<title>Moved — MADART FOUNDATION</title>
-<script>location.replace("works.html");</script>
-</head>
-<body style="font-family:monospace;background:#F4EDE4;color:#1E1D1C;padding:40px">
-<p>This page has moved to <a href="works.html">works.html</a>.</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% import "_jsonld.html" as ld %}
+{% block content %}
+{{ ld.organisation(site) }}
+<section style="padding-bottom:24px"><div class="wrap">
+  <p class="index"><span class="no">—</span><span>Works</span><span class="of">{{ works_with_images|length }} in the register</span></p>
+  <h1>Every work, and what it costs.</h1>
+  <p class="lede">Prices are the maker's own. MADART Foundation takes no commission and is not a party to the sale: an enquiry goes straight to the maker, and the number you see is the number they receive. Where a collective shows, the proceeds go to the maker of the work in the same way.</p>
+  <p class="small dim" style="max-width:62ch">This register holds the work of the makers we curate. The studios and brands that help make Maison d&rsquo;Artiste possible show their own work in the house; it is not listed here.</p>
+  <p class="small dim" style="max-width:62ch">We aim to keep work under &euro;5,000 — the point at which buying a piece can still be a decision made on feeling rather than on advice. It is a guideline for the programme, not a ceiling on what a maker may ask.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="filters">
+    <label class="skip" for="q">Search works</label>
+    <input id="q" type="search" placeholder="Search work, maker or code">
+    <label class="skip" for="f-maker">Maker</label>
+    <select id="f-maker"><option value="">All makers</option>
+      {% for m in makers if m.category != "partner" %}<option value="{{ m.slug }}">{{ m.name }}</option>{% endfor %}
+      </optgroup>
+    </select>
+    <label class="skip" for="f-price">Price</label>
+    <select id="f-price">
+      <option value="">Any price</option>
+      <option value="0-500">Up to €500</option>
+      <option value="500-1500">€500 – €1,500</option>
+      <option value="1500-3500">€1,500 – €3,500</option>
+      <option value="3500-5000">€3,500 – €5,000</option>
+      <option value="5000-99999999">Above €5,000</option>
+    </select>
+    <label class="skip" for="f-sort">Sort</label>
+    <select id="f-sort">
+      <option value="maker">By maker</option>
+      <option value="low">Price, low to high</option>
+      <option value="high">Price, high to low</option>
+    </select>
+    <div class="viewtoggle">
+      <button id="v-grid" aria-pressed="true">Grid</button>
+      <button id="v-list" aria-pressed="false">Index</button>
+    </div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid g4" id="grid" style="padding-top:30px">
+  {% for w in works_rendered %}
+    <a class="card" href="{{ w.slug }}.html" data-maker="{{ w.maker }}"
+       data-price="{{ w.price_eur if w.price_eur else '' }}"
+       data-find="{{ (w.title ~ ' ' ~ w.maker_name ~ ' ' ~ (w.code or '') ~ ' ' ~ (w.materials or ''))|lower }}">
+      <figure><img src="{{ w.thumb or w.image }}" alt="{{ w.title }} by {{ w.maker_name }}"
+        width="{{ w.width or 700 }}" height="{{ w.height or 875 }}" loading="lazy" decoding="async"></figure>
+      <span class="c">{{ w.code }}</span>
+      <span class="t">{{ w.title }}</span>
+      <div class="m">{{ w.maker_name }}</div>
+      <div class="p">{{ w.price_label }} <span class="pill {{ w.pill }}">{{ w.status }}</span></div>
+    </a>
+  {% endfor %}
+  </div>
+  <div class="reg" id="list" hidden>
+  {% for w in works_rendered %}
+    <a class="row" href="{{ w.slug }}.html" data-maker="{{ w.maker }}"
+       data-price="{{ w.price_eur if w.price_eur else '' }}"
+       data-find="{{ (w.title ~ ' ' ~ w.maker_name ~ ' ' ~ (w.code or '') ~ ' ' ~ (w.materials or ''))|lower }}">
+      <span class="c">{{ w.code }}</span>
+      <span class="t">{{ w.title }}</span>
+      <span class="m">{{ w.maker_name }}</span>
+      <span class="s">{{ w.materials }}</span>
+      <span class="p">{{ w.price_label }}</span>
+    </a>
+  {% endfor %}
+  </div>
+  <p class="small dim" id="empty" hidden style="padding:40px 0">No works match that. Try a broader filter.</p>
+</div></section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  /* Het register staat in de HTML. Dit script filtert en sorteert wat er al
+     is; het bouwt geen kaarten meer op. Zonder JavaScript zie je alle 149
+     werken, alleen zonder filter — dat is de goede kant om op te falen. */
+  var grid=document.getElementById('grid'), list=document.getElementById('list'),
+      count=document.getElementById('count'), empty=document.getElementById('empty'),
+      q=document.getElementById('q'), fm=document.getElementById('f-maker'),
+      fp=document.getElementById('f-price'), fs=document.getElementById('f-sort'),
+      vg=document.getElementById('v-grid'), vl=document.getElementById('v-list');
+  var view='grid';
+  var kaarten=[].slice.call(grid.children), regels=[].slice.call(list.children);
+
+  function prijs(el){ var p=el.getAttribute('data-price'); return p==='' ? null : +p; }
+
+  function past(el){
+    var term=q.value.trim().toLowerCase();
+    if(term && el.getAttribute('data-find').indexOf(term)===-1) return false;
+    if(fm.value && el.getAttribute('data-maker')!==fm.value) return false;
+    if(fp.value){
+      var p=prijs(el); if(p===null) return false;
+      var b=fp.value.split('-');
+      if(p < +b[0] || p > +b[1]) return false;
+    }
+    return true;
+  }
+
+  function ordenen(nodes, houder){
+    var s=fs.value;
+    if(!s){ return; }               /* standaard: de volgorde uit de bron */
+    var kopie=nodes.slice().sort(function(a,b){
+      var pa=prijs(a), pb=prijs(b);
+      if(s==='low')  return (pa===null?1e9:pa)-(pb===null?1e9:pb);
+      if(s==='high') return (pb===null?-1:pb)-(pa===null?-1:pa);
+      return 0;
+    });
+    var frag=document.createDocumentFragment();
+    kopie.forEach(function(n){ frag.appendChild(n); });
+    houder.appendChild(frag);
+  }
+
+  function toon(){
+    var zichtbaar=0;
+    kaarten.forEach(function(el){ var ok=past(el); el.hidden=!ok; if(ok) zichtbaar++; });
+    regels.forEach(function(el){ el.hidden=!past(el); });
+    ordenen(kaarten, grid); ordenen(regels, list);
+    count.textContent = zichtbaar + (zichtbaar===1?' work':' works');
+    empty.hidden = zichtbaar>0;
+    grid.hidden = view!=='grid';
+    list.hidden = view!=='list';
+  }
+  function setView(v){
+    view=v;
+    vg.setAttribute('aria-pressed', v==='grid'?'true':'false');
+    vl.setAttribute('aria-pressed', v==='list'?'true':'false');
+    toon();
+  }
+  [q,fm,fp,fs].forEach(function(el){ el.addEventListener('input',toon); });
+  vg.addEventListener('click',function(){setView('grid');});
+  vl.addEventListener('click',function(){setView('list');});
+  toon();
+})();
+</script>
+{% endblock %}

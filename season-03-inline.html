@@ -10,7 +10,7 @@
 <meta property="og:title" content="Season 03 — INLINE — MADART FOUNDATION">
 <meta property="og:description" content="Season 03 — INLINE at Het Metzgebouw, fourth floor, 21 October 2026 – 17 January 2027. The line between online and offline no longer holds.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://madartfoundation.com/c-exhibition-inline.jpg">
+<meta property="og:image" content="https://madartfoundation.com/hero-inline.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F4EDE4">
 <link rel="stylesheet" href="style.css?v=a23b9715">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ExhibitionEvent", "description": "The line between online and offline no longer holds.", "endDate": "2027-01-17", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "image": "https://madartfoundation.com/c-exhibition-inline.jpg", "isAccessibleForFree": true, "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017 PB", "streetAddress": "Leidsestraat 32-34"}, "name": "Het Metzgebouw"}, "name": "Season 03 \u2014 INLINE", "organizer": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "startDate": "2026-10-21", "url": "https://madartfoundation.com/season-03-inline.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ExhibitionEvent", "description": "The line between online and offline no longer holds.", "endDate": "2027-01-17", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "image": "https://madartfoundation.com/hero-inline.jpg", "isAccessibleForFree": true, "location": {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "NL", "addressLocality": "Amsterdam", "postalCode": "1017 PB", "streetAddress": "Leidsestraat 32-34"}, "name": "Het Metzgebouw"}, "name": "Season 03 \u2014 INLINE", "organizer": {"@type": "NGO", "name": "MADART Foundation", "url": "https://madartfoundation.com"}, "startDate": "2026-10-21", "url": "https://madartfoundation.com/season-03-inline.html"}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -45,9 +45,31 @@
 </header>
 
 <main id="main">
+<div class="hero">
+  <video src="hero-inline.mp4" poster="hero-inline.jpg"
+         autoplay muted loop playsinline preload="metadata"
+         aria-label="Installation view of Season 03 — INLINE"
+         style="width:100%;height:min(76vh,760px);object-fit:cover;display:block"></video>
+  <script>
+  /* Wie beweging heeft uitgezet krijgt de poster in plaats van de film. De
+     video blijft staan en is met de knoppen alsnog te starten; alleen het
+     vanzelf afspelen vervalt. Dit staat hier en niet in base.html, want dan
+     zou elke pagina van de site wijzigen voor een hero op er een. */
+  (function(){
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var v=document.querySelector('.hero video[autoplay]');
+    if(v){ v.removeAttribute('autoplay'); v.pause(); v.controls=true; }
+  })();
+  </script>
+  <div class="overlay"><div class="wrap">
+    <p class="code">SEASON 03</p>
+    <h1 class="display">INLINE</h1>
+    <p class="meta">Het Metzgebouw, fourth floor &nbsp;·&nbsp; 21 October 2026 – 17 January 2027</p>
+  </div></div>
+</div>
 <section><div class="wrap">
   <p class="index"><span class="no">SEASON 03</span><span>21 October 2026 – 17 January 2027</span><span class="of"><a href="building.html">Het Metzgebouw, fourth floor</a></span></p>
-<h1>Season 03 — INLINE</h1>  <div class="prose">
+  <div class="prose">
     <p class="lede">The line between online and offline no longer holds.</p>
 <p>The line between online and offline no longer holds. What we see, make and experience unfolds in a reality that is both at once — layered, shifting, and no longer separable.</p><p>INLINE is the third season of MADART Foundation, bringing together six presentations that each approach the same tension from their own material, medium and visual language: what does it mean to make something in a world that always exists somewhere else too?</p><p>Opening night: Wednesday 21 October 2026, 18:00–21:00, doors at 17:45. Entry is by contribution to MADART Foundation. The season is then open to the public from 22 October 2026 through 17 January 2027, daily 10:00–18:00, free entry.</p>  </div>
 </div></section>

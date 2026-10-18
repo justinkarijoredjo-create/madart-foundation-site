@@ -4,7 +4,31 @@
 {% block content %}
 {% if season.hero %}
 <div class="hero">
+  {# Een bewegende hero zolang er nog geen installatiefoto's zijn. De poster is
+     een frame uit dezelfde video, zodat er meteen beeld staat en og:image iets
+     heeft om te tonen — een video kan dat niet. Geen geluid, geen knoppen: dit
+     is achtergrond, geen speler. #}
+  {% if season.hero_video %}
+  <video src="{{ season.hero_video }}" poster="{{ season.hero }}"
+         autoplay muted loop playsinline preload="metadata"
+         aria-label="Installation view of Season {{ season.number }} — {{ season.title }}"
+         style="width:100%;height:min(76vh,760px);object-fit:cover;display:block"></video>
+  {% else %}
   <img src="{{ season.hero }}" alt="Installation view of Season {{ season.number }} — {{ season.title }}" width="2400" height="1601" fetchpriority="high" decoding="async">
+  {% endif %}
+  {% if season.hero_video %}
+  <script>
+  /* Wie beweging heeft uitgezet krijgt de poster in plaats van de film. De
+     video blijft staan en is met de knoppen alsnog te starten; alleen het
+     vanzelf afspelen vervalt. Dit staat hier en niet in base.html, want dan
+     zou elke pagina van de site wijzigen voor een hero op er een. */
+  (function(){
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var v=document.querySelector('.hero video[autoplay]');
+    if(v){ v.removeAttribute('autoplay'); v.pause(); v.controls=true; }
+  })();
+  </script>
+  {% endif %}
   <div class="overlay"><div class="wrap">
     <p class="code">SEASON {{ season.number }}</p>
     <h1 class="display">{{ season.title }}</h1>

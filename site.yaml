@@ -137,7 +137,8 @@ seasons:
   dates_label: 21 October 2026 – 17 January 2027
   start: '2026-10-21'
   end: '2027-01-17'
-  hero: null
+  hero: hero-inline.jpg
+  hero_video: hero-inline.mp4
   card: c-exhibition-inline.jpg
   standfirst: The line between online and offline no longer holds.
   body:
