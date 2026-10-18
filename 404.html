@@ -29,7 +29,7 @@
 <header class="masthead">
   <div class="wrap">
     <a class="wordmark" href="index.html">MADART FOUNDATION</a>
-    <span class="status-dot" id="openstate"><i></i><span>Open daily 10:00–18:00</span></span>
+    <span class="status-dot" id="openstate"><i></i><span>Opens 22 October</span></span>
     <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
     <nav class="mainnav" id="mainnav">
       <a href="exhibitions.html">Exhibitions</a>
@@ -69,7 +69,7 @@
       </div>
       <div>
         <p class="foot-h">VISIT</p>
-        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
+        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">Het Metzgebouw<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
         <p><a href="visit.html">Opening hours and directions</a><br>
            <a href="building.html">The building, level by level</a></p>
       </div>
@@ -144,6 +144,22 @@
   // Opening state. Hours live in one place: data/site.yaml -> rendered here.
   var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
   var el=document.getElementById('openstate');
+  /* Tussen twee seizoenen staat de vierde verdieping leeg. De vaste tijden
+     gelden pas vanaf de eerste publieksdag; tot dan is "Open daily" een
+     belofte die niet waar is. */
+  var OPENT="2026-10-22";
+  if(el && OPENT){
+    var vandaag=new Date().toISOString().slice(0,10);
+    try{
+      vandaag=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',
+        year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    }catch(e){}
+    if(vandaag < OPENT){
+      el.className='status-dot';
+      el.querySelector('span').textContent="Opens 22 October";
+      el=null;
+    }
+  }
   if(el){
     /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
        device clock, so a reader in New York was told the doors were open at
