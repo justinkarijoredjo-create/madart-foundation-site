@@ -57,6 +57,25 @@ headlinks=('<a href="https://www.instagram.com/iconicdesignobjects" target="_bla
  '<a href="https://www.iconicdesignobjects.com" target="_blank" rel="noopener">iconicdesignobjects.com</a>'
  '<a href="https://www.studiosophiehospes.com" target="_blank" rel="noopener">studiosophiehospes.com</a>'
  f'<a href="{WA_MAKER}" target="_blank" rel="noopener">Message {data.CONTACT_FIRST} (I-DO)</a>')
+
+blocks=[]
+for i,pp in enumerate(data.PEOPLE):
+    f=f"portrait-{data.SLUG}-{pp['key']}.jpg"; iw,ih=Image.open(f"{OUT}/{f}").size
+    links=' &middot; '.join(f'<a href="{u}" target="_blank" rel="noopener">{E(l)}</a>' for l,u in pp['links'])
+    wrap_open='  <div>' if i==0 else '  <div style="margin-top:clamp(52px,7vw,92px);padding-top:clamp(34px,4vw,52px);border-top:var(--hair)">'
+    blocks.append(f'''{wrap_open}
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,40px);align-items:flex-start">
+      <figure style="flex:0 1 300px;margin:0;background:var(--linen)">
+        <img src="{f}" alt="Portrait, {E(pp['short'])}" width="{iw}" height="{ih}"
+             style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block"
+             loading="lazy" decoding="async">
+      </figure>
+      <div class="ed-body" style="flex:1 1 340px">
+        <h3 class="talk-titel">{E(pp['name'])}</h3>
+{paras(pp['text'])}<p>{links}</p>      </div>
+    </div>
+  </div>''')
+makers_html='\n'.join(blocks)
 maker=head(f"{data.MAKER} — MADART FOUNDATION",DESC,data.BASE+data.SLUG+".html",data.BASE+P0+".jpg",ld)
 maker+=header+f'''<main id="main">
 
@@ -76,7 +95,7 @@ maker+=header+f'''<main id="main">
 
 
 <figure class="maker-hero">
-  <img src="portrait-{data.SLUG}.jpg" alt="ICONIC DESIGN OBJECTS and STUDIOSOPHIEHOSPES" width="{pw}" height="{ph}" fetchpriority="high" decoding="async">
+  <img src="portrait-{data.SLUG}.jpg" alt="The silhouette of Ghost behind frosted glass, one hand pressed against it" width="{pw}" height="{ph}" style="object-fit:contain" fetchpriority="high" decoding="async">
 </figure>
 
 <section class="reveal"><div class="wrap">
@@ -89,11 +108,17 @@ maker+=header+f'''<main id="main">
 <section class="reveal editorial"><div class="wrap">
   <h2 class="index"><span class="no">02</span><span>Practice</span></h2>
   <div class="ed-body">
-{paras(data.IDO)}{''.join(f'<p>{E(p)}</p>' for p in data.SSH)}  </div>
+{paras(data.WORKS[0]['text'])}  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">03</span><span>Makers</span>
+    <span class="of">{len(data.PEOPLE)}</span></h2>
+{makers_html}
 </div></section>
 
 <section class="reveal editorial"><div class="wrap">
-  <h2 class="index"><span class="no">03</span><span>Why this maker, and where</span></h2>
+  <h2 class="index"><span class="no">04</span><span>Why this maker, and where</span></h2>
   <div class="ed-body">
 {paras(data.WHY)}  </div>
 </div></section>

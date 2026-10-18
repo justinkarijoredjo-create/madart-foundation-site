@@ -35,3 +35,9 @@ WHY=["INLINE asks what it means to make something in a world that always exists 
      "I-DO began with collectors who wanted to make the objects they were looking for themselves, and that is the position they bring to the Gallery Lounge, the season\u2019s only duo. Ghost is shown at twenty-five centimetres, the scale of something kept close \u2014 made, in I-DO\u2019s own words, to be owned, experienced and identified with."]
 IN_BRIEF=["I-DO \u2014 offices in Amsterdam and Shenzhen, founded 2022.",
           "STUDIOSOPHIEHOSPES \u2014 recent work includes projects for Nike, Ray-Ban and Mercer Labs (Museum of Art and Technology in New York)."]
+# Collaboration image (option 1) + maker portraits, Buro Berger pattern
+SILHOUETTE="/mnt/user-data/uploads/_ESRGAN_10409.jpg"
+PEOPLE=[dict(key="ido",name="ICONIC DESIGN OBJECTS (I-DO)",short="I-DO",src="/mnt/user-data/uploads/PHOTO-2026-10-18-17-19-30.jpg",
+             text=IDO,links=[("@iconicdesignobjects","https://www.instagram.com/iconicdesignobjects"),("iconicdesignobjects.com","https://www.iconicdesignobjects.com")]),
+        dict(key="ssh",name="STUDIOSOPHIEHOSPES (SSH)",short="STUDIOSOPHIEHOSPES",src="/mnt/user-data/uploads/Scherm_afbeelding_2026-10-09_om_02_21_02.png",
+             text=SSH,links=[("@studiosophiehospes","https://www.instagram.com/studiosophiehospes"),("studiosophiehospes.com","https://www.studiosophiehospes.com")])]

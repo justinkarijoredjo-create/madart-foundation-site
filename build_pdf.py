@@ -36,11 +36,21 @@ for y,ln in zip((410.9,454.9),data.COVER): T(54,y,ln,'Courier-Bold',38)
 T(56,490.9,data.GALLERY,'Courier',10)
 T(56,771.9,'NIO House Amsterdam · Leidsestraat 32–34','Courier',8.5); T(56,783.9,'Catalogue · 2026','Courier',8.5)
 c.showPage()
-# 2 portrait — diptych, two placeholders until portraits of both parties arrive
-bg(LIN); c.drawImage('pdf/portrait-a.jpg',0,0,W/2,H); c.drawImage('pdf/portrait-b.jpg',W/2,0,W/2,H)
-c.setFillColor(INK); c.setFont('Courier',9); c.drawRightString(555.3,H-801.9,'Artists')
-c.setFont('Courier-Bold',13); c.drawRightString(555.3,H-817.9,data.MAKER)
-c.showPage()
+# 2 collaboration image + maker portraits: full-bleed cover-crop (portrait-page convention)
+from PIL import ImageStat
+def coverpage(path,label,name):
+    iw,ih=Image.open(path).size; s=max(W/iw,H/ih); dw,dh=iw*s,ih*s
+    bg(INK); c.drawImage(path,(W-dw)/2,(H-dh)/2,dw,dh)
+    im=Image.open(path).convert('L'); x0=int(iw*0.55); y0=int(ih*0.90)
+    lum=ImageStat.Stat(im.crop((x0,y0,iw,ih))).mean[0]
+    c.setFillColor(INK if lum>140 else CHK)
+    if label: c.setFont('Courier',9); c.drawRightString(555.3,H-801.9,label)
+    c.setFont('Courier-Bold',13); c.drawRightString(555.3,H-817.9,name)
+    CROPS.append((path,iw,ih,round(dw-W),round(dh-H),round(lum)))
+    c.showPage()
+CROPS=[]
+coverpage('pdf/silhouette.jpg','',data.MAKER)
+for pp in data.PEOPLE: coverpage(f"pdf/portrait-{pp['key']}.jpg",'Artist',pp['short'].replace(' (I-DO)','') if False else pp['name'].split(' (')[0])
 # 3 practice
 bg(CHK); T(56,62,'PRACTICE','Courier-Bold',16); y=86
 for p in data.IDO+data.SSH+data.WORKS[0]['text']: y=para(56,y,p)+7
@@ -80,4 +90,4 @@ y=para(56,126,f"To inquire about a work, tap ‘inquire via WhatsApp’ beneath 
 y+=18; link(56,y,f'Message {data.CONTACT_FIRST} on WhatsApp',WA_GEN,9); y+=16
 for lab,url in data.LINKS[:2]: L(56,y,lab,url,9); y+=16
 T(56,771.9,'MADART FOUNDATION · Season 03 INLINE · NIO House Amsterdam','Courier',8,G1); T(56,783.9,'Leidsestraat 32–34 · 2026','Courier',8,G1)
-c.showPage(); c.save(); print('ribbon shrunk:',SHRUNK)
+c.showPage(); c.save(); print('ribbon shrunk:',SHRUNK); print('crops (overflow w,h pt; lum):',CROPS)
