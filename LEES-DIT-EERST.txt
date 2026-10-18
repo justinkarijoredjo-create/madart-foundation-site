@@ -1,81 +1,68 @@
-LEVERING — bewegende hero voor INLINE, plus twee reparaties
+LEVERING — foto in plaats van video, en de elf sjablonen weer weg
 madartfoundation.com · 18 oktober 2026
 
-TWAALF BESTANDEN. Beelden eerst, dan de pagina's.
+NEGENTIEN BESTANDEN.
 
-  deel-01-BEELD      2   hero-inline.mp4 en hero-inline.jpg
-  deel-02-PAGINAS   10
-
---------------------------------------------------------------------------
-JE VORIGE UPLOAD IS AANGEKOMEN
---------------------------------------------------------------------------
-Het Metzgebouw staat overal, het openingsblok staat op de homepage met de
-Eventbrite-knop, en de koptekst zegt "Opens 22 October" in plaats van
-"Open daily". Gecontroleerd op het domein zelf.
+  deel-01-BEELD       1   hero-inline-01.jpg
+  deel-02-PAGINAS    18
 
 --------------------------------------------------------------------------
-1 · DE HERO
+1 · DE FOTO STAAT OP BEIDE PLEKKEN
 --------------------------------------------------------------------------
-Je video staat nu boven aan season-03-inline.html: schermvullend, zonder
-geluid, in een lus, zonder knoppen. Achtergrond, geen speler.
+De video is eruit. Jouw foto staat nu op:
 
-WAT IK ERMEE HEB GEDAAN — alleen omzetten, niets bewerkt:
-  bron       1920 × 1080 · 27 s · 25 fps · geen audio · 8,0 MB
-  geleverd   1600 breed  · 27 s · geen audio          · 1,7 MB
+  season-03-inline.html   als kopbeeld boven de pagina
+  index.html              als kopbeeld van de homepage
 
-8 MB is te zwaar voor een beeld dat elke bezoeker van die pagina laadt; bij
-1600 pixels breed is het verschil op een scherm niet te zien. Met
-+faststart, zodat hij begint te spelen voordat hij binnen is.
+Alleen hernoemd naar hero-inline-01.jpg, verder onbewerkt: 1600 × 893,
+123 kB. Dat is al goed gecomprimeerd; er viel niets te winnen.
 
-DE POSTER. hero-inline.jpg is een frame uit dezelfde video, op 2 seconden —
-de zaal met de schermen, het beeld dat het seizoen het best draagt. Ik heb
-drie kandidaten naast elkaar gelegd (2, 9 en 18 seconden) voordat ik koos.
-De poster staat er meteen, voordat de video geladen is.
+DE HOMEPAGE HAD HELEMAAL GEEN KOPBEELD. Dat is sinds vanmiddag zo. De
+homepage haalt zijn beeld uit het LOPENDE seizoen, en toen INLINE dat werd,
+was er nog geen beeld. Er stond letterlijk <div class="frames"></div> — leeg.
+Dat had ik moeten opmerken toen ik het seizoen omzette; dat heb ik niet
+gedaan. Met deze foto is het opgelost.
 
-De poster is ook de og:image van de pagina. Een video kan dat niet zijn: wie
-de link deelt op WhatsApp of Instagram krijgt dit beeld te zien.
+De foto is nu ook het deelbeeld van de homepage en van zeven andere
+pagina's.
 
-BEWEGING UIT. Wie in zijn systeem "beperk beweging" aan heeft staan, krijgt
-de poster met afspeelknoppen in plaats van een lopende film. Dat scriptje
-staat op de seizoenspagina zelf en niet in het basissjabloon — anders was
-elke pagina van de site gewijzigd voor een hero op er een. Dat scheelt 223
-bestanden in deze levering.
+DE ALT-TEKST die ik heb geschreven:
+  "Gallery Lounge: chrome flower figures on blue plinths, with the same
+   figure shown on screens around the room"
+Dat is wat er te zien is. Ik heb er geen makersnaam bij gezet, want wie wat
+heeft gemaakt staat niet in het beeld. Wil je Iconic Design Objects of Studio
+Sophie Hospes erbij noemen, zeg het dan en ik pas de regel aan.
 
-ALS DE FOTO'S ER ZIJN: haal hero_video weg uit site.yaml en zet hero op de
-installatiefoto. Eén regel, en de pagina valt terug op het beeld.
-
---------------------------------------------------------------------------
-2 · ACHT PAGINA'S DEELDEN EEN KAPOT DEELBEELD
---------------------------------------------------------------------------
-Dit kwam boven water door de hero. Deze acht pagina's hadden:
-
-    <meta property="og:image" content="https://madartfoundation.com/None">
-
-Letterlijk "None" als bestandsnaam. Ze vielen terug op het heldbeeld van het
-lopende seizoen, en dat was leeg zolang INLINE er geen had. Wie een van deze
-links deelde kreeg geen voorbeeld te zien:
-
-    404.html · echo.html · enquire.html · enquiry-thanks.html
-    events.html · index.html · spot-den-haag.html · thanks.html
-
-Daar staat nu hero-inline.jpg. **Inclusief de homepage** — de meest gedeelde
-link van de site.
+hero-inline.mp4 en hero-inline.jpg worden nergens meer gebruikt. Die kun je
+verwijderen; dat is jouw handeling, ik raak het niet aan.
 
 --------------------------------------------------------------------------
-3 · SHOP.HTML — NOG STEEDS NIET GEUPLOAD
+2 · DE ELF SJABLONEN STAAN ER NOG
 --------------------------------------------------------------------------
-Dit bestand zat ook in de vorige levering maar staat nog niet live.
+anbi · building · enquire · exhibitions · friend · makers · privacy · shop ·
+thanks · visit · works
 
-madartfoundation.com/shop.html toont nu de broncode van het sjabloon. De
-eerste regel is {% extends "base.html" %}. Een bezoeker ziet geen pagina maar
-ruwe sjabloontaal. Het hoort een doorverwijzing van 500 bytes te zijn naar
-works.html.
+In de wortel staan op die namen nog mijn sjabloonbestanden, met {% %} erin.
+Ik heb het gemeten: works.html in de repository is byte voor byte gelijk aan
+mijn templates/works.html, en shop.html ook — dat is tweemaal hetzelfde
+sjabloon.
+
+Een bezoeker op madartfoundation.com/works.html ziet nu geen werkenlijst maar
+ruwe sjabloontaal.
+
+De goede versies zitten in deel-02. Upload die eroverheen; verwijderen hoeft
+niet.
+
+DE OORZAAK: de generator-zip wordt uitgepakt in de wortel in plaats van in
+een map generator/. Elf sjablonen dragen dezelfde naam als een echte pagina.
+Zolang dat zo gaat, gebeurt dit bij elke volgende upload opnieuw. Doe het
+voorlopig niet, of bewaar de zip ergens buiten de repository.
 
 --------------------------------------------------------------------------
 WAT ER IS GEMETEN
 --------------------------------------------------------------------------
   python3 build.py --check   ->  built 285 pages
-  linkcontrole               ->  9.985 links, beelden en posters, 0 kapot
-  diff tegen repo            ->  252 identiek, 9 gewijzigd
+  linkcontrole               ->  9.985 links en beelden, 0 kapot
+  hero-inline.mp4            ->  0 van de 285 pagina's
   og:image met "None"        ->  0 van de 285 pagina's
   style.css                  ->  byte-identiek aan live
