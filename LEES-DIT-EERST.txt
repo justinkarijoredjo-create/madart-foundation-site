@@ -1,98 +1,22 @@
-LEVERING — Het Metzgebouw, de opening en de openingstijden
-madartfoundation.com · 18 oktober 2026 · drie dagen voor de opening
+ÉÉN BESTAND — shop.html
+madartfoundation.com · 18 oktober 2026
 
-232 BESTANDEN, vijf mappen van maximaal 50. Alles in de wortel.
-style.css wijzigt niet.
+260 van de 261 bestanden zijn identiek. Dit is de enige die nog afwijkt, en
+hij is kapot.
 
---------------------------------------------------------------------------
-1 · HET METZGEBOUW
---------------------------------------------------------------------------
-"NIO House Amsterdam" heet nu overal "Het Metzgebouw". 34 vindplaatsen in
-acht bestanden, en op 232 van de 285 pagina's.
+WAT ER NU LIVE STAAT
+shop.html bevat de broncode van het sjabloon in plaats van een pagina. De
+eerste regel is:
 
-WAT NIET IS VERVANGEN, EN WAAROM:
-NIO House is de organisatie die in het gebouw zit — eigen kantoren, eigen
-werkvloer, eigen café. Achttien vermeldingen gaan daarover en zijn blijven
-staan:
-    "NIO House's own offices"        (vijfde verdieping)
-    "NIO House's working floor"
-    "NIO House's café, open to anyone who walks in"
-    "used by NIO House for events"   (eerste verdieping)
-    de bezetting van verdieping 1, 3, 5 en 7
-Die hadden fout gestaan als Het Metzgebouw. Het gebouw is de locatie; NIO
-House is een huurder.
+    {% extends "base.html" %}
 
---------------------------------------------------------------------------
-2 · DE OPENING STAAT OP DE SITE
---------------------------------------------------------------------------
-Een blok op de homepage, boven alles:
+Dat is het bestand templates/works.html, geüpload onder de naam shop.html.
+Een bezoeker op madartfoundation.com/shop.html ziet geen pagina maar ruwe
+sjabloontaal: {% %}-blokken, {{ }}-variabelen, de hele werking van de site.
 
-    Wednesday 21 October 2026 · 18:00 – 21:00
-    Season 03 — INLINE opens
-    Het Metzgebouw, Leidsestraat 32-34, fourth floor. Entry is by
-    contribution to MADART Foundation. Doors at 17:45.
-    From 22 October the season is open daily, 10:00 – 18:00, free entry.
-    [Register for the opening →]  [The season →]
+WAT HET MOET ZIJN
+shop.html is een doorverwijzing. De pagina heette vroeger zo en is hernoemd
+naar works.html; het oude adres blijft bestaan zodat links en zoekresultaten
+die ernaar wijzen niet breken. Vijfhonderd bytes, meer niet.
 
-De knop gaat naar de Eventbrite-pagina. Het blok zit achter dezelfde
-datumgrens als het GLUE-blok vorige maand: na 21 oktober valt het vanzelf
-weg, zonder dat iemand eraan hoeft te denken.
-
-De gegevens staan op één plek, onder `opening:` in site.yaml. Volgend
-seizoen is het één blok aanpassen.
-
-DRIE DINGEN UIT HET REFERENTIEDOCUMENT KLOPTEN NIET MEER. Eventbrite zegt:
-    tijd      18:00 – 21:00      (dossier zei 19:00 – 22:00)
-    toegang   via bijdrage       (dossier zei invite-only, circa 150 gasten)
-    tijden    bevestigd          (dossier zei "nog te bevestigen")
-Ik heb Eventbrite aangehouden; dat is wat de bezoeker leest.
-
---------------------------------------------------------------------------
-3 · DE OPENINGSTIJDEN
---------------------------------------------------------------------------
-De koptekst zei op elke pagina "Open daily 10:00–18:00". Dat klopt pas vanaf
-22 oktober; tot dan staat de vierde verdieping tussen twee seizoenen.
-
-Nu staat er "Opens 22 October", en vanaf die dag schakelt hij vanzelf om naar
-de gewone status. Dat geldt ook ZONDER JavaScript: de statische regel in de
-koptekst volgt dezelfde datum, want dat is wat een bezoeker ziet voordat het
-script draait en wat een zoekmachine leest.
-
-De seizoenstekst op season-03-inline.html noemt nu ook de publieksdagen:
-22 October 2026 – 17 January 2027, daily 10:00–18:00, free entry.
-
---------------------------------------------------------------------------
-WAT ER IS GEMETEN
---------------------------------------------------------------------------
-  python3 build.py --check   ->  built 285 pages
-  linkcontrole               ->  9.983 interne links, 0 kapot
-  JSON-LD                    ->  214 blokken, alle 214 geldig
-  "NIO House Amsterdam"      ->  0 van de 285 pagina's
-  "Open daily 10:00"         ->  0 van de 285 pagina's
-  diff tegen repo            ->  29 identiek, 232 gewijzigd, 0 nieuw
-  style.css                  ->  byte-identiek aan live
-
---------------------------------------------------------------------------
-WAAROM HET ER 232 ZIJN
---------------------------------------------------------------------------
-De naam van het gebouw staat in de voettekst van elke pagina. Dat is één
-wijziging die overal landt. Inhoudelijk verandert er op de meeste pagina's
-niets anders.
-
---------------------------------------------------------------------------
-EEN VRAAG
---------------------------------------------------------------------------
-Op de homepage staat nog SEASON 03 · NOW SHOWING, terwijl het seizoen pas
-woensdag opent. Het openingsblok staat er nu boven en zegt het goed, dus een
-bezoeker wordt niet misleid. Wil je dat "NOW SHOWING" tot woensdag iets
-anders zegt, dan is dat één regel.
-
---------------------------------------------------------------------------
-NOG OPEN
---------------------------------------------------------------------------
-DE GENERATOR staat nog nergens veilig. Hij bestaat alleen in mijn
-werkomgeving, en die wordt gewist.
-
-DE AFSPRAAK over wie welke bestanden schrijft.
-
-I-DO in de Gallery Lounge, en de video-CSS naar style.css.
+Upload dit bestand en het is opgelost.
