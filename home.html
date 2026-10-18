@@ -39,6 +39,24 @@
    het op 2.919 pixels diepte op een telefoon, ruim drie schermen scrollen, en
    dat is het moment waarop de site deze maand het meest wordt geopend. De
    datumvoorwaarde zit in de bouw: op 20 september valt het blok vanzelf weg. #}
+{# Het openingsblok van het lopende seizoen. Twee vragen die iemand nu heeft:
+   wanneer is het, en hoe kom ik binnen. De Eventbrite-knop staat voorop omdat
+   toegang via een bijdrage loopt; daarna pas het seizoen zelf. #}
+{% if opening_nu %}
+<div class="nubezig">
+  <div class="wrap">
+    <p class="wanneer">{{ opening_nu.date_label }} &middot; {{ opening_nu.hours }}</p>
+    <h2>{{ opening_nu.season }} opens</h2>
+    <p class="regel">{{ opening_nu.where }}. {{ opening_nu.entry }} {{ opening_nu.doors }}.</p>
+    <p class="regel">{{ opening_nu.after }}</p>
+    <p class="knoppen">
+      <a class="btn" href="{{ opening_nu.url }}" target="_blank" rel="noopener">{{ opening_nu.cta }} &#8594;</a>
+      <a class="btn-outline" href="season-03-inline.html">The season &#8594;</a>
+    </p>
+  </div>
+</div>
+{% endif %}
+
 {% if festival_nu %}
 <div class="nubezig">
   <div class="wrap">
@@ -433,7 +451,7 @@
     p.hero.innerHTML = ""; p.hero.hidden = !L.hero;
     if(L.hero){
       const img = document.createElement("img");
-      img.alt = "Level " + L.label + " of NIO House Amsterdam";
+      img.alt = "Level " + L.label + " of Het Metzgebouw";
       img.loading = "eager"; img.decoding = "async"; img.src = L.hero;
       p.hero.appendChild(img);
     }

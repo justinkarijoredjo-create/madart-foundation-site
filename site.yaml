@@ -1,4 +1,16 @@
+opening:
+  season: Season 03 — INLINE
+  date_label: Wednesday 21 October 2026
+  hours: 18:00 – 21:00
+  doors: Doors at 17:45
+  where: Het Metzgebouw, Leidsestraat 32-34, fourth floor
+  entry: Entry is by contribution to MADART Foundation.
+  after: From 22 October the season is open daily, 10:00 – 18:00, free entry.
+  url: https://www.eventbrite.nl/e/opening-night-madart-foundation-season-03-inline-during-ade-tickets-2003179592084
+  cta: Register for the opening
 site:
+  opens_on: '2026-10-22'
+  opens_label: Opens 22 October
   name: MADART FOUNDATION
   url: https://madartfoundation.com
   year: 2026
@@ -26,7 +38,7 @@ site:
   - label: About
     href: mission.html
   venue:
-    name: NIO House Amsterdam
+    name: Het Metzgebouw
     street: Leidsestraat 32-34
     postcode: 1017 PB Amsterdam
     floor: Fourth floor
@@ -76,7 +88,7 @@ seasons:
   start: 2026-07-03
   end: 2026-09-30
   dates_label: 3 July – 30 September 2026
-  location: NIO House Amsterdam, fourth floor
+  location: Het Metzgebouw, fourth floor
   hero: hero-ground-01.jpg
   card: c-exhibition-ground.jpg
   hero_images:
@@ -104,12 +116,12 @@ seasons:
   start: 2026-04-01
   end: 2026-07-01
   dates_label: 1 April – 1 July 2026
-  location: NIO House Amsterdam
+  location: Het Metzgebouw
   hero: null
   card: c-exhibition-paradox.jpg
   standfirst: Where opposites no longer hold.
   body:
-  - 'Season 01 ran at NIO House Amsterdam from April to July 2026 under the title PARADOX: work that holds two things at once without resolving them.'
+  - 'Season 01 ran at Het Metzgebouw from April to July 2026 under the title PARADOX: work that holds two things at once without resolving them.'
   - PARADOX ran under a different model. Galleries took the floor for the season and presented the makers they represent. The Foundation did not exist yet, and the concept was another one.
   - 'It is counted as a season because the floor was programmed for three months. It is not counted in the thirty makers, because those are the makers the Foundation curates itself, and that began with
     Season 02. What PARADOX settled was the question of what this should become: supporting makers rather than representing galleries.'
@@ -121,7 +133,7 @@ seasons:
   title: INLINE
   programme: inline
   status: current
-  location: NIO House Amsterdam, fourth floor
+  location: Het Metzgebouw, fourth floor
   dates_label: 21 October 2026 – 17 January 2027
   start: '2026-10-21'
   end: '2027-01-17'
@@ -134,16 +146,19 @@ seasons:
   - 'INLINE is the third season of MADART Foundation, bringing together six presentations
     that each approach the same tension from their own material, medium and visual language:
     what does it mean to make something in a world that always exists somewhere else too?'
+  - 'Opening night: Wednesday 21 October 2026, 18:00–21:00, doors at 17:45. Entry is by
+    contribution to MADART Foundation. The season is then open to the public from 22 October
+    2026 through 17 January 2027, daily 10:00–18:00, free entry.'
 place:
   image: place-nio-house.jpg
-  alt: NIO House Amsterdam at dusk, the 1891 Metz building reflected in the Keizersgracht
-  title: NIO House Amsterdam
+  alt: Het Metzgebouw at dusk, the 1891 Metz building reflected in the Keizersgracht
+  title: Het Metzgebouw
   body:
   - A national monument on the corner of the Leidsestraat and the Keizersgracht. Built in 1891 for the New York Life Insurance Company — at 26 metres the tallest private building in the city, its facade
     still carrying the letters NY and the eagle of its first owner.
   - Metz & Co moved in during 1908 and furnished Amsterdam's interiors from here for over a century, bringing Rietveld, Bauhaus and Liberty of London to the city. In 1933 Gerrit Rietveld crowned the roof
     with a glass dome, built as an exhibition room. Le Corbusier and Mies van der Rohe showed their furniture there for the first time in the Netherlands. It is still there.
-  - Metz & Co left in 2012. Abercrombie & Fitch occupied the building until the end of 2022, and in 2024 it reopened as NIO House Amsterdam, restored by MVRDV.
+  - Metz & Co left in 2012. Abercrombie & Fitch occupied the building until the end of 2022, and in 2024 it reopened as Het Metzgebouw, restored by MVRDV.
   - The fourth floor is ours for the length of each season. It is not a rented hall dressed for an evening; it is a gallery floor that has meant something for three months before anyone walks in. That is
     the difference a maker feels, and a visitor feels it too.
 team:
@@ -170,7 +185,7 @@ maison:
   title: Maison d'Artiste
   subtitle: A festival by MADART Foundation, within GLUE Amsterdam
   dates_label: 17 – 19 September 2026
-  location: NIO House Amsterdam, sixth and seventh floor
+  location: Het Metzgebouw, sixth and seventh floor
   hero: null
   standfirst: Where GROUND lays bare the ground a maker's practice stands on, Maison d'Artiste stages what happens when that practice enters a room built for living — a table that is eaten at, a chair that
     is sat in, a lamp that is switched on.
@@ -304,7 +319,7 @@ programme_events:
 - name: Opening Night — Season 03, INLINE
   kind: OPENING
   dates: 2 October 2026
-  where: NIO House Amsterdam, fourth floor
+  where: Het Metzgebouw, fourth floor
   href: season-03-inline.html
   image: c-event-opening-inline.jpg
   status: upcoming
@@ -316,7 +331,7 @@ events:
   dates_label: 17 – 19 September 2026
   start: 2026-09-17
   end: 2026-09-19
-  location: NIO House Amsterdam, fourth, sixth and seventh floors
+  location: Het Metzgebouw, fourth, sixth and seventh floors
   standfirst: Three days, eight floors, one route. GROUND stays open throughout; Maison d'Artiste opens the sixth and seventh floors alongside it.
   note: The talks programme on the second floor is made possible by Ignore and Charles & More.
   card: c-exhibition-glue.jpg

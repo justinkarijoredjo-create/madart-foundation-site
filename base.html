@@ -141,6 +141,22 @@
   // Opening state. Hours live in one place: data/site.yaml -> rendered here.
   var HOURS={{ site.hours_json|safe }};
   var el=document.getElementById('openstate');
+  /* Tussen twee seizoenen staat de vierde verdieping leeg. De vaste tijden
+     gelden pas vanaf de eerste publieksdag; tot dan is "Open daily" een
+     belofte die niet waar is. */
+  var OPENT={{ (site.opens_on or '')|tojson }};
+  if(el && OPENT){
+    var vandaag=new Date().toISOString().slice(0,10);
+    try{
+      vandaag=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',
+        year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    }catch(e){}
+    if(vandaag < OPENT){
+      el.className='status-dot';
+      el.querySelector('span').textContent={{ (site.opens_label or 'Opens soon')|tojson }};
+      el=null;
+    }
+  }
   if(el){
     /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
        device clock, so a reader in New York was told the doors were open at

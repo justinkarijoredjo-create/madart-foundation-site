@@ -135,7 +135,7 @@ support-us:
       and gifts do.
 pers:
   og_image: place-nio-house.jpg
-  meta: Press enquiries, installation photography, portraits and curatorial statements for MADART Foundation at NIO House Amsterdam.
+  meta: Press enquiries, installation photography, portraits and curatorial statements for MADART Foundation at Het Metzgebouw.
   label: Press
   heading: Press enquiries, images and interviews.
   lede: For questions, images or interview requests, write to press@madartfoundation.com. Until 19 September we answer the same day.
@@ -143,7 +143,7 @@ pers:
   - type: prose
     heading: Maison d'Artiste 2026 — the facts
     paragraphs:
-    - 17 to 19 September 2026, 10:00 to 18:00, free entry. NIO House Amsterdam, Leidsestraat 32-34, the former Metz & Co building. Eight floors open, within GLUE Amsterdam Design Route. A festival by MADART
+    - 17 to 19 September 2026, 10:00 to 18:00, free entry. Het Metzgebouw, Leidsestraat 32-34, the former Metz & Co building. Eight floors open, within GLUE Amsterdam Design Route. A festival by MADART
       Foundation.
     - 'Thirty makers: eleven on the sixth and seventh floors and in the staircases, nineteen two floors below in Season 02 GROUND, which stays open throughout. Talks on the second floor, tours through the
       whole building, a workshop and sound sessions under Rietveld''s 1933 glass dome.'
@@ -206,14 +206,14 @@ pers:
     note: The official route listing.
 contact:
   og_image: place-nio-house.jpg
-  meta: Reach MADART Foundation at NIO House Amsterdam, Leidsestraat 32-34, fourth floor. Enquiries about work go straight to the maker.
+  meta: Reach MADART Foundation at Het Metzgebouw, Leidsestraat 32-34, fourth floor. Enquiries about work go straight to the maker.
   label: Contact
   heading: Get in touch.
-  lede: Write to contact@madartfoundation.com, or press@madartfoundation.com for press. You will find us on the fourth floor of NIO House Amsterdam, Leidsestraat 32-34.
+  lede: Write to contact@madartfoundation.com, or press@madartfoundation.com for press. You will find us on the fourth floor of Het Metzgebouw, Leidsestraat 32-34.
   blocks:
   - type: prose
     heading: Where to find us
     paragraphs:
-    - NIO House Amsterdam, Leidsestraat 32-34, 1017 PB Amsterdam, fourth floor.
+    - Het Metzgebouw, Leidsestraat 32-34, 1017 PB Amsterdam, fourth floor.
     - For questions about a specific work, the fastest route is the maker themselves — every work page has a direct line.
   title: Contact

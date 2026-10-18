@@ -66,6 +66,7 @@ def load():
         "seasons": site_doc["seasons"],
         "events":  site_doc["events"],
         "campaign": site_doc.get("campaign") or {},
+        "opening": site_doc.get("opening") or {},
         "maison":  site_doc["maison"],
         "giving":  site_doc["giving"],
         "plans":   yaml.safe_load((DATA/"plans.yaml").read_text(encoding="utf-8"))
@@ -209,6 +210,12 @@ def enrich(d):
         d["site"]["hours_static"] = f"Open daily {_a:02d}:{_b:02d}\u2013{_c:02d}:{_e:02d}"
     else:
         d["site"]["hours_static"] = "Opening hours"
+    # Zolang het seizoen nog niet open is, is "Open daily" niet waar. Dit is de
+    # regel die een bezoeker ziet voordat het script draait, en die een
+    # zoekmachine leest — dus die moet kloppen zonder JavaScript.
+    _opent = d["site"].get("opens_on")
+    if _opent and TODAY < str(_opent):
+        d["site"]["hours_static"] = d["site"].get("opens_label") or "Opens soon"
     # Browsers cache the stylesheet. A fingerprint of its contents in the URL means
     # a changed stylesheet is a new URL, so nobody has to force-refresh.
     css = (STATIC/"style.css").read_bytes()
@@ -322,10 +329,10 @@ def maker_meta(m, aantal, tot_datum):
     while kern and kern.rsplit(" ", 1)[-1].lower() in LOS:
         kern = kern.rsplit(" ", 1)[0].rstrip(" ,\u2014-")
     if aantal:
-        staart = ("%d work%s at MADART Foundation, NIO House Amsterdam, %s"
+        staart = ("%d work%s at MADART Foundation, Het Metzgebouw, %s"
                   % (aantal, "" if aantal == 1 else "s", tot_datum))
     else:
-        staart = "At MADART Foundation, NIO House Amsterdam, %s" % tot_datum
+        staart = "At MADART Foundation, Het Metzgebouw, %s" % tot_datum
     return (kern + ". " + staart) if kern else staart
 
 
@@ -610,6 +617,10 @@ def build():
           # zonder dat er iemand aan hoeft te denken.
           festival_nu=next((e for j, e in sorted((d.get("programme") or {}).items())
                             if date.today() <= date(2026, 9, 19)), None),
+          # Het openingsblok van INLINE. Zelfde logica als het festivalblok:
+          # het staat er tot en met de avond zelf en valt daarna weg zonder dat
+          # er iemand aan hoeft te denken.
+          opening_nu=(d["opening"] if date.today() <= date(2026, 10, 21) else None),
           collectives=collectives_, programme_events=d["programme_events"],
           exhibition_cards=[dict(r, image=r.get("card")) for r in rows
                             if r["kind"] not in ("EVENT", "FESTIVAL")])
@@ -909,25 +920,25 @@ def build():
           og_image=d["building"]["levels"][3].get("hero"))
 
     write("makers.html", "makers.html",
-          page_title=f"{len(artists)} makers curated at NIO House Amsterdam", makers_shown=artists,
+          page_title=f"{len(artists)} makers curated at Het Metzgebouw", makers_shown=artists,
           collectives=collectives_, partners=partners_,
           og_image=next((m["portrait"] for m in curated if m.get("portrait")), None),
           # The count comes from the register, never from a sentence typed by hand.
           # Two earlier versions of this line said "fifteen" while the page said thirty.
           page_description=(f"The {len(artists)} makers curated by MADART Foundation for Season 02 "
-                            "GROUND and Maison d'Artiste at NIO House Amsterdam, with full catalogues."),
+                            "GROUND and Maison d'Artiste at Het Metzgebouw, with full catalogues."),
           maker_groups=[
             # Het lopende seizoen staat bovenaan. Deze groep ontbrak, waardoor
             # de makers van INLINE wel in het register zaten maar nergens op
             # makers.html te zien waren.
             {"label": "Season 03 — INLINE",
-             "note": "Six presentations on the fourth floor of NIO House Amsterdam, each "
+             "note": "Six presentations on the fourth floor of Het Metzgebouw, each "
                      "answering the same question from its own material, medium and visual "
                      "language.",
              "makers": [m for m in artists if "inline" in m["programmes"]]},
             {"label": "Season 02 — GROUND",
              "note": ("Six makers and the ECHO collective hold seven positions on the fourth floor "
-                      f"of NIO House Amsterdam. ECHO shows {_in_woorden(len(d['echo_members']))} makers in Gallery 4."),
+                      f"of Het Metzgebouw. ECHO shows {_in_woorden(len(d['echo_members']))} makers in Gallery 4."),
              "makers": [m for m in artists if "ground" in m["programmes"]]},
             {"label": "Maison d'Artiste — GLUE Amsterdam",
              "note": "Four rooms built for living on the sixth floor, the dome on the seventh, "
@@ -954,7 +965,7 @@ def build():
     write("exhibitions.html", "exhibitions.html", page_title="Exhibitions",
           og_image="c-exhibition-inline.jpg",
           page_description=("Every season and anchor event at MADART Foundation, documented: what is on "
-                            "now at NIO House Amsterdam, what is coming, and what we have shown."),
+                            "now at Het Metzgebouw, what is coming, and what we have shown."),
           exhibition_blocks=[
             {"label": "Current",  "rows": [r for r in rows if r["status"] == "current"]},
             {"label": "Upcoming", "rows": [r for r in rows if r["status"] == "upcoming"]},
@@ -962,9 +973,9 @@ def build():
           ])
 
     write("visit.html", "visit.html",
-          page_title="Plan your visit to NIO House Amsterdam", og_image=d["place"]["image"],
-          page_description=("Opening hours, directions and the anchor-event programme at NIO House "
-                            "Amsterdam, Leidsestraat 32-34. Entry to the gallery floor is free."),
+          page_title="Plan your visit to Het Metzgebouw", og_image=d["place"]["image"],
+          page_description=("Opening hours, directions and the anchor-event programme at Het "
+                            "Metzgebouw, Leidsestraat 32-34. Entry to the gallery floor is free."),
           hours_rows=[{"abbr": a.upper(), "name": n,
                        "hours": (f"{site['hours'][a][0]:02d}:{site['hours'][a][1]:02d} – "
                                  f"{site['hours'][a][2]:02d}:{site['hours'][a][3]:02d}")
@@ -979,7 +990,7 @@ def build():
                       "start": "2026-09-17", "end": "2026-09-19",
                       "image": "portrait-marnix-van-strydonck.jpg"},
           page_description=("Maison d'Artiste: an exhibition for GLUE Amsterdam on the sixth and "
-                            "seventh floor of NIO House Amsterdam: four rooms built for living, "
+                            "seventh floor of Het Metzgebouw: four rooms built for living, "
                             "furnished by our makers."),
           maison=md,
           og_image="portrait-marnix-van-strydonck.jpg")
@@ -1116,7 +1127,7 @@ def build():
         # line. Materials is the first thing to go when the budget runs out.
         core = [f"{w['title']} by {w['maker_name']}.",
                 f"{price}, and the maker keeps all of it.",
-                f"On view in {where} at NIO House Amsterdam."]
+                f"On view in {where} at Het Metzgebouw."]
         full = list(core)
         if w["materials"]:
             full.insert(1, f"{re.sub(r'[.\s]+$', '', w['materials'])}.")
