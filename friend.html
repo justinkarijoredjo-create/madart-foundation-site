@@ -1,37 +1,210 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friend of MADART Foundation — MADART FOUNDATION</title>
+<meta name="description" content="Friend of MADART Foundation is a yearly gift, not a ticket: the season letter, the curatorial notes, and where the gifts went.">
+<link rel="canonical" href="https://madartfoundation.com/friend.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="Friend of MADART Foundation — MADART FOUNDATION">
+<meta property="og:description" content="Friend of MADART Foundation is a yearly gift, not a ticket: the season letter, the curatorial notes, and where the gifts went.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/place-nio-house.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F4EDE4">
+<link rel="stylesheet" href="style.css?v=a23b9715">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MADART FOUNDATION</a>
+    <span class="status-dot" id="openstate"><i></i><span>Open daily 10:00–18:00</span></span>
+    <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="maison-dartiste-2026.html">Programme</a>
+      <a href="makers.html">Makers</a>
+      <a href="works.html">Works</a>
+      <a href="visit.html">Visit</a>
+      <a href="support-us.html">Support</a>
+      <a href="mission.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
 <section><div class="wrap">
   <p class="index"><span class="no">—</span><span>Friend of MADART Foundation</span></p>
   <h1>A gift, not a ticket.</h1>
-  <p class="lede">{{ friend.standfirst }}</p>
-  <p class="lede" style="color:var(--grey)">{{ friend.frame }}</p>
+  <p class="lede">A yearly gift to MADART Foundation, and a way to stay close to the work. Three tiers, all of them gifts, all of them carrying only what a gift may carry.</p>
+  <p class="lede" style="color:var(--grey)">You get no admission, no discount and no priority — those live with Curated by MADART, where they belong. What you get is that every euro a maker earns here stays with the maker.</p>
 </div></section>
 
 <section class="reveal"><div class="wrap">
   <div class="grid g3">
-    {% for t in friend.tiers %}
     <div class="tier">
-      <h2 style="font-size:17px;font-weight:700;margin:0 0 4px">{{ t.name }}</h2>
-      <p class="amt-line">{{ t.amount }}</p>
-      <ul class="benefits">{% for b in t.benefits %}<li>{{ b }}</li>{% endfor %}</ul>
-      {% if t.note %}<p class="small dim">{{ t.note }}</p>{% endif %}
-      {% if t.contact_only %}<p><a class="btn-outline" href="mailto:{{ site.email }}?subject={{ t.name|urlencode }}">Start a conversation</a></p>
-      {% elif t.link %}<p><a class="btn" href="{{ t.link }}">Become a {{ t.name }}</a></p>
-      {% else %}<p><a class="btn-outline" href="mailto:{{ site.email }}?subject={{ t.name|urlencode }}">Write to us to join</a></p>{% endif %}
+      <h2 style="font-size:17px;font-weight:700;margin:0 0 4px">Friend</h2>
+      <p class="amt-line">€ 50 a year — around four euros a month</p>
+      <ul class="benefits"><li>The season letter, three or four times a year — what we chose, and why</li><li>First word on a new season before it is announced publicly</li><li>A written account of where the year&#39;s gifts went</li></ul>
+<p><a class="btn-outline" href="mailto:contact@madartfoundation.com?subject=Friend">Write to us to join</a></p>    </div>
+    <div class="tier">
+      <h2 style="font-size:17px;font-weight:700;margin:0 0 4px">Supporting Friend</h2>
+      <p class="amt-line">€ 250 a year</p>
+      <ul class="benefits"><li>Everything in Friend</li><li>Your name in the annual report, if you want it there</li><li>The curatorial notes behind each season&#39;s selection, in full</li></ul>
+<p><a class="btn-outline" href="mailto:contact@madartfoundation.com?subject=Supporting%20Friend">Write to us to join</a></p>    </div>
+    <div class="tier">
+      <h2 style="font-size:17px;font-weight:700;margin:0 0 4px">Founding Friend</h2>
+      <p class="amt-line">€ 1,000 a year</p>
+      <ul class="benefits"><li>Everything in Supporting Friend</li><li>A yearly curatorial letter on the season ahead, written once and sent to every Founding Friend</li><li>Named as a Founding Friend in the Foundation&#39;s published record</li></ul>
+<p class="small dim">At this level we would rather speak first. Write to us and we will arrange a conversation about the year ahead before anything is signed.</p><p><a class="btn-outline" href="mailto:contact@madartfoundation.com?subject=Founding%20Friend">Start a conversation</a></p>
     </div>
-    {% endfor %}
   </div>
 </div></section>
 
 <section class="reveal"><div class="wrap">
   <h2 class="index"><span class="no">—</span><span>Why there is no admission in this</span></h2>
   <div class="prose">
-    <p>{{ friend.why }}</p>
-    {% if not giving.anbi_granted %}
+    <p>Dutch tax law is precise about this. A contribution counts as a deductible gift only when nothing of real value is given in return, or when what is given is merely symbolic. Free admission to an event is explicitly not symbolic. That is why Friend of MADART Foundation carries no admission, no discount and no priority — and why the membership that does carry those things lives with Curated by MADART instead, where it belongs.</p>
     <p><strong>Cultural ANBI status is applied for and not yet granted.</strong> Until it is, a gift to MADART Foundation is not tax deductible. The programme stands either way; the tax treatment follows later.</p>
-    {% endif %}
     <p>One more thing worth knowing, and it holds even after the status is granted. An ordinary gift is only deductible above &euro;60 <em>and</em> above 1% of your threshold income, so a Friend contribution of &euro;50 or &euro;250 will not reach it for most people. A periodic gift has no threshold at all. If you want your contribution to count for tax, <a href="support-us.html#periodic">arrange it as a periodic gift</a>; the amount and the tier stay the same.</p>
     <p><a href="support-us.html">Other ways to support the Foundation</a> &middot; <a href="anbi.html">Governance and published information</a></p>
   </div>
 </div></section>
-{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="foot-h">BE THE FIRST TO KNOW</p>
+        <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+        <form class="signup" action="https://submit-form.com/lDWonyUTP" method="POST">
+          <input type="hidden" name="_redirect" value="https://madartfoundation.com/thanks.html">
+          <input type="hidden" name="_append" value="false">
+          <input type="hidden" name="source" value="newsletter">
+          <label class="skip" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div>
+        <p class="foot-h">VISIT</p>
+        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
+        <p><a href="visit.html">Opening hours and directions</a><br>
+           <a href="building.html">The building, level by level</a></p>
+      </div>
+      <div>
+        <p class="foot-h">MADART FOUNDATION</p>
+        <p>
+          <a href="mission.html">Mission</a><br>
+          <a href="team.html">Team</a><br>
+          <a href="support-us.html">Support us</a><br>
+          <a href="friend.html">Become a Friend</a><br>
+          <a href="anbi.html">Governance and ANBI</a><br>
+          <a href="press.html">Press</a><br>
+          <a href="contact.html">Contact</a><br>
+          <a href="https://www.instagram.com/madartfoundation">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MADART FOUNDATION · Stichting The Bloys · KvK 99713853 · 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <span>Structurally supported by Curated by MADART</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mark the document as scripted before anything is hidden, so a page without
+     working JavaScript simply shows everything instead of showing nothing. */
+  document.body.classList.add('js');
+  var reveal = function(el){ el.classList.add('in'); };
+  if ('IntersectionObserver' in window && !reduce) {
+    /* Threshold 0, not 0.1. A section can be ten times taller than a phone
+       screen — the members of a collective, the makers of a season — and can
+       then never reach ten per cent visibility. It would stay invisible for
+       ever. Zero fires the moment any part of it enters. */
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { reveal(e.target); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+    /* Second safety net: anything still hidden four seconds after load is shown
+       regardless. An animation that fails should cost a fade, never the content. */
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(reveal); }, 4000);
+
+    /* Third: on any scroll, reveal whatever is already on screen. Cheap, and it
+       covers the devices where the observer behaves differently than expected. */
+    var sweep = function(){
+      var open = document.querySelectorAll('.reveal:not(.in)');
+      if (!open.length) { window.removeEventListener('scroll', sweep); return; }
+      open.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, {passive:true});
+    sweep();
+  } else {
+    document.querySelectorAll('.reveal').forEach(reveal);
+  }
+
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+
+  // Opening state. Hours live in one place: data/site.yaml -> rendered here.
+  var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
+    var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day];
+    var label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
+</html>

@@ -1,12 +1,56 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enquiry — MADART FOUNDATION</title>
+<meta name="description" content="Ask a maker about a work in the MADART Foundation register. The maker sets the price and keeps all of it; we pass the question on and take no commission.">
+<link rel="canonical" href="https://madartfoundation.com/enquire.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="Enquiry — MADART FOUNDATION">
+<meta property="og:description" content="Ask a maker about a work in the MADART Foundation register. The maker sets the price and keeps all of it; we pass the question on and take no commission.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/None">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F4EDE4">
+<link rel="stylesheet" href="style.css?v=a23b9715">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MADART FOUNDATION</a>
+    <span class="status-dot" id="openstate"><i></i><span>Open daily 10:00–18:00</span></span>
+    <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="maison-dartiste-2026.html">Programme</a>
+      <a href="makers.html">Makers</a>
+      <a href="works.html">Works</a>
+      <a href="visit.html">Visit</a>
+      <a href="support-us.html">Support</a>
+      <a href="mission.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
 <section><div class="wrap"><div style="max-width:620px">
   <p class="index"><span class="no">—</span><span>Enquiry</span></p>
   <h1>Ask about a work.</h1>
   <p class="lede">The maker sets the price and keeps all of it. We pass your question straight to them, and stay out of the way after that.</p>
 
-  <form action="{{ site.newsletter_endpoint }}" method="POST" style="background:var(--linen);padding:30px;margin-top:30px">
-    <input type="hidden" name="_redirect" value="{{ site.url }}/enquiry-thanks.html">
+  <form action="https://submit-form.com/lDWonyUTP" method="POST" style="background:var(--linen);padding:30px;margin-top:30px">
+    <input type="hidden" name="_redirect" value="https://madartfoundation.com/enquiry-thanks.html">
     <input type="hidden" name="_append" value="false">
     <input type="hidden" name="source" value="work-enquiry">
     <input type="hidden" name="work" id="f-work" value="">
@@ -24,9 +68,192 @@
       <select id="f-select" name="work_title" required
         style="width:100%;font:inherit;font-size:14px;padding:11px 12px;background:var(--chalk);border:1px solid var(--concrete);border-radius:0;color:var(--ink)">
         <option value="">Choose a work</option>
-        {% for w in works if w.image %}
-        <option value="{{ w.code }} — {{ w.title }} — {{ w.maker_name }}" data-slug="{{ w.slug }}">{{ w.maker_name }} — {{ w.title }} ({{ w.price_label }})</option>
-        {% endfor %}
+        <option value="INLINE-AK-01 — M15 │ MDF — Aad Kruiswijk" data-slug="aad-kruiswijk-m15-mdf">Aad Kruiswijk — M15 │ MDF (Price on request)</option>
+        <option value="INLINE-AK-03 — M15 │ city wood — Aad Kruiswijk" data-slug="aad-kruiswijk-m15-stadshout">Aad Kruiswijk — M15 │ city wood (€ 1.200,–)</option>
+        <option value="INLINE-AK-02 — M15 │ polished stainless steel — Aad Kruiswijk" data-slug="aad-kruiswijk-m15-rvs">Aad Kruiswijk — M15 │ polished stainless steel (€ 5.500,–)</option>
+        <option value="INLINE-AK-04 — M16 │ I — Aad Kruiswijk" data-slug="aad-kruiswijk-m16-i">Aad Kruiswijk — M16 │ I (€ 700,–)</option>
+        <option value="INLINE-AK-05 — M16 │ II — Aad Kruiswijk" data-slug="aad-kruiswijk-m16-ii">Aad Kruiswijk — M16 │ II (€ 1.400,–)</option>
+        <option value="INLINE-AK-06 — M18 — Aad Kruiswijk" data-slug="aad-kruiswijk-m18">Aad Kruiswijk — M18 (€ 700,–)</option>
+        <option value="INLINE-AK-07 — M19 — Aad Kruiswijk" data-slug="aad-kruiswijk-m19">Aad Kruiswijk — M19 (€ 700,–)</option>
+        <option value="INLINE-AK-08 — Pouf — Aad Kruiswijk" data-slug="aad-kruiswijk-pouf">Aad Kruiswijk — Pouf (€ 1.750,–)</option>
+        <option value="GROUND-ECHO-22 — Bobber lamp — Aleksandra Śliwińska" data-slug="echo-bobber-lamp">Aleksandra Śliwińska — Bobber lamp (€ 780,–)</option>
+        <option value="GROUND-ECHO-23 — Melt lamp 001 — Aleksandra Śliwińska" data-slug="echo-melt-lamp-001">Aleksandra Śliwińska — Melt lamp 001 (€ 520,–)</option>
+        <option value="MAISONDARTISTE-AP-01 — HEALING ROOMS — Andreea Pirlica" data-slug="andreea-pirlica-healing-rooms">Andreea Pirlica — HEALING ROOMS (€ 25,–)</option>
+        <option value="GROUND-AVB-01 — Arena — Anne van Borselen" data-slug="anne-van-borselen-arena">Anne van Borselen — Arena (€ 6.900,–)</option>
+        <option value="GROUND-AVB-02 — Ceremony — Anne van Borselen" data-slug="anne-van-borselen-ceremony">Anne van Borselen — Ceremony (€ 5.500,–)</option>
+        <option value="GROUND-AVB-03 — Cirque du soleil — Anne van Borselen" data-slug="anne-van-borselen-cirque-du-soleil">Anne van Borselen — Cirque du soleil (€ 6.900,–)</option>
+        <option value="GROUND-AVB-04 — Coco du mer — Anne van Borselen" data-slug="anne-van-borselen-coco-du-mer">Anne van Borselen — Coco du mer (€ 4.900,–)</option>
+        <option value="GROUND-AVB-05 — Dancer — Anne van Borselen" data-slug="anne-van-borselen-dancer">Anne van Borselen — Dancer (€ 5.500,–)</option>
+        <option value="GROUND-AVB-06 — Ketut mask — Anne van Borselen" data-slug="anne-van-borselen-ketut-mask">Anne van Borselen — Ketut mask (€ 3.500,–)</option>
+        <option value="GROUND-AVB-07 — Nyoman mask — Anne van Borselen" data-slug="anne-van-borselen-nyoman-mask">Anne van Borselen — Nyoman mask (€ 3.500,–)</option>
+        <option value="GROUND-AVB-08 — Portret — Anne van Borselen" data-slug="anne-van-borselen-portret">Anne van Borselen — Portret (€ 4.900,–)</option>
+        <option value="GROUND-AVB-09 — Ram — Anne van Borselen" data-slug="anne-van-borselen-ram">Anne van Borselen — Ram (€ 6.900,–)</option>
+        <option value="GROUND-AVB-10 — Sarcofaag — Anne van Borselen" data-slug="anne-van-borselen-sarcofaag">Anne van Borselen — Sarcofaag (€ 5.500,–)</option>
+        <option value="GROUND-AVB-11 — Twilight time — Anne van Borselen" data-slug="anne-van-borselen-twilight-time">Anne van Borselen — Twilight time (€ 5.500,–)</option>
+        <option value="GROUND-AVB-12 — Vaas Stier I — Anne van Borselen" data-slug="anne-van-borselen-vaas-stier-i">Anne van Borselen — Vaas Stier I (€ 4.500,–)</option>
+        <option value="GROUND-AVB-13 — Vaas Stier II — Anne van Borselen" data-slug="anne-van-borselen-vaas-stier-ii">Anne van Borselen — Vaas Stier II (€ 4.500,–)</option>
+        <option value="GROUND-AH-01 — Deus Ex Machina — Arno Hoogland" data-slug="arno-hoogland-deus-ex-machina">Arno Hoogland — Deus Ex Machina (€ 275,–)</option>
+        <option value="GROUND-AH-02 — Dragonfish — Arno Hoogland" data-slug="arno-hoogland-dragonfish">Arno Hoogland — Dragonfish (€ 275,–)</option>
+        <option value="GROUND-AH-03 — Hexagram — Arno Hoogland" data-slug="arno-hoogland-hexagram">Arno Hoogland — Hexagram (€ 1.500,–)</option>
+        <option value="GROUND-AH-04 — Klaver — Arno Hoogland" data-slug="arno-hoogland-klaver">Arno Hoogland — Klaver (€ 900,–)</option>
+        <option value="GROUND-AH-05 — Klaverblad — Arno Hoogland" data-slug="arno-hoogland-klaverblad">Arno Hoogland — Klaverblad (€ 750,–)</option>
+        <option value="GROUND-AH-06 — Nagooshi — Arno Hoogland" data-slug="arno-hoogland-nagooshi">Arno Hoogland — Nagooshi (€ 750,–)</option>
+        <option value="GROUND-AH-07 — Talbot — Arno Hoogland" data-slug="arno-hoogland-talbot">Arno Hoogland — Talbot (€ 1.800,–)</option>
+        <option value="GROUND-AH-08 — Wave Lila — Arno Hoogland" data-slug="arno-hoogland-wave-lila">Arno Hoogland — Wave Lila (€ 1.100,–)</option>
+        <option value="GROUND-AH-09 — Wave Naturel — Arno Hoogland" data-slug="arno-hoogland-wave-naturel">Arno Hoogland — Wave Naturel (€ 1.250,–)</option>
+        <option value="GROUND-AH-10 — Wormhole — Arno Hoogland" data-slug="arno-hoogland-wormhole">Arno Hoogland — Wormhole (€ 1.600,–)</option>
+        <option value="INLINE-BL-01 — BLOCK black — BLOCK" data-slug="block-black">BLOCK — BLOCK black (€ 99,–)</option>
+        <option value="INLINE-BL-02 — BLOCK green — BLOCK" data-slug="block-green">BLOCK — BLOCK green (€ 150,–)</option>
+        <option value="INLINE-BL-03 — BLOCK yellow — BLOCK" data-slug="block-yellow">BLOCK — BLOCK yellow (€ 150,–)</option>
+        <option value="INLINE-BD-01 — Untitled 1 — Belle Doxx" data-slug="belle-doxx-untitled-1">Belle Doxx — Untitled 1 (€ 4.500,–)</option>
+        <option value="INLINE-BD-02 — Untitled 2 — Belle Doxx" data-slug="belle-doxx-untitled-2">Belle Doxx — Untitled 2 (€ 6.500,–)</option>
+        <option value="INLINE-BD-03 — Untitled 3 — Belle Doxx" data-slug="belle-doxx-untitled-3">Belle Doxx — Untitled 3 (€ 5.000,–)</option>
+        <option value="INLINE-BD-04 — Untitled 4 — Belle Doxx" data-slug="belle-doxx-untitled-4">Belle Doxx — Untitled 4 (€ 4.500,–)</option>
+        <option value="INLINE-BD-05 — Untitled 5 — Belle Doxx" data-slug="belle-doxx-untitled-5">Belle Doxx — Untitled 5 (€ 5.500,–)</option>
+        <option value="INLINE-BD-06 — Untitled 6 — Belle Doxx" data-slug="belle-doxx-untitled-6">Belle Doxx — Untitled 6 (€ 1.750,–)</option>
+        <option value="INLINE-BD-07 — Untitled 7 — Belle Doxx" data-slug="belle-doxx-untitled-7">Belle Doxx — Untitled 7 (€ 2.500,–)</option>
+        <option value="GROUND-ECHO-12 — Here comes the sun — Billie-Jo Krul" data-slug="echo-here-comes-the-sun">Billie-Jo Krul — Here comes the sun (€ 550,–)</option>
+        <option value="GROUND-ECHO-13 — Hole in my heart — Billie-Jo Krul" data-slug="echo-hole-in-my-heart">Billie-Jo Krul — Hole in my heart (€ 550,–)</option>
+        <option value="GROUND-ECHO-19 — Still standing — Billie-Jo Krul" data-slug="echo-still-standing">Billie-Jo Krul — Still standing (€ 550,–)</option>
+        <option value="MAISONDARTISTE-BB-01 — Candle Holder Cassata Amber — Buro Berger" data-slug="buro-berger-candle-holder-cassata-amber">Buro Berger — Candle Holder Cassata Amber (€ 99,–)</option>
+        <option value="MAISONDARTISTE-BB-02 — Candle Holder Cassata Green — Buro Berger" data-slug="buro-berger-candle-holder-cassata-green">Buro Berger — Candle Holder Cassata Green (€ 89,–)</option>
+        <option value="MAISONDARTISTE-BB-03 — Candle Holder Cassata Yellow — Buro Berger" data-slug="buro-berger-candle-holder-cassata-yellow">Buro Berger — Candle Holder Cassata Yellow (€ 89,–)</option>
+        <option value="MAISONDARTISTE-BB-04 — Coupe Cassata Black — Buro Berger" data-slug="buro-berger-coupe-cassata-black">Buro Berger — Coupe Cassata Black (€ 69,–)</option>
+        <option value="MAISONDARTISTE-BB-05 — Coupe Cassata Blue — Buro Berger" data-slug="buro-berger-coupe-cassata-blue">Buro Berger — Coupe Cassata Blue (€ 79,–)</option>
+        <option value="MAISONDARTISTE-BB-06 — Mirror Dotty Large — Buro Berger" data-slug="buro-berger-mirror-dotty-large">Buro Berger — Mirror Dotty Large (€ 249,–)</option>
+        <option value="MAISONDARTISTE-BB-07 — Mirror Dotty Medium — Buro Berger" data-slug="buro-berger-mirror-dotty-medium">Buro Berger — Mirror Dotty Medium (€ 175,–)</option>
+        <option value="MAISONDARTISTE-BB-08 — Mirror Dotty Small — Buro Berger" data-slug="buro-berger-mirror-dotty-small">Buro Berger — Mirror Dotty Small (€ 89,–)</option>
+        <option value="MAISONDARTISTE-BB-09 — Platter Bluedot — Buro Berger" data-slug="buro-berger-platter-bluedot">Buro Berger — Platter Bluedot (€ 69,–)</option>
+        <option value="MAISONDARTISTE-BB-10 — Salt &amp; Pepper Horizons Green — Buro Berger" data-slug="buro-berger-salt-and-pepper-horizons-green">Buro Berger — Salt &amp; Pepper Horizons Green (€ 45,–)</option>
+        <option value="MAISONDARTISTE-BB-11 — Salt &amp; Pepper Horizons Grey — Buro Berger" data-slug="buro-berger-salt-and-pepper-horizons-grey">Buro Berger — Salt &amp; Pepper Horizons Grey (€ 45,–)</option>
+        <option value="MAISONDARTISTE-BB-12 — Salt &amp; Pepper Horizons Yellow — Buro Berger" data-slug="buro-berger-salt-and-pepper-horizons-yellow">Buro Berger — Salt &amp; Pepper Horizons Yellow (€ 55,–)</option>
+        <option value="MAISONDARTISTE-BB-13 — Table Lamp Beln — Ivory — Buro Berger" data-slug="buro-berger-table-lamp-beln-ivory">Buro Berger — Table Lamp Beln — Ivory (€ 275,–)</option>
+        <option value="MAISONDARTISTE-BB-14 — Table Lamp Beln — Sky Blue — Buro Berger" data-slug="buro-berger-table-lamp-beln-sky-blue">Buro Berger — Table Lamp Beln — Sky Blue (€ 275,–)</option>
+        <option value="MAISONDARTISTE-BB-15 — Vase Bluedot Large — Buro Berger" data-slug="buro-berger-vase-bluedot-large">Buro Berger — Vase Bluedot Large (€ 149,–)</option>
+        <option value="MAISONDARTISTE-BB-16 — Vase Bluedot Small — Buro Berger" data-slug="buro-berger-vase-bluedot-small">Buro Berger — Vase Bluedot Small (€ 99,–)</option>
+        <option value="GROUND-ECHO-01 — 2.1 - Bench — Coen Beeksma" data-slug="echo-2-1-bench">Coen Beeksma — 2.1 - Bench (€ 6.600,–)</option>
+        <option value="GROUND-ECHO-11 — Formscape — Cynthia &amp; Kevin Kars-Boom" data-slug="echo-formscape">Cynthia &amp; Kevin Kars-Boom — Formscape (€ 4.600,–)</option>
+        <option value="INLINE-DVS-01 — Devoon Drop — Devoonsounds" data-slug="devoonsounds-devoon-drop">Devoonsounds — Devoon Drop (€ 11.500,–)</option>
+        <option value="INLINE-DVS-02 — Devoon Original #1 — Devoonsounds" data-slug="devoonsounds-original-1">Devoonsounds — Devoon Original #1 (€ 3.200,–)</option>
+        <option value="INLINE-DVS-03 — Devoon Original #2 — Devoonsounds" data-slug="devoonsounds-original-2">Devoonsounds — Devoon Original #2 (€ 2.200,–)</option>
+        <option value="INLINE-DVS-04 — Devoon Original #3 — Devoonsounds" data-slug="devoonsounds-original-3">Devoonsounds — Devoon Original #3 (€ 2.200,–)</option>
+        <option value="INLINE-DVS-05 — Devoon Original #4 — Devoonsounds" data-slug="devoonsounds-original-4">Devoonsounds — Devoon Original #4 (€ 2.200,–)</option>
+        <option value="MAISONDARTISTE-WM-01 — Grid Shelving Unit — Rust — Dot Objects" data-slug="dot-objects-grid-shelving-unit-rust">Dot Objects — Grid Shelving Unit — Rust (Price on request)</option>
+        <option value="INLINE-WM-01 — Grid Shelving Unit — Stainless Steel — Dot Objects" data-slug="dot-objects-grid-shelving-unit-stainless-steel">Dot Objects — Grid Shelving Unit — Stainless Steel (€ 1.500,–)</option>
+        <option value="MAISONDARTISTE-WM-03 — Low Grid Table — Burgundy — Dot Objects" data-slug="dot-objects-low-grid-table-burgundy">Dot Objects — Low Grid Table — Burgundy (Price on request)</option>
+        <option value="MAISONDARTISTE-WM-04 — Low Grid Table — Stainless Steel — Dot Objects" data-slug="dot-objects-low-grid-table-stainless-steel">Dot Objects — Low Grid Table — Stainless Steel (Price on request)</option>
+        <option value="MAISONDARTISTE-WM-05 — Stainless Steel Candle Holder — Medium — Dot Objects" data-slug="dot-objects-stainless-steel-candle-holder-medium">Dot Objects — Stainless Steel Candle Holder — Medium (€ 70,–)</option>
+        <option value="MAISONDARTISTE-WM-06 — Stainless Steel Candle Holder — Small — Dot Objects" data-slug="dot-objects-stainless-steel-candle-holder-small">Dot Objects — Stainless Steel Candle Holder — Small (€ 50,–)</option>
+        <option value="MAISONDARTISTE-ES-01 — ELS secretaire — Eric Sloot" data-slug="eric-sloot-els-secretaire">Eric Sloot — ELS secretaire (€ 8.750,–)</option>
+        <option value="MAISONDARTISTE-ES-02 — FRANCY cabinet — Eric Sloot" data-slug="eric-sloot-francy-cabinet">Eric Sloot — FRANCY cabinet (€ 9.500,–)</option>
+        <option value="MAISONDARTISTE-ES-03 — HANS klok — Eric Sloot" data-slug="eric-sloot-hans-klok">Eric Sloot — HANS klok (€ 6.750,–)</option>
+        <option value="GROUND-ECHO-04 — Bracelet — Erwin Woldring" data-slug="echo-bracelet">Erwin Woldring — Bracelet (€ 285,–)</option>
+        <option value="GROUND-ECHO-14 — Knik-Knak lamp — Erwin Woldring" data-slug="echo-knik-knak-lamp">Erwin Woldring — Knik-Knak lamp (€ 620,–)</option>
+        <option value="GROUND-ECHO-03 — Billet — Frank Penders" data-slug="echo-billet">Frank Penders — Billet (€ 2.200,–)</option>
+        <option value="GROUND-ECHO-21 — Yield — Frank Penders" data-slug="echo-yield">Frank Penders — Yield (€ 3.200,–)</option>
+        <option value="GROUND-ECHO-18 — Spectral Form — Frederik Wasseur" data-slug="echo-spectral-form">Frederik Wasseur — Spectral Form (€ 2.700,–)</option>
+        <option value="GROUND-ECHO-26 — What is the ripple? — Frederik Wasseur" data-slug="echo-what-is-the-ripple">Frederik Wasseur — What is the ripple? (€ 2.500,–)</option>
+        <option value="INLINE-GL3-01 — Conditions of Presence — GLINA³" data-slug="glina3-conditions-of-presence">GLINA³ — Conditions of Presence (€ 3.815,–)</option>
+        <option value="MAISONDARTISTE-HW-01 — Abstract #04 — Herma de Wit" data-slug="herma-de-wit-abstract-04">Herma de Wit — Abstract #04 (€ 9.500,–)</option>
+        <option value="MAISONDARTISTE-HW-02 — Euphorbia #02 — Herma de Wit" data-slug="herma-de-wit-euphorbia-02">Herma de Wit — Euphorbia #02 (€ 8.500,–)</option>
+        <option value="MAISONDARTISTE-HW-03 — Object #04 — Herma de Wit" data-slug="herma-de-wit-object-04">Herma de Wit — Object #04 (€ 2.800,–)</option>
+        <option value="INLINE-IDSH-01 — Ghost — ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES" data-slug="iconic-design-objects-studiosophiehospes-ghost">ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES — Ghost (€ 250,–)</option>
+        <option value="MAISONDARTISTE-IG-01 — Conference Table — Ignore" data-slug="ignore-conference-table">Ignore — Conference Table (Price on request)</option>
+        <option value="MAISONDARTISTE-IG-02 — Dine Dining Table — Ignore" data-slug="ignore-dine-dining-table">Ignore — Dine Dining Table (€ 2.750,–)</option>
+        <option value="MAISONDARTISTE-IG-03 — Modulate Lounge Chair — Ignore" data-slug="ignore-modulate-lounge-chair">Ignore — Modulate Lounge Chair (€ 2.161,–)</option>
+        <option value="MAISONDARTISTE-IG-04 — Serve Bistro Table — Ignore" data-slug="ignore-serve-bistro-table">Ignore — Serve Bistro Table (€ 889,–)</option>
+        <option value="MAISONDARTISTE-IG-05 — Shift Dining Chair — Ignore" data-slug="ignore-shift-dining-chair">Ignore — Shift Dining Chair (€ 545,–)</option>
+        <option value="MAISONDARTISTE-IB-01 — BUILD YOUR OWN │ silver — Inge Bečka" data-slug="inge-becka-build-your-own-silver">Inge Bečka — BUILD YOUR OWN │ silver (€ 1.750,–)</option>
+        <option value="MAISONDARTISTE-IB-05 — FOLDED square │ silver — Inge Bečka" data-slug="inge-becka-folded-square-silver">Inge Bečka — FOLDED square │ silver (€ 3.500,–)</option>
+        <option value="MAISONDARTISTE-IB-02 — FOLDED │ gold — Inge Bečka" data-slug="inge-becka-folded-gold">Inge Bečka — FOLDED │ gold (€ 1.750,–)</option>
+        <option value="MAISONDARTISTE-IB-03 — FOLDED │ silver glossy — Inge Bečka" data-slug="inge-becka-folded-silver-glossy">Inge Bečka — FOLDED │ silver glossy (€ 2.200,–)</option>
+        <option value="MAISONDARTISTE-IB-04 — FOLDED │ silver mat — Inge Bečka" data-slug="inge-becka-folded-silver-mat">Inge Bečka — FOLDED │ silver mat (€ 2.400,–)</option>
+        <option value="MAISONDARTISTE-IB-06 — The BLOB │ gold — Inge Bečka" data-slug="inge-becka-the-blob-gold">Inge Bečka — The BLOB │ gold (€ 125,–)</option>
+        <option value="MAISONDARTISTE-IB-07 — The BLOB │ silver — Inge Bečka" data-slug="inge-becka-the-blob-silver">Inge Bečka — The BLOB │ silver (€ 125,–)</option>
+        <option value="MAISONDARTISTE-IB-12 — The Ridge Collection - TADE │ silver &amp; gold — Inge Bečka" data-slug="inge-becka-the-ridge-collection-tade-silver-gold">Inge Bečka — The Ridge Collection - TADE │ silver &amp; gold (€ 2.800,–)</option>
+        <option value="MAISONDARTISTE-IB-08 — The Ridge Collection - The BELLY │ gold — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-belly-gold">Inge Bečka — The Ridge Collection - The BELLY │ gold (€ 2.600,–)</option>
+        <option value="MAISONDARTISTE-IB-09 — The Ridge Collection - The LITTLE │ gold — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-little-gold">Inge Bečka — The Ridge Collection - The LITTLE │ gold (€ 450,–)</option>
+        <option value="MAISONDARTISTE-IB-10 — The Ridge Collection - The LITTLE │ silver — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-little-silver">Inge Bečka — The Ridge Collection - The LITTLE │ silver (€ 450,–)</option>
+        <option value="MAISONDARTISTE-IB-11 — The Ridge Collection - The SACK │ gold — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-sack-gold">Inge Bečka — The Ridge Collection - The SACK │ gold (€ 2.800,–)</option>
+        <option value="MAISONDARTISTE-IB-13 — The Ridge Collection - The TALL Ridge │ gold — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-tall-ridge-gold">Inge Bečka — The Ridge Collection - The TALL Ridge │ gold (€ 2.600,–)</option>
+        <option value="MAISONDARTISTE-IB-14 — The Ridge Collection - The VERY BIG Ridge │ pearl — Inge Bečka" data-slug="inge-becka-the-ridge-collection-the-very-big-ridge-pearl">Inge Bečka — The Ridge Collection - The VERY BIG Ridge │ pearl (€ 3.500,–)</option>
+        <option value="GROUND-ECHO-17 — REST — Jan Willem van Elten" data-slug="echo-rest">Jan Willem van Elten — REST (€ 1.320,–)</option>
+        <option value="GROUND-ECHO-06 — Col — Krukje — Jeroen van Veluw" data-slug="echo-col-krukje">Jeroen van Veluw — Col — Krukje (€ 1.200,–)</option>
+        <option value="GROUND-ECHO-07 — Col — Sokkel — Jeroen van Veluw" data-slug="echo-col-sokkel">Jeroen van Veluw — Col — Sokkel (€ 1.600,–)</option>
+        <option value="MAISONDARTISTE-JR-01 — Eiken latten bank — Jim Bob Ruijgrok" data-slug="jim-bob-ruijgrok-eiken-latten-bank">Jim Bob Ruijgrok — Eiken latten bank (€ 8.000,–)</option>
+        <option value="MAISONDARTISTE-JR-02 — Eiken latten boog lamp — Jim Bob Ruijgrok" data-slug="jim-bob-ruijgrok-eiken-latten-boog-lamp">Jim Bob Ruijgrok — Eiken latten boog lamp (€ 2.100,–)</option>
+        <option value="MAISONDARTISTE-JR-03 — Eiken latten fauteuil — Jim Bob Ruijgrok" data-slug="jim-bob-ruijgrok-eiken-latten-fauteuil">Jim Bob Ruijgrok — Eiken latten fauteuil (€ 3.600,–)</option>
+        <option value="MAISONDARTISTE-JR-04 — Eiken latten kast — Jim Bob Ruijgrok" data-slug="jim-bob-ruijgrok-eiken-latten-kast">Jim Bob Ruijgrok — Eiken latten kast (Price on request)</option>
+        <option value="MAISONDARTISTE-JMRE-01 — Entree Meubel — Joost de Munnik &amp; Ruud van den Eijnden" data-slug="joost-de-munnik-ruud-van-den-eijnden-entree-meubel">Joost de Munnik &amp; Ruud van den Eijnden — Entree Meubel (Price on request)</option>
+        <option value="GROUND-ECHO-25 — Twirl Stool S — Joris Wintgens" data-slug="echo-twirl-stool-s">Joris Wintgens — Twirl Stool S (€ 320,–)</option>
+        <option value="MAISONDARTISTE-LL-01 — Ikebana Table — Lilia Luganskaia-Kuilder" data-slug="lilia-luganskaia-kuilder-ikebana-table">Lilia Luganskaia-Kuilder — Ikebana Table (€ 4.900,–)</option>
+        <option value="MAISONDARTISTE-LL-02 — Ritual Light Piece — Lilia Luganskaia-Kuilder" data-slug="lilia-luganskaia-kuilder-ritual-light-piece">Lilia Luganskaia-Kuilder — Ritual Light Piece (€ 4.500,–)</option>
+        <option value="MAISONDARTISTE-LL-03 — Ritual Mirror — Lilia Luganskaia-Kuilder" data-slug="lilia-luganskaia-kuilder-ritual-mirror">Lilia Luganskaia-Kuilder — Ritual Mirror (€ 2.800,–)</option>
+        <option value="GROUND-LH-01 — Between arms — Loutje Hoekstra" data-slug="loutje-hoekstra-between-arms">Loutje Hoekstra — Between arms (€ 2.500,–)</option>
+        <option value="GROUND-LH-02 — Blue Print I (Letting You Go) — Loutje Hoekstra" data-slug="loutje-hoekstra-blue-print-i">Loutje Hoekstra — Blue Print I (Letting You Go) (€ 4.200,–)</option>
+        <option value="GROUND-LH-03 — Blue Print II (Three Graces) — Loutje Hoekstra" data-slug="loutje-hoekstra-blue-print-ii">Loutje Hoekstra — Blue Print II (Three Graces) (€ 4.200,–)</option>
+        <option value="GROUND-LH-04 — Danae — Loutje Hoekstra" data-slug="loutje-hoekstra-danae">Loutje Hoekstra — Danae (€ 2.500,–)</option>
+        <option value="GROUND-LH-05 — Dance of Impermanence — Loutje Hoekstra" data-slug="loutje-hoekstra-dance-of-impermanence">Loutje Hoekstra — Dance of Impermanence (€ 3.100,–)</option>
+        <option value="GROUND-LH-06 — En Vol — Loutje Hoekstra" data-slug="loutje-hoekstra-en-vol">Loutje Hoekstra — En Vol (€ 2.500,–)</option>
+        <option value="GROUND-LH-07 — Sleep Revolution — Loutje Hoekstra" data-slug="loutje-hoekstra-sleep-revolution">Loutje Hoekstra — Sleep Revolution (€ 3.400,–)</option>
+        <option value="GROUND-LH-08 — Small Study — Loutje Hoekstra" data-slug="loutje-hoekstra-small-study">Loutje Hoekstra — Small Study (€ 300,–)</option>
+        <option value="GROUND-LH-09 — The Kiss — Loutje Hoekstra" data-slug="loutje-hoekstra-the-kiss">Loutje Hoekstra — The Kiss (€ 1.100,–)</option>
+        <option value="GROUND-ECHO-08 — Conduit Chair — Maaike Rabbinge" data-slug="echo-conduit-chair">Maaike Rabbinge — Conduit Chair (€ 2.000,–)</option>
+        <option value="GROUND-ECHO-15 — Latch Bench — Maaike Rabbinge" data-slug="echo-latch-bench">Maaike Rabbinge — Latch Bench (€ 1.800,–)</option>
+        <option value="GROUND-ECHO-16 — Latch Stool — Maaike Rabbinge" data-slug="echo-latch-stool">Maaike Rabbinge — Latch Stool (€ 850,–)</option>
+        <option value="GROUND-ECHO-05 — CandleSwitch — Marc Th. van der Voorn" data-slug="echo-candleswitch">Marc Th. van der Voorn — CandleSwitch (€ 95,–)</option>
+        <option value="MAISONDARTISTE-MV-01 — Bertrand — Marnix Van Strydonck" data-slug="marnix-van-strydonck-bertrand">Marnix Van Strydonck — Bertrand (€ 1.498,–)</option>
+        <option value="MAISONDARTISTE-MV-02 — Jacqueline — Marnix Van Strydonck" data-slug="marnix-van-strydonck-jacqueline">Marnix Van Strydonck — Jacqueline (€ 5.980,–)</option>
+        <option value="MAISONDARTISTE-MV-03 — Jacques Shit — Marnix Van Strydonck" data-slug="marnix-van-strydonck-jacques-shit">Marnix Van Strydonck — Jacques Shit (€ 990,–)</option>
+        <option value="MAISONDARTISTE-MV-04 — Maurice — Marnix Van Strydonck" data-slug="marnix-van-strydonck-maurice">Marnix Van Strydonck — Maurice (€ 968,–)</option>
+        <option value="MAISONDARTISTE-MA-01 — Bench — Maurice Albert Jan" data-slug="maurice-albert-jan-bench">Maurice Albert Jan — Bench (€ 3.650,–)</option>
+        <option value="MAISONDARTISTE-MA-02 — Desk — Maurice Albert Jan" data-slug="maurice-albert-jan-desk">Maurice Albert Jan — Desk (€ 4.850,–)</option>
+        <option value="MAISONDARTISTE-MA-03 — Lamp — Maurice Albert Jan" data-slug="maurice-albert-jan-lamp">Maurice Albert Jan — Lamp (€ 1.250,–)</option>
+        <option value="MAISONDARTISTE-MA-04 — Mirror — Maurice Albert Jan" data-slug="maurice-albert-jan-mirror">Maurice Albert Jan — Mirror (€ 2.850,–)</option>
+        <option value="GROUND-ECHO-24 — Flux — Milou Bergs &amp; Edwin van Capelleveen" data-slug="echo-flux">Milou Bergs &amp; Edwin van Capelleveen — Flux (€ 90,–)</option>
+        <option value="MAISONDARTISTE-NW-01 — Aqua no 1 — Natalia Wyspianska" data-slug="natalia-wyspianska-aqua-no-1">Natalia Wyspianska — Aqua no 1 (€ 890,–)</option>
+        <option value="MAISONDARTISTE-NW-02 — Aqua no 2 — Natalia Wyspianska" data-slug="natalia-wyspianska-aqua-no-2">Natalia Wyspianska — Aqua no 2 (€ 890,–)</option>
+        <option value="MAISONDARTISTE-NW-03 — Shell no 1 — Natalia Wyspianska" data-slug="natalia-wyspianska-shell-no-1">Natalia Wyspianska — Shell no 1 (€ 550,–)</option>
+        <option value="MAISONDARTISTE-NW-04 — Shell no 2 — Natalia Wyspianska" data-slug="natalia-wyspianska-shell-no-2">Natalia Wyspianska — Shell no 2 (€ 650,–)</option>
+        <option value="MAISONDARTISTE-NW-05 — Shell no 3 — Natalia Wyspianska" data-slug="natalia-wyspianska-shell-no-3">Natalia Wyspianska — Shell no 3 (€ 690,–)</option>
+        <option value="MAISONDARTISTE-NW-06 — Shell no 4 — Natalia Wyspianska" data-slug="natalia-wyspianska-shell-no-4">Natalia Wyspianska — Shell no 4 (€ 750,–)</option>
+        <option value="MAISONDARTISTE-NW-07 — Terra no 1 — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-1">Natalia Wyspianska — Terra no 1 (€ 1.960,–)</option>
+        <option value="MAISONDARTISTE-NW-08 — Terra no 2 — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-2">Natalia Wyspianska — Terra no 2 (€ 1.960,–)</option>
+        <option value="MAISONDARTISTE-NW-09 — Terra no 3 — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-3">Natalia Wyspianska — Terra no 3 (€ 950,–)</option>
+        <option value="MAISONDARTISTE-NW-10 — Terra no 4 — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-4">Natalia Wyspianska — Terra no 4 (€ 550,–)</option>
+        <option value="MAISONDARTISTE-NW-11 — Terra no 5 — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-5">Natalia Wyspianska — Terra no 5 (€ 1.550,–)</option>
+        <option value="MAISONDARTISTE-NW-12 — Terra no 6 (set of 2) — Natalia Wyspianska" data-slug="natalia-wyspianska-terra-no-6-set-of-2">Natalia Wyspianska — Terra no 6 (set of 2) (€ 850,–)</option>
+        <option value="MAISONDARTISTE-NDW-01 — Berry Lamp — Irregular Medium — Nicolette de Waart" data-slug="nicolette-de-waart-berry-lamp-regular">Nicolette de Waart — Berry Lamp — Irregular Medium (€ 2.800,–)</option>
+        <option value="MAISONDARTISTE-NDW-02 — Berry Lamp — Irregular Small — Nicolette de Waart" data-slug="nicolette-de-waart-berry-lamp-small">Nicolette de Waart — Berry Lamp — Irregular Small (€ 2.300,–)</option>
+        <option value="MAISONDARTISTE-NDW-03 — Berry Lamp — Irregular XL — Nicolette de Waart" data-slug="nicolette-de-waart-berry-lamp-xl">Nicolette de Waart — Berry Lamp — Irregular XL (€ 4.300,–)</option>
+        <option value="MAISONDARTISTE-NDW-04 — Berry Lamp — Regular Medium — Nicolette de Waart" data-slug="nicolette-de-waart-berry-lamp-regular-medium">Nicolette de Waart — Berry Lamp — Regular Medium (€ 1.380,–)</option>
+        <option value="INLINE-OM-01 — A Box of Digits: Cluster Growth — Owen McAteer" data-slug="owen-mcateer-a-box-of-digits-cluster-growth">Owen McAteer — A Box of Digits: Cluster Growth (€ 2.600,–)</option>
+        <option value="INLINE-OM-02 — A Box of Digits: Cosmic bursts — Owen McAteer" data-slug="owen-mcateer-a-box-of-digits-cosmic-bursts">Owen McAteer — A Box of Digits: Cosmic bursts (€ 2.600,–)</option>
+        <option value="INLINE-OM-03 — A Box of Digits: Lines — Owen McAteer" data-slug="owen-mcateer-a-box-of-digits-lines">Owen McAteer — A Box of Digits: Lines (€ 2.600,–)</option>
+        <option value="INLINE-OM-04 — A Box of Digits: Waves — Owen McAteer" data-slug="owen-mcateer-a-box-of-digits-waves">Owen McAteer — A Box of Digits: Waves (€ 2.600,–)</option>
+        <option value="INLINE-RD-01 — Eyes on Me [Hear] — RAIDER" data-slug="raider-eyes-on-me-hear">RAIDER — Eyes on Me [Hear] (€ 7.950,–)</option>
+        <option value="INLINE-RD-02 — Eyes on Me [See] — RAIDER" data-slug="raider-eyes-on-me-see">RAIDER — Eyes on Me [See] (€ 7.950,–)</option>
+        <option value="INLINE-RD-03 — Eyes on Me [Silence] — RAIDER" data-slug="raider-eyes-on-me-silence">RAIDER — Eyes on Me [Silence] (€ 7.950,–)</option>
+        <option value="INLINE-RD-04 — Scoop from Scratch [Pink] — RAIDER" data-slug="raider-scoop-from-scratch-pink">RAIDER — Scoop from Scratch [Pink] (€ 1.450,–)</option>
+        <option value="INLINE-RD-05 — Scoop from Scratch [Yellow] — RAIDER" data-slug="raider-scoop-from-scratch-yellow">RAIDER — Scoop from Scratch [Yellow] (€ 1.450,–)</option>
+        <option value="INLINE-RD-06 — Statue of Scoop — RAIDER" data-slug="raider-statue-of-scoop">RAIDER — Statue of Scoop (€ 12.000,–)</option>
+        <option value="GROUND-ECHO-09 — Drop — Ritsert Mans" data-slug="echo-drop">Ritsert Mans — Drop (€ 1.200,–)</option>
+        <option value="GROUND-ECHO-10 — Flashlight — Ritsert Mans" data-slug="echo-flashlight">Ritsert Mans — Flashlight (€ 240,–)</option>
+        <option value="GROUND-RB-01 — Bubbels — Rogier Bosschaart" data-slug="rogier-bosschaart-bubbels">Rogier Bosschaart — Bubbels (€ 640,–)</option>
+        <option value="GROUND-RB-02 — Lotte — Rogier Bosschaart" data-slug="rogier-bosschaart-lotte">Rogier Bosschaart — Lotte (€ 3.600,–)</option>
+        <option value="GROUND-RB-03 — Obviously A Self Portrait — Rogier Bosschaart" data-slug="rogier-bosschaart-obviously-a-self-portrait">Rogier Bosschaart — Obviously A Self Portrait (€ 3.600,–)</option>
+        <option value="GROUND-RB-04 — Stubborn — Rogier Bosschaart" data-slug="rogier-bosschaart-stubborn">Rogier Bosschaart — Stubborn (€ 840,–)</option>
+        <option value="GROUND-RB-05 — Thekla — Rogier Bosschaart" data-slug="rogier-bosschaart-thekla">Rogier Bosschaart — Thekla (€ 3.600,–)</option>
+        <option value="GROUND-SK-01 — Nani Bloom wall hanging — Sandra Keja Planken" data-slug="sandra-keja-planken-nani-bloom-wall-hanging">Sandra Keja Planken — Nani Bloom wall hanging (€ 4.444,–)</option>
+        <option value="GROUND-SK-02 — Nani Drop hanging sculpture — Sandra Keja Planken" data-slug="sandra-keja-planken-nani-drop-hanging-sculpture">Sandra Keja Planken — Nani Drop hanging sculpture (€ 3.333,–)</option>
+        <option value="GROUND-SK-03 — Nani Drop sculpture 1 — Sandra Keja Planken" data-slug="sandra-keja-planken-nani-drop-sculpture-1">Sandra Keja Planken — Nani Drop sculpture 1 (€ 3.333,–)</option>
+        <option value="GROUND-SK-04 — Nani Drop sculpture 2 — Sandra Keja Planken" data-slug="sandra-keja-planken-nani-drop-sculpture-2">Sandra Keja Planken — Nani Drop sculpture 2 (€ 3.333,–)</option>
+        <option value="GROUND-SK-05 — Nani Weave — Sandra Keja Planken" data-slug="sandra-keja-planken-nani-weave">Sandra Keja Planken — Nani Weave (€ 3.333,–)</option>
+        <option value="GROUND-SK-06 — Ocean Wave weave — Sandra Keja Planken" data-slug="sandra-keja-planken-ocean-wave-weave">Sandra Keja Planken — Ocean Wave weave (€ 8.888,–)</option>
+        <option value="GROUND-SK-07 — Sea Cucumber sculpture — Sandra Keja Planken" data-slug="sandra-keja-planken-sea-cucumber-sculpture">Sandra Keja Planken — Sea Cucumber sculpture (€ 2.121,–)</option>
+        <option value="GROUND-SK-08 — Valorosa Viva wall sculpture — Sandra Keja Planken" data-slug="sandra-keja-planken-valorosa-viva-wall-sculpture">Sandra Keja Planken — Valorosa Viva wall sculpture (€ 7.997,–)</option>
+        <option value="GROUND-ECHO-02 — Alu Weave 01 — Sophie Wantia" data-slug="echo-alu-weave-01">Sophie Wantia — Alu Weave 01 (€ 1.700,–)</option>
+        <option value="GROUND-ECHO-20 — Sway — Zowa Rindt" data-slug="echo-sway">Zowa Rindt — Sway (€ 650,–)</option>
       </select>
     </div>
 
@@ -55,9 +282,131 @@
     <button class="btn" type="submit" style="width:100%">Send the enquiry</button>
   </form>
 </div></div></section>
-{% endblock %}
+</main>
 
-{% block scripts %}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="foot-h">BE THE FIRST TO KNOW</p>
+        <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+        <form class="signup" action="https://submit-form.com/lDWonyUTP" method="POST">
+          <input type="hidden" name="_redirect" value="https://madartfoundation.com/thanks.html">
+          <input type="hidden" name="_append" value="false">
+          <input type="hidden" name="source" value="newsletter">
+          <label class="skip" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div>
+        <p class="foot-h">VISIT</p>
+        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
+        <p><a href="visit.html">Opening hours and directions</a><br>
+           <a href="building.html">The building, level by level</a></p>
+      </div>
+      <div>
+        <p class="foot-h">MADART FOUNDATION</p>
+        <p>
+          <a href="mission.html">Mission</a><br>
+          <a href="team.html">Team</a><br>
+          <a href="support-us.html">Support us</a><br>
+          <a href="friend.html">Become a Friend</a><br>
+          <a href="anbi.html">Governance and ANBI</a><br>
+          <a href="press.html">Press</a><br>
+          <a href="contact.html">Contact</a><br>
+          <a href="https://www.instagram.com/madartfoundation">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MADART FOUNDATION · Stichting The Bloys · KvK 99713853 · 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <span>Structurally supported by Curated by MADART</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mark the document as scripted before anything is hidden, so a page without
+     working JavaScript simply shows everything instead of showing nothing. */
+  document.body.classList.add('js');
+  var reveal = function(el){ el.classList.add('in'); };
+  if ('IntersectionObserver' in window && !reduce) {
+    /* Threshold 0, not 0.1. A section can be ten times taller than a phone
+       screen — the members of a collective, the makers of a season — and can
+       then never reach ten per cent visibility. It would stay invisible for
+       ever. Zero fires the moment any part of it enters. */
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { reveal(e.target); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+    /* Second safety net: anything still hidden four seconds after load is shown
+       regardless. An animation that fails should cost a fade, never the content. */
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(reveal); }, 4000);
+
+    /* Third: on any scroll, reveal whatever is already on screen. Cheap, and it
+       covers the devices where the observer behaves differently than expected. */
+    var sweep = function(){
+      var open = document.querySelectorAll('.reveal:not(.in)');
+      if (!open.length) { window.removeEventListener('scroll', sweep); return; }
+      open.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, {passive:true});
+    sweep();
+  } else {
+    document.querySelectorAll('.reveal').forEach(reveal);
+  }
+
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+
+  // Opening state. Hours live in one place: data/site.yaml -> rendered here.
+  var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
+    var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day];
+    var label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
 <script>
 (function(){
   var sel=document.getElementById('f-select'), hid=document.getElementById('f-work'),
@@ -77,4 +426,5 @@
   sync();
 })();
 </script>
-{% endblock %}
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
+</html>

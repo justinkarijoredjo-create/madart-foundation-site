@@ -1,58 +1,55 @@
-LEVERING — Opening Night: muziek bevestigd, escape-fout weg
-madartfoundation.com · 15 september 2026 · GLUE opent morgen
+HERSTEL — elf kernpagina's terugzetten
+madartfoundation.com · 18 oktober 2026 · drie dagen voor de opening
 
-TWEE BESTANDEN.
+ELF BESTANDEN. Eén map, geen volgorde nodig. Alles in de wortel.
 
-  maison-dartiste-2026.html   80.488 -> 80.611 bytes
-  sitemap.xml                 alleen de datum
-
-Allebei in de wortel van de repository. style.css wijzigt niet.
-
---------------------------------------------------------------------------
-WAT ER IS VERANDERD, EN WAAR
---------------------------------------------------------------------------
-Beide teksten stonden in data/programme.yaml, regel 131 en 135, in het blok
-do-opening. Daar zijn ze aangepast; de HTML is opnieuw gebouwd. Had je alleen
-het HTML-bestand bewerkt, dan was het weg geweest bij de volgende bouw.
-
-1 · MUZIEK
-    was : "… Bon Vivant. Music to be announced."
-    is  : "… Bon Vivant. Music on three floors at once: Devoonsounds under
-           the dome on seven, Arthur Chapelle on solo guitar on six, and
-           DJ ELLE-MAR on the gallery floor on four."
-    Woordelijk zoals aangeleverd.
-
-2 · DE ESCAPE-FOUT
-    In de YAML stond "Foundation&rsquo;s". De generator escapet de &, dus op
-    de pagina kwam "Foundation&amp;rsquo;s" te staan en las de bezoeker
-    letterlijk "Foundation&rsquo;s".
-
-    Er staat nu het echte leesteken: "Foundation’s own exhibition". Dat gaat
-    ongeschonden door de generator heen.
-
-    Gecontroleerd: "amp;rsquo" komt op geen van de 240 pagina's meer voor, en
-    er staat geen enkele andere HTML-entiteit in de datafiles.
+  anbi.html          20.526 bytes   (stond op   9.412)
+  building.html      49.891         (stond op  onbekend, veel kleiner)
+  enquire.html       46.437
+  exhibitions.html   10.367
+  friend.html        12.320
+  makers.html        32.204         (stond op   5.679)
+  privacy.html       15.160         (stond op   6.890)
+  shop.html             501         (doorverwijzing naar works.html)
+  thanks.html         8.935
+  visit.html         14.680         (stond op   1.976)
+  works.html        196.572         (stond op   6.638)
 
 --------------------------------------------------------------------------
-NIETS ANDERS AANGERAAKT
+WAAROM
 --------------------------------------------------------------------------
-Geen bestandsnaam gewijzigd, .worklook ongemoeid, urls.lock gehaald zonder
-wijziging. De diff tegen de repository geeft precies twee bestanden: de
-pagina zelf en de sitemap, en die laatste verschilt alleen in de datum.
+Na jouw upload waren 250 van de 261 bestanden identiek aan mijn bouw. Deze
+elf niet. Ze zijn vervangen door veel kleinere versies zonder verwijzing naar
+style.css en zonder de staart met het reveal- en openingstijdenscript. Het
+zijn dus geen pagina's uit de generator.
 
-  linkcontrole   ->  9.301 interne links, 0 kapot
-  tekstdiff      ->  242 van 244 identiek
-  beelddiff      ->  617 van 617 identiek, geen nieuw beeld
+works.html van 6,6 kB kan de 196 werken in het register niet tonen.
+makers.html van 5,7 kB kan de 38 makers niet tonen.
 
---------------------------------------------------------------------------
-BLIJFT STAAN, ZOALS AFGESPROKEN
---------------------------------------------------------------------------
-"With all thirty makers present" in hetzelfde blok, en dezelfde zin in
-site.yaml regel 296. Het register telt er 33. Zeg het als je er alsnog
-"thirty-three" van wilt maken; dat is één regel en raakt twee bestanden.
+Zes van de elf — anbi, building, friend, privacy, shop, visit — zaten niet
+in mijn levering van vanmiddag. Die heb ik niet aangeraakt.
 
 --------------------------------------------------------------------------
 NA HET UPLOADEN
 --------------------------------------------------------------------------
-Zeg het, dan haal ik de raw-versie op en controleer ik of beide zinnen er
-woordelijk in staan.
+Zeg het, dan vergelijk ik alle elf byte voor byte. Verwacht resultaat:
+261 van 261 identiek.
+
+--------------------------------------------------------------------------
+EN DAN DE AFSPRAAK
+--------------------------------------------------------------------------
+Dit kan morgen opnieuw gebeuren. Deze elf bestanden staan in het
+kennisoverdrachtsdocument van het Curatorial-project zelf, in §6.5, als werk
+voor het Digital Ecosystem-project. De lijst die daar staat is bijna
+letterlijk de lijst hierboven:
+
+  makers.html · works.html · index.html · building.html · season-0X · 
+  sitemap.xml · enquire.html · de carrousel op alle andere makerpagina's
+
+Het Curatorial-project hoort ze te MELDEN, niet te schrijven. Zolang beide
+kanten dezelfde bestanden bouwen, wint telkens wie het laatst uploadt — en
+dat is niet te zien zonder byte-vergelijking.
+
+Voorstel in één regel: het Curatorial-project levert per maker zijn eigen
+pagina's en beelden plus een lijstje gegevens; alles wat de hele site raakt
+komt hier vandaan.

@@ -1,92 +1,368 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>38 makers curated at NIO House Amsterdam — MADART FOUNDATION</title>
+<meta name="description" content="The 38 makers curated by MADART Foundation for Season 02 GROUND and Maison d&#39;Artiste at NIO House Amsterdam, with full catalogues.">
+<link rel="canonical" href="https://madartfoundation.com/makers.html">
+<meta property="og:site_name" content="MADART FOUNDATION">
+<meta property="og:title" content="38 makers curated at NIO House Amsterdam — MADART FOUNDATION">
+<meta property="og:description" content="The 38 makers curated by MADART Foundation for Season 02 GROUND and Maison d&#39;Artiste at NIO House Amsterdam, with full catalogues.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://madartfoundation.com/portrait-aad-kruiswijk.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F4EDE4">
+<link rel="stylesheet" href="style.css?v=a23b9715">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">MADART FOUNDATION</a>
+    <span class="status-dot" id="openstate"><i></i><span>Open daily 10:00–18:00</span></span>
+    <button class="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="maison-dartiste-2026.html">Programme</a>
+      <a href="makers.html" aria-current="page">Makers</a>
+      <a href="works.html">Works</a>
+      <a href="visit.html">Visit</a>
+      <a href="support-us.html">Support</a>
+      <a href="mission.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
 <section><div class="wrap">
-  <p class="index"><span class="no">—</span><span>Makers</span><span class="of">{{ makers_shown|length }} in the register</span></p>
+  <p class="index"><span class="no">—</span><span>Makers</span><span class="of">38 in the register</span></p>
   <h1>Every maker we have curated, and every work we have recorded.</h1>
   <p class="lede">Each maker keeps full ownership of their practice and 100% of every sale. Nobody here is represented by us — they are shown by us.</p>
 
-  {% for group in maker_groups %}
 <section class="reveal"><div class="wrap">
-  <h2 class="index"><span class="no">{{ "%02d"|format(loop.index) }}</span><span>{{ group.label }}</span><span class="of">{{ group.makers|length }} makers</span></h2>
-  <p class="lede" style="max-width:58ch;margin-bottom:30px">{{ group.note }}</p>
+  <h2 class="index"><span class="no">01</span><span>Season 03 — INLINE</span><span class="of">6 makers</span></h2>
+  <p class="lede" style="max-width:58ch;margin-bottom:30px">Six presentations on the fourth floor of NIO House Amsterdam, each answering the same question from its own material, medium and visual language.</p>
   <div class="portrait-grid">
-    {% for m in group.makers %}
-    {# Beeld eerst. De naam eronder, verder niets: de verdieping, het aantal
-       werken en de plattegrondlink stonden allemaal onder elk portret en
-       maakten van een overzicht een lijst. De plattegrondlink stond zelfs als
-       eigen vakje in het raster, waardoor elke maker twee cellen vulde en er
-       naast elk portret een losse tekstregel stond. #}
-    {% if m.pending %}
-    <div class="pcard soon">
-      <div class="soonbox"><span>{{ m.name }}</span></div>
-      <h3>{{ m.name }}</h3>
-    </div>
-    {% else %}
-    <a class="pcard" href="{{ m.slug }}.html">
+    <a class="pcard" href="aad-kruiswijk.html">
       <figure class="swap">
-        {# Zonder portret viel hier src="" uit. Een maker zonder portret toont
-           zijn werk; een gebroken-beeldpictogram is geen alternatief. #}
-        <img class="face" src="{{ m.portrait_small|default(m.portrait, true)|default(m.hover_small|default(m.hover, true), true) }}" alt="{{ m.name }}" width="480" height="600" loading="lazy" decoding="async">
-        {% if m.hover %}<img class="work" src="{{ m.hover_small|default(m.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
-      </figure>
-      <h3>{{ m.name }}</h3>
+        <img class="face" src="p-portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-aad-kruiswijk-m15-mdf.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Aad Kruiswijk</h3>
     </a>
-    {% endif %}
-    {% endfor %}
+    <a class="pcard" href="belle-doxx.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-belle-doxx.jpg" alt="Belle Doxx" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-belle-doxx-untitled-1.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Belle Doxx</h3>
+    </a>
+    <a class="pcard" href="glina3.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-glina3.jpg" alt="GLINA³" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-glina3-conditions-of-presence.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>GLINA³</h3>
+    </a>
+    <a class="pcard" href="iconic-design-objects-studiosophiehospes.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-iconic-design-objects-studiosophiehospes.jpg" alt="ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-iconic-design-objects-studiosophiehospes-ghost.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>ICONIC DESIGN OBJECTS × STUDIOSOPHIEHOSPES</h3>
+    </a>
+    <a class="pcard" href="owen-mcateer.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-owen-mcateer.jpg" alt="Owen McAteer" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-owen-mcateer-a-box-of-digits-cluster-growth.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Owen McAteer</h3>
+    </a>
+    <a class="pcard" href="raider.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-raider.jpg" alt="RAIDER" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-raider-eyes-on-me-hear.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>RAIDER</h3>
+    </a>
   </div>
 </div></section>
-{% endfor %}
-
-{% if collectives or partners %}
-{# Alle zes hebben een portret, dus ze krijgen hetzelfde raster. Kale lijstjes
-   onderaan lieten het einde van de pagina anders ogen dan het begin. De
-   toelichting blijft, want daar staat het onderscheid dat ertoe doet. #}
-{% if collectives %}
 <section class="reveal"><div class="wrap">
-  <h2 class="index"><span class="no">&mdash;</span><span>Collectives</span><span class="of">{{ collectives|length }}</span></h2>
+  <h2 class="index"><span class="no">02</span><span>Season 02 — GROUND</span><span class="of">22 makers</span></h2>
+  <p class="lede" style="max-width:58ch;margin-bottom:30px">Six makers and the ECHO collective hold seven positions on the fourth floor of NIO House Amsterdam. ECHO shows sixteen makers in Gallery 4.</p>
+  <div class="portrait-grid">
+    <a class="pcard" href="aad-kruiswijk.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-aad-kruiswijk.jpg" alt="Aad Kruiswijk" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-aad-kruiswijk-m15-mdf.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Aad Kruiswijk</h3>
+    </a>
+    <a class="pcard" href="aleksandra-sliwinska.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-aleksandra-sliwinska.jpg" alt="Aleksandra Śliwińska" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-bobber-lamp-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Aleksandra Śliwińska</h3>
+    </a>
+    <a class="pcard" href="anne-van-borselen.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-anne-van-borselen.jpg" alt="Anne van Borselen" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-anne-van-borselen-arena.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Anne van Borselen</h3>
+    </a>
+    <a class="pcard" href="arno-hoogland.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-arno-hoogland.jpg" alt="Arno Hoogland" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-arno-hoogland-deus-ex-machina.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Arno Hoogland</h3>
+    </a>
+    <a class="pcard" href="billie-jo-krul.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-billie-jo-krul.jpg" alt="Billie-Jo Krul" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-here-comes-the-sun-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Billie-Jo Krul</h3>
+    </a>
+    <a class="pcard" href="coen-beeksma.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-coen-beeksma.jpg" alt="Coen Beeksma" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-2-1-bench-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Coen Beeksma</h3>
+    </a>
+    <a class="pcard" href="cynthia-kevin-kars-boom.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-cynthia-kevin-kars-boom.jpg" alt="Cynthia &amp; Kevin Kars-Boom" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-formscape-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Cynthia &amp; Kevin Kars-Boom</h3>
+    </a>
+    <a class="pcard" href="erwin-woldring.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-erwin-woldring.jpg" alt="Erwin Woldring" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-bracelet-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Erwin Woldring</h3>
+    </a>
+    <a class="pcard" href="frank-penders.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-frank-penders.jpg" alt="Frank Penders" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-billet-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Frank Penders</h3>
+    </a>
+    <a class="pcard" href="frederik-wasseur.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-frederik-wasseur.jpg" alt="Frederik Wasseur" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-spectral-form-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Frederik Wasseur</h3>
+    </a>
+    <a class="pcard" href="jan-willem-van-elten.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-jan-willem-van-elten.jpg" alt="Jan Willem van Elten" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-rest-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Jan Willem van Elten</h3>
+    </a>
+    <a class="pcard" href="jeroen-van-veluw.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-jeroen-van-veluw.jpg" alt="Jeroen van Veluw" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-col-krukje-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Jeroen van Veluw</h3>
+    </a>
+    <a class="pcard" href="joris-wintgens.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-joris-wintgens.jpg" alt="Joris Wintgens" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-twirl-stool-s-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Joris Wintgens</h3>
+    </a>
+    <a class="pcard" href="loutje-hoekstra.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-loutje-hoekstra.jpg" alt="Loutje Hoekstra" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-Seated_crop.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Loutje Hoekstra</h3>
+    </a>
+    <a class="pcard" href="maaike-rabbinge.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-maaike-rabbinge.jpg" alt="Maaike Rabbinge" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-conduit-chair-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Maaike Rabbinge</h3>
+    </a>
+    <a class="pcard" href="marc-th-van-der-voorn.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-marc-th-van-der-voorn.jpg" alt="Marc Th. van der Voorn" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-candleswitch-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Marc Th. van der Voorn</h3>
+    </a>
+    <a class="pcard" href="milou-bergs-edwin-van-capelleveen.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-milou-bergs-edwin-van-capelleveen.jpg" alt="Milou Bergs &amp; Edwin van Capelleveen" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-flux-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Milou Bergs &amp; Edwin van Capelleveen</h3>
+    </a>
+    <a class="pcard" href="ritsert-mans.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-ritsert-mans.jpg" alt="Ritsert Mans" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-drop-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Ritsert Mans</h3>
+    </a>
+    <a class="pcard" href="rogier-bosschaart.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-rogier-bosschaart.jpg" alt="Rogier Bosschaart" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-rogier-bosschaart-bubbels-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Rogier Bosschaart</h3>
+    </a>
+    <a class="pcard" href="sandra-keja-planken.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-sandra-keja-planken.jpg" alt="Sandra Keja Planken" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-sandra-keja-planken-nani-bloom-wall-hanging.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Sandra Keja Planken</h3>
+    </a>
+    <a class="pcard" href="sophie-wantia.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-sophie-wantia.jpg" alt="Sophie Wantia" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-alu-weave-01-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Sophie Wantia</h3>
+    </a>
+    <a class="pcard" href="zowa-rindt.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-echo-zowa-rindt.jpg" alt="Zowa Rindt" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-sway-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Zowa Rindt</h3>
+    </a>
+  </div>
+</div></section>
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">03</span><span>Maison d&#39;Artiste — GLUE Amsterdam</span><span class="of">11 makers</span></h2>
+  <p class="lede" style="max-width:58ch;margin-bottom:30px">Four rooms built for living on the sixth floor, the dome on the seventh, the staircases in between, and a running presentation on the second.</p>
+  <div class="portrait-grid">
+    <a class="pcard" href="andreea-pirlica.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-andreea-pirlica.jpg" alt="Andreea Pirlica" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-andreea-pirlica-healing-rooms.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Andreea Pirlica</h3>
+    </a>
+    <a class="pcard" href="eric-sloot.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-eric-sloot.jpg" alt="Eric Sloot" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-eric-sloot-els-secretaire.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Eric Sloot</h3>
+    </a>
+    <a class="pcard" href="herma-de-wit.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-herma-de-wit.jpg" alt="Herma de Wit" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-herma-de-wit-abstract-04.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Herma de Wit</h3>
+    </a>
+    <a class="pcard" href="inge-becka.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-inge-becka.jpg" alt="Inge Bečka" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-inge-becka-build-your-own-silver.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Inge Bečka</h3>
+    </a>
+    <a class="pcard" href="jim-bob-ruijgrok.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-jim-bob-ruijgrok.jpg" alt="Jim Bob Ruijgrok" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-jim-bob-ruijgrok-eiken-latten-bank.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Jim Bob Ruijgrok</h3>
+    </a>
+    <a class="pcard" href="joost-de-munnik-ruud-van-den-eijnden.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-joost-de-munnik-ruud-van-den-eijnden.jpg" alt="Joost de Munnik &amp; Ruud van den Eijnden" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-joost-de-munnik-ruud-van-den-eijnden-entree-meubel.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Joost de Munnik &amp; Ruud van den Eijnden</h3>
+    </a>
+    <a class="pcard" href="lilia-luganskaia-kuilder.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-lilia-luganskaia-kuilder.jpg" alt="Lilia Luganskaia-Kuilder" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-lilia-luganskaia-kuilder-ikebana-table.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Lilia Luganskaia-Kuilder</h3>
+    </a>
+    <a class="pcard" href="marnix-van-strydonck.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-marnix-van-strydonck.jpg" alt="Marnix Van Strydonck" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-marnix-van-strydonck-bertrand.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Marnix Van Strydonck</h3>
+    </a>
+    <a class="pcard" href="maurice-albert-jan.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-maurice-albert-jan.jpg" alt="Maurice Albert Jan" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-maurice-albert-jan-bench.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Maurice Albert Jan</h3>
+    </a>
+    <a class="pcard" href="natalia-wyspianska.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-natalia-wyspianska.jpg" alt="Natalia Wyspianska" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-natalia-wyspianska-terra-no-1.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Natalia Wyspianska</h3>
+    </a>
+    <a class="pcard" href="nicolette-de-waart.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-nicolette-de-waart.jpg" alt="Nicolette de Waart" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-nicolette-de-waart-berry-lamp-regular.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Nicolette de Waart</h3>
+    </a>
+  </div>
+</div></section>
+
+<section class="reveal"><div class="wrap">
+  <h2 class="index"><span class="no">&mdash;</span><span>Collectives</span><span class="of">2</span></h2>
   <p class="lede" style="max-width:58ch;margin-bottom:30px">A group that shows as one. The
     collective selects its own makers; MADART gives it the floor rather than breaking it apart.
     Every member has a page of their own.</p>
   <div class="portrait-grid">
-    {% for c in collectives %}
-    <a class="pcard" href="{{ c.slug }}.html">
+    <a class="pcard" href="echo.html">
       <figure class="swap">
-        <img class="face" src="{{ c.portrait_small|default(c.portrait, true) }}" alt="{{ c.name }}" width="480" height="600" loading="lazy" decoding="async">
-        {% if c.hover %}<img class="work" src="{{ c.hover_small|default(c.hover, true) }}" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">{% endif %}
-      </figure>
-      <h3>{{ c.name }}</h3>
+        <img class="face" src="t-echo-2-1-bench-work.jpg" alt="ECHO" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="h-echo-formscape-work.jpg" alt="" width="480" height="600" loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>ECHO</h3>
     </a>
-    {% endfor %}
+    <a class="pcard" href="spot-den-haag.html">
+      <figure class="swap">
+        <img class="face" src="p-portrait-joost-de-munnik-ruud-van-den-eijnden.jpg" alt="SPoT Den Haag" width="480" height="600" loading="lazy" decoding="async">
+      </figure>
+      <h3>SPoT Den Haag</h3>
+    </a>
   </div>
 </div></section>
-{% endif %}
-{% if partners %}
 <section class="reveal"><div class="wrap">
-  <h2 class="index"><span class="no">&mdash;</span><span>Studios and brands shown alongside</span><span class="of">{{ partners|length }}</span></h2>
+  <h2 class="index"><span class="no">&mdash;</span><span>Studios and brands shown alongside</span><span class="of">5</span></h2>
   <p class="lede" style="max-width:58ch;margin-bottom:30px">Design studios and brands that present
     work in the same rooms, under a studio name rather than a maker&rsquo;s. They are not curated:
     no fee, no production budget, no room of their own, and not tested against The Dimensions.
     MADART Foundation does not represent them and takes no part in their sales.</p>
   <div class="portrait-grid">
-    {% for p in partners %}
-    <a class="pcard" href="{{ p.slug }}.html">
+    <a class="pcard" href="block.html">
       <figure class="swap">
-        {# Een merk toont zijn beeldmerk, niet een gezicht of een willekeurig object.
-           object-fit:contain in plaats van cover, want een logo mag niet worden
-           aangesneden; de witte vulling komt uit de bestanden zelf. #}
-        {% if p.logo %}
-        <img class="face" src="{{ p.logo }}" alt="{{ p.name }}" width="480" height="600"
-             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
-        {% else %}
-        <img class="face" src="{{ p.portrait_small|default(p.portrait, true) }}" alt="{{ p.name }}" width="480" height="600" loading="lazy" decoding="async">
-        {% endif %}
-        {% if p.hover %}<img class="work" src="{{ p.hover_small|default(p.hover, true) }}" alt="" width="480" height="600"
-             {%- if p.hover_pool and p.hover_pool|length > 1 %} data-works="{{ p.hover_pool|join('|') }}"{% endif %}
-             loading="lazy" decoding="async" aria-hidden="true">{% endif %}
-      </figure>
-      <h3>{{ p.name }}</h3>
+        <img class="face" src="p-portrait-block.jpg" alt="BLOCK" width="480" height="600" loading="lazy" decoding="async">
+<img class="work" src="t-block-black.jpg" alt="" width="480" height="600" data-works="h-block-black.jpg|t-block-green.jpg|t-block-yellow.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>BLOCK</h3>
     </a>
-    {% endfor %}
+    <a class="pcard" href="buro-berger.html">
+      <figure class="swap">
+        <img class="face" src="buro-berger-mark.jpg" alt="Buro Berger" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-BJ002-02.jpg" alt="" width="480" height="600" data-works="t-BJ002-01.jpg|h-BJ002-02.jpg|t-BJ002-03.jpg|t-CA003-1.jpg|t-CA003-3.jpg|t-CA003-2.jpg|t-CA003-5.jpg|t-CA003-4.jpg|t-SP001-3.jpg|t-SP001-2.jpg|t-SP001-1.jpg|t-LA001-2.jpg|t-LA001-1_B.jpg|t-PL002-1.jpg|t-VA002-1.jpg|t-VA002-1.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Buro Berger</h3>
+    </a>
+    <a class="pcard" href="devoonsounds.html">
+      <figure class="swap">
+        <img class="face" src="devoonsounds-logo.png" alt="Devoonsounds" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-devoonsounds-devoon-drop.jpg" alt="" width="480" height="600" data-works="h-devoonsounds-devoon-drop.jpg|t-devoonsounds-original-1.jpg|t-devoonsounds-original-2.jpg|t-devoonsounds-original-3.jpg|t-devoonsounds-original-4.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Devoonsounds</h3>
+    </a>
+    <a class="pcard" href="dot-objects.html">
+      <figure class="swap">
+        <img class="face" src="dot-objects-logo.jpg" alt="Dot Objects" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-dot-objects-grid-shelving-unit-stainless-steel.jpg" alt="" width="480" height="600" data-works="t-dot-objects-grid-shelving-unit-rust.jpg|h-dot-objects-grid-shelving-unit-stainless-steel.jpg|t-dot-objects-low-grid-table-burgundy.jpg|t-dot-objects-low-grid-table-stainless-steel.jpg|t-dot-objects-stainless-steel-candle-holder-medium.jpg|t-dot-objects-stainless-steel-candle-holder-small.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Dot Objects</h3>
+    </a>
+    <a class="pcard" href="ignore.html">
+      <figure class="swap">
+        <img class="face" src="ignore-logo.png" alt="Ignore" width="480" height="600"
+             style="object-fit:contain;background:#fff;padding:9%" loading="lazy" decoding="async">
+<img class="work" src="h-ignore-modulate-lounge-chair.jpg" alt="" width="480" height="600" data-works="h-ignore-modulate-lounge-chair.jpg|t-ignore-shift-dining-chair.jpg|t-ignore-conference-table.jpg|t-ignore-dine-dining-table.jpg|t-ignore-serve-bistro-table.jpg"             loading="lazy" decoding="async" aria-hidden="true">      </figure>
+      <h3>Ignore</h3>
+    </a>
   </div>
 </div></section>
 <script>
@@ -101,6 +377,130 @@
   }
 })();
 </script>
-{% endif %}
-{% endif %}
-{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="foot-h">BE THE FIRST TO KNOW</p>
+        <p>News on exhibitions, openings and new work. A few times a season, never more.</p>
+        <form class="signup" action="https://submit-form.com/lDWonyUTP" method="POST">
+          <input type="hidden" name="_redirect" value="https://madartfoundation.com/thanks.html">
+          <input type="hidden" name="_append" value="false">
+          <input type="hidden" name="source" value="newsletter">
+          <label class="skip" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+      <div>
+        <p class="foot-h">VISIT</p>
+        <p><a href="https://maps.google.com/?q=Leidsestraat%2032-34+1017%20PB%20Amsterdam">NIO House Amsterdam<br>Leidsestraat 32-34<br>1017 PB Amsterdam<br>Fourth floor</a></p>
+        <p><a href="visit.html">Opening hours and directions</a><br>
+           <a href="building.html">The building, level by level</a></p>
+      </div>
+      <div>
+        <p class="foot-h">MADART FOUNDATION</p>
+        <p>
+          <a href="mission.html">Mission</a><br>
+          <a href="team.html">Team</a><br>
+          <a href="support-us.html">Support us</a><br>
+          <a href="friend.html">Become a Friend</a><br>
+          <a href="anbi.html">Governance and ANBI</a><br>
+          <a href="press.html">Press</a><br>
+          <a href="contact.html">Contact</a><br>
+          <a href="https://www.instagram.com/madartfoundation">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MADART FOUNDATION · Stichting The Bloys · KvK 99713853 · 2026</span>
+      <a href="privacy.html">Privacy</a>
+      <span>Structurally supported by Curated by MADART</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mark the document as scripted before anything is hidden, so a page without
+     working JavaScript simply shows everything instead of showing nothing. */
+  document.body.classList.add('js');
+  var reveal = function(el){ el.classList.add('in'); };
+  if ('IntersectionObserver' in window && !reduce) {
+    /* Threshold 0, not 0.1. A section can be ten times taller than a phone
+       screen — the members of a collective, the makers of a season — and can
+       then never reach ten per cent visibility. It would stay invisible for
+       ever. Zero fires the moment any part of it enters. */
+    var revealer = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { reveal(e.target); revealer.unobserve(e.target); }
+      });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealer.observe(el); });
+    /* Second safety net: anything still hidden four seconds after load is shown
+       regardless. An animation that fails should cost a fade, never the content. */
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(reveal); }, 4000);
+
+    /* Third: on any scroll, reveal whatever is already on screen. Cheap, and it
+       covers the devices where the observer behaves differently than expected. */
+    var sweep = function(){
+      var open = document.querySelectorAll('.reveal:not(.in)');
+      if (!open.length) { window.removeEventListener('scroll', sweep); return; }
+      open.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('scroll', sweep, {passive:true});
+    sweep();
+  } else {
+    document.querySelectorAll('.reveal').forEach(reveal);
+  }
+
+  var t=document.querySelector('.navtoggle'), n=document.getElementById('mainnav');
+  if(t&&n){t.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    t.setAttribute('aria-expanded',open?'true':'false');
+    t.textContent=open?'Close':'Menu';
+  });}
+
+  // Opening state. Hours live in one place: data/site.yaml -> rendered here.
+  var HOURS={"mon": [10, 0, 18, 0], "tue": [10, 0, 18, 0], "wed": [10, 0, 18, 0], "thu": [10, 0, 18, 0], "fri": [10, 0, 18, 0], "sat": [10, 0, 18, 0], "sun": [10, 0, 18, 0]};
+  var el=document.getElementById('openstate');
+  if(el){
+    /* The gallery is in Amsterdam; the visitor may not be. new Date() reads the
+       device clock, so a reader in New York was told the doors were open at
+       nine in the morning their time, and press abroad saw the wrong status
+       every time. Read the wall clock in Amsterdam instead, and fall back to
+       the device clock only if the browser cannot do time zones. */
+    var now=new Date();
+    try{
+      var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',
+        weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).forEach(function(x){p[x.type]=x.value;});
+      now={ getDay:function(){return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+              .indexOf(p.weekday);},
+            getHours:function(){return parseInt(p.hour,10);},
+            getMinutes:function(){return parseInt(p.minute,10);} };
+    }catch(e){}
+    var day=['sun','mon','tue','wed','thu','fri','sat'][now.getDay()];
+    var today=HOURS[day];
+    var label='Closed today', open=false;
+    if(today){
+      var mins=now.getHours()*60+now.getMinutes();
+      var a=today[0]*60+today[1], b=today[2]*60+today[3];
+      if(mins>=a&&mins<b){open=true;label='Open until '+String(today[2]).padStart(2,'0')+':'+String(today[3]).padStart(2,'0');}
+      else if(mins<a){label='Opens '+String(today[0]).padStart(2,'0')+':'+String(today[1]).padStart(2,'0');}
+      else {label='Closed for today';}
+    }
+    el.className='status-dot'+(open?' open':'');
+    el.querySelector('span').textContent=label;
+  }
+})();
+</script>
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script></body>
+</html>
